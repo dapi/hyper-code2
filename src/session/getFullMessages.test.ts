@@ -68,6 +68,35 @@ describe("session.getFullMessages", () => {
     expect(full[2].content).toBe("child msg");
   });
 
+  test("keeps the inherited prefix immutable after parent edit and deletion", async () => {
+    const ctx: any = mkCtx();
+    ctx.fns.db.connect(ctx, { path: ":memory:" });
+    await ctx.fns.db.migrate(ctx);
+    ctx.fns.session.save(ctx, { agent: agent("parent", [
+      { role: "user", content: "original first" },
+      { role: "assistant", content: "original second" },
+    ]) });
+    ctx.fns.session.save(ctx, { agent: agent("child", [
+      { role: "user", content: "child continuation" },
+    ], { parentId: "parent", forkOffset: 2 }) });
+
+    expect(getFullMessages(ctx, { id: "child" }).map((message: any) => message.content)).toEqual([
+      "original first",
+      "original second",
+      "child continuation",
+    ]);
+
+    ctx.fns.session.save(ctx, { agent: agent("parent", [
+      { role: "user", content: "edited first" },
+    ]) });
+
+    expect(getFullMessages(ctx, { id: "child" }).map((message: any) => message.content)).toEqual([
+      "original first",
+      "original second",
+      "child continuation",
+    ]);
+  });
+
   test("chains grandparent -> parent -> child", async () => {
     const ctx: any = mkCtx();
         ctx.fns.db.connect(ctx, { path: ":memory:" });
