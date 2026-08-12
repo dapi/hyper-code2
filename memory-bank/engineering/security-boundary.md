@@ -42,9 +42,37 @@ server process. It is not an adversarial sandbox.
 - Conversation data and action results may contain source code or sensitive data;
   no retention, analytics, or external-publication policy is currently approved.
 
+## Current Exposure Gap
+
+The trusted-local boundary is currently an operating assumption, not an
+enforced default:
+
+- the HTTP server binds to `0.0.0.0`;
+- routes have no authentication or authorization layer;
+- `POST /repl` accepts code and evaluates it inside the server process.
+
+Consequently, any network caller that can reach the server can exercise
+process-level authority. Until a delivery change closes this gap, operators must
+restrict network reachability themselves and must not expose the server through
+a tunnel, shared network, or public ingress.
+
+A downstream security decision must close the unauthenticated
+network-to-process-authority path before non-local or shared use is supported.
+This document does not select the mechanism: binding scope, authentication,
+authorization, route separation, and isolation remain design alternatives.
+This does not imply an adversarial sandbox; sandboxing is a different concern.
+
+Secret non-transit is also a target contract, not current verified behavior.
+Secret values must not enter LLM-visible input or action-result context. The
+current unrestricted process environment and result path do not yet guarantee
+this property; its realization belongs to downstream security design.
+
 ## Implementation Evidence
 
 - [In-process eval](../../src/repl/eval.ts) — arbitrary generated code execution.
+- [HTTP listener](../../src/http/$start.ts) — current all-interface bind and
+  unauthenticated route dispatch.
+- [REPL route](../../src/repl/$route__POST.ts) — current network-to-eval path.
 - [Shell execution](../../src/agent/executeBash.ts) — `bash -c` boundary.
 - [Filesystem resolution](../../src/files/resolveSafe.ts) — intentional access outside cwd.
 - [Provider credentials](../../src/llm/resolveEndpoint.ts) — environment and local credential sources.

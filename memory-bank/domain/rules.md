@@ -25,3 +25,17 @@ canonical_for:
 | `DR-06` | Delegation is bounded by an explicit task and return contract | [Delegation implementation](../../src/agent/delegateTask.ts) |
 
 Exact storage, scheduling, and marker syntax belong to engineering contracts.
+
+## Known Implementation Gaps
+
+- `DR-05` is the required product invariant, but the current child stores only
+  `parent_id` and `fork_offset` and lazily rereads the parent. Editing or deleting
+  messages inside the inherited parent prefix can therefore change the child’s
+  effective history. The fork primitive exists; immutable inherited content is
+  not yet fully implemented.
+- `DR-06` is implemented for awaited delegation. The asynchronous path starts a
+  child but does not yet guarantee delivery of its later result or failure to the
+  parent contract.
+
+These are implementation gaps against active invariants, not reasons to weaken
+the invariants.

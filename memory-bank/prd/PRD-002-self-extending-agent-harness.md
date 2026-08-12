@@ -2,7 +2,7 @@
 title: "PRD-002: Self-Extending Agent Harness"
 doc_kind: prd
 doc_function: canonical
-purpose: Фиксирует проблему, пользователей, цели, границы и критерии успеха первой продуктовой версии саморасширяющегося агентского харнесса.
+purpose: Фиксирует source-backed premise, решения владельца этого форка, продуктовую гипотезу и границы инициативы саморасширяющегося агентского харнесса без представления гипотез или implementation gaps как подтверждённого поведения.
 derived_from:
   - ../product/context.md
   - ../product/vision.md
@@ -11,8 +11,8 @@ derived_from:
   - ../product/sources/README.md
   - ../domain/rules.md
   - ../domain/states.md
-  - ../use-cases/README.md
-status: draft
+  - ../engineering/security-boundary.md
+status: active
 audience: humans_and_agents
 must_not_define:
   - implementation_sequence
@@ -22,125 +22,364 @@ must_not_define:
 
 # PRD-002: Self-Extending Agent Harness
 
+## Evidence And Decision Boundary
+
+Документ различает три класса утверждений:
+
+1. **Source-backed premise** — тезисы, сформулированные Николаем в исходном
+   созвоне.
+2. **Owner decisions** — продуктовые решения владельца этого форка. Они задают
+   scope инициативы, даже если не были сформулированы Николаем.
+3. **Current implementation evidence** — поведение, подтверждённое текущим кодом
+   и тестами. Goal или product rule сами по себе не означают, что поведение уже
+   реализовано.
+
+Владелец этого форка принял следующие решения:
+
+- конкретная interaction surface, включая web/HTML или TUI, является
+  поддерживающим механизмом, а не сутью продукта;
+- multi-user access и team workflow совместимы с дальнейшим развитием, но не
+  входят в эту инициативу;
+- reflection, bounded sleep и context consolidation входят в goals;
+- значения секретов не должны проходить через LLM;
+- кроме developer/operator инициатива рассматривает harness builders и domain
+  practitioners как целевые, но пока не подтверждённые рынком роли.
+
+## Acceptance
+
+Danil Pismenny принял этот PRD 2026-08-13 как экспериментальную продуктовую
+инициативу и является её decision owner. Принятие делает authoritative problem,
+product hypothesis, users, goals, non-goals, scope, product rules и описанную
+risk/validation posture. Оно не означает, что рыночный спрос, сравнительное
+преимущество или заявленные outcomes уже подтверждены.
+
+`VAL-01…VAL-08` достаточны как направления проверки для активации PRD. Baseline,
+порог успеха, measurement method и measurement owner должны быть зафиксированы
+до начала соответствующего эксперимента или delivery unit; они не выдумываются
+в этом PRD при отсутствии evidence.
+
+## Source-Backed Premise
+
+Инициатива исходит из тезиса Николая: современные LLM достаточно хорошо пишут,
+читают и компонуют код, чтобы язык, SDK и функции проекта могли стать основным
+способом выполнения и расширения возможностей агента. Это исходная предпосылка,
+а не доказанный результат пользовательского или сравнительного исследования.
+
+Код в этой модели одновременно является действием, новой capability и
+процедурной памятью. Вместо обязательной упаковки каждой capability в отдельный
+tool или CLI-обёртку агент получает возможность работать с обычными функциями и
+компоновать их средствами полноценного языка.
+
+## Product Hypothesis
+
+Если агент и пользователь развивают одну программируемую среду, в которой агент
+может находить существующие функции, собирать из них task-specific код и
+сохранять полезные решения для дальнейшего использования, то повторяющаяся
+работа будет адаптироваться быстрее и с большим накопительным эффектом, чем при
+последовательном добавлении изолированных tools, CLI-обёрток и prompts.
+
+Эта гипотеза пока не подтверждена сравнительным benchmark, пользовательскими
+исследованиями, аналитикой переиспользования или утверждёнными метриками.
+
+Web/HTML, TUI, headless/API surfaces, hot reload, durable sessions и forks не
+являются самостоятельной сутью инициативы. Это допустимые поддерживающие
+механизмы программируемой и инспектируемой среды. Текущая реализация имеет
+browser surface; в этом форке также допускается развитие TUI. PRD не предписывает
+единственный пользовательский интерфейс.
+
 ## Problem
 
-Современные coding-agent харнессы заранее фиксируют набор инструментов,
-интерфейс и рабочие сценарии. Повторяющиеся пользовательские процессы из-за
-этого остаются промптами, CLI-обёртками и разовыми цепочками действий, хотя
-модель уже умеет писать и компоновать полноценный код.
+В исходном созвоне фиксированные coding-agent харнессы критикуются за заранее
+заданный набор инструментов, интерфейс и рабочие сценарии. В предложенной модели
+повторяющиеся процессы, оставшиеся промптами, CLI-обёртками и разовыми цепочками
+действий, не образуют растущую библиотеку компонуемого кода.
 
-Инициатива должна дать техническому пользователю доверенную локальную среду, в
-которой агент доводит задачу до наблюдаемого результата, сохраняет контекст,
-создаёт и переиспользует функции как исполняемую память, меняет доступные
-функции без перезапуска и при необходимости разветвляет контекст или делегирует
-ограниченные подзадачи.
+Фиксированный харнесс делает агента потребителем возможностей, выбранных его
+разработчиком. Для новой интеграции или повторяющейся работы приходится
+проектировать отдельный tool/CLI-контракт, переносить промежуточные данные через
+контекст и поддерживать ещё одну изолированную сущность. Это ограничивает
+естественную для кода композицию и не превращает выполненную работу в растущую
+процедурную среду.
+
+Инициатива предполагает потребность в среде, где агент и пользователь могут
+непосредственно программировать способ работы: обнаруживать доступные функции,
+компоновать их с SDK, исполнять task-specific код, сохранять полезные решения и
+использовать их в дальнейшей работе. Для внешних пользователей эта потребность
+ещё не подтверждена customer discovery.
 
 ## Users And Jobs
 
-| User / Segment | Job To Be Done | Current Pain |
+Роли наследуются из [Customers And Users](../product/customers.md). Только
+developer/operator подтверждён текущим репозиторием. Harness builder и domain
+practitioner следуют из примеров и видения Николая и приняты владельцем этого
+форка как продуктовые гипотезы; внешнего подтверждения для них нет.
+
+| Segment | Provisional Job To Be Done | Evidence status |
 | --- | --- | --- |
-| Технический пользователь | Поставить агенту задачу, видеть ход выполнения, вмешиваться и продолжать работу позднее | Фиксированные и непрозрачные харнессы затрудняют адаптацию, проверку и возобновление работы |
-| Разработчик проекта | Превращать удачные повторяемые действия в функции, доступные в следующих задачах | Одноразовый код и внешние обёртки не образуют общую процедурную среду |
+| Developer operating coding agents | Вместе с агентом адаптировать программируемую среду к повторяющейся работе и превращать полезные решения в переиспользуемый код | Repository-backed; JTBD требует customer discovery |
+| Process or harness builder | Собирать из функций, policies и extension points специализированные процессы, interaction surfaces и агентские приложения | Source-backed and owner-accepted; market-unvalidated |
+| Domain practitioner using a specialized harness | Выполнять и адаптировать предметную работу через специализированный харнесс, не поддерживая базовый agent runtime | Source-backed example and owner-accepted; market-unvalidated |
+
+Buyer, purchasing context и organization segment остаются неизвестными. Domain
+practitioner не должен неявно получать raw `eval`, shell или process authority
+только потому, что использует специализированную поверхность.
 
 ## Goals
 
-- `G-01` Агент выполняет техническую задачу через несколько наблюдаемых действий и завершает её обычным текстовым ответом.
-- `G-02` Действия, результаты и ошибки видимы пользователю и сохраняются в истории.
-- `G-03` Подтверждённая история и состояние работы восстанавливаются после обновления страницы или обычного перезапуска процесса.
-- `G-04` Новая или изменённая функция становится доступна без перезапуска процесса и потери сессии.
-- `G-05` Пользователь управляет жизненным циклом сессии и выбирает доступную модель.
-- `G-06` Агент делегирует ограниченную подзадачу дочерней сессии и получает явный итог.
+- `G-01` Агент решает задачи, непосредственно используя полноценный язык,
+  доступные SDK и функции проекта, а не только фиксированный перечень
+  специализированных tools.
+- `G-02` Перед созданием новой capability агент может найти и понять релевантные
+  существующие функции, а затем скомпоновать их в task-specific программу.
+- `G-03` Полезное task-specific решение можно оформить как проверяемую
+  переиспользуемую функцию и применить в последующей релевантной работе.
+- `G-04` Агент и пользователь могут изменять функции, interaction surfaces,
+  memory/context policy и другие extension points в одной инспектируемой
+  программной среде.
+- `G-05` Изменение среды становится доступно без потери текущей работы, а его
+  действия, результаты и ошибки остаются наблюдаемыми.
+- `G-06` Durable sessions и управляемые forks позволяют продолжать работу и
+  экспериментировать с agent loop. Неизменяемая граница fork и полный возврат
+  результата делегирования являются требуемым контрактом, даже пока реализация
+  покрывает их не полностью.
+- `G-07` Harness builder может собирать специализированный процесс или
+  приложение из общих capabilities, а domain practitioner — использовать его
+  через ограниченную предметную поверхность.
+- `G-08` Оператор или harness builder может задавать инспектируемые reflection-
+  и bounded sleep-процессы как программируемые extension points agent loop.
+- `G-09` Длительная сессия может породить проверяемый консолидированный
+  successor context без удаления исходной истории и без неявного переключения
+  пользователя.
 
 ## Non-Goals
 
-- `NG-01` Публичный многопользовательский SaaS или командная среда.
-- `NG-02` Безопасное исполнение недоверенного агента или произвольного пользовательского кода.
-- `NG-03` Полностью автономное самоулучшение без контроля человека.
-- `NG-04` Автоматические рефлексия, «сон», долговременная семантическая память или сведение результатов множества веток.
-- `NG-05` Гарантия решения любых нетехнических задач общего назначения.
-- `NG-06` Каталог или маркетплейс расширений.
+- `NG-01` Эта инициатива не поставляет multi-user access, shared sessions,
+  team roles/workflows или multi-tenant SaaS. Они совместимы с направлением
+  продукта, но остаются будущими инициативами.
+- `NG-02` Полноценный adversarial sandbox для недоверенного агента или
+  произвольного пользовательского кода.
+- `NG-03` Неограниченное или скрытое фоновое изменение исполняемой среды.
+  Bounded reflection, sleep и context consolidation, запущенные принятой
+  пользовательской policy и оставляющие наблюдаемый результат, остаются in scope.
+- `NG-04` Полностью автоматическое курирование большой библиотеки функций.
+- `NG-05` Автоматическое слияние веток и разрешение конфликтующих результатов.
+- `NG-06` Гарантия решения любых нетехнических задач общего назначения.
+- `NG-07` Каталог или маркетплейс расширений.
+- `NG-08` Полноценная долговременная semantic-memory система за пределами
+  bounded reflection и context consolidation этой инициативы.
 
 ## Product Scope
 
-### In Scope
+### Initiative Capabilities
 
-- веб-интерфейс с несколькими сессиями и потоковым отображением событий;
-- ввод задачи и цикл исполнения действий;
-- чтение, поиск и изменение файлов, выполнение кода и shell-команд;
-- безопасно очищенный HTML, включая формы структурированного ответа;
-- реестр функций проекта, их обнаружение и горячая перезагрузка;
-- долговременное хранение агентов, сообщений, событий и состояния запуска;
-- fork с фиксированным родительским префиксом и независимым продолжением;
-- делегирование подзадач в свежий или унаследованный контекст;
-- подключение локальных и удалённых LLM-провайдеров.
+- прямое использование агентом функций и SDK из полноценного языка;
+- поиск и runtime introspection доступных функций до дублирования capability;
+- композиция существующих функций в task-specific программы, выходящие за
+  пределы удобной CLI/bash-композиции;
+- создание, проверка, сохранение и последующее переиспользование функций без
+  предписания единственного promotion workflow;
+- единая конвенция, позволяющая функциям вызывать друг друга и наращивать
+  библиотеку как один программный проект;
+- программируемые extension points харнесса, включая interaction surfaces,
+  подготовку контекста, reflection и bounded sleep;
+- создание консолидированного successor context с сохранением исходной истории;
+- сборка специализированных процессных и предметных харнессов поверх общей
+  среды;
+- secret-handling contract, при котором значения секретов не проходят через LLM.
 
-### Out Of Scope
+### Interaction-Surface Boundary
 
-- sandbox, авторизация и публичное сетевое размещение;
-- командные роли, совместная работа и коммерческая модель;
-- автоматическая рефлексия и управление библиотекой функций в большом масштабе;
-- автоматическое слияние веток и разрешение конфликтующих результатов.
+Пользователь должен иметь наблюдаемую и расширяемую interaction surface, но этот
+PRD не выбирает один обязательный UI. Текущая browser/HTML surface, развиваемая
+TUI и headless/API integrations могут реализовывать разные части одного
+продуктового outcome. Выбор конкретной реализации принадлежит downstream design.
 
-## UX / Business Rules
+### Existing Enabling Baseline
 
-- `BR-01` Только реальный ввод пользователя создаёт новое намерение на запуск; внутренний результат действия не создаёт независимую пользовательскую задачу.
-- `BR-02` Выполненное действие оставляет проверяемую пару «вызов — результат или ошибка».
-- `BR-03` Fork наследует неизменяемый срез родительской истории; последующие изменения веток независимы.
-- `BR-04` Ошибка или остановка сохраняет достаточно состояния, чтобы пользователь мог понять ситуацию и осознанно продолжить работу.
-- `BR-05` Расширение функций во время работы не уничтожает сохранённые сессии.
-- `BR-06` Файловые операции, `eval` и shell выполняются с правами процесса; до появления изоляции продукт явно позиционируется как доверенная локальная среда.
+Следующие механизмы уже существуют полностью или частично и поддерживают
+инициативу, но сами по себе не являются её net-new delivery scope:
 
-## Success Metrics
+- marker-driven action loop, code evaluation, файловые операции и shell;
+- текущая browser surface с наблюдаемыми событиями и rich HTML;
+- SQLite-backed sessions;
+- базовая горячая загрузка функций и routes;
+- fork и awaited delegation primitives;
+- локальные и удалённые LLM-провайдеры.
 
-Эти targets являются критериями приёмки ядра. Метрики пользовательской ценности
-не имеют утверждённых baseline и owner; их граница описана в
-[Product metrics](../product/metrics.md).
+Наличие этих primitives не подтверждает полный self-extension, reflection или
+context-consolidation scenario.
 
-| Metric ID | Metric | Baseline | Target | Measurement method |
-| --- | --- | --- | --- | --- |
-| `MET-01` | Полнота истории действий | Не зафиксирован | 100% действий в сквозных сценариях имеют сохранённый результат или ошибку | Сквозные тесты цикла действия |
-| `MET-02` | Восстановление сессии | Не зафиксирован | 100% контрольных сессий восстанавливаются без дублирования выполненного действия | Тест с контролируемым перезапуском |
-| `MET-03` | Горячее подключение функции | Не зафиксирован | Тестовая функция вызывается без перезапуска и изменения истории | Сценарий hot reload |
-| `MET-04` | Изоляция fork | Не зафиксирован | Дочерняя ветка получает точный префикс и не изменяет родителя | Тест ветвления и независимого продолжения |
-| `MET-05` | Базовый пользовательский путь | Не зафиксирован | Путь «создать агента → поставить задачу → увидеть действия → получить итог → продолжить» доступен через веб-интерфейс | Сквозной UI-сценарий |
+### Deferred To Future Initiatives
 
-Доля завершённых реальных задач, экономия времени и частота переиспользования
-функций требуют отдельного набора эталонных задач и исходного замера.
+- multi-user access, shared sessions, team roles и coordination workflows;
+- публичное или multi-tenant размещение;
+- автоматическое сведение веток;
+- отдельный marketplace extensions.
+
+## Inherited Constraints
+
+Эти правила уже принадлежат active canonical owners и не являются новыми
+решениями этого PRD:
+
+- `IC-01` Agent conversation и activity history восстанавливаются после
+  обычного перезапуска — [`DR-01`](../domain/rules.md).
+- `IC-02` Action и его result/error сохраняют структурную пару —
+  [`DR-02`](../domain/rules.md).
+- `IC-03` System-produced action result не является новым operator intent —
+  [`DR-03`](../domain/rules.md).
+- `IC-04` Fork наследует контекст до фиксированной границы и затем имеет
+  независимое продолжение — [`DR-05`](../domain/rules.md). Текущая реализация
+  использует live parent reference и ещё не обеспечивает полную неизменяемость
+  унаследованного содержимого.
+- `IC-05` Delegation ограничена явной задачей и return contract —
+  [`DR-06`](../domain/rules.md). Awaited path существует; полный async return
+  остаётся implementation gap.
+- `IC-06` `eval`, shell, filesystem, environment и credentials имеют права
+  server process; продукт не является sandbox —
+  [Trust And Security Boundary](../engineering/security-boundary.md).
+
+## Product Rules
+
+- `BR-01` Function capability является обычным читаемым кодом с доступным
+  callable contract и может компоноваться без обязательной CLI-обёртки.
+- `BR-02` Перед дублированием capability агент должен иметь доступный способ
+  поиска или introspection существующей библиотеки; PRD не фиксирует конкретный
+  index, embedding или retrieval implementation.
+- `BR-03` Сохранение task-specific решения как функции является явным,
+  наблюдаемым изменением программного проекта, которое можно проверить и
+  отменить обычными средствами работы с кодом.
+- `BR-04` Capability считается переиспользуемой, когда её callable contract
+  доступен для обнаружения, а поведение можно проверить. Запись файла или reload
+  сами по себе недостаточны.
+- `BR-05` Значения секретов не передаются LLM и не возвращаются в LLM-visible
+  action-result context. Это target contract, а не подтверждённое текущее
+  поведение; способ реализации выбирается downstream security design.
+- `BR-06` Reflection и sleep ограничены принятой policy, оставляют наблюдаемый
+  результат и не выполняют скрытую неограниченную модификацию среды.
+- `BR-07` Context consolidation сохраняет исходную историю, показывает
+  полученный successor context и не переключает пользователя неявно.
+
+## Success Metrics And Validation Plan
+
+У проекта нет утверждённых product metrics, baseline, targets, measurement
+owner или analytics source; canonical gap зафиксирован в
+[Product metrics](../product/metrics.md). Поэтому таблица содержит validation
+questions и способы сбора evidence, а не утверждённые acceptance targets.
+
+Этот PRD не задаёт обязательную последовательность `discover → compose → save →
+verify → reuse`. Она была синтезом предыдущей редакции PRD, а не формулировкой
+Николая или решением владельца форка. Downstream use cases могут описывать
+наблюдаемые сценарии, но не должны превращать эту последовательность в
+обязательный lifecycle без отдельного решения.
+
+| Evidence ID | Validation question | Current evidence | Evidence collection approach |
+| --- | --- | --- | --- |
+| `VAL-01` | Может ли агент решить representative task, скомпоновав существующие функции и SDK? | Отдельные demonstrations есть только в source talk | Наблюдать выбранные functions, task-specific code, outcome и ошибки на эталонных задачах |
+| `VAL-02` | Можно ли оформить полезную capability и применить её в последующей релевантной работе? | End-to-end scenario не подтверждён | Сравнить повторную задачу с выполнением без сохранённой capability по времени, шагам, ошибкам и context use |
+| `VAL-03` | Как быстро появляется проверяемая callable capability? | Baseline отсутствует | Измерять время от пользовательского intent до успешного контрольного вызова |
+| `VAL-04` | Находит ли агент релевантные функции при росте библиотеки? | Raw introspection и поиск существуют; предел не измерен | Измерять recall релевантных functions и ненужное дублирование на библиотеках разного размера |
+| `VAL-05` | Сохраняются ли наблюдаемость и текущая работа при изменении среды? | Есть component-level code/tests, но нет полного end-to-end evidence | Проверить action/result trace, reload и сохранность durable work в одном сценарии |
+| `VAL-06` | Даёт ли reflection или bounded sleep инспектируемый и полезный результат? | Design exists; runtime behavior не подтверждено | Review результата, trigger policy, затрат и влияния на следующую работу |
+| `VAL-07` | Создаётся ли usable successor context без потери source history и неявного переключения? | Не реализовано как подтверждённый scenario | Сравнить source и successor context, проверить provenance и explicit switch |
+| `VAL-08` | Не попадают ли secret values в model input или action-result context? | Гарантия отсутствует | Проверка model-visible inputs и results с контролируемым sentinel value |
 
 ## Risks And Open Questions
 
-- `RISK-01` Без sandbox, авторизации и ограничения файловой системы ошибка или вредоносная инструкция может повредить доступные процессу данные.
-- `RISK-02` При росте библиотеки функций простого runtime-reflection может оказаться недостаточно для поиска, ранжирования и сопровождения.
-- `OQ-01` Когда разовый код следует сохранять как функцию и кто подтверждает изменение?
+- `RISK-01` Текущий HTTP server слушает все interfaces, а privileged REPL route
+  не имеет authentication. Trusted-local boundary сейчас является operating
+  assumption, а доступный network caller может получить process-level authority.
+- `RISK-02` При росте библиотеки агент может чаще дублировать код, чем находить и
+  компоновать существующие capabilities; накопительное преимущество не возникнет.
+- `RISK-03` Библиотека без контрактов, проверки и понятных границ может стать
+  труднее сопровождаемым аналогом разросшегося набора skills.
+- `RISK-04` Текущие unrestricted process environment и action-result path не
+  обеспечивают secret non-transit; подход к реализации ещё не выбран.
+- `RISK-05` Domain practitioner не должен наследовать raw process authority
+  developer-operated харнесса; specialized surface нуждается в отдельной границе.
+- `RISK-06` Reflection и consolidation без bounded policy и review могут
+  накапливать ошибочные правила или терять существенный контекст.
+- `OQ-01` По каким сигналам task-specific code следует сохранять как функцию и
+  какой уровень пользовательского подтверждения нужен?
 - `OQ-02` Как сводить несколько веток и разрешать конфликтующие результаты?
-- `OQ-03` Какой первичный рынок следует выбрать после персонального developer harness?
-- `OQ-04` Какой набор реальных задач станет baseline для качества и скорости выполнения?
+- `OQ-03` Кто является buyer и какой product/organization context соответствует
+  трём принятым пользовательским ролям?
+- `OQ-04` Какой набор реальных задач станет baseline для качества и скорости?
+- `OQ-05` Где находится граница, после которой runtime introspection и обычный
+  поиск перестают обеспечивать достаточный function awareness?
+- `OQ-06` Какие triggers, budgets, retention и review policy допустимы для
+  reflection, sleep и context consolidation?
+- `OQ-07` Какая bounded interaction и authority model нужна domain practitioner?
 
-## Downstream Features
+## Downstream Use Cases And Delivery
 
-Инициатива пока не декомпозирована в feature packages. Её подтверждённые
-сквозные capability-срезы уже описаны в use cases:
+### Initiative Use Cases
 
-| Capability | Canonical scenario | Status |
-| --- | --- | --- |
-| Выполнение задачи агентом | [`UC-001`](../use-cases/UC-001-run-agent-task.md) | active |
-| Наблюдаемый цикл action/result | [`UC-002`](../use-cases/UC-002-execute-agent-action.md) | active |
-| Fork и делегирование | [`UC-003`](../use-cases/UC-003-fork-and-delegate.md) | active |
-| Горячая перезагрузка capability | [`UC-004`](../use-cases/UC-004-hot-reload-capability.md) | active |
+Этот PRD является прямым product upstream для всех project-level use cases
+инициативы. `UC-001…004` остаются active contracts существующих supporting
+scenarios. Новые `UC-005…007` остаются draft и становятся authoritative только
+после прохождения собственного Activation Gate; статус PRD не является
+подтверждением их реализации.
 
-До принятия этого PRD активные use cases не объявляют его своим upstream.
+| Use case | Role in initiative | Status | Implementation evidence |
+| --- | --- | --- | --- |
+| [`UC-001`](../use-cases/UC-001-run-agent-task.md) | Durable task and outcome baseline | active | Current runtime |
+| [`UC-002`](../use-cases/UC-002-execute-agent-action.md) | Observable action/result baseline | active | Marker runtime |
+| [`UC-003`](../use-cases/UC-003-fork-and-delegate.md) | Fork and delegation baseline | active | Partial: primitives exist; immutable prefix and full async return are gaps |
+| [`UC-004`](../use-cases/UC-004-hot-reload-capability.md) | Live extension baseline | active | Partial component-level evidence |
+| [`UC-005`](../use-cases/UC-005-extend-and-reuse-capability.md) | Central capability extension and later reuse | draft | No complete end-to-end evidence |
+| [`UC-006`](../use-cases/UC-006-reflect-on-agent-work.md) | Bounded reflection over agent work | draft | Design direction only |
+| [`UC-007`](../use-cases/UC-007-consolidate-context.md) | Bounded sleep and successor context | draft | Design direction only |
+
+### Candidate Delivery Units
+
+Delivery packages и issue IDs пока не созданы. После routing ожидаются отдельные
+units как минимум для:
+
+- central self-extension/reuse scenario;
+- reflection и bounded sleep;
+- context consolidation;
+- immutable fork inheritance и complete delegation return;
+- закрытие текущего unauthenticated network-to-process-authority gap без
+  предрешения механизма;
+- обеспечение secret non-transit contract без предрешения механизма;
+- bounded specialized surface for domain practitioners.
 
 ## Evidence And Confidence Boundary
 
-Текущее исполнение подтверждает цикл действий, сохранение сессий, hot reload,
-fork/delegation и браузерную поверхность. Это можно проследить от
-[product context](../product/context.md) и перечисленных use cases к их
-аннотированным ссылкам на код.
+### Verified Current Primitives And Known Gaps
 
-Продуктовое намерение подтверждает
-[исходный созвон от 2026-08-12](../product/sources/2026-08-12-self-extending-ai-harness-transcript.txt):
-функции и SDK вместо ограниченной композиции CLI/skills (03:37–10:46,
-30:10–39:36), расширяемая веб-поверхность (54:28–57:31), изменение среды в
-runtime (58:49–59:51) и forks для параллельного исследования контекста
-(01:19:09–01:21:52). Discovery функций, безопасность и командная работа в
-источнике остаются нерешёнными вопросами.
+- Action/result loop и browser surface подтверждены кодом и тестами.
+- SQLite persistence и startup rehydration реализованы, но настоящий
+  process-restart end-to-end test не зафиксирован.
+- Basic function/route reload реализован; полный live-change scenario и reload
+  long-running behavior не подтверждены.
+- Fork и awaited delegation primitives существуют; immutable inherited content
+  и полный async parent-return contract не реализованы.
+- Reflection, sleep, context consolidation и secret non-transit являются goals,
+  но не verified current mechanisms.
+
+### Source-Backed Product Intent
+
+[Исходный созвон от 2026-08-12](../product/sources/2026-08-12-self-extending-ai-harness-transcript.txt)
+подтверждает функции и SDK вместо ограниченной CLI/skills-композиции
+(03:37–10:46, 30:10–39:36), runtime introspection (33:45–46:51), расширяемую
+web/HTML surface (54:28–57:31), изменение среды в runtime (58:49–59:51),
+reflection/sleep/context experiments (48:32–53:57, 01:22:56–01:24:48), forks
+для параллельного исследования (01:19:09–01:21:52), multi-user как возможное
+продолжение (59:51–01:03:00), domain harness examples (01:11:32–01:14:44) и
+намерение не пропускать secret values через LLM (01:04:23–01:05:24).
+
+Транскрипт подтверждает, что тезисы были сформулированы и механизмы
+демонстрировались. Он не доказывает performance, claimed implementation time,
+security guarantee, масштабирование discovery или customer demand.
+
+### Unverified Initiative Claims
+
+- self-extension даёт преимущество по времени, качеству, стоимости или context
+  use относительно tool/CLI-подхода;
+- сохранённые функции достаточно часто находятся и переиспользуются;
+- runtime introspection и поиск масштабируются до практически полезного размера;
+- builder и domain-practitioner roles соответствуют реальному рынку;
+- reflection и consolidation дают устойчивую пользу без деградации контекста;
+- product rules дают правильный баланс автономии, контроля,
+  безопасности и стоимости сопровождения.

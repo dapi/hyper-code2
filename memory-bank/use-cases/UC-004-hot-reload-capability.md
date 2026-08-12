@@ -5,7 +5,7 @@ doc_function: canonical
 purpose: Defines the stable developer flow for changing callable behavior without discarding durable agent state.
 derived_from:
   - ../flows/use-case.md
-  - ../product/context.md
+  - ../prd/PRD-002-self-extending-agent-harness.md
   - ../domain/rules.md
 status: active
 audience: humans_and_agents
@@ -55,6 +55,13 @@ The actor creates or changes a procedure, route, type, or browser-script surface
 The new callable behavior is active or failure is explicit; durable session state
 is not discarded as part of the reload.
 
+## Implementation Status
+
+Basic function loading and route rescanning exist. Current tests provide
+component-level evidence; they do not yet prove the complete live-change flow,
+session preservation in the same end-to-end scenario, or reload of every
+long-running behavior.
+
 ## Business Rules
 
 - `BR-01` Shipped core behavior belongs in `src/`.
@@ -64,7 +71,7 @@ is not discarded as part of the reload.
 
 | Upstream / Downstream | References |
 | --- | --- |
-| Product | [Vision](../product/vision.md) |
+| PRD | [PRD-002](../prd/PRD-002-self-extending-agent-harness.md) |
 | Engineering | [Architecture](../engineering/architecture.md), [coding style](../engineering/coding-style.md) |
 | Operations | [Development](../ops/development.md) |
-| Implementation | [REPL loader](../../src/repl/load.ts), [route loader](../../src/http/loadRoutes.ts) |
+| Implementation | [REPL loader](../../src/repl/load.ts), [route loader](../../src/http/loadRoutes.ts) — component-level evidence |

@@ -5,7 +5,7 @@ doc_function: canonical
 purpose: Defines the stable operator flow from submitting work to receiving a durable agent outcome.
 derived_from:
   - ../flows/use-case.md
-  - ../product/context.md
+  - ../prd/PRD-002-self-extending-agent-harness.md
   - ../domain/rules.md
   - ../domain/states.md
 status: active
@@ -65,7 +65,7 @@ The operator submits real user input to an active agent.
 
 | Upstream / Downstream | References |
 | --- | --- |
-| Product | [Product context](../product/context.md) |
+| PRD | [PRD-002](../prd/PRD-002-self-extending-agent-harness.md) |
 | Domain | [Rules](../domain/rules.md), [states](../domain/states.md) |
 | Engineering | [Architecture](../engineering/architecture.md), [agent protocol](../engineering/agent-protocol.md) |
 | Implementation | [Agent route](../../src/agent/$route_$id_POST.ts), [worker](../../src/agent/workerLoop.ts) |

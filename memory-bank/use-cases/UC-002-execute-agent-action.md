@@ -5,7 +5,7 @@ doc_function: canonical
 purpose: Defines the observable action-result cycle inside an agent conversation.
 derived_from:
   - ../flows/use-case.md
-  - ../product/context.md
+  - ../prd/PRD-002-self-extending-agent-harness.md
   - ../domain/rules.md
 status: active
 audience: humans_and_agents
@@ -65,6 +65,7 @@ an observable failure when the operation did not succeed.
 
 | Upstream / Downstream | References |
 | --- | --- |
+| PRD | [PRD-002](../prd/PRD-002-self-extending-agent-harness.md) |
 | Domain | [Rules](../domain/rules.md), [events](../domain/events.md) |
 | Engineering | [Agent protocol](../engineering/agent-protocol.md), [trust boundary](../engineering/security-boundary.md) |
 | Implementation | [Run loop](../../src/agent/run.ts), [marker execution](../../src/agent/executeMarker.ts) |

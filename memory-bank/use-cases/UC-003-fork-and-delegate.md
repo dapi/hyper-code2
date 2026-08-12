@@ -5,7 +5,7 @@ doc_function: canonical
 purpose: Defines stable context branching and bounded parent-child agent delegation.
 derived_from:
   - ../flows/use-case.md
-  - ../product/context.md
+  - ../prd/PRD-002-self-extending-agent-harness.md
   - ../domain/rules.md
   - ../domain/states.md
 status: active
@@ -56,6 +56,14 @@ another agent to perform a bounded task.
 Each agent owns its local continuation; inherited context is assembled without a
 full transcript copy, and delegation has an observable outcome.
 
+## Implementation Status
+
+The current runtime implements fork and awaited-delegation primitives. It does
+not yet fully satisfy this active scenario: inherited content is lazily reread
+from the parent rather than stored as an immutable snapshot, and asynchronous
+delegation does not guarantee later result/failure delivery to the parent. These
+are implementation gaps against the use case, not alternate product semantics.
+
 ## Business Rules
 
 - `BR-01` Fork inheritance is prefix-bounded and immutable for that child.
@@ -65,6 +73,7 @@ full transcript copy, and delegation has an observable outcome.
 
 | Upstream / Downstream | References |
 | --- | --- |
+| PRD | [PRD-002](../prd/PRD-002-self-extending-agent-harness.md) |
 | Domain | [Model](../domain/model.md), [rules](../domain/rules.md) |
 | Engineering | [Architecture](../engineering/architecture.md) |
-| Implementation | [Fork assembly](../../src/session/getFullMessages.ts), [delegation](../../src/agent/delegateTask.ts) |
+| Implementation | [Fork assembly](../../src/session/getFullMessages.ts), [delegation](../../src/agent/delegateTask.ts) — partial implementation with the gaps above |

@@ -56,8 +56,9 @@ PRD нужен, когда задача живет на уровне проду�
 - [`PRD-001-memory-bank-adoption.md`](PRD-001-memory-bank-adoption.md) —
   evidence-backed brownfield adoption scope, conflicts, gaps, and success criteria.
 - [`PRD-002-self-extending-agent-harness.md`](PRD-002-self-extending-agent-harness.md) —
-  draft product scope, rules, acceptance targets, and open questions for the
-  first self-extending agent-harness initiative.
+  accepted experimental initiative with a source-backed premise, owner-decided
+  scope, target rules, validation directions, implementation gaps, and
+  downstream use cases for a self-extending agent harness.
 
 ## Template
 
