@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 2,
+  "pid": 50400,
+  "callable": true,
+  "value": [
+    "restart",
+    "fresh-process"
+  ]
+}

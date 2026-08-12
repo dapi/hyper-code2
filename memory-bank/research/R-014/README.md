@@ -12,4 +12,5 @@ audience: humans_and_agents
 Lifecycle state is owned by [Research Brief](brief.md). The
 [Research Plan](plan.md) owns the comparison method, [Evidence](evidence.md) the
 first asymmetric comparison, [Synthesis](synthesis.md) its limits, and
-[Decision](decision.md) the recommendation awaiting owner disposition.
+[Decision](decision.md) the terminal `inconclusive` desk-pass disposition and
+the separately gated runtime-comparison handoff.

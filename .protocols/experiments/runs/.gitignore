@@ -1,0 +1,10 @@
+*
+!.gitignore
+!canonical-offline/
+!canonical-offline/**
+!2026-08-13-tags-v2/
+!2026-08-13-tags-v2/**
+!R-018/
+!R-018/**
+!R-029/
+!R-029/**

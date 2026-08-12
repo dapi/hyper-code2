@@ -1,0 +1,172 @@
+[fns] ctx.genTypes  ←  src/genTypes.ts
+[fns] ctx.loadFns  ←  src/loadFns.ts
+[fns] ctx.layout  ←  src/$layout.ts
+[fns] ctx.fns.session.loadAll  ←  src/session/loadAll.ts
+[fns] ctx.fns.session.appendAssistantEvent  ←  src/session/appendAssistantEvent.ts
+[fns] ctx.fns.session.appendEventWithHtml  ←  src/session/appendEventWithHtml.ts
+[fns] ctx.fns.session.appendAssistantMessage  ←  src/session/appendAssistantMessage.ts
+[fns] ctx.fns.session.truncateMessagesFrom  ←  src/session/truncateMessagesFrom.ts
+[fns] ctx.fns.session.syncAgentState  ←  src/session/syncAgentState.ts
+[fns] ctx.fns.session.load  ←  src/session/load.ts
+[fns] ctx.fns.session.getFullMessages  ←  src/session/getFullMessages.ts
+[fns] ctx.fns.session.appendMessage  ←  src/session/appendMessage.ts
+[fns] ctx.fns.session.search  ←  src/session/search.ts
+[fns] ctx.fns.session.archive  ←  src/session/archive.ts
+[fns] ctx.fns.session.appendThinkingEvent  ←  src/session/appendThinkingEvent.ts
+[fns] ctx.fns.session.appendUserMessage  ←  src/session/appendUserMessage.ts
+[fns] ctx.fns.session.appendEvent  ←  src/session/appendEvent.ts
+[fns] ctx.fns.session.replaceEvents  ←  src/session/replaceEvents.ts
+[fns] ctx.fns.session.updateScratchpad  ←  src/session/updateScratchpad.ts
+[fns] ctx.fns.session.appendToolCallEvent  ←  src/session/appendToolCallEvent.ts
+[fns] ctx.fns.session.fork  ←  src/session/fork.ts
+[fns] ctx.fns.session.replaceMessages  ←  src/session/replaceMessages.ts
+[fns] ctx.fns.session.list  ←  src/session/list.ts
+[fns] ctx.fns.session.deleteMessageAt  ←  src/session/deleteMessageAt.ts
+[fns] ctx.fns.session.getMaxEventIdx  ←  src/session/getMaxEventIdx.ts
+[fns] ctx.fns.session.save  ←  src/session/save.ts
+[fns] ctx.fns.session.getEvents  ←  src/session/getEvents.ts
+[fns] ctx.fns.session.appendErrorEvent  ←  src/session/appendErrorEvent.ts
+[fns] ctx.fns.session.getMessages  ←  src/session/getMessages.ts
+[fns] ctx.fns.session.delete  ←  src/session/delete.ts
+[fns] ctx.fns.git.push  ←  src/git/push.ts
+[fns] ctx.fns.git.status  ←  src/git/status.ts
+[fns] ctx.fns.git.stageCommitPush  ←  src/git/stageCommitPush.ts
+[fns] ctx.fns.git.stage  ←  src/git/stage.ts
+[fns] ctx.fns.git.commit  ←  src/git/commit.ts
+[fns] ctx.fns.git.run  ←  src/git/run.ts
+[fns] ctx.fns.events.emit  ←  src/events/emit.ts
+[fns] ctx.fns.events.emitAgentsChanged  ←  src/events/emitAgentsChanged.ts
+[fns] ctx.fns.events.subscribe  ←  src/events/subscribe.ts
+[fns] ctx.fns.dev.testSummary  ←  src/dev/testSummary.ts
+[fns] ctx.fns.dev.readLog  ←  src/dev/readLog.ts
+[fns] ctx.fns.dev.test  ←  src/dev/test.ts
+[fns] ctx.fns.dev.typecheck  ←  src/dev/typecheck.ts
+[fns] ctx.fns.db.migrate  ←  src/db/migrate.ts
+[fns] ctx.fns.db.select  ←  src/db/select.ts
+[fns] ctx.fns.db.insert  ←  src/db/insert.ts
+[fns] ctx.fns.db.exec  ←  src/db/exec.ts
+[fns] ctx.fns.db.connect  ←  src/db/connect.ts
+[fns] ctx.fns.files.read  ←  src/files/read.ts
+[fns] ctx.fns.files.editHashline  ←  src/files/editHashline.ts
+[fns] ctx.fns.files.lineHash  ←  src/files/lineHash.ts
+[fns] ctx.fns.files.open  ←  src/files/open.ts
+[fns] ctx.fns.files.stat  ←  src/files/stat.ts
+[fns] ctx.fns.files.parseAnchor  ←  src/files/parseAnchor.ts
+[fns] ctx.fns.files.mkdir  ←  src/files/mkdir.ts
+[fns] ctx.fns.files.resolveSafe  ←  src/files/resolveSafe.ts
+[fns] ctx.fns.files.grep  ←  src/files/grep.ts
+[fns] ctx.fns.files.remove  ←  src/files/remove.ts
+[fns] ctx.fns.files.readHashline  ←  src/files/readHashline.ts
+[fns] ctx.fns.files.listOpen  ←  src/files/listOpen.ts
+[fns] ctx.fns.files.formatHashline  ←  src/files/formatHashline.ts
+[fns] ctx.fns.files.rename  ←  src/files/rename.ts
+[fns] ctx.fns.files.write  ←  src/files/write.ts
+[fns] ctx.fns.files.grepHashline  ←  src/files/grepHashline.ts
+[fns] ctx.fns.files.close  ←  src/files/close.ts
+[fns] ctx.fns.files.list  ←  src/files/list.ts
+[fns] ctx.fns.files.parseHashlineEdit  ←  src/files/parseHashlineEdit.ts
+[fns] ctx.fns.files.exists  ←  src/files/exists.ts
+[fns] ctx.fns.http.match  ←  src/http/match.ts
+[fns] ctx.fns.http.start  ←  src/http/$start.ts
+[fns] ctx.fns.http.loadRoutes  ←  src/http/loadRoutes.ts
+[fns] ctx.fns.project.roots  ←  src/project/roots.ts
+[fns] ctx.fns.project.scan  ←  src/project/scan.ts
+[fns] ctx.fns.project.classify  ←  src/project/classify.ts
+[fns] ctx.fns.agent.renderEventHtml  ←  src/agent/renderEventHtml.ts
+[fns] ctx.fns.agent.buildDelegatedTaskPrompt  ←  src/agent/buildDelegatedTaskPrompt.ts
+[fns] ctx.fns.agent.wakeWorker  ←  src/agent/wakeWorker.ts
+[fns] ctx.fns.agent.finishTask  ←  src/agent/finishTask.ts
+[fns] ctx.fns.agent.llmCall  ←  src/agent/llmCall.ts
+[fns] ctx.fns.agent.highlightResult  ←  src/agent/highlightResult.ts
+[fns] ctx.fns.agent.getBasePromptParts  ←  src/agent/getBasePromptParts.ts
+[fns] ctx.fns.agent.parseMarkers  ←  src/agent/parseMarkers.ts
+[fns] ctx.fns.agent.readAndSummarize  ←  src/agent/readAndSummarize.ts
+[settings] declare agent.debounceMs  ←  src/agent/$setting_debounceMs.ts
+[fns] ctx.fns.agent.listPromptPresets  ←  src/agent/listPromptPresets.ts
+[fns] ctx.fns.agent.wakeWaiters  ←  src/agent/wakeWaiters.ts
+[fns] ctx.fns.agent.delegateTask  ←  src/agent/delegateTask.ts
+[fns] ctx.fns.agent.parseReadMarker  ←  src/agent/parseReadMarker.ts
+[fns] ctx.fns.agent.nextId  ←  src/agent/nextId.ts
+[fns] ctx.fns.agent.formatMarkerError  ←  src/agent/formatMarkerError.ts
+[fns] ctx.fns.agent.start  ←  src/agent/start.ts
+[fns] ctx.fns.agent.waitForEvent  ←  src/agent/waitForEvent.ts
+[fns] ctx.fns.agent.executeMarker  ←  src/agent/executeMarker.ts
+[fns] ctx.fns.agent.markerKind  ←  src/agent/markerKind.ts
+[fns] ctx.fns.agent.fullSystemPrompt  ←  src/agent/fullSystemPrompt.ts
+[fns] ctx.fns.agent.sanitizeHtmlBody  ←  src/agent/sanitizeHtmlBody.ts
+[fns] ctx.fns.agent.renderStatusBar  ←  src/agent/renderStatusBar.ts
+[fns] ctx.fns.agent.compact  ←  src/agent/compact.ts
+[fns] ctx.fns.agent.stop  ←  src/agent/stop.ts
+[fns] ctx.fns.agent.serializeMarkerCall  ←  src/agent/serializeMarkerCall.ts
+[fns] ctx.fns.agent.clear  ←  src/agent/clear.ts
+[fns] ctx.fns.agent.buildLlmRequest  ←  src/agent/buildLlmRequest.ts
+[fns] ctx.fns.agent.workerLoop  ←  src/agent/workerLoop.ts
+[fns] ctx.fns.agent.run  ←  src/agent/run.ts
+[fns] ctx.fns.agent.formatMarkerResult  ←  src/agent/formatMarkerResult.ts
+[fns] ctx.fns.agent.executeBash  ←  src/agent/executeBash.ts
+[fns] ctx.fns.repl.load  ←  src/repl/load.ts
+[fns] ctx.fns.repl.eval  ←  src/repl/eval.ts
+[fns] ctx.fns.markdown.highlight  ←  src/markdown/highlight.ts
+[fns] ctx.fns.markdown.mermaid  ←  src/markdown/mermaid.ts
+[fns] ctx.fns.markdown.render  ←  src/markdown/render.ts
+[fns] ctx.fns.skill.inspect  ←  src/skill/inspect.ts
+[fns] ctx.fns.skill.wordCount  ←  src/skill/wordCount.ts
+[fns] ctx.fns.skill.hello  ←  src/skill/hello.ts
+[fns] ctx.fns.llm.parseSSE  ←  src/llm/parseSSE.ts
+[fns] ctx.fns.llm.streamOpenAI  ←  src/llm/streamOpenAI.ts
+[fns] ctx.fns.llm.streamAnthropic  ←  src/llm/streamAnthropic.ts
+[fns] ctx.fns.llm.toAnthropicMessages  ←  src/llm/toAnthropicMessages.ts
+[fns] ctx.fns.llm.toCodexInput  ←  src/llm/toCodexInput.ts
+[settings] declare llm.openaiApiKey  ←  src/llm/$setting_openaiApiKey.ts
+[fns] ctx.fns.llm.listModels  ←  src/llm/listModels.ts
+[settings] declare llm.groqApiKey  ←  src/llm/$setting_groqApiKey.ts
+[fns] ctx.fns.llm.stream  ←  src/llm/stream.ts
+[settings] declare llm.lmstudioBaseUrl  ←  src/llm/$setting_lmstudioBaseUrl.ts
+[fns] ctx.fns.llm.refreshKimiCode  ←  src/llm/refreshKimiCode.ts
+[fns] ctx.fns.llm.resolveEndpoint  ←  src/llm/resolveEndpoint.ts
+[settings] declare llm.kimiApiKey  ←  src/llm/$setting_kimiApiKey.ts
+[fns] ctx.fns.llm.refreshClaudeCode  ←  src/llm/refreshClaudeCode.ts
+[settings] declare llm.anthropicApiKey  ←  src/llm/$setting_anthropicApiKey.ts
+[fns] ctx.fns.llm.streamMock  ←  src/llm/streamMock.ts
+[fns] ctx.fns.llm.streamCodex  ←  src/llm/streamCodex.ts
+[fns] ctx.fns.llm.refreshCodex  ←  src/llm/refreshCodex.ts
+[settings] declare llm.defaultModel  ←  src/llm/$setting_defaultModel.ts
+[settings] declare llm.openrouterApiKey  ←  src/llm/$setting_openrouterApiKey.ts
+[fns] ctx.fns.tools.password  ←  src/tools/password.ts
+[fns] ctx.fns.tools.dice  ←  src/tools/dice.ts
+[fns] ctx.fns.settings.status  ←  src/settings/status.ts
+[fns] ctx.fns.settings.logoutKimi  ←  src/settings/logoutKimi.ts
+[fns] ctx.fns.settings.get  ←  src/settings/get.ts
+[fns] ctx.fns.settings.saveEnv  ←  src/settings/saveEnv.ts
+[fns] ctx.fns.settings.set  ←  src/settings/set.ts
+[fns] ctx.fns.settings.logoutCodex  ←  src/settings/logoutCodex.ts
+[fns] ctx.fns.settings.startCodexLogin  ←  src/settings/startCodexLogin.ts
+[fns] ctx.fns.settings.startKimiLogin  ←  src/settings/startKimiLogin.ts
+[fns] ctx.fns.settings.getString  ←  src/settings/getString.ts
+[fns] ctx.fns.settings.renderDeclaredForm  ←  src/settings/renderDeclaredForm.ts
+[fns] ctx.fns.settings.modelDefault  ←  src/settings/modelDefault.ts
+[fns] ctx.fns.settings.remove  ←  src/settings/remove.ts
+[fns] ctx.fns.settings.declared  ←  src/settings/declared.ts
+[fns] ctx.fns.settings.agentDebounceMs  ←  src/settings/agentDebounceMs.ts
+[fns] ctx.fns.settings.list  ←  src/settings/list.ts
+[fns] ctx.fns.settings.getNumber  ←  src/settings/getNumber.ts
+[fns] ctx.fns.ui.script  ←  src/ui/script.ts
+[fns] ctx.fns.ui.eval  ←  src/ui/eval.ts
+[fns] ctx.fns.ui.openFile  ←  src/ui/openFile.ts
+[fns] ctx.fns.ui.action  ←  src/ui/action.ts
+[fns] ctx.fns.ui.pending  ←  src/ui/pending.ts
+[fns] ctx.fns.ui.openAgent  ←  src/ui/openAgent.ts
+[fns] ctx.fns.ui.notify  ←  src/ui/notify.ts
+[fns] ctx.fns.ui.createAgent  ←  src/ui/createAgent.ts
+[fns] ctx.fns.ui.controlScript  ←  src/ui/controlScript.ts
+[fns] ctx.fns.ui.sendToAgent  ←  src/ui/sendToAgent.ts
+[migrate] applied 20260418000000_init
+[migrate] applied 20260428130000_add_archived_at
+[migrate] applied 20260428150000_add_forks
+[migrate] applied 20260509120000_settings
+[migrate] applied 20270410120000_add_messages_excluded
+[migrate] applied 20270501123000_add_kv
+[migrate] applied 20270502000000_inline_run_state
+[migrate] applied 20270503120000_add_messages_excluded_from_cursor
+[migrate] applied 20270504120000_drop_tool_calls
+[reload] ctx.fns.text.normalizeTag  ←  src/text/normalizeTag.ts

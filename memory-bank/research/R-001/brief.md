@@ -8,7 +8,7 @@ derived_from:
   - ../../prd/PRD-002-self-extending-agent-harness.md
   - ../../use-cases/UC-005-extend-and-reuse-capability.md
 status: active
-research_status: decision_ready
+research_status: synthesizing
 audience: humans_and_agents
 ---
 
@@ -22,7 +22,7 @@ audience: humans_and_agents
 | Research owner | Codex under Danil Pismenny's orchestration protocol |
 | Decision owner | Danil Pismenny |
 | Research mode | `product_discovery` with technical experiment |
-| Decision deadline / timebox | First bounded run on 2026-08-13; next collection only after owner disposition |
+| Decision deadline / timebox | Revised collection stopped after the repeated first family on 2026-08-13; synthesis and refreshed owner disposition are pending |
 
 ## Decision Question
 
@@ -41,7 +41,8 @@ audience: humans_and_agents
 
 - `RSC-01` Three deterministic offline task families and one-off versus later-use behavior.
 - `RSC-02` Correctness, discovery, calls, tokens, errors, control invocation,
-  fresh-process reuse and false-success behavior.
+  same-process reload in the first pass, new-process reuse in the revised pass,
+  and false-success behavior.
 
 ## Non-Scope
 
@@ -53,19 +54,21 @@ audience: humans_and_agents
 | ID | Statement | Type | Source / confidence |
 | --- | --- | --- | --- |
 | `ASM-01` | Deterministic offline fixtures are sufficient for the first comparison. | Assumption | Bounded first slice; external validity remains open. |
-| `EVD-01` | Existing write/reload/call paths can expose a retained function in-process and after restart. | Evidence | [Evidence log](evidence.md), one task family. |
+| `EVD-01` | Existing write/reload/call paths exposed a retained function to a second context inside the same Bun process. | Evidence | [Evidence log](evidence.md), one task family; no process-restart claim. |
 
 ## Stopping Condition
 
 - `STOP-01` Stop the first pass after a reproducible scripted control and one live
   run have either met the thresholds or exposed a concrete failure; return to the
-  owner before expanding cost or choosing architecture.
+  owner before expanding cost or choosing architecture. The owner chose `revise
+  and continue`; the next stop is the revised instrument gate in `plan.md`.
 
 ## Open Questions
 
 | Question | Blocks | Owner | Resolution evidence |
 | --- | --- | --- | --- |
-| Do the other two task families reproduce the discovery/correctness failure? | Full `VAL-01…05` verdict | Danil Pismenny | Approved continuation and fixed-fixture runs |
+| Does the revised instrument technically enforce its boundary and produce auditable primary evidence? | Any further live validation claim | Codex, reviewed by Danil Pismenny | Instrument-v2 isolation, evidence-preservation and new-process checks |
+| Do the other two task families reproduce the discovery/correctness failure? | Full `VAL-01…05` verdict | Danil Pismenny | Fixed-fixture runs after the revised instrument passes |
 | Which capability surface best prevents signature misuse without reducing composition? | Architecture selection | R-014 / Danil Pismenny | Comparative experiment |
 
 ## Boundary Check

@@ -9,5 +9,9 @@ audience: humans_and_agents
 ---
 # R-018: Secret Non-Transit Boundary
 
-Lifecycle state is owned by [Research Brief](brief.md). The
-[Research Plan](plan.md) owns the sentinel and boundary inventory method.
+Lifecycle state, decision question and boundaries are owned by the
+[Research Brief](brief.md). The [Research Plan](plan.md) owns the approved
+static/mock/synthetic method, [Evidence](evidence.md) the partial first-cell
+collection and its containment deviation, and [Synthesis](synthesis.md) its
+bounded provisional interpretation. Collection remains open. No
+enforcement mechanism is selected.

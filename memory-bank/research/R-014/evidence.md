@@ -22,7 +22,7 @@ audience: humans_and_agents
 
 | ID | Observation | Source | Boundary |
 | --- | --- | --- | --- |
-| `OBS-01` | Current free function surface supports ordinary composition and restart reuse, but the live agent misread a callable signature and falsely claimed success. | [SRC-01](../R-001/evidence.md) | One task/model/run |
+| `OBS-01` | Current free function surface supports ordinary composition and same-process reload/reuse, but the live agent misread a callable signature and falsely claimed success. | [SRC-01](../R-001/evidence.md) | One task/model/run; no process restart or security isolation |
 | `OBS-02` | Current code generates a typed `ctx.fns` view, so generated typing and free composition are not mutually exclusive concepts. | [SRC-02](../../../src/genTypes.ts) | Does not show what the model actually sees or understands |
 | `OBS-03` | Mediated and broader generated alternatives have no comparable runtime fixture, correctness trace, authority measurement or migration measurement. | [SRC-03](https://github.com/dapi/hyper-code2/issues/14), [SRC-04](https://github.com/dapi/hyper-code2/issues/16) | Absence of evidence is not rejection |
 

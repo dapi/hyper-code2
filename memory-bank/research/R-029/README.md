@@ -9,4 +9,10 @@ audience: humans_and_agents
 ---
 # R-029: Network-to-Process Authority
 
-Lifecycle state and compact method are owned by [Research Brief](brief.md).
+Lifecycle state, decision question and boundaries are owned by the
+[Research Brief](brief.md). The approved read-only inventory and controlled-test
+method is owned by the [Research Plan](plan.md). The partial fixed-snapshot
+observations and their provenance are in the [Evidence Log](evidence.md); their
+provisional bounded interpretation is in the [Research Synthesis](synthesis.md).
+Complete route/control reconciliation and reviewer sign-off remain pending. No authority
+mechanism is selected.

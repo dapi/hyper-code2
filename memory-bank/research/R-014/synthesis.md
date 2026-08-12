@@ -26,6 +26,7 @@ audience: humans_and_agents
 
 ## Answer to Decision Question
 
-The evidence cannot yet identify a preferred capability surface. It supports a
-bounded comparative prototype and rejects immediate activation of #16. No global
+The evidence cannot identify a preferred capability surface. This desk pass is
+therefore terminal `inconclusive`: it supports framing a separate bounded
+runtime-comparison cycle and rejects immediate activation of #16. No global
 architecture decision or ADR is justified.

@@ -5,7 +5,7 @@ doc_function: canonical
 purpose: "Compare callable capability surfaces without preselecting mediation."
 derived_from: [../../flows/research.md, ../R-001/synthesis.md]
 status: active
-research_status: decision_ready
+research_status: inconclusive
 audience: humans_and_agents
 ---
 # R-014: Capability Surface Comparison
@@ -17,7 +17,7 @@ audience: humans_and_agents
 | Source / trigger | R-001 `FND-03`, GitHub #14 |
 | Research / decision owner | Danil Pismenny |
 | Research mode | `technical_discovery` |
-| Timebox | One fixed-fixture comparison before any #16 implementation |
+| Timebox | One bounded desk pass over current runtime evidence and candidate issue contracts, completed 2026-08-13 |
 
 ## Decision Question
 
@@ -39,12 +39,11 @@ audience: humans_and_agents
 
 ## Stopping Condition
 
-- `STOP-01` Stop after fixed fixtures provide comparable correctness, discovery,
-  prompt-surface, authority, migration and complexity evidence, or show the
-  comparison cannot yet be made fairly.
+- `STOP-01` Stop when available evidence can rank surfaces or establishes that
+  the comparison is asymmetric. The desk pass stopped on the latter condition.
 
 ## Open Questions
 
 | Question | Blocks | Owner | Resolution evidence |
 | --- | --- | --- | --- |
-| What is the minimum comparable prototype for each alternative? | Evidence collection | Danil Pismenny | Approved instrument version |
+| What is the minimum comparable prototype for each alternative? | Separate follow-up runtime research | Danil Pismenny | Newly framed research package and approved instrument |
