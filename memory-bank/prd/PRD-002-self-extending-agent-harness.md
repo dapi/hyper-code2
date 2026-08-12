@@ -332,17 +332,21 @@ scenarios. Новые `UC-005…007` остаются draft и становят�
 
 ### Candidate Delivery Units
 
-Delivery packages и issue IDs пока не созданы. После routing ожидаются отдельные
-units как минимум для:
+Current delivery orchestration is owned by
+[EP-001](../epics/EP-001/README.md) and
+[GitHub epic #24](https://github.com/dapi/hyper-code2/issues/24). It routes
+separate units for:
 
 - central self-extension/reuse scenario;
-- reflection и bounded sleep;
-- context consolidation;
-- immutable fork inheritance и complete delegation return;
+- immutable fork inheritance and transcript identity;
 - закрытие текущего unauthenticated network-to-process-authority gap без
   предрешения механизма;
-- обеспечение secret non-transit contract без предрешения механизма;
-- bounded specialized surface for domain practitioners.
+- обеспечение secret non-transit contract без предрешения механизма.
+
+Reflection and bounded sleep, context consolidation, complete delegation return,
+and a bounded specialized surface for domain practitioners remain candidate
+future initiatives. PRD-002 keeps them as goals or gaps, but EP-001 does not route
+their delivery.
 
 ## Evidence And Confidence Boundary
 

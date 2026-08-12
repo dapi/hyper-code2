@@ -17,11 +17,15 @@ canonical_for:
 
 # Product Roadmap
 
-No approved product roadmap or planning owner was found.
+No project-wide product roadmap or planning owner is approved.
+
+The active initiative roadmap for reusable self-extension is owned by
+[`EP-001`](../epics/EP-001/roadmap.md). It governs that initiative only and does
+not create project-wide `now/next/later` commitments.
 
 - `TODO.md` is an engineering-risk list, not a committed product roadmap.
 - `docs/reflection.md` is explicitly a design that is not implemented.
 - Git branches and commit messages are historical delivery evidence, not roadmap authority.
 
-Any future horizon or bet requires a named decision owner and evidence. Until
-then, this file intentionally contains no invented `now/next/later` plan.
+Any additional horizon or bet requires a named decision owner and evidence.
+This file intentionally contains no invented project-wide `now/next/later` plan.

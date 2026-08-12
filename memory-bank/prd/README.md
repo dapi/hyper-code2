@@ -58,7 +58,8 @@ PRD нужен, когда задача живет на уровне проду�
 - [`PRD-002-self-extending-agent-harness.md`](PRD-002-self-extending-agent-harness.md) —
   accepted experimental initiative with a source-backed premise, owner-decided
   scope, target rules, validation directions, implementation gaps, and
-  downstream use cases for a self-extending agent harness.
+  downstream use cases for a self-extending agent harness; delivery orchestration
+  is indexed by [`EP-001`](../epics/EP-001/README.md).
 
 ## Template
 
