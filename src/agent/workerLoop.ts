@@ -12,6 +12,8 @@
 //
 // State on the agents row:
 //   next_run_at + run_state + last_processed_msg_idx (cursor over USER msgs)
+// Canonical lifecycle invariants: memory-bank/domain/rules.md and memory-bank/domain/states.md
+// Engineering realization: memory-bank/engineering/architecture.md
 const MAX_IDLE_MS = 30_000;
 
 function isAbortError(error: any) {

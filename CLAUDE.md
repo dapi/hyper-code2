@@ -1,11 +1,18 @@
 ---
-description: hyper-code2 — procedural Bun codebase with a self-extending agent at `/`.
+description: hyper-code2 — procedural Bun codebase with durable multi-agent sessions and a self-extending marker runtime.
 alwaysApply: true
 ---
 
 # hyper-code2
 
-Procedural TypeScript on Bun. Functions + data + REPL. Inspired by [proc-ts](../proc-ts). One tiny HTTP server, one agent at `/` driven by `evalCode` only, all code hot-reloadable.
+Procedural TypeScript on Bun. Functions + durable data + REPL. Inspired by
+[proc-ts](../proc-ts). One HTTP server hosts multiple persisted agents driven by
+the plain-text marker protocol; procedural functions and routes are hot-reloadable.
+
+Durable intent, terminology, invariants, use cases, and engineering/operations
+contracts live in [`memory-bank/README.md`](memory-bank/README.md). This file is
+an execution-oriented projection and operational cheat sheet. Current code owns
+exact implementation; synchronize this projection after canonical changes.
 
 ## Runtime environment
 

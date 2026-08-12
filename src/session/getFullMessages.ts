@@ -1,3 +1,5 @@
+// Fork inheritance contract: memory-bank/domain/rules.md and
+// memory-bank/use-cases/UC-003-fork-and-delegate.md
 export default function (
     ctx: Context,
     opts: { id: string; includeExcluded?: boolean },

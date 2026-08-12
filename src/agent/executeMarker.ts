@@ -1,4 +1,6 @@
 // Execute a single marker call from an LLM turn and persist the result.
+// Protocol and pairing contract: memory-bank/engineering/agent-protocol.md
+// Effective execution authority: memory-bank/engineering/security-boundary.md
 export default async function (
     ctx: Context,
     opts: { agent: types.agent.Agent; call: types.agent.MarkerCall; usage?: any },

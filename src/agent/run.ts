@@ -6,6 +6,7 @@
 //
 // All the per-marker mechanics live in ctx.fns.agent.executeMarker. This
 // file is intentionally small — orchestration only.
+// Canonical protocol contract: memory-bank/engineering/agent-protocol.md
 export default async function (
     ctx: Context,
     opts: { agent: types.agent.Agent; userText: string; userMessageAlreadyAppended?: boolean },
