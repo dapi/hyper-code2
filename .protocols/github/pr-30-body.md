@@ -43,7 +43,7 @@ mechanisms.
 
 - `bunx tsc --noEmit`
 - `bun test --timeout 5000` — 408 passed, 3 skipped, 0 failed
-- `bun test .protocols/experiments/r018-sentinel.test.ts` — 42 passed
+- `bun test ./.protocols/experiments/r018-sentinel.test.ts` — 11 passed
 - deterministic R-029 static/mock replay — passed
 - all checked-in evidence-carrier checksums — passed
 - `memory-bank-cli lint` — passed
