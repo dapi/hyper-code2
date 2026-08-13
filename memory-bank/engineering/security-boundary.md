@@ -62,6 +62,28 @@ This document does not select the mechanism: binding scope, authentication,
 authorization, route separation, and isolation remain design alternatives.
 This does not imply an adversarial sandbox; sandboxing is a different concern.
 
+## Target Caller-Authority Contract
+
+[R-032](../research/R-032/decision.md) accepts the following mechanism-neutral
+requirements. They are target behavior, not current implementation:
+
+- reachability, caller authority and residual process authority are separate
+  contract dimensions;
+- unauthorized immediate work is denied before an authority root;
+- deferred work carries authority bound to its initiating work unit rather than
+  inheriting ambient agent authority;
+- authority is revalidated at use time for scope, expiry, revocation, replay and
+  generation freshness;
+- mixed-principal queued work remains separable;
+- verifier, policy and broker failures fail closed;
+- authority-bearing values do not enter LLM-visible input or durable
+  action-result context.
+
+The target contract does not select bind scope, Unix sockets, authentication,
+capabilities, route separation, process separation or a layered realization.
+Dynamic-route inheritance, concrete reachability, client lifecycle and process
+isolation remain downstream decision obligations for the mechanism proposed.
+
 Secret non-transit is a target contract, not current system behavior. Secret
 values must not enter LLM-visible input or action-result context. A bounded
 validated sample below demonstrates current non-conformance; completeness and

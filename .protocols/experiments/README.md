@@ -303,7 +303,9 @@ late/unclassified/overlay policy, G4 reachability/residual-process authority and
 G6 real browser/direct-CLI lifecycle evidence remain open. Rejected V6 freeze
 `0487736d…`, V6.1 freeze `56629e9a…`, rejected whole freeze `2fa0d1ad…` and
 rejected corrected freeze `fa0c2979…` remain method history only. R-032 remains
-`collecting`; no synthesis, recommendation, mechanism selection or ADR follows.
+terminal `inconclusive` for mechanism selection after an FPF scoped-claim
+review. Its target-contract requirements are promoted separately; no mechanism,
+ADR or delivery follows.
 
 ## R-033 secret-mechanism disposable comparison
 

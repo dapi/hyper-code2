@@ -25,8 +25,13 @@ The current lifecycle state exists only in `research_status` in the
   safety controls, evidence thresholds and approval record.
 - [Evidence Log](evidence.md) — owns reviewed bounded observations and provenance.
   The accepted bounded V6.3 carrier adds the full 9 × 16 disposable runtime-path
-  wave, but candidate-specific results and preserved fidelity limits still block
-  whole-plan synthesis.
+  wave.
+- [Synthesis](synthesis.md) — applies the FPF typed-claim, scope and weakest-link
+  discipline: target-contract requirements are supported while mechanism
+  selection remains unsupported.
+- [Decision](decision.md) — records the terminal `inconclusive` disposition for
+  mechanism selection, promotes the accepted contract direction and routes only
+  demand-triggered successor questions.
 - [Accepted bounded V6.3 carrier](../../../.protocols/experiments/runs/R-032/V6.3/manifest.json)
   — 144 validated rows at HEAD `a4473e0`, exact freeze `299336b0…`, separate
   contained broker receipts for CAN-06/COM-03 and governed S0-S8 controls. Review

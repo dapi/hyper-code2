@@ -68,8 +68,9 @@ and preserve an observable rollback path.
 - The accepted scope is evidence integration for bounded G1/G2/G5/G7
   implications. G3 late/unclassified/overlay coverage, G4 empirical
   reachability/residual-process authority and G6 real browser/direct-CLI
-  lifecycle evidence remain open. `R-032` stays `collecting`; this wave creates
-  no synthesis, recommendation, mechanism selection, ADR or delivery authority.
+  lifecycle evidence remain open. A later FPF decision concludes `R-032` as
+  terminal `inconclusive` for mechanism selection while promoting only its
+  mechanism-neutral target contract. No ADR or delivery authority follows.
 - Rejected V6/V6.1 freezes and V6.2 WIP remain preserved method history. They do
   not inherit the V6.3 review and cannot authorize collection or conclusions.
 

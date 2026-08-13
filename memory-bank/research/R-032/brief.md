@@ -8,7 +8,7 @@ derived_from:
   - ../R-029/decision.md
   - ../../engineering/security-boundary.md
 status: active
-research_status: collecting
+research_status: inconclusive
 audience: humans_and_agents
 ---
 
@@ -48,13 +48,12 @@ by the [Research Plan](plan.md). This brief does not select a mechanism.
 
 ## Current Lifecycle Note
 
-The independently accepted bounded V6.3 carrier completes one substantial
-collection wave against the frozen 9 × 16 runtime matrix. It does not satisfy
-the full plan stopping condition: late/unclassified/overlay coverage, empirical
-reachability/residual-process separation, and browser/direct-CLI lifecycle
-evidence remain outside or below the required fidelity. `research_status`
-therefore remains `collecting`; no synthesis, recommendation, ADR or mechanism
-selection is authorized by this wave.
+The decision owner concluded the combined question as `inconclusive` after an
+FPF claim-and-scope review. The accepted V6.3 evidence is sufficient to promote
+mechanism-neutral caller-authority and deferred-revalidation requirements, but
+insufficient to select a transport/process mechanism. G3/G4/G6 are routed only
+when a concrete architecture, deployment or client-surface decision requires
+them; R-032 does not continue as an open-ended collection programme.
 
 ## Scope
 

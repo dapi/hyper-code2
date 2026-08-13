@@ -77,7 +77,9 @@ mechanisms.
 - no security, capability-surface or persistence mechanism is selected;
 - TUI remains a supporting option, while multi-user/team workflow stays future
   scope;
-- R-032/R-034 remain `collecting`; R-033 has only a partial owner disposition.
+- R-032 is terminal `inconclusive` for mechanism selection after an FPF
+  scoped-claim review; its mechanism-neutral target contract is promoted.
+  R-034 remains `collecting`, and R-033 has only a partial owner disposition.
   Live/model runs and architecture/delivery handoffs remain separately gated.
 
 ## Validation
