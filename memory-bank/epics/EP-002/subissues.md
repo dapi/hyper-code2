@@ -20,8 +20,8 @@ must_not_define:
 | --- | --- | --- | --- | --- | --- |
 | `EP-SI-01` | Define the truthful SelfDescriptor contract | `W1A` | PRD-002 `G-10`, `BR-08`, `VAL-09`; UC-008 | validated | [R-035](../../research/R-035/README.md); owner accepted recommendations |
 | `EP-SI-02` | Define surface-aware self-change activation and rollback contracts | `W1B` | PRD-002 `BR-09`, `OQ-09`; UC-008 | validated | [R-036](../../research/R-036/README.md); owner accepted recommendations |
-| `EP-SI-03` | Deliver a read-only current agent self-model | `W2` | outcome of `EP-SI-01`; UC-008 steps 1–2 | accepted delivery outcome; issue pending | Feature Flow after linked GitHub issue; #35 is a separately routed prerequisite |
-| `EP-SI-04` | Deliver an inspectable self-model surface | `W2` | outcome of `EP-SI-01`; UC-008 observable status | candidate; may merge with `EP-SI-03` if one delivery unit remains coherent | Feature Flow after design boundary is known |
+| `EP-SI-03` | Deliver a read-only current agent self-model | `W2` | outcome of `EP-SI-01`; UC-008 steps 1–2 | delivered | [FT-036](../../features/FT-036/README.md), issue #36 and PR #37; #35 was a separately routed prerequisite |
+| `EP-SI-04` | Deliver an inspectable self-model surface | `W2` | outcome of `EP-SI-01`; UC-008 observable status | delivered as JSON API within FT-036; visual UI remains non-scope | [FT-036](../../features/FT-036/README.md) |
 | `EP-SI-05` | Persist self-change proposals and state transitions | `W3` | outcome of `EP-SI-02`; UC-008 steps 4–5 | candidate | Feature Flow after `HG-03` |
 | `EP-SI-06` | Activate and roll back bounded `.hyper/` changes | `W3` | outcomes of `EP-SI-02/03/05`; UC-008 steps 6–9 | blocked candidate | Feature Flow after `HG-04`; security and recovery gates required |
 | `EP-SI-07` | Govern shipped-core and base-prompt self-change | `W4` | outcome of `EP-SI-02`; UC-008 `BR-04` | blocked candidate | Separate Feature Flow; ADR and explicit human approval when triggered |

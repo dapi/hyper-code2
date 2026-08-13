@@ -35,7 +35,7 @@ must_not_define:
 | `W0` | completed | PRD-002 amendment, source capture, active UC-008, EP-002 direct bootstrap and owner authorization exist |
 | `W1A` | completed: validated | [R-035](../../research/R-035/README.md) accepted a compact grounded descriptor contract; exact mechanism remains downstream design |
 | `W1B` | completed: validated | [R-036](../../research/R-036/README.md) accepted surface-aware policy and versioned overlay recovery direction; mutation delivery remains separately gated |
-| `W2` | pending | Requires accepted W1A contract, its own Feature Flow package, and verified closure of separately routed prerequisite [#35](https://github.com/dapi/hyper-code2/issues/35) |
+| `W2` | completed | [FT-036](../../features/FT-036/README.md) delivered read-only `self.describe` and loopback JSON API in PR #37; separately routed [#35](https://github.com/dapi/hyper-code2/issues/35) is implemented there with regression evidence |
 | `W3` | blocked | Requires W1B acceptance and verified W2 behavior |
 | `W4` | blocked | Requires evidence from W3 and explicit architecture/approval decisions |
 | `W5` | blocked | Requires bounded proposal path and separate reflection activation review |

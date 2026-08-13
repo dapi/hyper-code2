@@ -35,7 +35,7 @@ and preserve an observable rollback path.
 | `SE-03` | Bootstrap EP-002 and make its roadmap ready | `completed` | Epic Roadmap Ready gate |
 | `SE-04` | Resolve the SelfDescriptor contract | `completed` | R-035 validated by owner; ADR trigger retained |
 | `SE-05` | Resolve activation, verification, and rollback contracts | `completed` | R-036 validated by owner; mutation delivery remains separately gated |
-| `SE-06` | Deliver the read-only self-model slice | `in_progress` | Routed feature, validation profile, verified runtime behavior; #35 is a separate prerequisite |
+| `SE-06` | Deliver the read-only self-model slice | `completed` | FT-036 delivered in PR #37 with green CI; #35 remained separately routed |
 | `SE-07` | Deliver bounded `.hyper/` self-change | `pending` | Activation/rollback contract accepted and security gates satisfied |
 | `SE-08` | Deliver reflection-to-candidate flow | `pending` | Manual promotion, budget, provenance, regression, and kill-switch policy accepted |
 
@@ -64,4 +64,4 @@ and preserve an observable rollback path.
 - [x] `memory-bank-cli lint` passes.
 - [x] `memory-bank-cli doctor` has no errors.
 - [x] `git diff --check` passes.
-- [ ] Runtime delivery, when started, passes its selected validation profile.
+- [x] Read-only runtime delivery FT-036 passes its selected validation profile; later mutation deliveries remain separately gated.
