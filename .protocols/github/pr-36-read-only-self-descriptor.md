@@ -22,7 +22,7 @@ Source: https://t.me/c/1951583351/97428
 - excludes prompt, environment, credential, session, scratchpad, database and
   arbitrary state values, with a sentinel non-transit regression;
 - adds loopback-only `GET /self`; non-loopback peers receive 403 before the
-  descriptor is evaluated.
+  descriptor is evaluated, and successful responses use `Cache-Control: no-store`.
 
 ## Validation
 
@@ -34,6 +34,7 @@ Source: https://t.me/c/1951583351/97428
 - `memory-bank-cli lint`: pass
 - `memory-bank-cli doctor -json`: 0 errors, 39 existing navigation-depth warnings
 - `git diff --check`: pass
+- implementation review: clean after adding the missing no-store response contract
 
 ## Tracking
 

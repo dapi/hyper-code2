@@ -99,7 +99,7 @@ flowchart LR
 
 | Contract ID | Connector / direction | Roles and sync boundary | Guarantees / failure / evolution semantics |
 | --- | --- | --- | --- |
-| `CTR-01` | Function call or HTTP GET -> descriptor builder | Caller/route to `self.describe`; async request/response | JSON-safe schema v1; additive fields allowed within v1; absent evidence is `unavailable`; HTTP requires server-observed loopback peer or returns 403; failures propagate as existing route errors. |
+| `CTR-01` | Function call or HTTP GET -> descriptor builder | Caller/route to `self.describe`; async request/response | JSON-safe schema v1; additive fields allowed within v1; absent evidence is `unavailable`; HTTP requires server-observed loopback peer or returns 403 and successful responses use `Cache-Control: no-store`; failures propagate as existing route errors. |
 
 ## Invariants
 

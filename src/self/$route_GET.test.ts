@@ -8,7 +8,10 @@ describe('GET /self', () => {
             state: { server: { server: { requestIP: () => ({ address: '127.0.0.1' }) } } },
             fns: { self: { describe: (async () => descriptor) as any } },
         } as unknown as Context;
-        expect(await route(ctx, null, new Request('http://localhost/self'))).toBe(descriptor);
+        const result = await route(ctx, null, new Request('http://localhost/self'));
+        expect(result).toBeInstanceOf(Response);
+        expect((result as Response).headers.get('cache-control')).toBe('no-store');
+        expect(await (result as Response).json()).toEqual(descriptor);
     });
 
     test('denies non-loopback callers without invoking the descriptor', async () => {
