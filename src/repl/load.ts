@@ -35,7 +35,10 @@ export default async function (ctx: Context, opts: { name: string }) {
 
 async function loadFile(ctx: Context, modPath: string, fnName: string) {
     const candidates = [modPath + '/' + fnName + '.ts', modPath + '/$' + fnName + '.ts'];
-    for (const root of await roots(ctx)) {
+    // Match startup resolution: project roots are ordered from base to overlay,
+    // and the later root wins when both define the same registered function.
+    // Search in reverse because this targeted loader returns on the first match.
+    for (const root of [...await roots(ctx)].reverse()) {
         for (const rel of candidates) {
             const abs = root.dir + '/' + rel;
             if (!(await Bun.file(abs).exists())) continue;

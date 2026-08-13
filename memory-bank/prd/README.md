@@ -59,7 +59,10 @@ PRD нужен, когда задача живет на уровне проду�
   accepted experimental initiative with a source-backed premise, owner-decided
   scope, target rules, validation directions, implementation gaps, and
   downstream use cases for a self-extending agent harness; delivery orchestration
-  is indexed by [`EP-001`](../epics/EP-001/README.md).
+  is split between [`EP-001`](../epics/EP-001/README.md) for reusable
+  self-extension evidence/security successors and
+  [`EP-002`](../epics/EP-002/README.md) for inspectable and bounded
+  self-evolution.
 
 ## Template
 
