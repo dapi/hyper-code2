@@ -24,8 +24,10 @@ audience: humans_and_agents
 - Если работа требует roadmap, risk register и нескольких delivery subissues, сначала создай или обнови epic package в [`../epics/README.md`](../epics/README.md).
 - По умолчанию feature ссылается на общий product context из [`../product/context.md`](../product/context.md), а при изменении предметных правил также на соответствующие документы из [`../domain/README.md`](../domain/README.md).
 - Если feature реализует или существенно меняет устойчивый сценарий проекта, она должна ссылаться на соответствующий `UC-*` из [`../use-cases/README.md`](../use-cases/README.md).
-- В hyper-code2 пока нет instantiated feature packages. Создавай первый package
-  только когда конкретная delivery-задача пройдет Task Routing в Feature Flow.
+
+## Active Packages
+
+- [`FT-036`](FT-036/README.md) — read-only truthful SelfDescriptor and JSON surface.
 
 ## Naming
 

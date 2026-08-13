@@ -40,10 +40,14 @@ Use case нужен для сценария, который живет на ур
 сделай title относительной ссылкой на `UC-*` и кратко опиши наблюдаемый результат
 сценария, а не только повтори название.
 
-Active `PRD-002` является product upstream для `UC-001…007`. `UC-001…004`
+Active `PRD-002` является product upstream для `UC-001…008`. `UC-001…004`
 владеют active supporting scenarios. Новые initiative-specific `UC-005…007`
 остаются draft до прохождения собственного Activation Gate; active PRD не
 означает, что эти сценарии уже приняты или реализованы.
+
+`UC-008` активирован решением владельца 2026-08-13 как требуемый сценарий
+inspectable and bounded self-evolution. Его active status не является заявлением
+о готовой runtime-реализации.
 
 | UC ID | Title | Annotation | Status | Primary actor | Upstream PRD | Implemented by | Last updated |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -54,6 +58,7 @@ Active `PRD-002` является product upstream для `UC-001…007`. `UC-00
 | [`UC-005`](UC-005-extend-and-reuse-capability.md) | Extend and reuse an agent capability | Useful work can become an inspectable callable capability available to later work | `draft` | Developer/operator or harness builder | [`PRD-002`](../prd/PRD-002-self-extending-agent-harness.md) | partial primitives; no end-to-end scenario | 2026-08-13 |
 | [`UC-006`](UC-006-reflect-on-agent-work.md) | Reflect on agent work | Bounded reflection produces an inspectable, reviewable result without hidden self-modification | `draft` | Operator or harness builder | [`PRD-002`](../prd/PRD-002-self-extending-agent-harness.md) | design direction only | 2026-08-13 |
 | [`UC-007`](UC-007-consolidate-context.md) | Consolidate a long-running context | Operator may explicitly continue from a provenance-linked successor while source history remains intact | `draft` | Agent operator | [`PRD-002`](../prd/PRD-002-self-extending-agent-harness.md) | no verified scenario | 2026-08-13 |
+| [`UC-008`](UC-008-inspect-and-evolve-agent.md) | Inspect and evolve the agent | Agent grounds a current self-description and performs only authorized, verified, observable, reversible self-change | `active` | Trusted coding agent with operator/developer | [`PRD-002`](../prd/PRD-002-self-extending-agent-harness.md) | existing primitives only; unified scenario not implemented | 2026-08-13 |
 
 ## Naming
 

@@ -42,6 +42,7 @@ boundary.
 - [`UC-002`](../use-cases/UC-002-execute-agent-action.md) — execute a marker action and return its result to the conversation.
 - [`UC-003`](../use-cases/UC-003-fork-and-delegate.md) — branch context or delegate bounded work to another agent.
 - [`UC-004`](../use-cases/UC-004-hot-reload-capability.md) — add or replace a procedural capability without losing session state.
+- [`UC-008`](../use-cases/UC-008-inspect-and-evolve-agent.md) — inspect the current agent implementation and perform only policy-bounded, observable, reversible self-change.
 
 ## Top-Level Outcomes
 

@@ -32,6 +32,6 @@ bun install --frozen-lockfile
 cat <<'EOF'
 hyper-code2 dependencies are installed.
 
-Start the server with: bun src/$main.ts
+Start the server with: bun src/\$main.ts
 Run checks with:      bunx tsc --noEmit && bun test --timeout 5000
 EOF

@@ -119,6 +119,9 @@ declare global {
         load: typeof import("./repl/load").default;
         start: typeof import("./repl/$start").default;
         };
+        self: {
+        describe: typeof import("./self/describe").default;
+        };
         session: {
         appendAssistantEvent: typeof import("./session/appendAssistantEvent").default;
         appendAssistantMessage: typeof import("./session/appendAssistantMessage").default;
@@ -215,6 +218,9 @@ declare global {
         }
         namespace git {
             type Result = import("./git/$type_Result").Result;
+        }
+        namespace self {
+            type SelfDescriptor = import("./self/$type_SelfDescriptor").SelfDescriptor;
         }
         namespace tools {
             type DiceOpts = import("./tools/$type_DiceOpts").DiceOpts;

@@ -44,6 +44,9 @@ must_not_define:
 - значения секретов не должны проходить через LLM;
 - кроме developer/operator инициатива рассматривает harness builders и domain
   practitioners как целевые, но пока не подтверждённые рынком роли.
+- follow-up requirement Николая о явном «самоосознании» принято как требование
+  к инспектируемой модели собственной реализации агента и bounded self-change,
+  а не как утверждение о сознании модели.
 
 ## Acceptance
 
@@ -53,7 +56,7 @@ product hypothesis, users, goals, non-goals, scope, product rules и описа�
 risk/validation posture. Оно не означает, что рыночный спрос, сравнительное
 преимущество или заявленные outcomes уже подтверждены.
 
-`VAL-01…VAL-08` достаточны как направления проверки для активации PRD. Baseline,
+`VAL-01…VAL-09` достаточны как направления проверки для активации PRD. Baseline,
 порог успеха, measurement method и measurement owner должны быть зафиксированы
 до начала соответствующего эксперимента или delivery unit; они не выдумываются
 в этом PRD при отсутствии evidence.
@@ -69,6 +72,14 @@ risk/validation posture. Оно не означает, что рыночный �
 процедурной памятью. Вместо обязательной упаковки каждой capability в отдельный
 tool или CLI-обёртку агент получает возможность работать с обычными функциями и
 компоновать их средствами полноценного языка.
+
+В follow-up комментарии Николай предложил сделать самоосознание явным:
+«я бы добавил еще самоосознание более явно - те агент знает как он написан и
+может себя менять ;)». [Исходное сообщение в Telegram](https://t.me/c/1951583351/97428)
+и [локальный source capture](../product/sources/2026-08-13-niquola-self-awareness-comment.txt)
+сохраняют исходную формулировку. В этом PRD она интерпретируется как проверяемое
+знание агентом своей текущей реализации и управляемая способность изменять
+разрешённые части среды.
 
 ## Product Hypothesis
 
@@ -150,6 +161,10 @@ practitioner не должен неявно получать raw `eval`, shell �
 - `G-09` Длительная сессия может породить проверяемый консолидированный
   successor context без удаления исходной истории и без неявного переключения
   пользователя.
+- `G-10` Агент может получить актуальную, source-grounded модель собственной
+  реализации, состояния, capabilities, effective overrides и authority
+  boundaries, а разрешённое self-change выполнить как наблюдаемое, проверяемое
+  и обратимое изменение.
 
 ## Non-Goals
 
@@ -186,6 +201,11 @@ practitioner не должен неявно получать raw `eval`, shell �
 - сборка специализированных процессных и предметных харнессов поверх общей
   среды;
 - secret-handling contract, при котором значения секретов не проходят через LLM.
+- runtime-derived self-description с provenance к текущему коду и effective
+  runtime composition;
+- bounded self-change с явными proposal, verification, approval, activation,
+  observation и rollback outcomes без обязательного единственного внутреннего
+  механизма для всех change surfaces.
 
 ### Interaction-Surface Boundary
 
@@ -258,6 +278,14 @@ context-consolidation scenario.
   результат и не выполняют скрытую неограниченную модификацию среды.
 - `BR-07` Context consolidation сохраняет исходную историю, показывает
   полученный successor context и не переключает пользователя неявно.
+- `BR-08` Внутреннее представление LLM о себе не является evidence текущей
+  реализации. Self-description заземляется в runtime introspection, current
+  source и durable records, называет provenance и различает known, inferred и
+  unavailable facts.
+- `BR-09` Self-change является явным, attributable, наблюдаемым, проверяемым и
+  обратимым изменением. Требуемое подтверждение зависит от change surface;
+  reflection или внешний контент не могут молча активировать code, prompt,
+  policy или durable behavioral change.
 
 ## Success Metrics And Validation Plan
 
@@ -282,6 +310,7 @@ verify → reuse`. Она была синтезом предыдущей ред�
 | `VAL-06` | Даёт ли reflection или bounded sleep инспектируемый и полезный результат? | Design exists; runtime behavior не подтверждено | Review результата, trigger policy, затрат и влияния на следующую работу |
 | `VAL-07` | Создаётся ли usable successor context без потери source history и неявного переключения? | Не реализовано как подтверждённый scenario | Сравнить source и successor context, проверить provenance и explicit switch |
 | `VAL-08` | Не попадают ли secret values в model input или action-result context? | Гарантия отсутствует | Проверка model-visible inputs и results с контролируемым sentinel value |
+| `VAL-09` | Может ли агент корректно описать затрагиваемую часть собственной реализации, предложить bounded change, пройти применимые approval/verification gates и восстановить прежнее поведение после неуспешной активации? | Raw runtime introspection, file writes и hot reload существуют; unified self-model, change ledger и rollback contract отсутствуют | Проверить provenance и freshness self-description, denied/approval paths, activation trace, live behavior, session preservation и rollback на контролируемых изменениях |
 
 ## Risks And Open Questions
 
@@ -298,6 +327,9 @@ verify → reuse`. Она была синтезом предыдущей ред�
   developer-operated харнесса; specialized surface нуждается в отдельной границе.
 - `RISK-06` Reflection и consolidation без bounded policy и review могут
   накапливать ошибочные правила или терять существенный контекст.
+- `RISK-07` Self-change без независимого source grounding, approval classes и
+  rollback может закрепить ошибочное или prompt-injected поведение либо сломать
+  механизм собственного восстановления.
 - `OQ-01` По каким сигналам task-specific code следует сохранять как функцию и
   какой уровень пользовательского подтверждения нужен?
 - `OQ-02` Как сводить несколько веток и разрешать конфликтующие результаты?
@@ -309,6 +341,11 @@ verify → reuse`. Она была синтезом предыдущей ред�
 - `OQ-06` Какие triggers, budgets, retention и review policy допустимы для
   reflection, sleep и context consolidation?
 - `OQ-07` Какая bounded interaction и authority model нужна domain practitioner?
+- `OQ-08` Какие компоненты входят в canonical self-model и как доказываются их
+  freshness, provenance и effective override?
+- `OQ-09` Какие approval, isolation, atomic activation и rollback contracts
+  применяются к runtime overlay, shipped core, base prompt, migrations и
+  security-sensitive surfaces?
 
 ## Downstream Use Cases And Delivery
 
@@ -316,9 +353,9 @@ verify → reuse`. Она была синтезом предыдущей ред�
 
 Этот PRD является прямым product upstream для всех project-level use cases
 инициативы. `UC-001…004` остаются active contracts существующих supporting
-scenarios. Новые `UC-005…007` остаются draft и становятся authoritative только
-после прохождения собственного Activation Gate; статус PRD не является
-подтверждением их реализации.
+scenarios. `UC-005…007` остаются draft до собственного Activation Gate.
+Owner-accepted `UC-008` является active требуемым сценарием, но его active status
+не означает, что unified self-model или bounded self-change уже реализованы.
 
 | Use case | Role in initiative | Status | Implementation evidence |
 | --- | --- | --- | --- |
@@ -329,6 +366,7 @@ scenarios. Новые `UC-005…007` остаются draft и становят�
 | [`UC-005`](../use-cases/UC-005-extend-and-reuse-capability.md) | Central capability extension and later reuse | draft | No complete end-to-end evidence |
 | [`UC-006`](../use-cases/UC-006-reflect-on-agent-work.md) | Bounded reflection over agent work | draft | Design direction only |
 | [`UC-007`](../use-cases/UC-007-consolidate-context.md) | Bounded sleep and successor context | draft | Design direction only |
+| [`UC-008`](../use-cases/UC-008-inspect-and-evolve-agent.md) | Inspect current agent implementation and perform policy-bounded self-change | active | Existing primitives only; unified scenario not implemented |
 
 ### Candidate Delivery Units
 
@@ -347,6 +385,10 @@ Reflection and bounded sleep, context consolidation, complete delegation return,
 and a bounded specialized surface for domain practitioners remain candidate
 future initiatives. PRD-002 keeps them as goals or gaps, but EP-001 does not route
 their delivery.
+
+Inspectable self-model, bounded self-change and reflection-to-candidate delivery
+are separately orchestrated by [EP-002](../epics/EP-002/README.md). EP-002 does
+not reopen EP-001 evidence or silently absorb its security work.
 
 ## Evidence And Confidence Boundary
 
@@ -373,6 +415,11 @@ reflection/sleep/context experiments (48:32–53:57, 01:22:56–01:24:48), forks
 продолжение (59:51–01:03:00), domain harness examples (01:11:32–01:14:44) и
 намерение не пропускать secret values через LLM (01:04:23–01:05:24).
 
+[Follow-up Telegram-комментарий Николая](https://t.me/c/1951583351/97428)
+добавляет исходное требование сделать явным, что агент знает, как он написан, и
+может себя менять. [Source capture](../product/sources/2026-08-13-niquola-self-awareness-comment.txt)
+сохраняет точную формулировку; owner-accepted interpretation принадлежит этому PRD.
+
 Транскрипт подтверждает, что тезисы были сформулированы и механизмы
 демонстрировались. Он не доказывает performance, claimed implementation time,
 security guarantee, масштабирование discovery или customer demand.
@@ -385,5 +432,9 @@ security guarantee, масштабирование discovery или customer dem
 - runtime introspection и поиск масштабируются до практически полезного размера;
 - builder и domain-practitioner roles соответствуют реальному рынку;
 - reflection и consolidation дают устойчивую пользу без деградации контекста;
+- runtime-derived self-model остаётся корректным при reload, overrides и росте
+  capability library;
+- bounded self-change можно безопасно активировать и откатывать без потери
+  durable work;
 - product rules дают правильный баланс автономии, контроля,
   безопасности и стоимости сопровождения.

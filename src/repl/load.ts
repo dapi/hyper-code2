@@ -35,7 +35,10 @@ export default async function (ctx: Context, opts: { name: string }) {
 
 async function loadFile(ctx: Context, modPath: string, fnName: string) {
     const candidates = [modPath + '/' + fnName + '.ts', modPath + '/$' + fnName + '.ts'];
-    for (const root of await roots(ctx)) {
+    // Match startup resolution: project roots are ordered from base to overlay,
+    // and the later root wins when both define the same registered function.
+    // Search in reverse because this targeted loader returns on the first match.
+    for (const root of [...await roots(ctx)].reverse()) {
         for (const rel of candidates) {
             const abs = root.dir + '/' + rel;
             if (!(await Bun.file(abs).exists())) continue;
@@ -50,9 +53,30 @@ async function loadFile(ctx: Context, modPath: string, fnName: string) {
             }
             tgt[fnName] = fn;
             const label = root.name;
+            await recordSource(ctx, [...segs, fnName].join('.'), label, rel, abs);
             console.log(`[reload] ctx.fns.${segs.join('.')}.${fnName}  ←  ${label}/${rel}`);
             return;
         }
     }
     throw new Error(`no file for ${modPath}/${fnName}`);
+}
+
+async function recordSource(ctx: Context, name: string, root: string, rel: string, abs: string) {
+    const state = ((ctx as any).state ??= {});
+    const registry = (state.functionSources ??= {});
+    const generation = (state.functionSourceGeneration ?? 0) + 1;
+    state.functionSourceGeneration = generation;
+    registry[name] = {
+        name,
+        root,
+        rel,
+        loadedHash: await sha256(abs),
+        loadedAt: new Date().toISOString(),
+        generation,
+    };
+}
+
+async function sha256(path: string) {
+    const digest = await crypto.subtle.digest('SHA-256', await Bun.file(path).arrayBuffer());
+    return [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, '0')).join('');
 }
