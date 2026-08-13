@@ -1,7 +1,7 @@
 # R-032 V6.2 clean additive author package — WIP
 
 Status: `WIP / collectionUnauthorized`. This package is bound to source HEAD
-`7828ad9bb3f1d8084598f20cfa6738a628609cc5`, but it is deliberately not an
+`c4a617fce088ea5ad959e2664cab853533677ab8`, but it is deliberately not an
 exact ready freeze. No V6.2 collection may run and no earlier V6/V6.1 review can
 authorize it.
 
@@ -19,27 +19,40 @@ the eventual collector:
 - one exported semantic assertion suite that author tests and collection must
   both call before any carrier write.
 
-The package remains WIP because the following must still be implemented and
+The bounded infrastructure wave added a direct `.git`/worktree-ref outer gate
+without subprocesses, frozen-file hashing, minimal-env sandbox launcher,
+disposable HOME/TMPDIR, connect/listen/home/outside-write/Mach-exec probes,
+whole-child deadline/kill logic, stdout/stderr digests, and carrier builders for
+row hashes, controls, containment/provenance/manifest artifacts and
+`SHA256SUMS`. `buildCarrier` calls the same `assertSemanticResults` suite before
+constructing artifacts and the writer accepts only that built object.
+
+The package remains WIP because the following must still pass and be completed
 independently reviewed together before an exact freeze exists:
 
 - the real 37-entry `loadRoutes → match → captured fetch → POST → SQLite →
   workerLoop` collector wired to this semantic suite;
-- minimal-environment parent relaunch;
-- deny-default child profile with an exact readable allowlist;
-- disposable HOME/TMPDIR plus connect/listen/home/outside-write/Mach probes;
-- captured stdout/stderr digests and enforced whole-run deadline;
-- a no-spawn outer Git HEAD/index/worktree preflight before review/hash checks;
-- full carrier row hashes, `SHA256SUMS`, execution/containment digests, actual
-  environment receipts and cross-candidate controls.
+- minimal-environment parent relaunch of the complete collector, rather than
+  only its contained broker child;
+- a working deny-default Bun child readable allowlist. The current author
+  containment test exits `134` before emitting a receipt, so the profile is not
+  accepted and no freeze is honest;
+- no-spawn index/worktree cleanliness parsing beyond the implemented HEAD/ref
+  and frozen-file verification;
+- integration of the real 144-row runtime result set and cross-candidate
+  controls into the implemented carrier builder.
 
 Author-only check:
 
 ```bash
 bun .protocols/experiments/r032-v6_2/self-test.ts
+bun .protocols/experiments/r032-v6_2/infra-self-test.ts
 ```
 
-It runs in memory, writes no carrier, creates no temp directory, opens no
-listener/network connection and spawns no process.
+The semantic test passes in memory. The infrastructure test intentionally
+remains failing at the sandbox profile (`exit 134`); this is a visible STOP
+condition, not a waived gate. It creates only a disposable OS-temp directory,
+removes it in `finally`, and writes no evidence carrier.
 
 ## Future exact review gate
 

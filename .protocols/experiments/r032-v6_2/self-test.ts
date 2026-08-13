@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { HEAD, IDS, SINKS, assertSemanticResults, semanticFixture } from './semantic-contract';
 
-assert.equal(HEAD, '7828ad9bb3f1d8084598f20cfa6738a628609cc5');
+assert.equal(HEAD, 'c4a617fce088ea5ad959e2664cab853533677ab8');
 assert.equal(IDS.length, 9);
 assert.equal(SINKS.length, 8);
 const fixture = semanticFixture();
