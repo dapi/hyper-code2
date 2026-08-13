@@ -35,9 +35,9 @@ exist. Filling these gaps from model memory would be misleading.
 
 ### Scope
 
-- `REQ-01` Expose a versioned descriptor through `ctx.fns.self.describe` and a loopback-only read-only JSON HTTP route.
-- `REQ-02` Report registered function candidates and the effective source actually loaded by startup or hot reload, with provenance and freshness.
-- `REQ-03` Report prompt-layer identities, state categories and authority categories without returning their content or values.
+- `REQ-01` Expose a versioned descriptor through `ctx.fns.self.describe` and a loopback-only read-only JSON HTTP route; loopback includes IPv6 `::1` and the complete IPv4 `127.0.0.0/8` range.
+- `REQ-02` Report registered function candidates and the effective source actually loaded by startup or hot reload, with provenance and freshness, only while the receipt's loaded-function identity still matches the live registry entry.
+- `REQ-03` Report identities for prompt layers established by the active composer, plus state and authority categories, without returning their content or values; unknown or replaced composer structure is `unavailable`.
 - `REQ-04` Material facts distinguish `observed`, `inferred` and `unavailable` instead of inventing missing evidence.
 
 ### Non-Scope
@@ -93,8 +93,10 @@ exist. Filling these gaps from model memory would be misleading.
 ### Acceptance Scenarios
 
 - `SC-01` A caller invokes the function or GET route and receives schema version 1 with capabilities, prompts, state and authority sections.
-- `SC-02` A duplicate function loaded from `.hyper` reports both candidates, `.hyper` as effective origin and fresh/stale status against the loaded hash.
-- `SC-03` A live function without recorded source provenance is returned as `unavailable`, not assigned a guessed path.
+- `SC-02` A duplicate function loaded from `.hyper` reports both candidates, `.hyper` as effective origin and fresh/stale status against the loaded hash while the loaded function identity remains live.
+- `SC-03` A live function without recorded source provenance, or whose registry identity no longer matches its receipt, is returned as `unavailable`, not assigned a guessed path.
+- `SC-04` The shipped fresh composer reports its known prompt layers; an overlay, direct replacement or composer without validated provenance reports its internal layer composition as `unavailable`.
+- `SC-05` Native IPv4 peers throughout `127.0.0.0/8`, IPv4-mapped equivalents and IPv6 `::1` can read the route; malformed or non-loopback peers cannot.
 - `NEG-01` A sentinel in environment, custom prompt and runtime state never appears in serialized output.
 - `NEG-02` A non-loopback HTTP caller receives 403 and the descriptor is not evaluated.
 
@@ -102,8 +104,8 @@ exist. Filling these gaps from model memory would be misleading.
 
 | Check ID | Covers | How to check | Expected result | Evidence path |
 | --- | --- | --- | --- | --- |
-| `CHK-01` | `EC-01`, `SC-01` | Targeted descriptor and route tests | Contract schema and parity pass | test output |
-| `CHK-02` | `EC-02`, `SC-02`, `SC-03` | Loader/reload and descriptor tests | Effective origin and epistemic states pass | test output |
+| `CHK-01` | `EC-01`, `SC-01`, `SC-05` | Targeted descriptor and route tests | Contract schema, parity and complete loopback classification pass | test output |
+| `CHK-02` | `EC-02`, `SC-02`, `SC-03`, `SC-04` | Loader/reload and descriptor tests | Effective origin, identity invalidation, active-composer layers and epistemic states pass | test output |
 | `CHK-03` | `EC-03`, `NEG-01` | Sentinel non-transit test | Serialized output excludes sentinel | test output |
 | `CHK-04` | `EC-01` | Start actual server and GET `/self` | HTTP 200 JSON schema version 1 | served response summary |
 | `CHK-05` | all | Canonical install, typecheck, full tests and Memory Bank validation | All required gates pass | command logs |

@@ -1,5 +1,11 @@
 import { resolve } from 'node:path';
 
+const FUNCTION_SOURCE_IDENTITY = Symbol.for('hyper-code2.function-source.loaded-function');
+const BASE_COMPOSER = { root: 'src', rel: 'agent/fullSystemPrompt.ts' } as const;
+// Prompt-layer composition is known only for these reviewed shipped bytes.
+// A composer edit deliberately fails closed until this attestation is reviewed.
+const BASE_COMPOSER_HASH = '377c99e4ce5f8c2935dc0297688c71edcc00244e7f8a45546882084f0a2fdca6';
+
 export default async function (ctx: Context) {
     const entries = await ctx.fns.project.scan(ctx);
     const grouped = new Map<string, any[]>();
@@ -13,10 +19,11 @@ export default async function (ctx: Context) {
         grouped.set(name, list);
     }
 
-    const live = liveFunctionNames(ctx);
+    const live = liveFunctions(ctx);
     const receipts: Record<string, any> = (ctx.state as any).functionSources ?? {};
-    const names = [...new Set([...grouped.keys(), ...live, ...Object.keys(receipts)])].sort();
+    const names = [...new Set([...grouped.keys(), ...live.keys()])].sort();
     const capabilities = [];
+    const effectiveSources = new Map<string, ResolvedEffectiveSource>();
 
     for (const name of names) {
         const candidates = [];
@@ -31,38 +38,20 @@ export default async function (ctx: Context) {
             });
         }
 
-        const receipt = receipts[name];
-        let effectiveSource: Record<string, unknown> = {
-            status: 'unavailable',
-            provenance: 'loader.receipt',
-            freshness: 'unavailable',
-        };
-        if (receipt) {
-            const matching = (grouped.get(name) ?? []).find(
-                (entry) => entry.root === receipt.root && entry.rel === receipt.rel,
-            );
-            const currentHash = matching ? await readableHash(matching.abs) : undefined;
-            effectiveSource = {
-                status: matching && currentHash ? 'observed' : 'unavailable',
-                provenance: 'loader.receipt',
-                freshness: currentHash
-                    ? (currentHash === receipt.loadedHash ? 'fresh' : 'stale')
-                    : 'unavailable',
-                root: receipt.root,
-                path: `${receipt.root}/${receipt.rel}`,
-                loadedHash: receipt.loadedHash,
-                ...(currentHash ? { currentHash } : {}),
-                loadedAt: receipt.loadedAt,
-                generation: receipt.generation,
-            };
-        }
+        const resolvedSource = await resolveEffectiveSource(
+            name,
+            grouped.get(name) ?? [],
+            receipts[name],
+            live.get(name),
+        );
+        effectiveSources.set(name, resolvedSource);
 
         capabilities.push({
             name,
             registryStatus: live.has(name) ? 'observed' : 'unavailable',
             provenance: live.has(name) ? 'runtime.registry' : 'project.scan',
             candidates,
-            effectiveSource,
+            effectiveSource: resolvedSource.descriptor,
         });
     }
 
@@ -70,7 +59,10 @@ export default async function (ctx: Context) {
         schemaVersion: 1 as const,
         generatedAt: new Date().toISOString(),
         capabilities,
-        prompts: { valuesIncluded: false as const, layers: await promptLayers(ctx) },
+        prompts: {
+            valuesIncluded: false as const,
+            layers: await promptLayers(ctx, effectiveSources.get('agent.fullSystemPrompt')),
+        },
         state: {
             valuesIncluded: false as const,
             categories: [
@@ -87,31 +79,111 @@ export default async function (ctx: Context) {
     };
 }
 
-function liveFunctionNames(ctx: Context) {
-    const names = new Set<string>();
-    visit(ctx.fns, '', names);
-    for (const key of Object.keys(ctx)) {
-        if (key === 'fns' || key === 'state' || key === 'env' || key === 'routes') continue;
-        if (typeof (ctx as any)[key] === 'function') names.add(key);
-    }
-    return names;
+type ResolvedEffectiveSource = {
+    descriptor: Record<string, unknown>;
+    receipt?: Record<string | symbol, any>;
+};
+
+function unavailableEffectiveSource() {
+    return {
+        status: 'unavailable',
+        provenance: 'loader.receipt',
+        freshness: 'unavailable',
+    };
 }
 
-function visit(value: any, prefix: string, names: Set<string>) {
+async function resolveEffectiveSource(
+    name: string,
+    entries: any[],
+    receipt: any,
+    liveFunction?: Function,
+): Promise<ResolvedEffectiveSource> {
+    const matching = validateReceipt(name, entries, receipt, liveFunction);
+    if (!matching) return { descriptor: unavailableEffectiveSource() };
+
+    const currentHash = await readableHash(matching.abs);
+    if (!currentHash) return { descriptor: unavailableEffectiveSource() };
+
+    return {
+        descriptor: {
+            status: 'observed',
+            provenance: 'loader.receipt',
+            freshness: currentHash === receipt.loadedHash ? 'fresh' : 'stale',
+            root: receipt.root,
+            path: `${receipt.root}/${receipt.rel}`,
+            loadedHash: receipt.loadedHash,
+            currentHash,
+            loadedAt: receipt.loadedAt,
+            generation: receipt.generation,
+        },
+        receipt,
+    };
+}
+
+function validateReceipt(name: string, entries: any[], receipt: any, liveFunction?: Function) {
+    if (!liveFunction || !receipt || typeof receipt !== 'object') return undefined;
+    if (receipt.name !== name) return undefined;
+    if (typeof receipt.loadedHash !== 'string' || !/^[a-f0-9]{64}$/.test(receipt.loadedHash)) return undefined;
+    if (!isCanonicalIsoDate(receipt.loadedAt)) return undefined;
+    if (!Number.isSafeInteger(receipt.generation) || receipt.generation < 1) return undefined;
+    if (receipt[FUNCTION_SOURCE_IDENTITY] !== liveFunction) return undefined;
+    return entries.find((entry) => entry.root === receipt.root && entry.rel === receipt.rel);
+}
+
+function isCanonicalIsoDate(value: unknown) {
+    if (typeof value !== 'string') return false;
+    const parsed = new Date(value);
+    return !Number.isNaN(parsed.valueOf()) && parsed.toISOString() === value;
+}
+
+function liveFunctions(ctx: Context) {
+    const functions = new Map<string, Function>();
+    visit(ctx.fns, '', functions);
+    for (const key of Object.keys(ctx)) {
+        if (key === 'fns' || key === 'state' || key === 'env' || key === 'routes') continue;
+        if (typeof (ctx as any)[key] === 'function') functions.set(key, (ctx as any)[key]);
+    }
+    return functions;
+}
+
+function visit(value: any, prefix: string, functions: Map<string, Function>) {
     if (!value || typeof value !== 'object') return;
     for (const [key, child] of Object.entries(value)) {
         const name = prefix ? `${prefix}.${key}` : key;
-        if (typeof child === 'function') names.add(name);
-        else visit(child, name, names);
+        if (typeof child === 'function') functions.set(name, child);
+        else visit(child, name, functions);
     }
 }
 
-async function promptLayers(ctx: Context) {
+async function promptLayers(ctx: Context, composer?: ResolvedEffectiveSource) {
+    const composerDescriptor = composer?.descriptor ?? unavailableEffectiveSource();
+    const layers: Array<Record<string, unknown>> = [{
+        name: 'effective-composer',
+        ...composerDescriptor,
+        contentIncluded: false,
+    }];
+    const isFreshBaseComposer = composer?.receipt?.root === BASE_COMPOSER.root
+        && composer.receipt.rel === BASE_COMPOSER.rel
+        && composer.receipt.loadedHash === BASE_COMPOSER_HASH
+        && composerDescriptor.status === 'observed'
+        && composerDescriptor.freshness === 'fresh';
+
+    if (!isFreshBaseComposer) {
+        for (const name of ['core', 'wire-format', 'per-agent-additive', 'runtime-context']) {
+            layers.push({
+                name,
+                status: 'unavailable',
+                provenance: 'active-composer.structure',
+                contentIncluded: false,
+            });
+        }
+        return layers;
+    }
+
     const base = [
-        ['core', resolve(process.cwd(), 'src/agent/SYSTEM_PROMPT_CORE.txt'), 'src/agent/SYSTEM_PROMPT_CORE.txt'],
-        ['wire-format', resolve(process.cwd(), 'src/agent/SYSTEM_PROMPT.txt'), 'src/agent/SYSTEM_PROMPT.txt'],
+        ['core', resolve(import.meta.dir, '../agent/SYSTEM_PROMPT_CORE.txt'), 'src/agent/SYSTEM_PROMPT_CORE.txt'],
+        ['wire-format', resolve(import.meta.dir, '../agent/SYSTEM_PROMPT.txt'), 'src/agent/SYSTEM_PROMPT.txt'],
     ] as const;
-    const layers: Array<Record<string, unknown>> = [];
     for (const [name, abs, path] of base) {
         const sourceHash = await readableHash(abs);
         layers.push({
@@ -160,7 +232,7 @@ function safeStateCategories(ctx: Context) {
     return [...categories].sort();
 }
 
-function authorityCategories(live: Set<string>) {
+function authorityCategories(live: ReadonlyMap<string, Function>) {
     const definitions = [
         ['filesystem', ['files.read', 'files.write', 'files.list']],
         ['shell', ['agent.executeBash']],

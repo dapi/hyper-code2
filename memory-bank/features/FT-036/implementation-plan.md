@@ -34,6 +34,20 @@ Deliver `REQ-01…04` without adding mutation authority or durable schema.
 | `GRND-04` | `src/loadFns.test.ts`, `src/repl/load.test.ts`, `memory-bank/engineering/testing-policy.md` | Bun tests cover loader behavior; full validation commands are canonical. | Add regression at each affected boundary and run full gates. |
 | `GRND-05` | `src/agent/fullSystemPrompt.ts`, `src/agent/$type_Agent.ts` | Prompt has two base files plus per-agent content held in runtime state. | Report file identities/hashes and per-agent presence/hash only, never content. |
 
+## Corrective Review Cycle: 2026-08-13
+
+- Bug Fix Flow input: implementation review reported stale receipt provenance
+  after direct registry mutation, false base prompt-layer provenance under an
+  active overlay composer, and rejection of valid IPv4 loopback peers outside
+  `127.0.0.1`.
+- Corrective baseline: `2990d66e5749db76ce0a03fe4e21f4fb4fb2bf92`.
+- Validation profile: the existing `standard` decision remains applicable;
+  the correction changes no accepted API shape, authority or deployment path.
+- Required regressions: exact loaded-function identity preservation and
+  invalidation, fail-closed active-composer composition, complete validated
+  IPv4 `127.0.0.0/8` classification, malformed-address rejection and
+  descriptor non-evaluation on denial.
+
 ## Implementation Priming
 
 | Order | Exact path / stable source | Section / symbol | Grounding refs | Purpose | Required before |
@@ -139,3 +153,12 @@ None: receipt schema is the descriptor input and establishes the sequencing depe
 | `EVID-03` | pass: runtime sentinel absent; non-loopback denied before evaluation | `src/self/describe.test.ts`, `src/self/$route_GET.test.ts` |
 | `EVID-04` | pass: real `GET /self` returned HTTP 200 `application/json`, schema v1, 156 capabilities and `self.describe` fresh | localhost served check on port-selector allocation |
 | `EVID-05` | pass locally with Bun 1.3.14: typecheck and 413 pass / 3 opt-in provider skips / 0 fail; Memory Bank lint and doctor errors 0, warnings 39 | `/tmp/ft036-full-test-bun-1.3.log`, local command output |
+
+## Corrective Execution Evidence: 2026-08-13
+
+| Evidence ID | Result | Carrier |
+| --- | --- | --- |
+| `EVID-06` | pass: loader receipts preserve exact non-enumerable function identity; direct replacement/deletion invalidates old provenance; import cache collisions and concurrent source rewrites fail closed | `src/loadFns.test.ts`, `src/repl/load.test.ts`, `src/self/describe.test.ts`; 19 targeted tests pass |
+| `EVID-07` | pass: only the exact reviewed shipped composer hash exposes known internal layers; overlay, replaced, unproven and arbitrary same-path composers keep composition unavailable | `src/self/describe.test.ts` |
+| `EVID-08` | pass: native IPv4 `127.0.0.0/8`, dotted IPv4-mapped loopback and `::1` are accepted; malformed and non-loopback peers are rejected before descriptor evaluation | `src/self/$route_GET.test.ts` |
+| `EVID-09` | pass locally with Bun 1.3.14: typecheck; 422 pass / 3 opt-in provider skips / 0 fail; Memory Bank lint and doctor errors 0; diff-check; independent corrective review clean | local command output; `.protocols/reviews/ft-036-implementation-review.md` |
