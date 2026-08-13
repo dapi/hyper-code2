@@ -46,6 +46,16 @@ audience: humans_and_agents
 The comparison, prototypes, security controls and evidence thresholds are owned
 by the [Research Plan](plan.md). This brief does not select a mechanism.
 
+## Current Lifecycle Note
+
+The independently accepted bounded V6.3 carrier completes one substantial
+collection wave against the frozen 9 × 16 runtime matrix. It does not satisfy
+the full plan stopping condition: late/unclassified/overlay coverage, empirical
+reachability/residual-process separation, and browser/direct-CLI lifecycle
+evidence remain outside or below the required fidelity. `research_status`
+therefore remains `collecting`; no synthesis, recommendation, ADR or mechanism
+selection is authorized by this wave.
+
 ## Scope
 
 - `RSC-01` Define a target contract that denies unauthorized callers before

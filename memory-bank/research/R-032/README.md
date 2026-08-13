@@ -24,12 +24,24 @@ The current lifecycle state exists only in `research_status` in the
 - [Research Plan](plan.md) — owns the symmetric static/mock/prototype comparison,
   safety controls, evidence thresholds and approval record.
 - [Evidence Log](evidence.md) — owns reviewed bounded observations and provenance.
-  The accepted V5 carrier adds real committed-loader/match/captured-fetch evidence
-  but closes no whole hard gate; collection therefore continues without synthesis.
+  The accepted bounded V6.3 carrier adds the full 9 × 16 disposable runtime-path
+  wave, but candidate-specific results and preserved fidelity limits still block
+  whole-plan synthesis.
+- [Accepted bounded V6.3 carrier](../../../.protocols/experiments/runs/R-032/V6.3/manifest.json)
+  — 144 validated rows at HEAD `a4473e0`, exact freeze `299336b0…`, separate
+  contained broker receipts for CAN-06/COM-03 and governed S0-S8 controls. Review
+  accepts only bounded G1/G2/G5/G7 implications; G3/G4/G6 limits remain open.
+  This is evidence collection, not synthesis, recommendation or mechanism choice.
+- [V6.3 frozen instrument](../../../.protocols/experiments/r032-v6_3/README.md)
+  and [exact precollection review](../../../.protocols/reviews/r032-v6.3-precollection-review.json)
+  — bind the accepted carrier to freeze SHA-256 `299336b032240d20458209e11e0f864a5ae869328a941fffd44ff947a40f8e28`.
+- [Rejected V6 package](../../../.protocols/experiments/r032-v6/README.md) and
+  [rejected V6.1 package](../../../.protocols/experiments/r032-v6_1/README.md)
+  — preserved method history only; neither freeze authorizes or supports V6.3.
 - [V6.2 WIP author package](../../../.protocols/experiments/r032-v6_2/README.md)
-  — `collectionUnauthorized`; no freeze exists. Its deny-default Bun startup,
-  exact containment profile, full 144-row runtime integration and result-derived
-  validator remain incomplete.
+  — preserved intermediate WIP history; its incomplete containment/runtime
+  integration is not evidence and is superseded only as method iteration by the
+  separately frozen and reviewed V6.3 package.
 - [Rejected contract-model dry run](../../../.protocols/experiments/runs/R-032/2026-08-13-e301161-authority-contract-v1/README.md)
   — preserves frozen case accounting and provenance only. Review found that its
   3,663 rows were formula-derived, not candidate executions, and that its

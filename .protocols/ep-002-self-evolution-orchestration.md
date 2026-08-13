@@ -57,6 +57,22 @@ and preserve an observable rollback path.
 - Keep EP-001 unchanged except for any later explicit cross-reference; reflection
   remains outside its scope.
 
+## Current Research Wave Status
+
+- `R-032 / V6.3`: independent review disposition is `ACCEPT BOUNDED` for the
+  carrier under `.protocols/experiments/runs/R-032/V6.3/`. The carrier is bound
+  to HEAD `a4473e0e2bd0867e673099b24954d38b0b820089`, freeze SHA-256
+  `299336b032240d20458209e11e0f864a5ae869328a941fffd44ff947a40f8e28`,
+  review ID `r032-v6.3-independent-review-2026-08-13` and canonical bundle
+  digest `cc2bf25f34a57a1f1eef0b426313114e6eef968b1e37a47e8dcd1d2369f3ca14`.
+- The accepted scope is evidence integration for bounded G1/G2/G5/G7
+  implications. G3 late/unclassified/overlay coverage, G4 empirical
+  reachability/residual-process authority and G6 real browser/direct-CLI
+  lifecycle evidence remain open. `R-032` stays `collecting`; this wave creates
+  no synthesis, recommendation, mechanism selection, ADR or delivery authority.
+- Rejected V6/V6.1 freezes and V6.2 WIP remain preserved method history. They do
+  not inherit the V6.3 review and cannot authorize collection or conclusions.
+
 ## Completion Conditions
 
 - [x] Source wording and Telegram provenance are indexed.

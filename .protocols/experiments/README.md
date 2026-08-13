@@ -285,6 +285,26 @@ safe synthetic evidence. CAN-06 is still only an in-process broker label. The
 complete matrix remains open, R-032 remains `collecting`, and the carrier does
 not authorize synthesis, recommendation or mechanism selection.
 
+`r032-v6_3/` is the independently accepted bounded current-runtime wave. Its
+exact freeze SHA-256 is
+`299336b032240d20458209e11e0f864a5ae869328a941fffd44ff947a40f8e28`
+at HEAD `a4473e0e2bd0867e673099b24954d38b0b820089`; the precollection review is
+`../reviews/r032-v6.3-precollection-review.json`. The collector executes the
+frozen 9 × 16 matrix through committed loading/matching/captured fetch, real
+POST/SQLite queue/worker claim-frontier handling and disposable use-time gates.
+CAN-06 and COM-03 use a separately contained stdio broker/root. Governed R018
+controls cover nine forms across S0-S8, and the carrier validator recomputes
+row, containment, execution, bundle and final-file checksums before first write.
+
+The accepted carrier is under `runs/R-032/V6.3/`, with canonical bundle digest
+`cc2bf25f34a57a1f1eef0b426313114e6eef968b1e37a47e8dcd1d2369f3ca14`.
+Independent review accepts bounded G1/G2/G5/G7 implications only. G3
+late/unclassified/overlay policy, G4 reachability/residual-process authority and
+G6 real browser/direct-CLI lifecycle evidence remain open. Rejected V6 freeze
+`0487736d…`, V6.1 freeze `56629e9a…`, rejected whole freeze `2fa0d1ad…` and
+rejected corrected freeze `fa0c2979…` remain method history only. R-032 remains
+`collecting`; no synthesis, recommendation, mechanism selection or ADR follows.
+
 ## R-033 secret-mechanism disposable comparison
 
 `r033-v5/` is the corrected executable staged-collector design. Its first
