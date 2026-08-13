@@ -4,9 +4,11 @@
 creates one sandboxed child Bun process per agent phase, a separate restart
 verifier and a credential-owning LLM broker. Agent children exchange serialized
 LLM requests/responses with that broker through the disposable run root; they
-never receive the authentication HOME or provider token. Each run stores
-sanitized transcripts, logs, the retained capability, machine comparisons and
-checksums under `runs/<run-id>/`.
+never receive the authentication HOME or provider token. The broker, phase
+children and restart verifier initialize their registry from committed `src`
+plus the disposable workspace `.hyper`; checkout `.hyper` overlays are excluded.
+Each run stores sanitized transcripts, logs, the retained capability, machine
+comparisons and checksums under `runs/<run-id>/`.
 
 ## Offline instrument check
 
@@ -16,10 +18,15 @@ bun .protocols/experiments/uc005-v2-runner.ts
 
 On macOS with `sandbox-exec`, agent children are denied network access and writes
 outside the disposable run root. Reads below the user's HOME are denied except
-for the repository and Bun executable. The broker is intentionally not placed in
-that sandbox: it owns network/auth authority and never executes model-produced
-markers. Elsewhere the runner still uses a clean HOME, TMPDIR and minimal child
-environment, but reports that OS containment was not established.
+for the repository and Bun executable. The profile has no Mach lookup allowance.
+Before starting the broker, the runner requires a sandboxed synthetic probe to
+confirm denial for `com.apple.securityd`, `com.apple.securityd.xpc`, the direct
+login-keychain path and a deterministic nonexistent Keychain item lookup. The
+broker is intentionally not placed in that sandbox: it owns network/auth
+authority and never executes model-produced markers. Elsewhere offline mock mode
+still uses a clean HOME, TMPDIR and minimal child environment, but reports that
+OS containment was not established. Live mode fails closed before starting the
+broker when the macOS sandbox is unavailable.
 
 ## Product-behavior live run
 
@@ -34,11 +41,13 @@ bun .protocols/experiments/uc005-v2-runner.ts --live
 
 Live mode validates the experiment's process boundary: only the broker receives
 `UC005_AUTH_HOME`; agent children use a disposable HOME, have no network, and
-cannot read other paths below the user's HOME on macOS. This is deliberately
-**not** proof that the current production runtime satisfies secret non-transit:
-production still resolves credentials in the same process that executes
-arbitrary `§eval`. The broker is an experimental supporting mechanism, not a
-shipped product guarantee.
+cannot read other paths below the user's HOME or reach the named securityd Mach
+services on macOS; the checkout `.hyper` is explicitly unreadable even though
+committed repository source remains readable. The pre-broker Keychain probe is
+synthetic and never requests an existing item. This is deliberately **not** proof that the current production
+runtime satisfies secret non-transit: production still resolves credentials in
+the same process that executes arbitrary `§eval`. The broker is an experimental
+supporting mechanism, not a shipped product guarantee.
 
 Known instrument limitation: agent children can read the disposable run root,
 which contains broker coordination metadata such as the authentication-HOME

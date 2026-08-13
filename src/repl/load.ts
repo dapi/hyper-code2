@@ -1,6 +1,8 @@
-import { stat } from 'node:fs/promises';
+import { realpath, stat } from 'node:fs/promises';
+import { resolve } from 'node:path';
 
 const FUNCTION_SOURCE_IDENTITY = Symbol.for('hyper-code2.function-source.loaded-function');
+const FUNCTION_SOURCE_PATH = Symbol.for('hyper-code2.function-source.loaded-physical-path');
 
 async function roots(ctx: Context) {
     return ctx.fns.project.roots(ctx);
@@ -47,15 +49,16 @@ async function loadFile(ctx: Context, modPath: string, fnName: string) {
     // Search in reverse because this targeted loader returns on the first match.
     for (const root of [...await roots(ctx)].reverse()) {
         for (const rel of candidates) {
-            const abs = root.dir + '/' + rel;
-            if (!(await Bun.file(abs).exists())) continue;
-            const sourceBefore = await sourceVersion(abs);
-            const loadedHash = await sha256(abs);
-            const m = await import(abs + `?reload=${crypto.randomUUID()}`);
+            const candidatePath = resolve(root.dir, rel);
+            if (!(await Bun.file(candidatePath).exists())) continue;
+            const sourcePath = await realpath(candidatePath);
+            const sourceBefore = await sourceVersion(sourcePath);
+            const loadedHash = await sha256(sourcePath);
+            const m = await import(sourcePath + `?reload=${crypto.randomUUID()}`);
             const fn = m.default;
             if (typeof fn !== 'function') throw new Error(`${rel}: no default function export`);
-            const currentHash = await sha256(abs);
-            const sourceAfter = await sourceVersion(abs);
+            const currentHash = await sha256(sourcePath);
+            const sourceAfter = await sourceVersion(sourcePath);
             if (currentHash !== loadedHash || sourceAfter !== sourceBefore) {
                 throw new Error(`${labelPath(root.name, rel)}: source changed while loading`);
             }
@@ -67,7 +70,7 @@ async function loadFile(ctx: Context, modPath: string, fnName: string) {
             }
             tgt[fnName] = fn;
             const label = root.name;
-            recordSource(ctx, [...segs, fnName].join('.'), label, rel, loadedHash, fn);
+            recordSource(ctx, [...segs, fnName].join('.'), label, rel, sourcePath, loadedHash, fn);
             console.log(`[reload] ctx.fns.${segs.join('.')}.${fnName}  ←  ${label}/${rel}`);
             return;
         }
@@ -79,7 +82,15 @@ function labelPath(root: string, rel: string) {
     return `${root}/${rel}`;
 }
 
-function recordSource(ctx: Context, name: string, root: string, rel: string, loadedHash: string, fn: Function) {
+function recordSource(
+    ctx: Context,
+    name: string,
+    root: string,
+    rel: string,
+    sourcePath: string,
+    loadedHash: string,
+    fn: Function,
+) {
     const state = ((ctx as any).state ??= {});
     const registry = (state.functionSources ??= {});
     const generation = (state.functionSourceGeneration ?? 0) + 1;
@@ -92,11 +103,19 @@ function recordSource(ctx: Context, name: string, root: string, rel: string, loa
         loadedAt: new Date().toISOString(),
         generation,
     };
-    Object.defineProperty(receipt, FUNCTION_SOURCE_IDENTITY, {
-        value: fn,
-        enumerable: false,
-        writable: false,
-        configurable: false,
+    Object.defineProperties(receipt, {
+        [FUNCTION_SOURCE_IDENTITY]: {
+            value: fn,
+            enumerable: false,
+            writable: false,
+            configurable: false,
+        },
+        [FUNCTION_SOURCE_PATH]: {
+            value: sourcePath,
+            enumerable: false,
+            writable: false,
+            configurable: false,
+        },
     });
     registry[name] = receipt;
 }

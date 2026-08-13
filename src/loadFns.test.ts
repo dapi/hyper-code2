@@ -1,5 +1,5 @@
 import { test, expect, describe } from "bun:test";
-import { mkdir, rm } from "node:fs/promises";
+import { mkdir, realpath, rm } from "node:fs/promises";
 import { resolve } from "node:path";
 import loadFns from "./loadFns";
 import roots from "./project/roots";
@@ -21,8 +21,13 @@ describe("loadFns", () => {
             loadedHash: expect.stringMatching(/^[a-f0-9]{64}$/),
         });
         const identity = Symbol.for('hyper-code2.function-source.loaded-function');
+        const sourcePath = Symbol.for('hyper-code2.function-source.loaded-physical-path');
+        const expectedPath = await realpath(resolve('src/db/connect.ts'));
         expect(receipt[identity]).toBe((ctx.fns as any).db.connect);
+        expect(receipt[sourcePath]).toBe(expectedPath);
         expect(Object.getOwnPropertyDescriptor(receipt, identity)?.enumerable).toBe(false);
+        expect(Object.getOwnPropertyDescriptor(receipt, sourcePath)?.enumerable).toBe(false);
+        expect(JSON.stringify(receipt)).not.toContain(expectedPath);
         expect(Object.getOwnPropertySymbols(JSON.parse(JSON.stringify(receipt)))).toEqual([]);
     });
 

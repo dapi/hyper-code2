@@ -1,7 +1,12 @@
 import { mkdir, mkdtemp, readdir, realpath } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { dirname, join, resolve } from "node:path";
+import { join, resolve } from "node:path";
 
+import {
+  assertLiveContainment,
+  buildSandboxProfile,
+  keychainContainmentPassed,
+} from "./uc005-v2-containment.ts";
 import { deepEqual, inventory, sanitizeText, sha256File } from "./uc005-v2-lib.ts";
 
 const repoRoot = resolve(import.meta.dir, "../..");
@@ -15,8 +20,7 @@ const cleanHome = join(runRoot, "home");
 const tempDir = join(runRoot, "tmp");
 const brokerDir = join(runRoot, "broker");
 const sentinel = `UC005_V2_SENTINEL_${crypto.randomUUID()}`;
-await mkdir(join(workspace, "src/text"), { recursive: true });
-await mkdir(join(workspace, ".hyper"), { recursive: true });
+await mkdir(join(workspace, ".hyper/text"), { recursive: true });
 await mkdir(cleanHome, { recursive: true });
 await mkdir(tempDir, { recursive: true });
 await mkdir(brokerDir, { recursive: true });
@@ -24,41 +28,40 @@ await mkdir(artifactDir, { recursive: true });
 if ((await readdir(artifactDir)).length > 0) {
   throw new Error(`artifact directory must be empty: ${artifactDir}`);
 }
-await Bun.write(join(workspace, "src/text/normalizeTag.ts"), `export default async function (_ctx: any, opts: { value: string }) {
+await Bun.write(join(workspace, ".hyper/text/normalizeTag.ts"), `export default async function (_ctx: any, opts: { value: string }) {
   return opts.value.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }\n`);
 
 const childScript = resolve(import.meta.dir, "uc005-v2-child.ts");
 const restartScript = resolve(import.meta.dir, "uc005-v2-restart.ts");
 const brokerScript = resolve(import.meta.dir, "uc005-v2-broker.ts");
+const containmentChildScript = resolve(import.meta.dir, "uc005-v2-containment-child.ts");
 const sandboxExec = Bun.which("sandbox-exec");
 const osSandboxEnforced = process.platform === "darwin" && Boolean(sandboxExec);
+assertLiveContainment(mode, osSandboxEnforced);
+const bunExecutable = Bun.which("bun") ?? process.execPath;
+const operatorHome = process.env.HOME;
+const childPath = process.env.PATH ?? "/usr/bin:/bin";
 
-function sandboxProfile(): string {
-  const escapedRun = runRoot.replaceAll('"', '\\"');
-  const escapedRepo = repoRoot.replaceAll('"', '\\"');
-  const escapedBun = (Bun.which("bun") ?? process.execPath).replaceAll('"', '\\"');
-  const escapedUserHome = (process.env.HOME ?? "/Users/__no_home__").replaceAll('"', '\\"');
-  return `(version 1)
-(deny default)
-(allow process*)
-(allow sysctl-read)
-(allow mach-lookup)
-(allow file-read-metadata)
-(allow file-read* (require-not (subpath "${escapedUserHome}")))
-(allow file-read* (literal "${escapedBun}") (subpath "${escapedRepo}") (subpath "${escapedRun}"))
-(allow file-write* (subpath "${escapedRun}"))`;
+function sandboxProfile(deniedReadRoots: string[]): string {
+  return buildSandboxProfile({
+    runRoot,
+    repoRoot,
+    checkoutOverlayDir: join(repoRoot, ".hyper"),
+    bunExecutable,
+    deniedReadRoots,
+  });
 }
 
-async function spawnIsolated(script: string, configPath: string) {
+async function spawnIsolated(script: string, configPath: string, deniedReadRoots: string[]) {
   const base = [process.execPath, script, configPath];
-  const command = osSandboxEnforced ? [sandboxExec!, "-p", sandboxProfile(), ...base] : base;
+  const command = osSandboxEnforced ? [sandboxExec!, "-p", sandboxProfile(deniedReadRoots), ...base] : base;
   const proc = Bun.spawn(command, {
     // Starting Bun in the repository could auto-load its .env before our script
     // changes cwd. Start inside the disposable workspace instead.
     cwd: workspace,
     env: {
-      PATH: process.env.PATH ?? "/usr/bin:/bin",
+      PATH: childPath,
       HOME: cleanHome,
       TMPDIR: tempDir,
       LANG: "C.UTF-8",
@@ -76,8 +79,79 @@ async function spawnIsolated(script: string, configPath: string) {
 
 const authHome = mode === "live" ? (process.env.UC005_AUTH_HOME ?? process.env.HOME) : undefined;
 if (mode === "live" && !authHome) throw new Error("live mode requires UC005_AUTH_HOME or HOME");
+const deniedReadRoots = [...new Set([operatorHome, authHome].filter((value): value is string => Boolean(value)))];
+if (osSandboxEnforced && deniedReadRoots.length === 0) {
+  throw new Error("macOS containment requires HOME to define the Keychain/read deny boundary");
+}
+
+let containment: any = {
+  schemaVersion: 1,
+  phase: "pre-broker-containment",
+  passed: false,
+  limitation: "macOS sandbox-exec is unavailable; Keychain IPC containment was not established",
+};
+if (osSandboxEnforced) {
+  const homeProbePath = join(operatorHome!, ".zshrc");
+  const operatorKeychainPath = join(operatorHome!, "Library", "Keychains", "login.keychain-db");
+  if (!(await Bun.file(homeProbePath).exists()) || !(await Bun.file(operatorKeychainPath).exists())) {
+    throw new Error("macOS containment probe fixtures are absent");
+  }
+  const sandboxPolicyProbePath = join(runRoot, "sandbox-policy-probe");
+  const compileProbe = Bun.spawn([
+    "/usr/bin/clang",
+    resolve(import.meta.dir, "uc005-v2-sandbox-policy-probe.c"),
+    "-o", sandboxPolicyProbePath,
+  ], {
+    cwd: workspace,
+    env: { PATH: "/usr/bin:/bin" },
+    stdout: "pipe",
+    stderr: "pipe",
+  });
+  const [compileStdout, compileStderr, compileExitCode] = await Promise.all([
+    new Response(compileProbe.stdout).text(),
+    new Response(compileProbe.stderr).text(),
+    compileProbe.exited,
+  ]);
+  if (compileExitCode !== 0) {
+    throw new Error(`containment policy probe compile failed: ${compileStdout}${compileStderr}`);
+  }
+
+  const containmentOutputPath = join(runRoot, "containment.json");
+  const containmentConfigPath = join(runRoot, "containment.config.json");
+  await Bun.write(containmentConfigPath, JSON.stringify({
+    outputPath: containmentOutputPath,
+    insideWriteProbe: join(runRoot, "inside-write-probe.txt"),
+    outsideWriteProbe: join(tmpdir(), `hyper-code2-uc005-v2-denied-${crypto.randomUUID()}`),
+    homeProbePath,
+    disposableHome: cleanHome,
+    disposableTmp: tempDir,
+    expectedPath: childPath,
+    repoProbePath: join(repoRoot, "package.json"),
+    sandboxPolicyProbePath,
+    checkoutOverlayProbePath: join(repoRoot, ".hyper", "__uc005_v2_policy_probe__.ts"),
+    operatorKeychainPath,
+  }));
+  const containmentProcess = await spawnIsolated(containmentChildScript, containmentConfigPath, deniedReadRoots);
+  if (containmentProcess.exitCode !== 0 || !(await Bun.file(containmentOutputPath).exists())) {
+    throw new Error(`Keychain containment probe failed before report: exit=${containmentProcess.exitCode}`);
+  }
+  containment = await Bun.file(containmentOutputPath).json();
+  if (!keychainContainmentPassed(containment) || containment.passed !== true) {
+    throw new Error("Keychain containment gate failed; broker was not started");
+  }
+  await Bun.write(join(artifactDir, "containment.json"), JSON.stringify(containment, null, 2));
+  await Bun.write(join(artifactDir, "containment.stdout.log"), sanitizeText(
+    containmentProcess.stdout,
+    [runRoot, workspace, repoRoot, authHome ?? "", operatorHome ?? "", sentinel],
+  ));
+  await Bun.write(join(artifactDir, "containment.stderr.log"), sanitizeText(
+    containmentProcess.stderr,
+    [runRoot, workspace, repoRoot, authHome ?? "", operatorHome ?? "", sentinel],
+  ));
+}
+
 const brokerConfigPath = join(runRoot, "broker.config.json");
-await Bun.write(brokerConfigPath, JSON.stringify({ brokerDir, workspace, mode, authHome }));
+await Bun.write(brokerConfigPath, JSON.stringify({ brokerDir, repoRoot, workspace, mode, authHome }));
 const broker = Bun.spawn([process.execPath, brokerScript, brokerConfigPath], {
   cwd: workspace,
   env: {
@@ -94,7 +168,7 @@ for (const phase of ["baseline", "retain", "reuse"] as const) {
   await Bun.write(configPath, JSON.stringify({
     phase, mode, model, repoRoot, runRoot, workspace, outputPath, brokerDir, sentinel, maxLlmCalls: 6,
   }));
-  const processResult = await spawnIsolated(childScript, configPath);
+  const processResult = await spawnIsolated(childScript, configPath, deniedReadRoots);
   const redactions = [runRoot, workspace, repoRoot, authHome ?? "", sentinel];
   await Bun.write(join(artifactDir, `phase-${phase}.stdout.log`), sanitizeText(processResult.stdout, redactions));
   await Bun.write(join(artifactDir, `phase-${phase}.stderr.log`), sanitizeText(processResult.stderr, redactions));
@@ -117,8 +191,8 @@ if (brokerExit !== 0) throw new Error(`broker exited ${brokerExit}`);
 
 const restartConfig = join(runRoot, "restart.config.json");
 const restartOutput = join(runRoot, "restart.sanitized.json");
-await Bun.write(restartConfig, JSON.stringify({ runRoot, workspace, outputPath: restartOutput, sentinel }));
-const restartProcess = await spawnIsolated(restartScript, restartConfig);
+await Bun.write(restartConfig, JSON.stringify({ repoRoot, runRoot, workspace, outputPath: restartOutput, sentinel }));
+const restartProcess = await spawnIsolated(restartScript, restartConfig, deniedReadRoots);
 if (restartProcess.exitCode !== 0 || !(await Bun.file(restartOutput).exists())) {
   throw new Error(`restart verifier failed before report: exit=${restartProcess.exitCode}`);
 }
@@ -156,6 +230,10 @@ const instrumentFiles = [
   "uc005-v2-restart.ts",
   "uc005-v2-lib.ts",
   "uc005-v2-broker.ts",
+  "uc005-v2-bootstrap.ts",
+  "uc005-v2-containment.ts",
+  "uc005-v2-containment-child.ts",
+  "uc005-v2-sandbox-policy-probe.c",
 ];
 const instrumentChecksums = Object.fromEntries(await Promise.all(instrumentFiles.map(async (name) => [
   name,
@@ -181,6 +259,7 @@ const manifest = {
     separatelySpawnedRestartVerifier: true,
     restartPidDifferentAtObservation: !phaseReports.some((phase) => phase.pid === restart.pid),
     brokerPid: broker.pid,
+    containmentPreflightBeforeBrokerStart: osSandboxEnforced,
   },
   safetyClaims: {
     minimalChildEnvironment: true,
@@ -190,13 +269,18 @@ const manifest = {
     credentialsProvidedToAgentRuntime: false,
     credentialsOwnedByBroker: mode === "live",
     agentNetworkDeniedByOsSandbox: osSandboxEnforced,
+    checkoutOverlayReadDeniedByOsSandbox: osSandboxEnforced && containment.probes?.checkoutOverlayReadDeniedBySandboxCheck === true,
+    keychainMachLookupDeniedByOsSandbox: osSandboxEnforced && containment.probes?.keychainMachServicesDeniedBySandboxCheck === true,
+    syntheticKeychainProbePassed: osSandboxEnforced && containment.probes?.nonexistentKeychainLookupFailedWithSecuritydMachLookupDenied === true,
     sentinelLeakDetected: phaseReports.some((phase) => phase.observed.sentinelLeakDetected === true),
-    securityValidation: "experiment process boundary established; production HG-02 not established",
-    limitation: mode === "live"
-      ? "The agent child has disposable HOME and no provider credentials; a separate broker owns auth and network. This validates the experiment boundary, not the production runtime."
-      : osSandboxEnforced
-        ? "Agent writes are restricted to the disposable run root, network is denied, and reads under the user's home are denied except the repository and Bun executable. This validates the instrument, not production HG-02."
-        : "Clean environment and disposable roots are used, but no OS sandbox was available; writes outside the monitored root cannot be ruled out.",
+    securityValidation: osSandboxEnforced
+      ? "experiment process boundary established; production HG-02 not established"
+      : "OS containment unavailable; broker transport separation only; production HG-02 not established",
+    limitation: osSandboxEnforced
+      ? mode === "live"
+        ? "The agent child has disposable HOME, no provider credentials, and cannot reach the named securityd Mach services; a separate broker owns auth and network. This validates the experiment boundary, not the production runtime."
+        : "Agent writes are restricted to the disposable run root, network and named securityd Mach services are denied, and reads under the user's home are denied except the repository and Bun executable. This validates the instrument, not production HG-02."
+      : "Clean environment and disposable roots are used, but no OS sandbox was available; network, writes outside the monitored root and credential-service IPC cannot be ruled out.",
   },
   validations,
   restart: {

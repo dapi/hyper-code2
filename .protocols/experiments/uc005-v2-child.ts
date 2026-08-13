@@ -1,7 +1,7 @@
 import { mkdir } from "node:fs/promises";
 import { resolve } from "node:path";
 
-import loadFns from "../../src/loadFns.ts";
+import { loadUc005Fns } from "./uc005-v2-bootstrap.ts";
 import { inventory, parseJsonValue, sanitizeJson } from "./uc005-v2-lib.ts";
 
 type Phase = "baseline" | "retain" | "reuse";
@@ -35,11 +35,7 @@ const ctx: any = {
 };
 
 const before = await inventory(config.runRoot);
-await loadFns(ctx);
-ctx.fns.project.roots = async () => [
-  { name: "src", dir: resolve(config.workspace, "src") },
-  { name: ".hyper", dir: resolve(config.workspace, ".hyper") },
-];
+await loadUc005Fns(ctx, config);
 ctx.fns.db.connect(ctx, { path: ctx.env.DB_PATH });
 await ctx.fns.db.migrate(ctx);
 ctx.state.agent = await ctx.fns.session.loadAll(ctx);

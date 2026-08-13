@@ -1,8 +1,9 @@
 import { dirname, resolve } from 'node:path';
 import { stat } from 'node:fs/promises';
-import { statSync } from 'node:fs';
+import { realpathSync, statSync } from 'node:fs';
 
 const FUNCTION_SOURCE_IDENTITY = Symbol.for('hyper-code2.function-source.loaded-function');
+const FUNCTION_SOURCE_PATH = Symbol.for('hyper-code2.function-source.loaded-physical-path');
 const BASE_COMPOSER = { root: 'src', rel: 'agent/fullSystemPrompt.ts' } as const;
 // Prompt-layer composition is known only for these reviewed shipped bytes.
 // A composer edit deliberately fails closed until this attestation is reviewed.
@@ -13,18 +14,20 @@ const BASE_PROMPT_SOURCES = [
 ] as const;
 
 export default async function (ctx: Context) {
-    let lastResult: Awaited<ReturnType<typeof describeSnapshot>> | undefined;
+    let lastResult: Awaited<ReturnType<typeof describeSnapshot>>['result'] | undefined;
     let lastEntries: any[] = [];
     for (let attempt = 0; attempt < 2; attempt++) {
         const entries = await ctx.fns.project.scan(ctx);
         const membership = functionMembership(entries);
-        const paths = sourcePaths(entries);
+        const paths = sourcePaths(ctx, entries);
         const before = sourceVersionVector(paths);
-        lastResult = await describeSnapshot(ctx, entries);
+        const snapshot = await describeSnapshot(ctx, entries);
+        lastResult = snapshot.result;
         const afterEntries = await ctx.fns.project.scan(ctx);
         lastEntries = afterEntries;
         if (membership === functionMembership(afterEntries)
-            && before === sourceVersionVector(sourcePaths(afterEntries))) return lastResult;
+            && before === sourceVersionVector(sourcePaths(ctx, afterEntries))
+            && sameFunctionIdentities(snapshot.live, liveFunctions(ctx))) return lastResult;
     }
     return invalidateSourceFacts(lastResult!, lastEntries, ctx);
 }
@@ -121,7 +124,7 @@ async function describeSnapshot(ctx: Context, entries: any[]) {
         prompts = unavailablePromptLayers(unavailableEffectiveSource());
     }
 
-    return {
+    const result = {
         schemaVersion: 1 as const,
         generatedAt: new Date().toISOString(),
         capabilities,
@@ -143,6 +146,7 @@ async function describeSnapshot(ctx: Context, entries: any[]) {
             categories: authorityCategories(finalLive),
         },
     };
+    return { result, live: finalLive };
 }
 
 type ResolvedEffectiveSource = {
@@ -170,7 +174,8 @@ async function resolveEffectiveSource(
     const matching = validateReceipt(name, entries, receipt, liveFunction);
     if (!matching) return { descriptor: unavailableEffectiveSource() };
 
-    const currentHash = await readableHash(matching.abs);
+    const sourcePath = receipt[FUNCTION_SOURCE_PATH] as string;
+    const currentHash = await readableHash(sourcePath);
     if (!currentHash) return { descriptor: unavailableEffectiveSource() };
 
     // The registry may be mutated while the source file is being read (for
@@ -192,7 +197,7 @@ async function resolveEffectiveSource(
             generation: receipt.generation,
         },
         receipt,
-        sourcePath: matching.abs,
+        sourcePath,
         sourceRoot: matching.root,
     };
 }
@@ -204,7 +209,20 @@ function validateReceipt(name: string, entries: any[], receipt: any, liveFunctio
     if (!isCanonicalIsoDate(receipt.loadedAt)) return undefined;
     if (!Number.isSafeInteger(receipt.generation) || receipt.generation < 1) return undefined;
     if (receipt[FUNCTION_SOURCE_IDENTITY] !== liveFunction) return undefined;
-    return entries.find((entry) => entry.root === receipt.root && entry.rel === receipt.rel);
+    const sourcePath = receipt[FUNCTION_SOURCE_PATH];
+    if (typeof sourcePath !== 'string' || physicalPath(sourcePath) !== sourcePath) return undefined;
+    return entries.find((entry) => entry.root === receipt.root
+        && entry.rel === receipt.rel
+        && typeof entry.abs === 'string'
+        && physicalPath(entry.abs) === sourcePath);
+}
+
+function physicalPath(path: string) {
+    try {
+        return realpathSync(resolve(path));
+    } catch {
+        return undefined;
+    }
 }
 
 function isCanonicalIsoDate(value: unknown) {
@@ -246,15 +264,7 @@ async function promptLayers(ctx: Context, composer?: ResolvedEffectiveSource) {
         return unavailablePromptLayers(composerDescriptor);
     }
 
-    const composerPath = composer?.sourcePath;
-    const composerDir = composerPath ? dirname(composerPath) : undefined;
-    const composerRoot = composer?.sourceRoot ?? BASE_COMPOSER.root;
-    const promptSources = composerDir
-        ? [
-            ['core', resolve(composerDir, 'SYSTEM_PROMPT_CORE.txt'), `${composerRoot}/agent/SYSTEM_PROMPT_CORE.txt`],
-            ['wire-format', resolve(composerDir, 'SYSTEM_PROMPT.txt'), `${composerRoot}/agent/SYSTEM_PROMPT.txt`],
-        ] as const
-        : BASE_PROMPT_SOURCES;
+    const promptSources = promptSourceSpecs(composer?.sourcePath, composer?.sourceRoot);
     for (const [name, abs, path] of promptSources) {
         const sourceHash = await readableHash(abs);
         layers.push({
@@ -292,11 +302,25 @@ async function promptLayers(ctx: Context, composer?: ResolvedEffectiveSource) {
 }
 
 function isFreshBaseComposer(composer?: ResolvedEffectiveSource) {
-    return composer?.receipt?.root === BASE_COMPOSER.root
-        && composer.receipt.rel === BASE_COMPOSER.rel
-        && composer.receipt.loadedHash === BASE_COMPOSER_HASH
+    return !!composer
+        && isBaseComposerReceipt(composer.receipt)
         && composer.descriptor.status === 'observed'
         && composer.descriptor.freshness === 'fresh';
+}
+
+function isBaseComposerReceipt(receipt: any) {
+    return receipt?.root === BASE_COMPOSER.root
+        && receipt.rel === BASE_COMPOSER.rel
+        && receipt.loadedHash === BASE_COMPOSER_HASH;
+}
+
+function promptSourceSpecs(composerPath?: string, composerRoot: string = BASE_COMPOSER.root) {
+    if (!composerPath) return BASE_PROMPT_SOURCES;
+    const composerDir = dirname(composerPath);
+    return [
+        ['core', resolve(composerDir, 'SYSTEM_PROMPT_CORE.txt'), `${composerRoot}/agent/SYSTEM_PROMPT_CORE.txt`],
+        ['wire-format', resolve(composerDir, 'SYSTEM_PROMPT.txt'), `${composerRoot}/agent/SYSTEM_PROMPT.txt`],
+    ] as const;
 }
 
 function unavailablePromptLayers(composerDescriptor: Record<string, unknown>) {
@@ -361,11 +385,36 @@ async function sourceVersion(path: string) {
     return [info.dev, info.ino, info.size, info.mtimeNs, info.ctimeNs].join(':');
 }
 
-function sourcePaths(entries: any[]) {
+function sourcePaths(ctx: Context, entries: any[]) {
+    const receipts: Record<string, any> = (ctx.state as any).functionSources ?? {};
+    const composerName = 'agent.fullSystemPrompt';
+    const composerReceipt = receipts[composerName];
+    const liveComposer = (ctx.fns as any).agent?.fullSystemPrompt;
+    const matchingComposer = validateReceipt(
+        composerName,
+        entries,
+        composerReceipt,
+        typeof liveComposer === 'function' ? liveComposer : undefined,
+    );
+    const activePromptPaths = matchingComposer && isBaseComposerReceipt(composerReceipt)
+        ? promptSourceSpecs(composerReceipt[FUNCTION_SOURCE_PATH], matchingComposer.root).map(([, abs]) => abs)
+        : [];
     return [...new Set([
         ...entries.filter((entry) => entry.kind === 'fn' && typeof entry.abs === 'string').map((entry) => entry.abs),
         ...BASE_PROMPT_SOURCES.map(([, abs]) => abs),
+        ...activePromptPaths,
     ])].sort();
+}
+
+function sameFunctionIdentities(
+    before: ReadonlyMap<string, Function>,
+    after: ReadonlyMap<string, Function>,
+) {
+    if (before.size !== after.size) return false;
+    for (const [name, fn] of before) {
+        if (after.get(name) !== fn) return false;
+    }
+    return true;
 }
 
 function functionMembership(entries: any[]) {
@@ -399,7 +448,7 @@ function sourceVersionSync(path: string) {
 }
 
 function invalidateSourceFacts(
-    result: Awaited<ReturnType<typeof describeSnapshot>>,
+    result: Awaited<ReturnType<typeof describeSnapshot>>['result'],
     entries: any[],
     ctx: Context,
 ) {

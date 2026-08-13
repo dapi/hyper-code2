@@ -1,8 +1,9 @@
 import { mkdir, readdir } from "node:fs/promises";
 import { join } from "node:path";
-import loadFns from "../../src/loadFns.ts";
 
-type Config = { brokerDir: string; workspace: string; mode: "mock" | "live"; authHome?: string };
+import { loadUc005Fns } from "./uc005-v2-bootstrap.ts";
+
+type Config = { brokerDir: string; repoRoot: string; workspace: string; mode: "mock" | "live"; authHome?: string };
 const config = await Bun.file(process.argv[2]!).json() as Config;
 await mkdir(config.brokerDir, { recursive: true });
 process.chdir(config.workspace);
@@ -26,7 +27,7 @@ const mockReplies: Record<string, string[]> = {
 let ctx: any = null;
 if (config.mode === "live") {
   ctx = { env: { HOME: config.authHome, PATH: process.env.PATH }, state: {}, routes: {}, fns: {} };
-  await loadFns(ctx);
+  await loadUc005Fns(ctx, config);
 }
 const handled = new Set<string>();
 while (!(await Bun.file(join(config.brokerDir, "STOP")).exists())) {

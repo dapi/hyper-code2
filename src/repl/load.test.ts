@@ -1,5 +1,5 @@
 import { test, expect, describe } from "bun:test";
-import { mkdir, rm } from "node:fs/promises";
+import { mkdir, realpath, rm, symlink, unlink } from "node:fs/promises";
 import { resolve } from "node:path";
 import load from "./load";
 import roots from "../project/roots";
@@ -74,11 +74,19 @@ describe("repl.load", () => {
                 loadedHash: expect.stringMatching(/^[a-f0-9]{64}$/),
             });
             const identity = Symbol.for('hyper-code2.function-source.loaded-function');
+            const sourcePath = Symbol.for('hyper-code2.function-source.loaded-physical-path');
+            const expectedPath = await realpath(resolve(overlayDir, 'demo/value.ts'));
             expect((ctx.state as any).functionSources['demo.value'][identity]).toBe((ctx.fns as any).demo.value);
+            expect((ctx.state as any).functionSources['demo.value'][sourcePath]).toBe(expectedPath);
             expect(Object.getOwnPropertyDescriptor(
                 (ctx.state as any).functionSources['demo.value'],
                 identity,
             )?.enumerable).toBe(false);
+            expect(Object.getOwnPropertyDescriptor(
+                (ctx.state as any).functionSources['demo.value'],
+                sourcePath,
+            )?.enumerable).toBe(false);
+            expect(JSON.stringify((ctx.state as any).functionSources['demo.value'])).not.toContain(expectedPath);
 
             const result = await load(ctx, { name: "demo" });
             expect(result).toEqual({
@@ -91,6 +99,61 @@ describe("repl.load", () => {
             expect(await (ctx.fns as any).demo.overlayOnly()).toBe("overlay-only");
             expect((ctx.state as any).functionSources['demo.value'].root).toBe('.hyper');
             expect((ctx.state as any).functionSources['demo.value'][identity]).toBe((ctx.fns as any).demo.value);
+        } finally {
+            await rm(fixture, { recursive: true, force: true });
+        }
+    });
+
+    test("invalidates provenance when a logical root remaps to an equal-byte physical source", async () => {
+        const fixture = resolve('.test-tmp', `repl-load-root-remap-${crypto.randomUUID()}`);
+        const firstSrc = resolve(fixture, 'first/src');
+        const secondSrc = resolve(fixture, 'second/src');
+        const linkedSrc = resolve(fixture, 'active-src');
+        const firstSource = resolve(firstSrc, 'demo/value.ts');
+        const secondSource = resolve(secondSrc, 'demo/value.ts');
+        const bytes = 'export default async function () { return "same"; }\n';
+        await mkdir(resolve(firstSrc, 'demo'), { recursive: true });
+        await mkdir(resolve(secondSrc, 'demo'), { recursive: true });
+        await Bun.write(firstSource, bytes);
+        await Bun.write(secondSource, bytes);
+        await symlink(firstSrc, linkedSrc, 'dir');
+        const logicalSource = resolve(linkedSrc, 'demo/value.ts');
+        const ctx = {
+            env: {},
+            state: {},
+            routes: {},
+            fns: {
+                project: {
+                    roots: async () => [{ name: 'src', dir: linkedSrc }],
+                    scan: async () => [{
+                        kind: 'fn', moduleDir: 'demo', runtimeName: 'value',
+                        root: 'src', rootDir: linkedSrc, rel: 'demo/value.ts', abs: logicalSource,
+                    }],
+                },
+            },
+        } as unknown as Context;
+
+        try {
+            await load(ctx, { name: 'demo.value' });
+            const receipt = (ctx.state as any).functionSources['demo.value'];
+            const sourcePath = Symbol.for('hyper-code2.function-source.loaded-physical-path');
+            expect(receipt[sourcePath]).toBe(firstSource);
+            expect(JSON.stringify(receipt)).not.toContain(firstSource);
+
+            await unlink(linkedSrc);
+            await symlink(secondSrc, linkedSrc, 'dir');
+            const result = await describeSelf(ctx);
+            const capability = result.capabilities.find((item) => item.name === 'demo.value');
+            expect(capability?.candidates[0]).toMatchObject({
+                path: 'src/demo/value.ts', status: 'observed',
+            });
+            expect(capability?.effectiveSource).toEqual({
+                status: 'unavailable', provenance: 'loader.receipt', freshness: 'unavailable',
+            });
+            const serialized = JSON.stringify(result);
+            expect(serialized).not.toContain(firstSrc);
+            expect(serialized).not.toContain(secondSrc);
+            expect(serialized).not.toContain(linkedSrc);
         } finally {
             await rm(fixture, { recursive: true, force: true });
         }
