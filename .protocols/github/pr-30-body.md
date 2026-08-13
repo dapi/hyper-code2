@@ -9,7 +9,10 @@
 - added reproducible UC-005, secret-transit and network-authority instruments
   with sanitized, checksummed evidence carriers;
 - routed the next evidence wave into R-031/R-032/R-033/R-034 and preserved the
-  immutable-fork blocker instead of inventing a storage fix.
+  immutable-fork blocker instead of inventing a storage fix;
+- added the separately governed EP-002 inspectable/bounded self-evolution
+  initiative, validated R-035/R-036 contracts, and delivered FT-036's read-only
+  `self.describe` plus loopback JSON surface without adding mutation authority.
 
 ## Why
 
@@ -61,10 +64,16 @@ mechanisms.
   graph across W1-W5. Operability, reachability/orphans, concurrency, GC,
   faults, migration and production performance remain unresolved. #28 owns
   historical migration; no storage design or runtime fix is included here.
+- EP-002 is in Execution after FT-036 delivered a source-grounded SelfDescriptor,
+  effective-origin loader receipts and a loopback-only `GET /self` JSON route.
+  The mutation ledger, activation/rollback and reflection slices remain
+  separately gated; R-032 remains the owner of network-to-process authority.
 
 ## Boundaries
 
-- no production runtime code is changed by the corrective evidence batch;
+- FT-036 changes runtime code only for the delivered read-only SelfDescriptor,
+  loader provenance receipts and loopback JSON route; it adds no mutation,
+  credential, non-local exposure or production-deployment authority;
 - no security, capability-surface or persistence mechanism is selected;
 - TUI remains a supporting option, while multi-user/team workflow stays future
   scope;
@@ -74,7 +83,7 @@ mechanisms.
 ## Validation
 
 - `bunx tsc --noEmit`
-- `bun test --timeout 5000` — 408 passed, 3 skipped, 0 failed
+- `bun test --timeout 5000` — 414 passed, 3 skipped, 0 failed
 - `bun test ./.protocols/experiments/r018-sentinel.test.ts` — 11 passed
 - `bun test ./.protocols/experiments/r031-offline-comparison.test.ts` — 2 passed,
   37 assertions

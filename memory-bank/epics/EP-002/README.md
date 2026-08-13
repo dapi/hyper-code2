@@ -11,7 +11,7 @@ derived_from:
   - risks.md
   - decision-log.md
 status: active
-epic_stage: roadmap_ready
+epic_stage: execution
 audience: humans_and_agents
 ---
 
@@ -19,11 +19,11 @@ audience: humans_and_agents
 
 ## Current Stage
 
-- Stage: `roadmap_ready`
+- Stage: `execution`
 - Epic owner / decision owner: Danil Pismenny
 - Source / trigger: [Николай Рыжиков Telegram comment](https://t.me/c/1951583351/97428), accepted PRD-002 amendment, and owner authorization dated 2026-08-13
 - GitHub epic: not created
-- Next gate: `Roadmap Ready -> Execution`
+- Next gate: `Execution -> Done`
 - Identifier note: `EP-002` is the Memory Bank initiative ID and is not a GitHub issue number.
 
 ## Annotated Index
@@ -34,8 +34,8 @@ audience: humans_and_agents
 - [Risks](risks.md) — cross-feature safety, recovery, prompt-injection and scope risks.
 - [Decision Log](decision-log.md) — owner-approved interpretation and epic-local sequencing decisions.
 - [UC-008](../../use-cases/UC-008-inspect-and-evolve-agent.md) — active project-level inspect-and-evolve scenario.
-- [R-035](../../research/R-035/README.md) — decision-ready truthful SelfDescriptor contract research.
-- [R-036](../../research/R-036/README.md) — decision-ready surface-aware activation and recovery contract research.
+- [R-035](../../research/R-035/README.md) — terminally validated truthful SelfDescriptor contract research.
+- [R-036](../../research/R-036/README.md) — terminally validated surface-aware activation and recovery contract research.
 - [Execution protocol](../../../.protocols/ep-002-self-evolution-orchestration.md) — mutable orchestration status and completion checklist.
 
 ## Route And Promotion Record
@@ -48,7 +48,8 @@ audience: humans_and_agents
   provide sufficient facts for direct Bootstrap Epic.
 - No `brief.md` exists and no intake facts require promotion.
 - `charter.md` is active at Epic Ready.
-- `roadmap.md`, `subissues.md`, `risks.md`, and `decision-log.md` are active at Roadmap Ready.
+- `roadmap.md`, `subissues.md`, `risks.md`, and `decision-log.md` are active;
+  creation and delivery of FT-036 moved the epic into Execution.
 - Managed `memory-bank/epics/README.md` is not modified; PRD-002, product roadmap,
   UC-008, and this package provide project-owned reachability.
 

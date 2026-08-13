@@ -22,7 +22,7 @@ must_not_define:
 | `EP-SI-02` | Define surface-aware self-change activation and rollback contracts | `W1B` | PRD-002 `BR-09`, `OQ-09`; UC-008 | validated | [R-036](../../research/R-036/README.md); owner accepted recommendations |
 | `EP-SI-03` | Deliver a read-only current agent self-model | `W2` | outcome of `EP-SI-01`; UC-008 steps 1–2 | delivered | [FT-036](../../features/FT-036/README.md), issue #36 and PR #37; #35 was a separately routed prerequisite |
 | `EP-SI-04` | Deliver an inspectable self-model surface | `W2` | outcome of `EP-SI-01`; UC-008 observable status | delivered as JSON API within FT-036; visual UI remains non-scope | [FT-036](../../features/FT-036/README.md) |
-| `EP-SI-05` | Persist self-change proposals and state transitions | `W3` | outcome of `EP-SI-02`; UC-008 steps 4–5 | candidate | Feature Flow after `HG-03` |
+| `EP-SI-05` | Persist self-change proposals and state transitions | `W3` | outcome of `EP-SI-02`; UC-008 steps 4–5 | ready for separately routed Feature Flow | `HG-03` is satisfied by validated R-036; create/link a GitHub issue and feature package before delivery |
 | `EP-SI-06` | Activate and roll back bounded `.hyper/` changes | `W3` | outcomes of `EP-SI-02/03/05`; UC-008 steps 6–9 | blocked candidate | Feature Flow after `HG-04`; security and recovery gates required |
 | `EP-SI-07` | Govern shipped-core and base-prompt self-change | `W4` | outcome of `EP-SI-02`; UC-008 `BR-04` | blocked candidate | Separate Feature Flow; ADR and explicit human approval when triggered |
 | `EP-SI-08` | Produce reflection candidates without silent activation | `W5` | PRD-002 `G-08`, `BR-06/09`; UC-006/008 | blocked candidate | Separate routing and feature package after `HG-05` |

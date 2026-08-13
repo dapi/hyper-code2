@@ -36,7 +36,7 @@ must_not_define:
 | `W1A` | completed: validated | [R-035](../../research/R-035/README.md) accepted a compact grounded descriptor contract; exact mechanism remains downstream design |
 | `W1B` | completed: validated | [R-036](../../research/R-036/README.md) accepted surface-aware policy and versioned overlay recovery direction; mutation delivery remains separately gated |
 | `W2` | completed | [FT-036](../../features/FT-036/README.md) delivered read-only `self.describe` and loopback JSON API in PR #37; separately routed [#35](https://github.com/dapi/hyper-code2/issues/35) is implemented there with regression evidence |
-| `W3` | blocked | Requires W1B acceptance and verified W2 behavior |
+| `W3` | ready for separately routed delivery | W1B is accepted and W2 is verified; `EP-SI-05` may enter Feature Flow, while activation/rollback `EP-SI-06` remains dependent on the proposal ledger and its recovery/security gates |
 | `W4` | blocked | Requires evidence from W3 and explicit architecture/approval decisions |
 | `W5` | blocked | Requires bounded proposal path and separate reflection activation review |
 | `W6` | pending | Requires representative delivered evidence |

@@ -73,4 +73,6 @@
 - [x] `memory-bank-cli lint` passes.
 - [x] `memory-bank-cli doctor` has no errors.
 - [x] `git diff --check` passes.
-- [x] The draft PR body states current scope, limitations and pending owner decisions accurately.
+- [x] The draft PR body is synchronized through merged EP-002/FT-036 revision
+  `44225bf`, including runtime scope, current validation count, limitations and
+  pending owner decisions.

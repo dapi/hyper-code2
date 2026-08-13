@@ -6,10 +6,12 @@
 - Orchestrator: Codex
 - Started: 2026-08-13
 - Authorization: Danil Pismenny, `ok, создай отдельную ветку через git worktree, сохрани там это проектокол и приступай к выполнению`
-- Branch: `feature/inspectable-self-evolution`
-- Worktree: `~/.worktrees/hyper-code2-self-evolution`
+- Integration branch: `chore/memory-bank-adoption`
+- Merged delivery revision: `44225bf29d8f17c4275faa29a9be5ba59b88793d`
+- Former delivery branch/worktree: `feature/inspectable-self-evolution` / `~/.worktrees/hyper-code2-self-evolution`
 - Base revision: `e301161a70ca685feedfaa5bfba0d3580c73e3f7`
-- Protocol status: `in_progress`
+- Protocol status: `in_progress`; read-only W2 delivery is merged, while SE-07
+  and SE-08 remain pending as separately gated delivery units
 
 ## Primary Source
 

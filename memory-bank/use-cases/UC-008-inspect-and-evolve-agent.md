@@ -140,11 +140,13 @@ preserves the source proposal and evidence trail.
 
 ## Implementation Status
 
-Current runtime primitives support function discovery, source reads, file writes,
-code execution, and hot reload. They do not yet implement a unified self-model,
-surface-aware approval classes, durable change ledger, atomic activation, or
-verified rollback scenario. Active use-case status records required behavior,
-not implementation completion.
+FT-036 implements the read-only portion of this scenario through a
+source-grounded `self.describe` capability and loopback JSON API with provenance,
+freshness, effective-origin and bounded authority/state metadata. The runtime
+does not yet implement the mutation portion: surface-aware approval enforcement,
+a durable proposal/change ledger, atomic activation or a verified rollback
+scenario. Active use-case status records the complete required behavior; only
+steps 1–2 have a delivered feature owner.
 
 ## Traceability
 
@@ -154,5 +156,5 @@ not implementation completion.
 | PRD | [PRD-002](../prd/PRD-002-self-extending-agent-harness.md) |
 | Related use cases | [UC-004](UC-004-hot-reload-capability.md), [UC-005](UC-005-extend-and-reuse-capability.md), [UC-006](UC-006-reflect-on-agent-work.md) |
 | Epic | [EP-002](../epics/EP-002/README.md) |
-| Features | none yet; delivery requires EP-002 handoff |
+| Features | [FT-036](../features/FT-036/README.md) delivers read-only inspection; mutation, ledger, activation and rollback remain future EP-002 handoffs |
 | ADR | none; descriptor and activation/rollback research may trigger ADRs |
