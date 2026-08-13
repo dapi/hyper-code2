@@ -10,5 +10,12 @@ describe("loadFns", () => {
         expect((ctx as any).genTypes).toBeTypeOf("function");
         expect((ctx.fns as any).db.connect).toBeTypeOf("function");
         expect((ctx.fns as any).agent.run).toBeTypeOf("function");
+        expect((ctx.state as any).functionSources['db.connect']).toMatchObject({
+            name: 'db.connect',
+            root: 'src',
+            rel: 'db/connect.ts',
+            generation: expect.any(Number),
+            loadedHash: expect.stringMatching(/^[a-f0-9]{64}$/),
+        });
     });
 });

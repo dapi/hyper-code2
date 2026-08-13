@@ -66,6 +66,11 @@ describe("repl.load", () => {
         try {
             await load(ctx, { name: "demo.value" });
             expect(await (ctx.fns as any).demo.value()).toBe("overlay");
+            expect((ctx.state as any).functionSources['demo.value']).toMatchObject({
+                root: '.hyper',
+                rel: 'demo/value.ts',
+                loadedHash: expect.stringMatching(/^[a-f0-9]{64}$/),
+            });
 
             const result = await load(ctx, { name: "demo" });
             expect(result).toEqual({
@@ -76,6 +81,7 @@ describe("repl.load", () => {
             expect(await (ctx.fns as any).demo.value()).toBe("overlay");
             expect(await (ctx.fns as any).demo.coreOnly()).toBe("core-only");
             expect(await (ctx.fns as any).demo.overlayOnly()).toBe("overlay-only");
+            expect((ctx.state as any).functionSources['demo.value'].root).toBe('.hyper');
         } finally {
             await rm(fixture, { recursive: true, force: true });
         }

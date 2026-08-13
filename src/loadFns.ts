@@ -30,6 +30,9 @@ export default async function (ctx: Context): Promise<void> {
         if (typeof fn !== 'function') continue;
         const fnName = entry.runtimeName;
         const label = entry.root;
+        const qualifiedName = entry.moduleDir === '.'
+            ? fnName
+            : `${entry.moduleDir.replaceAll('/', '.')}.${fnName}`;
         if (entry.moduleDir === '.') {
             (ctx as any)[fnName] = fn;
             console.log(`[fns] ctx.${fnName}  ←  ${label}/${entry.rel}`);
@@ -43,5 +46,26 @@ export default async function (ctx: Context): Promise<void> {
             target[fnName] = fn;
             console.log(`[fns] ctx.fns.${segments.join('.')}.${fnName}  ←  ${label}/${entry.rel}`);
         }
+        await recordSource(ctx, qualifiedName, entry);
     }
+}
+
+async function recordSource(ctx: Context, name: string, entry: any) {
+    const state = ((ctx as any).state ??= {});
+    const registry = (state.functionSources ??= {});
+    const generation = (state.functionSourceGeneration ?? 0) + 1;
+    state.functionSourceGeneration = generation;
+    registry[name] = {
+        name,
+        root: entry.root,
+        rel: entry.rel,
+        loadedHash: await sha256(entry.abs),
+        loadedAt: new Date().toISOString(),
+        generation,
+    };
+}
+
+async function sha256(path: string) {
+    const digest = await crypto.subtle.digest('SHA-256', await Bun.file(path).arrayBuffer());
+    return [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, '0')).join('');
 }

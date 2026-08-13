@@ -9,6 +9,9 @@
 - Canonical use case: `memory-bank/use-cases/UC-008-inspect-and-evolve-agent.md`
 - Accepted research: `memory-bank/research/R-035/decision.md`
 - Epic outcome: `memory-bank/epics/EP-002/subissues.md` (`EP-SI-03`)
+- Feature brief: `memory-bank/features/FT-036/brief.md`
+- Feature design: `memory-bank/features/FT-036/design.md`
+- Implementation plan: `memory-bank/features/FT-036/implementation-plan.md`
 
 ## Routing
 
@@ -43,4 +46,3 @@ fixed before the descriptor claims a current loaded origin.
 - Typecheck and the full Bun test suite pass.
 - Served-output verification confirms the JSON surface through the real HTTP
   route loader/server path.
-
