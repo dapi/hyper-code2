@@ -113,3 +113,28 @@ Independent review signed off the 36-entry committed-`src` caller-control claim
 and technical `STOP-01`. R-029 is terminal `validated` for that bounded gap; the
 instrument does not cover `.hyper`, middleware, reachability or production
 containment and does not select a mechanism.
+
+## R-031 offline discovery-contract symmetry control
+
+`r031-offline-comparison.ts` materializes the four frozen R-031 projections over
+one deterministic ordinary-callable substrate. For each projection and each of
+the three fixture families, a fresh Bun process performs discovery, ordinary
+direct invocation, ordinary callable composition and exact golden comparison.
+A matching negative case deliberately claims the golden final result after a
+wrong tool result so the verifier must detect false success.
+V3 resolves and invokes its admitted ordinary callable through an explicit
+descriptor-adapter function; each result records whether that boundary was
+crossed, while V0–V2 assert that it was not. The same ordinary-callable
+composition check remains a hard admission gate for all four variants.
+
+```bash
+bun test ./.protocols/experiments/r031-offline-comparison.test.ts
+bun .protocols/experiments/r031-offline-comparison.ts
+```
+
+The checked-in sanitized carrier is under
+`runs/R-031/2026-08-13-offline-symmetry-v1/`. This is only the pre-run control
+required by R-031 `STOP-01`: it uses no model/provider, opens no socket, reads no
+real secret, changes no production source and does not select an architecture
+or a preferred variant. Independent symmetry review remains required before a
+live comparison.

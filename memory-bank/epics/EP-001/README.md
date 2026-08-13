@@ -38,6 +38,9 @@ audience: humans_and_agents
 - [R-014](../../research/R-014/README.md) — capability-surface comparison and architecture non-selection.
 - [R-018](../../research/R-018/README.md) — secret non-transit research and sentinel plan.
 - [R-029](../../research/R-029/README.md) — network-to-process authority research.
+- [R-031](../../research/R-031/README.md) — versioned discovery and retention contract comparison.
+- [R-032](../../research/R-032/README.md) — network authority target-contract and mechanism comparison.
+- [R-033](../../research/R-033/README.md) — secret non-transit mechanism comparison.
 
 ## Route And Promotion Record
 
