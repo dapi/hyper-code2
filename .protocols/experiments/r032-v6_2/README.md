@@ -1,7 +1,7 @@
 # R-032 V6.2 clean additive author package — WIP
 
 Status: `WIP / collectionUnauthorized`. This package is bound to source HEAD
-`c4a617fce088ea5ad959e2664cab853533677ab8`, but it is deliberately not an
+`c02b9ece0a1404d84428a2dce0a91599f954e83e`, but it is deliberately not an
 exact ready freeze. No V6.2 collection may run and no earlier V6/V6.1 review can
 authorize it.
 
@@ -34,13 +34,22 @@ independently reviewed together before an exact freeze exists:
   workerLoop` collector wired to this semantic suite;
 - minimal-environment parent relaunch of the complete collector, rather than
   only its contained broker child;
-- a working deny-default Bun child readable allowlist. The current author
-  containment test exits `134` before emitting a receipt, so the profile is not
-  accepted and no freeze is honest;
+- a working deny-default Bun child readable allowlist. Canonicalizing disposable
+  `/var` paths to `/private/var` did not fix the current author containment
+  test: it exits `134` before emitting a receipt even when all probes are
+  disabled. Diagnostic broad `file-read*` starts the child, proving an
+  unenumerated Bun startup/import read remains; that profile is rejected because
+  it would expose operator-home/credential and unrelated paths. The checked-in
+  WIP profile itself still has repo-wide reads plus broad `process*` and
+  `mach-lookup`; those are explicitly rejected placeholders, not accepted
+  limitations or a collection boundary;
 - no-spawn index/worktree cleanliness parsing beyond the implemented HEAD/ref
   and frozen-file verification;
-- integration of the real 144-row runtime result set and cross-candidate
-  controls into the implemented carrier builder.
+- a result-derived validator over the real 144-row (9 candidates × 16 labels)
+  runtime result set, including both broker-root ownership paths and
+  cross-candidate controls. The fixture suite is detached from runtime rows;
+  `buildCarrier` now rejects any other row count but does not misstate that
+  count as semantic validation.
 
 Author-only check:
 
@@ -49,7 +58,7 @@ bun .protocols/experiments/r032-v6_2/self-test.ts
 bun .protocols/experiments/r032-v6_2/infra-self-test.ts
 ```
 
-The semantic test passes in memory. The infrastructure test intentionally
+The detached semantic test passes in memory. The infrastructure test intentionally
 remains failing at the sandbox profile (`exit 134`); this is a visible STOP
 condition, not a waived gate. It creates only a disposable OS-temp directory,
 removes it in `finally`, and writes no evidence carrier.
@@ -57,5 +66,6 @@ removes it in `finally`, and writes no evidence carrier.
 ## Future exact review gate
 
 Review must reject any future freeze unless it verifies all items above, proves
-that collection calls `assertSemanticResults` on the full result set before its
-first write, and confirms the stable carrier contains no raw sentinel value.
+that collection calls a result-derived validator on all 144 runtime rows before
+its first write, and confirms the stable carrier contains no raw sentinel value.
+Calling the detached fixture-only `assertSemanticResults` is insufficient.

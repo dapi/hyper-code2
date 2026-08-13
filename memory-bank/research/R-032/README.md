@@ -26,6 +26,10 @@ The current lifecycle state exists only in `research_status` in the
 - [Evidence Log](evidence.md) — owns reviewed bounded observations and provenance.
   The accepted V5 carrier adds real committed-loader/match/captured-fetch evidence
   but closes no whole hard gate; collection therefore continues without synthesis.
+- [V6.2 WIP author package](../../../.protocols/experiments/r032-v6_2/README.md)
+  — `collectionUnauthorized`; no freeze exists. Its deny-default Bun startup,
+  exact containment profile, full 144-row runtime integration and result-derived
+  validator remain incomplete.
 - [Rejected contract-model dry run](../../../.protocols/experiments/runs/R-032/2026-08-13-e301161-authority-contract-v1/README.md)
   — preserves frozen case accounting and provenance only. Review found that its
   3,663 rows were formula-derived, not candidate executions, and that its

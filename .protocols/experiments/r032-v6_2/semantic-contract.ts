@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { sentinelForms, detectSentinel } from '../r018-sentinel-lib';
 
-export const HEAD = 'c4a617fce088ea5ad959e2664cab853533677ab8';
+export const HEAD = 'c02b9ece0a1404d84428a2dce0a91599f954e83e';
 export const SENTINEL = "R018-NONSECRET-e\u0301:'%/+/\u{10FFFF}";
 export const IDS = ['CAN-01','CAN-02','CAN-03','CAN-04','CAN-05','CAN-06','COM-01','COM-02','COM-03'] as const;
 export const BROKER_IDS = new Set(['CAN-06', 'COM-03']);

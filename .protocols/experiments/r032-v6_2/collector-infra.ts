@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, realpath, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { HEAD, assertSemanticResults, semanticFixture } from './semantic-contract';
 import { auditFrozenFiles, resolveHeadWithoutSpawn } from './outer-gate';
@@ -9,15 +9,21 @@ const sha = (value: Uint8Array | string) => createHash('sha256').update(value).d
 export type DisposablePaths = { root: string; home: string; tmp: string };
 
 export function sandboxProfile(repo: string, paths: DisposablePaths) {
-    const reads = [process.execPath, '/usr/lib', '/System/Library', '/dev/null', repo].map((path) => `(subpath "${path}")`).join(' ');
-    return `(version 1)(deny default)(allow sysctl-read)(allow mach-lookup (global-name "com.apple.system.logger"))(allow file-read* ${reads})(allow file-write* (subpath "${paths.root}"))(allow process-exec (literal "${process.execPath}"))(allow process-fork)(deny network*)`;
+    // REJECTED/WIP PROFILE, never collection-authorizing: repo-wide reads plus
+    // process* and mach-lookup are still broader than the required exact
+    // allowlist, and Bun nevertheless aborts during startup/import. The even
+    // broader diagnostic file-read* profile runs but is intentionally absent.
+    const reads = [process.execPath, '/usr/lib', '/System/Library', '/dev/null', repo, paths.root].map((path) => `(subpath "${path}")`).join(' ');
+    return `(version 1)(deny default)(allow sysctl-read)(allow mach-lookup)(allow process*)(allow file-read* ${reads})(allow file-write* (subpath "${paths.root}"))(deny network*)`;
 }
 
 export async function launchContained(repo: string, paths: DisposablePaths, request: unknown, deadlineMs = 3_000) {
     await mkdir(paths.home, { recursive: false }); await mkdir(paths.tmp, { recursive: false });
-    const env = { PATH: '/usr/bin:/bin', HOME: paths.home, TMPDIR: paths.tmp, R032_V62_CHILD: '1' };
-    const args = ['/usr/bin/sandbox-exec', '-p', sandboxProfile(repo, paths), process.execPath, resolve(repo, '.protocols/experiments/r032-v6_2/contained-child.ts')];
-    const child = Bun.spawn(args, { cwd: paths.root, env, stdin: 'pipe', stdout: 'pipe', stderr: 'pipe' });
+    const canonical = { root: await realpath(paths.root), home: await realpath(paths.home), tmp: await realpath(paths.tmp) };
+    const canonicalRepo = await realpath(repo);
+    const env = { PATH: '/usr/bin:/bin', HOME: canonical.home, TMPDIR: canonical.tmp, R032_V62_CHILD: '1' };
+    const args = ['/usr/bin/sandbox-exec', '-p', sandboxProfile(canonicalRepo, canonical), process.execPath, resolve(canonicalRepo, '.protocols/experiments/r032-v6_2/contained-child.ts')];
+    const child = Bun.spawn(args, { cwd: canonical.root, env, stdin: 'pipe', stdout: 'pipe', stderr: 'pipe' });
     child.stdin.write(JSON.stringify(request)); child.stdin.end();
     let timedOut = false;
     const timer = setTimeout(() => { timedOut = true; child.kill('SIGKILL'); }, deadlineMs);
@@ -30,6 +36,7 @@ export async function launchContained(repo: string, paths: DisposablePaths, requ
 }
 
 export function buildCarrier(rows: unknown[], semantic: ReturnType<typeof semanticFixture>, containment: unknown, provenance: unknown) {
+    assert.equal(rows.length, 144, 'carrier requires the complete 9 x 16 runtime result set');
     assertSemanticResults(semantic); // same full suite, necessarily before artifact construction/write
     const rowHashes = rows.map((row, index) => ({ index, sha256: sha(JSON.stringify(row)) }));
     const artifacts = {

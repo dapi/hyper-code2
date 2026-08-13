@@ -125,12 +125,16 @@ shared assertion contracts, but it cannot receive an exact ready freeze until
 the real runtime collector, outer no-spawn preflight, OS containment and full
 carrier contracts are implemented together.
 
-At HEAD `c4a617f`, V6.2 now contains the no-spawn HEAD/frozen-file outer gate,
+At HEAD `c02b9ec`, V6.2 now contains the no-spawn HEAD/frozen-file outer gate,
 minimal-env child launcher, disposable-path/probe/deadline receipts and full
-carrier-building schema. The deny-default Bun child currently exits `134`
-before a receipt, so OS containment is not validated. This fires the method
-STOP: V6.2 remains WIP with no exact freeze until that profile and the complete
-parent/runtime integration pass the same author checks.
+carrier-building schema. Canonical `/private/var` paths did not fix the
+deny-default Bun child: it exits `134` even with all probes disabled;
+diagnostic broad reads start it but violate the boundary. The semantic fixture
+is also detached from runtime rows: a 144-row count gate is present, but the
+required result-derived validator is not. This fires the method STOP: V6.2
+remains WIP with no exact freeze until the minimal Bun allowlist, complete
+parent/runtime integration and result-derived validator pass author checks and
+independent pre-review.
 
 Before collection, record the execution HEAD and verify whether relevant current
 `src` hashes still match the R-029 baseline. If they differ, create a new
