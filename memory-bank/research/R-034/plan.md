@@ -57,6 +57,10 @@ Run every candidate with payload sizes `64` and `1024` bytes across:
 - `W4`: W2 plus 20 parent edits, 10 deletes and 10 exclusion/reorder changes;
 - `W5`: repeat W2 at 1,000 root messages to expose prefix-linear metadata.
 
+For V3, W3 uses 100 initial root messages as an orchestration normalization to
+W1/W2. This is not a product/storage decision; sensitivity to another initial
+root count remains unknown.
+
 Report content/version/event rows, reference/segment/snapshot metadata rows,
 fork metadata rows, total SQLite pages and `page_count × page_size`. Treat byte
 results as carrier-specific evidence, not expected production capacity.

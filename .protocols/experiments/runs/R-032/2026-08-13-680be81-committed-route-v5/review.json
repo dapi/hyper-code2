@@ -1,0 +1,16 @@
+{
+  "status": "pending-independent-review",
+  "synthesisAuthorized": false,
+  "mechanismSelected": false,
+  "gateAssessment": "not-reviewed",
+  "required": [
+    "committed loader fidelity",
+    "intercepted start/fetch fidelity",
+    "candidate-policy coupling",
+    "route bypass interpretation",
+    "reachability separation",
+    "restart retained-authority",
+    "nine-label symmetry",
+    "provenance and STOP boundary"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "research": "R-034",
+  "revision": "2ab427a3d0add50979ef0445099ff4f07f2a579c",
+  "instrument": {
+    "path": ".protocols/experiments/r034-storage-v3.ts",
+    "sha256": "20febc3df0d279404d28823812290f041133ceec37ddb70e3f766a50dbdaf1df"
+  },
+  "sources": {
+    "memory-bank/research/R-034/brief.md": "6cb207e4489044fec652e37975e2e4b867dbac3aa214b02e7043b74606b98a5d",
+    "memory-bank/research/R-034/plan.md": "60b9355ae7fbaf79bf6bb836499c5ab34b039f201802f420578b0c5ccfa65c29",
+    "memory-bank/research/R-034/evidence.md": "e8be80161025020a07ac39005fe21fb2dbe1b9fd8875a17993fb248d7224b409",
+    "memory-bank/domain/rules.md": "40964ba92bde4ada9080a5b642e83d0b1686668708ac85b465c1ec813c91a365",
+    "memory-bank/use-cases/UC-003-fork-and-delegate.md": "0d6a134ac632993c0542b3f66434528b01567a719139b45df44c7e0fbb1be490",
+    "src/session/$migrate_20260418000000_init.up.sql": "c03a7a70ccbddf01a85eee505c9296f0171f1e7472c98021f8e0acb65ba63591",
+    "src/session/$migrate_20260428150000_add_forks.up.sql": "fc765c58e89e6bf62111cf46013e9eaa44b292b59fcdd72a2b5de74753789590",
+    "src/session/$migrate_20270410120000_add_messages_excluded.up.sql": "a20343c3cb3bbab38855a672e65e97b5a46a32d6ab54f49de9bd274670fc6e5d",
+    "src/session/$migrate_20270503120000_add_messages_excluded_from_cursor.up.sql": "2374d9dc95a09fdc9b192c024ecc27fd815b2d9f7a16e0bd16da929530f1eae5",
+    "src/session/fork.ts": "4896ade8a809530f3982ba8a3bed3eb3cdf6b094d5f324a27b017ff82805b18b",
+    "src/session/getFullMessages.ts": "bef5ab841ddce13dcd4936cf3c4439dc06e8be41bfdf87ed35a81571774dd111",
+    "src/session/save.ts": "ad543ca2fbdd0e2ae944ca7a70fb025c32febccc3b13d90a15532041e914023c",
+    "src/session/appendMessage.ts": "add3551b37d847400c893b5a0e2ceff666a13f3d4eb599f75aba65562e29b6cd",
+    "src/session/replaceMessages.ts": "bc86240f4385aab3ce481f079b208c98c878a44193d3fe41cd0b4e95aeab92d4",
+    "src/session/deleteMessageAt.ts": "c44ba23d25e66302a3fbbc55f466c9ef0a7935488b3ab6c95d5b3837fbc5638f",
+    "src/session/truncateMessagesFrom.ts": "b0b2724804fb76b613722ad2cd884b8d5c710538ead619e4d75171a60f8e339b",
+    "src/session/load.ts": "018b4bc0c4e85a76a29ef1b1930761414df6b0fc4f0b086187d6a945ed82e588",
+    "src/session/loadAll.ts": "06f0d0486456e67e6f215aac4d24ca66fcd08136306861e8641534c71d1feb71",
+    "src/session/syncAgentState.ts": "b24d4dc6272ae84e3b91387eb61376c1958257a92a1b1671b1d58412cd564a04",
+    "src/db/connect.ts": "c3d8666b60b4bf0a8b19394e47dd9720c99adca320ee308026c7dd2bfde45206",
+    "src/db/migrate.ts": "2ec374d6032ac9eef93f4e2f7330215b333a4797d7922f5d6a5e6ec95180c1fc"
+  },
+  "environment": {
+    "bun": "1.3.14",
+    "sqlite": "3.51.0",
+    "platform": "darwin",
+    "arch": "arm64"
+  },
+  "orchestrationAssumptions": {
+    "W3InitialRootMessages": {
+      "value": 100,
+      "rationale": "method normalization to W1/W2 for comparability",
+      "notAProductOrStorageDecision": true,
+      "sensitivityToOtherCounts": "unknown"
+    }
+  },
+  "scope": {
+    "executed": [
+      "CAND-01 constant-size fork metadata referencing pre-existing immutable revision",
+      "CAND-04 structural-sharing persistent binary sequence graph",
+      "root/mid fork and named parent/child mutations",
+      "nested fork",
+      "real close/reopen",
+      "W1-W5 at 64 and 1024 bytes",
+      "plain table row counts",
+      "fork metadata columns/cells",
+      "page_count and page_size",
+      "integrity_check and foreign_key_check"
+    ],
+    "notExecuted": [
+      "concurrent/two-connection writer interleavings",
+      "compaction/GC/retention execution",
+      "backup/rollback execution",
+      "corruption/cycle/dangling/missing-reference injection and diagnostic text",
+      "legacy inventory, migration or backfill",
+      "production events/action-pair/UI integration",
+      "latency or production capacity"
+    ]
+  }
+}

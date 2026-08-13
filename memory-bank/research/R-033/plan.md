@@ -160,8 +160,10 @@ The collector itself must run in the reviewed disposable containment, rotate
 candidate order, and emit sanitized per-cell results and checksums bound to exact
 HEAD/platform/source/dependency/instrument/fixture hashes and containment
 receipts. Independent pre-collection review signs that executable design; a
-separate post-collection review signs the produced carrier. Until then,
-collection is unauthorized and R-033 remains `collecting` with no synthesis.
+separate post-collection review signs the produced carrier. V5.2 satisfied this
+gate for one exact-bound run and may enter bounded synthesis; this historical
+gate does not authorize another collection, production inference or a mechanism
+decision.
 
 ## Controls
 

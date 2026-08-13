@@ -263,7 +263,55 @@ the complete symmetric matrix and real OS/network/process behavior remain
 unexecuted. CAN-06 stays incompatible with process-separation comparison. Gates
 remain `not-reviewed` and R-032 remains `collecting`.
 
+`r032-committed-route-v5.ts` is the independently accepted bounded committed
+route carrier. It passes all 36 fixed entries (34 imported route modules and two
+script GET registrations) through committed `loadRoutes`, observes a safe
+synthetic overwrite, and executes committed `match` plus captured `$start.fetch`
+without opening a listener or invoking a production handler. One
+mechanism-neutral policy wrapper then produces symmetric route, reachability,
+browser/CLI lifecycle and restart records for all nine predeclared labels.
+
+```bash
+bun test ./.protocols/experiments/r032-committed-route-v5.test.ts
+```
+
+The checked carrier is under
+`runs/R-032/2026-08-13-680be81-committed-route-v5/`. Independent review accepts
+only G1 partial, G2 no evidence, G3 partial, G4 bounded structure, G5 no new
+evidence, G6 bounded model and G7 partial. Committed loading, matching and
+captured dispatch are real code paths; handler replacement, candidate policy,
+late/unclassified/overlay behavior, reachability, lifecycle and restart remain
+safe synthetic evidence. CAN-06 is still only an in-process broker label. The
+complete matrix remains open, R-032 remains `collecting`, and the carrier does
+not authorize synthesis, recommendation or mechanism selection.
+
 ## R-033 secret-mechanism disposable comparison
+
+`r033-v5/` is the corrected executable staged-collector design. Its first
+freeze `0ddad70a…` was rejected because provenance checks occurred too late and
+several stage/authority outcomes were self-reported. V5.1 freeze `cac11c9e…`
+moves every frozen-input check before temp state, uses injected refresh and
+discovery spies, seven distinct CC-14 authority adapters, expanded sink/source
+hashes and a cross-candidate carrier/control contract. Its one collected carrier
+is retained only as a rejected diagnostic trace because CC-14 occurrence-based
+arithmetic produced `deniedOrBounded=-7`. V5.2 freeze `36705a74…` counts zero-hit
+paths and adds semantic unit checks for the bounded `0..7` result. Independent
+pre-collection review approved that exact freeze; one contained collection was
+run and independent post-collection review accepted the resulting carrier for
+bounded synthetic synthesis:
+
+```bash
+bun test ./.protocols/experiments/r033-v5/collector.test.ts
+```
+
+The accepted V5.2 carrier is under
+`runs/R-033/v5-collection-2026-08-13-36705a74/`. It contains 70 attributable
+rows: `CAND-01`, `CAND-02`, `CAND-03` and `CAND-05` pass all 14 fixture cells;
+`CAND-04` fails `CC-14` because all seven direct-authority probes return
+detectable secret-bearing values. The carrier supports bounded comparison only,
+not production conformance, ranking, recommendation, mechanism selection or an
+ADR. The rejected V5.1 carrier remains unchanged under
+`runs/R-033/v5-collection-2026-08-13-cac11c9e/`.
 
 The first `r033-contained-comparison.ts` carrier verifies source drift,
 containment and a rotating 70-cell case-plan schema. Independent review rejected
@@ -308,6 +356,27 @@ the candidates shared a resolver core, refresh/discovery did not traverse
 distinct mechanisms, layer controls were parent-only, and cyclic serialization
 did not prove failure before durability. Subsequent instrument edits also make
 its recorded provenance stale. It is retained only as a rejected trace; none of
-its candidate outputs can enter synthesis. The R-033 evidence log owns the
-clean-sheet V4 requirements. R-033 stays `collecting`; synthesis is blocked and
-no mechanism, winner or ADR is selected.
+its candidate outputs can enter synthesis. The R-033 evidence log preserves the
+rejected clean-sheet history. V5.2 has moved R-033 to bounded synthesis; no
+mechanism, winner, recommendation or ADR is selected.
+
+## R-034 immutable fork storage comparison
+
+`r034-storage-v3.ts` executes two disposable generated-data SQLite shapes: a
+constant-size fork reference to an already-addressable immutable parent
+revision plus prefix, and an immutable persistent structural-sharing graph with
+root reuse and path-copy updates. It executes aggregate behavior/restart
+scenarios and W1-W5 at two payload sizes:
+
+```bash
+bun .protocols/experiments/r034-storage-v3.ts
+```
+
+The frozen carrier is under `runs/R-034/2026-08-13-storage-v3/`. Independent
+review accepted only bounded synthetic feasibility for `HYP-01` and `HYP-04`.
+The assertions are aggregate rather than per-transition, W4 is count-only, the
+COW graph is unbalanced and can amplify updates, graph/revision reachability
+and orphan absence are not audited, and read-only reopen equality does not
+prove foreign-key enforcement after reopen. Concurrency, GC, faults, backup,
+migration, production operability and latency remain unknown. The carrier does
+not rank candidates, select a design or authorize synthesis.

@@ -1,0 +1,21 @@
+{
+  "status": "approved-for-collection",
+  "reviewer": "independent non-authoring reviewer",
+  "reviewedAt": "2026-08-13",
+  "freezeManifestSha256": "cac11c9e97f8ca4f80ccf04ae03b9c2befc3c81005f7795d9a7f23f6fad090e9",
+  "instrumentSha256": {
+    "contracts.ts": "e1588befbfb4128e4245631665578c470953219ed010b7e81a38c750e0eccec2",
+    "fixtures.ts": "cd89160d53dc3b6aba4032f920c14fc298ab5fef2a2de7c774a71618bb81abdd",
+    "candidate-01-broker.ts": "9f1f57cd843eecab1b4e85ca380095699c262ff96e7ed7623fa39706bb005906",
+    "candidate-02-source-excluded.ts": "f04755b9aa36419d499a89ffe3d0263f0928443fb785f19e0ed1950989f449b2",
+    "candidate-03-schema-projection.ts": "4ac378793403e2882031d48072c455278eb66c3c45c392d30e6f2d89fefe6a15",
+    "candidate-04-provenance-redaction.ts": "0a3edf2c82fa5f80246f347bda199e6f3f0e0fcc75d7de9121ea8001ee12cd32",
+    "candidate-05-composition.ts": "6abe9bbdf65bf087dd22ae0dc4c6c75136f8ab9ec1a099dd6d0b305218acf336",
+    "instrument.ts": "a90b109a6ba08fab193ecd21b87d62e75427afe4148afc502e9efe7ed9bb5718",
+    "collector-child.ts": "1459297cd9ec711b56d1e11e04d565cb7a5551679fcf163403ba24ca47f2d1b1",
+    "collector-runner.ts": "9ddb97c73706c8c0c79e56026b61c643521eb1f2d8d9cc2e29fffc3a4d47079f",
+    "freeze.ts": "f153422057ce1461989aa92dd6c489f870b3cda9dd064795cf7fc1926e9f88c8",
+    "collector.test.ts": "3d15b3107627d4da003e866e492c080a1014131a9e1b62ab5371949a7a1b5cba"
+  },
+  "fixturePlanSha256": "45c49f40653decc96cc13691edc9006d180e338de2761074b9952b357b67a28b"
+}

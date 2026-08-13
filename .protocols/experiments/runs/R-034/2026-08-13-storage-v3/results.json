@@ -1,0 +1,674 @@
+{
+  "carrier": "R-034 storage-v3",
+  "generatedAt": "2026-08-13",
+  "scenarios": [
+    {
+      "candidate": "constant_revision_ref",
+      "checks": {
+        "initialMidFork": true,
+        "finalMidInheritedAndLocal": true,
+        "finalNestedFork": true,
+        "closeReopen": true
+      },
+      "finalDigest": "bbf37987f0dfbc5f7892a88f58800c606eb8041300d2c7a740f4a795538ea5bb",
+      "reopenDigest": "bbf37987f0dfbc5f7892a88f58800c606eb8041300d2c7a740f4a795538ea5bb",
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    },
+    {
+      "candidate": "cow_structural_graph",
+      "checks": {
+        "initialMidFork": true,
+        "finalMidInheritedAndLocal": true,
+        "finalNestedFork": true,
+        "closeReopen": true
+      },
+      "finalDigest": "bbf37987f0dfbc5f7892a88f58800c606eb8041300d2c7a740f4a795538ea5bb",
+      "reopenDigest": "bbf37987f0dfbc5f7892a88f58800c606eb8041300d2c7a740f4a795538ea5bb",
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    }
+  ],
+  "growth": [
+    {
+      "candidate": "constant_revision_ref",
+      "workload": "W1",
+      "payloadBytes": 64,
+      "method": {
+        "rootMessages": 100,
+        "siblingForks": 1,
+        "nestedDepth": 0,
+        "localPerFork": 10,
+        "parentMutations": null
+      },
+      "counts": {
+        "agents": 2,
+        "revisions": 110,
+        "versions": 110
+      },
+      "forkMetadataColumns": [
+        "inherited_revision",
+        "inherited_prefix"
+      ],
+      "forkMetadataCells": 2,
+      "sqlite": {
+        "pageCount": 11,
+        "pageSize": 4096,
+        "bytes": 45056
+      },
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    },
+    {
+      "candidate": "constant_revision_ref",
+      "workload": "W1",
+      "payloadBytes": 1024,
+      "method": {
+        "rootMessages": 100,
+        "siblingForks": 1,
+        "nestedDepth": 0,
+        "localPerFork": 10,
+        "parentMutations": null
+      },
+      "counts": {
+        "agents": 2,
+        "revisions": 110,
+        "versions": 110
+      },
+      "forkMetadataColumns": [
+        "inherited_revision",
+        "inherited_prefix"
+      ],
+      "forkMetadataCells": 2,
+      "sqlite": {
+        "pageCount": 45,
+        "pageSize": 4096,
+        "bytes": 184320
+      },
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    },
+    {
+      "candidate": "constant_revision_ref",
+      "workload": "W2",
+      "payloadBytes": 64,
+      "method": {
+        "rootMessages": 100,
+        "siblingForks": 32,
+        "nestedDepth": 0,
+        "localPerFork": 10,
+        "parentMutations": null
+      },
+      "counts": {
+        "agents": 33,
+        "revisions": 420,
+        "versions": 420
+      },
+      "forkMetadataColumns": [
+        "inherited_revision",
+        "inherited_prefix"
+      ],
+      "forkMetadataCells": 64,
+      "sqlite": {
+        "pageCount": 21,
+        "pageSize": 4096,
+        "bytes": 86016
+      },
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    },
+    {
+      "candidate": "constant_revision_ref",
+      "workload": "W2",
+      "payloadBytes": 1024,
+      "method": {
+        "rootMessages": 100,
+        "siblingForks": 32,
+        "nestedDepth": 0,
+        "localPerFork": 10,
+        "parentMutations": null
+      },
+      "counts": {
+        "agents": 33,
+        "revisions": 420,
+        "versions": 420
+      },
+      "forkMetadataColumns": [
+        "inherited_revision",
+        "inherited_prefix"
+      ],
+      "forkMetadataCells": 64,
+      "sqlite": {
+        "pageCount": 152,
+        "pageSize": 4096,
+        "bytes": 622592
+      },
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    },
+    {
+      "candidate": "constant_revision_ref",
+      "workload": "W3",
+      "payloadBytes": 64,
+      "method": {
+        "rootMessages": 100,
+        "siblingForks": 0,
+        "nestedDepth": 16,
+        "localPerFork": 10,
+        "parentMutations": null
+      },
+      "counts": {
+        "agents": 17,
+        "revisions": 260,
+        "versions": 260
+      },
+      "forkMetadataColumns": [
+        "inherited_revision",
+        "inherited_prefix"
+      ],
+      "forkMetadataCells": 32,
+      "sqlite": {
+        "pageCount": 15,
+        "pageSize": 4096,
+        "bytes": 61440
+      },
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    },
+    {
+      "candidate": "constant_revision_ref",
+      "workload": "W3",
+      "payloadBytes": 1024,
+      "method": {
+        "rootMessages": 100,
+        "siblingForks": 0,
+        "nestedDepth": 16,
+        "localPerFork": 10,
+        "parentMutations": null
+      },
+      "counts": {
+        "agents": 17,
+        "revisions": 260,
+        "versions": 260
+      },
+      "forkMetadataColumns": [
+        "inherited_revision",
+        "inherited_prefix"
+      ],
+      "forkMetadataCells": 32,
+      "sqlite": {
+        "pageCount": 97,
+        "pageSize": 4096,
+        "bytes": 397312
+      },
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    },
+    {
+      "candidate": "constant_revision_ref",
+      "workload": "W4",
+      "payloadBytes": 64,
+      "method": {
+        "rootMessages": 100,
+        "siblingForks": 32,
+        "nestedDepth": 0,
+        "localPerFork": 10,
+        "parentMutations": {
+          "edits": 20,
+          "deletes": 10,
+          "exclusionAndReorder": 10
+        }
+      },
+      "counts": {
+        "agents": 33,
+        "revisions": 470,
+        "versions": 450
+      },
+      "forkMetadataColumns": [
+        "inherited_revision",
+        "inherited_prefix"
+      ],
+      "forkMetadataCells": 64,
+      "sqlite": {
+        "pageCount": 25,
+        "pageSize": 4096,
+        "bytes": 102400
+      },
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    },
+    {
+      "candidate": "constant_revision_ref",
+      "workload": "W4",
+      "payloadBytes": 1024,
+      "method": {
+        "rootMessages": 100,
+        "siblingForks": 32,
+        "nestedDepth": 0,
+        "localPerFork": 10,
+        "parentMutations": {
+          "edits": 20,
+          "deletes": 10,
+          "exclusionAndReorder": 10
+        }
+      },
+      "counts": {
+        "agents": 33,
+        "revisions": 470,
+        "versions": 450
+      },
+      "forkMetadataColumns": [
+        "inherited_revision",
+        "inherited_prefix"
+      ],
+      "forkMetadataCells": 64,
+      "sqlite": {
+        "pageCount": 166,
+        "pageSize": 4096,
+        "bytes": 679936
+      },
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    },
+    {
+      "candidate": "constant_revision_ref",
+      "workload": "W5",
+      "payloadBytes": 64,
+      "method": {
+        "rootMessages": 1000,
+        "siblingForks": 32,
+        "nestedDepth": 0,
+        "localPerFork": 10,
+        "parentMutations": null
+      },
+      "counts": {
+        "agents": 33,
+        "revisions": 1320,
+        "versions": 1320
+      },
+      "forkMetadataColumns": [
+        "inherited_revision",
+        "inherited_prefix"
+      ],
+      "forkMetadataCells": 64,
+      "sqlite": {
+        "pageCount": 53,
+        "pageSize": 4096,
+        "bytes": 217088
+      },
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    },
+    {
+      "candidate": "constant_revision_ref",
+      "workload": "W5",
+      "payloadBytes": 1024,
+      "method": {
+        "rootMessages": 1000,
+        "siblingForks": 32,
+        "nestedDepth": 0,
+        "localPerFork": 10,
+        "parentMutations": null
+      },
+      "counts": {
+        "agents": 33,
+        "revisions": 1320,
+        "versions": 1320
+      },
+      "forkMetadataColumns": [
+        "inherited_revision",
+        "inherited_prefix"
+      ],
+      "forkMetadataCells": 64,
+      "sqlite": {
+        "pageCount": 467,
+        "pageSize": 4096,
+        "bytes": 1912832
+      },
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    },
+    {
+      "candidate": "cow_structural_graph",
+      "workload": "W1",
+      "payloadBytes": 64,
+      "method": {
+        "rootMessages": 100,
+        "siblingForks": 1,
+        "nestedDepth": 0,
+        "localPerFork": 10,
+        "parentMutations": null
+      },
+      "counts": {
+        "agents": 2,
+        "nodes": 219,
+        "versions": 110
+      },
+      "forkMetadataColumns": [
+        "root_id",
+        "local_start"
+      ],
+      "forkMetadataCells": 2,
+      "sqlite": {
+        "pageCount": 12,
+        "pageSize": 4096,
+        "bytes": 49152
+      },
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    },
+    {
+      "candidate": "cow_structural_graph",
+      "workload": "W1",
+      "payloadBytes": 1024,
+      "method": {
+        "rootMessages": 100,
+        "siblingForks": 1,
+        "nestedDepth": 0,
+        "localPerFork": 10,
+        "parentMutations": null
+      },
+      "counts": {
+        "agents": 2,
+        "nodes": 219,
+        "versions": 110
+      },
+      "forkMetadataColumns": [
+        "root_id",
+        "local_start"
+      ],
+      "forkMetadataCells": 2,
+      "sqlite": {
+        "pageCount": 46,
+        "pageSize": 4096,
+        "bytes": 188416
+      },
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    },
+    {
+      "candidate": "cow_structural_graph",
+      "workload": "W2",
+      "payloadBytes": 64,
+      "method": {
+        "rootMessages": 100,
+        "siblingForks": 32,
+        "nestedDepth": 0,
+        "localPerFork": 10,
+        "parentMutations": null
+      },
+      "counts": {
+        "agents": 33,
+        "nodes": 839,
+        "versions": 420
+      },
+      "forkMetadataColumns": [
+        "root_id",
+        "local_start"
+      ],
+      "forkMetadataCells": 64,
+      "sqlite": {
+        "pageCount": 27,
+        "pageSize": 4096,
+        "bytes": 110592
+      },
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    },
+    {
+      "candidate": "cow_structural_graph",
+      "workload": "W2",
+      "payloadBytes": 1024,
+      "method": {
+        "rootMessages": 100,
+        "siblingForks": 32,
+        "nestedDepth": 0,
+        "localPerFork": 10,
+        "parentMutations": null
+      },
+      "counts": {
+        "agents": 33,
+        "nodes": 839,
+        "versions": 420
+      },
+      "forkMetadataColumns": [
+        "root_id",
+        "local_start"
+      ],
+      "forkMetadataCells": 64,
+      "sqlite": {
+        "pageCount": 158,
+        "pageSize": 4096,
+        "bytes": 647168
+      },
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    },
+    {
+      "candidate": "cow_structural_graph",
+      "workload": "W3",
+      "payloadBytes": 64,
+      "method": {
+        "rootMessages": 100,
+        "siblingForks": 0,
+        "nestedDepth": 16,
+        "localPerFork": 10,
+        "parentMutations": null
+      },
+      "counts": {
+        "agents": 17,
+        "nodes": 519,
+        "versions": 260
+      },
+      "forkMetadataColumns": [
+        "root_id",
+        "local_start"
+      ],
+      "forkMetadataCells": 32,
+      "sqlite": {
+        "pageCount": 22,
+        "pageSize": 4096,
+        "bytes": 90112
+      },
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    },
+    {
+      "candidate": "cow_structural_graph",
+      "workload": "W3",
+      "payloadBytes": 1024,
+      "method": {
+        "rootMessages": 100,
+        "siblingForks": 0,
+        "nestedDepth": 16,
+        "localPerFork": 10,
+        "parentMutations": null
+      },
+      "counts": {
+        "agents": 17,
+        "nodes": 519,
+        "versions": 260
+      },
+      "forkMetadataColumns": [
+        "root_id",
+        "local_start"
+      ],
+      "forkMetadataCells": 32,
+      "sqlite": {
+        "pageCount": 104,
+        "pageSize": 4096,
+        "bytes": 425984
+      },
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    },
+    {
+      "candidate": "cow_structural_graph",
+      "workload": "W4",
+      "payloadBytes": 64,
+      "method": {
+        "rootMessages": 100,
+        "siblingForks": 32,
+        "nestedDepth": 0,
+        "localPerFork": 10,
+        "parentMutations": {
+          "edits": 20,
+          "deletes": 10,
+          "exclusionAndReorder": 10
+        }
+      },
+      "counts": {
+        "agents": 33,
+        "nodes": 4117,
+        "versions": 450
+      },
+      "forkMetadataColumns": [
+        "root_id",
+        "local_start"
+      ],
+      "forkMetadataCells": 64,
+      "sqlite": {
+        "pageCount": 64,
+        "pageSize": 4096,
+        "bytes": 262144
+      },
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    },
+    {
+      "candidate": "cow_structural_graph",
+      "workload": "W4",
+      "payloadBytes": 1024,
+      "method": {
+        "rootMessages": 100,
+        "siblingForks": 32,
+        "nestedDepth": 0,
+        "localPerFork": 10,
+        "parentMutations": {
+          "edits": 20,
+          "deletes": 10,
+          "exclusionAndReorder": 10
+        }
+      },
+      "counts": {
+        "agents": 33,
+        "nodes": 4117,
+        "versions": 450
+      },
+      "forkMetadataColumns": [
+        "root_id",
+        "local_start"
+      ],
+      "forkMetadataCells": 64,
+      "sqlite": {
+        "pageCount": 205,
+        "pageSize": 4096,
+        "bytes": 839680
+      },
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    },
+    {
+      "candidate": "cow_structural_graph",
+      "workload": "W5",
+      "payloadBytes": 64,
+      "method": {
+        "rootMessages": 1000,
+        "siblingForks": 32,
+        "nestedDepth": 0,
+        "localPerFork": 10,
+        "parentMutations": null
+      },
+      "counts": {
+        "agents": 33,
+        "nodes": 2639,
+        "versions": 1320
+      },
+      "forkMetadataColumns": [
+        "root_id",
+        "local_start"
+      ],
+      "forkMetadataCells": 64,
+      "sqlite": {
+        "pageCount": 63,
+        "pageSize": 4096,
+        "bytes": 258048
+      },
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    },
+    {
+      "candidate": "cow_structural_graph",
+      "workload": "W5",
+      "payloadBytes": 1024,
+      "method": {
+        "rootMessages": 1000,
+        "siblingForks": 32,
+        "nestedDepth": 0,
+        "localPerFork": 10,
+        "parentMutations": null
+      },
+      "counts": {
+        "agents": 33,
+        "nodes": 2639,
+        "versions": 1320
+      },
+      "forkMetadataColumns": [
+        "root_id",
+        "local_start"
+      ],
+      "forkMetadataCells": 64,
+      "sqlite": {
+        "pageCount": 477,
+        "pageSize": 4096,
+        "bytes": 1953792
+      },
+      "foreignKeyViolations": 0,
+      "integrity": [
+        "ok"
+      ]
+    }
+  ]
+}

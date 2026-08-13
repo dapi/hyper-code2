@@ -8,7 +8,7 @@ derived_from:
   - ../R-018/decision.md
   - ../../engineering/security-boundary.md
 status: active
-research_status: collecting
+research_status: synthesizing
 audience: humans_and_agents
 ---
 

@@ -23,6 +23,9 @@ The current lifecycle state exists only in `research_status` in the
   boundaries, known evidence and stopping conditions.
 - [Research Plan](plan.md) — owns the symmetric static/mock/prototype comparison,
   safety controls, evidence thresholds and approval record.
+- [Evidence Log](evidence.md) — owns reviewed bounded observations and provenance.
+  The accepted V5 carrier adds real committed-loader/match/captured-fetch evidence
+  but closes no whole hard gate; collection therefore continues without synthesis.
 - [Rejected contract-model dry run](../../../.protocols/experiments/runs/R-032/2026-08-13-e301161-authority-contract-v1/README.md)
   — preserves frozen case accounting and provenance only. Review found that its
   3,663 rows were formula-derived, not candidate executions, and that its
@@ -48,6 +51,16 @@ The current lifecycle state exists only in `research_status` in the
   and generation-store outcomes. It does not execute real route registration,
   reachability, candidate-coupled UX or process separation, closes no new whole
   hard gate and leaves synthesis blocked.
+- [Independently accepted bounded committed-route carrier](../../../.protocols/experiments/runs/R-032/2026-08-13-680be81-committed-route-v5/README.md)
+  — executes committed `loadRoutes`, `match` and captured `$start.fetch` over 36
+  fixed entries (34 imported route modules and two script GET registrations),
+  including a safe synthetic handler replacement. It preserves nine-label
+  symmetry and candidate-coupled lifecycle models. Review interpretation is
+  G1 partial, G2 no evidence, G3 partial, G4 bounded structure, G5 no new
+  evidence, G6 bounded model and G7 partial. Policy inheritance, overlays,
+  reachability, lifecycle and restart claims remain bounded as recorded in the
+  [Evidence Log](evidence.md); CAN-06 remains incompatible with a
+  process-separation conclusion. No synthesis or mechanism selection follows.
 ## Traceability
 
 - [GitHub issue #32](https://github.com/dapi/hyper-code2/issues/32) — public

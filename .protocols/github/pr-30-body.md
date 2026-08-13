@@ -42,19 +42,23 @@ mechanisms.
   explicitly separating reachability, caller authority and residual process
   authority. Its first two carriers are downgraded; corrected v3 is accepted
   only as bounded executable evidence for partial G1/G2/G5/G7 observations.
-  V4 adds independently reviewed experiment-local registry, reachability-field,
-  generic client and generation-store traces, but closes no whole hard gate.
+  V4 adds experiment-local lifecycle traces. V5 then executes the committed
+  loader, matcher and captured dispatch over 36 entries, but authority policy,
+  arbitrary overlays, real reachability, persistent restart and process
+  separation remain open.
 - R-033 has an independently reviewed source/authority inventory and a frozen
   14-cell candidate matrix covering provider refresh, model discovery, root
   context, settings, arbitrary DB access and shared-process file/shell/keychain
-  authority. V1/V2 are downgraded and V3 is rejected after review. V4.1 exact
-  hashes and preflight controls verify, but review rejected collection because
-  executable staged flows and a carrier-bound collector are still missing.
+  authority. Earlier attempts are downgraded or rejected. Corrected V5.2 passed
+  exact-freeze pre-review, one contained 70-row collection and independent
+  post-review. Bounded synthesis records CAND-04's direct-authority
+  incompatibility without ranking or recommending a mechanism.
 - Issue #27 remains open: Bug Fix Flow proved that any correct fix selects a
-  new persistent-data contract. R-034 V2 supplies bounded aggregate/reopen
-  evidence for four synthetic shapes, but proves neither constant-size parent
-  revisions nor COW sharing, linkage or growth. #28 owns historical migration;
-  no storage design or runtime fix is included here.
+  new persistent-data contract. R-034 V3 establishes bounded feasibility for a
+  constant-size immutable revision reference and a structural-sharing COW
+  graph across W1-W5. Operability, reachability/orphans, concurrency, GC,
+  faults, migration and production performance remain unresolved. #28 owns
+  historical migration; no storage design or runtime fix is included here.
 
 ## Boundaries
 
@@ -62,9 +66,9 @@ mechanisms.
 - no security, capability-surface or persistence mechanism is selected;
 - TUI remains a supporting option, while multi-user/team workflow stays future
   scope;
-- next-wave research remains `collecting`; live/model runs, candidate security
-  prototypes, owner dispositions and any architecture/delivery handoffs remain
-  separately gated.
+- R-032/R-034 remain `collecting` and R-033 is only `synthesizing`; live/model
+  runs, owner dispositions and architecture/delivery handoffs remain separately
+  gated.
 
 ## Validation
 

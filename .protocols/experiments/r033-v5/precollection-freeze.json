@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "5.2",
+  "status": "frozen-awaiting-independent-precollection-review",
+  "collectionAuthorized": false,
+  "candidateResultsCollected": false,
+  "supersedesRejectedFreezeSha256": "0ddad70a481eeb28e1cebfd6265991f1ea7ebf2d22a489593d4e751c0bc9129e",
+  "rejectedDiagnosticCarrier": ".protocols/experiments/runs/R-033/v5-collection-2026-08-13-cac11c9e",
+  "head": "2ab427a3d0add50979ef0445099ff4f07f2a579c",
+  "environment": {
+    "platform": "darwin",
+    "release": "25.5.0",
+    "arch": "arm64",
+    "bun": "1.3.14",
+    "git": "git version 2.50.1 (Apple Git-155)"
+  },
+  "fixturePlanSha256": "45c49f40653decc96cc13691edc9006d180e338de2761074b9952b357b67a28b",
+  "instrumentSha256": {
+    "contracts.ts": "e1588befbfb4128e4245631665578c470953219ed010b7e81a38c750e0eccec2",
+    "fixtures.ts": "cd89160d53dc3b6aba4032f920c14fc298ab5fef2a2de7c774a71618bb81abdd",
+    "candidate-01-broker.ts": "9f1f57cd843eecab1b4e85ca380095699c262ff96e7ed7623fa39706bb005906",
+    "candidate-02-source-excluded.ts": "f04755b9aa36419d499a89ffe3d0263f0928443fb785f19e0ed1950989f449b2",
+    "candidate-03-schema-projection.ts": "4ac378793403e2882031d48072c455278eb66c3c45c392d30e6f2d89fefe6a15",
+    "candidate-04-provenance-redaction.ts": "0a3edf2c82fa5f80246f347bda199e6f3f0e0fcc75d7de9121ea8001ee12cd32",
+    "candidate-05-composition.ts": "6abe9bbdf65bf087dd22ae0dc4c6c75136f8ab9ec1a099dd6d0b305218acf336",
+    "instrument.ts": "ee8e563fb9661a500e467520b1e8e962c71b8586101964c5ecfc75c36f6f20c4",
+    "collector-child.ts": "dd6fa0d69fa0361507c59ded02bcec349fa4060ac2113fdaf7a058d66450a1bb",
+    "collector-runner.ts": "36f6b3c942874b31af2e11cadab6e8f670604640fa7130a15b304e5c281c04e5",
+    "freeze.ts": "ab3eb0290763bca915c1cf3671a781a41b7493073a7affb2adb72335a4ca9203",
+    "collector.test.ts": "e21810610602a879df71a756aa0e7d1b2a152cca9d7fa770acb8f22766c7670b"
+  },
+  "dependencySha256": {
+    ".protocols/experiments/r018-sentinel-lib.ts": "8371ca966a5589df324e1fd72d12fdd1002eedda715bafeb452ae2df31006fd3"
+  },
+  "sourceSha256": {
+    "memory-bank/engineering/security-boundary.md": "fd77ff8798fb8ee6bb3168543a54c9907cc33e6173cb409d1d0f2765ed863782",
+    "src/llm/resolveEndpoint.ts": "03f254e70da6738a8191e2f65d1050276fa27073f2997647d1fee3cacbac0616",
+    "src/llm/streamOpenAI.ts": "ac17b31f4505f32f2cecdfb1bde3b5e428c45b54293dc0fc77dad48237a31b9c",
+    "src/llm/streamAnthropic.ts": "235e58ed74407d02ee9ca28804a91ed988f6bb7047e1827cb6597c4d626df50b",
+    "src/llm/streamCodex.ts": "911c9165a0dbe0c5ec65e371e42365ce305cb42973a687a46653d7e10bc4ee92",
+    "src/agent/llmCall.ts": "9b0b1169a912d7609a9d63cac6d64aef05bdd1983b3a94b564f423af15549002",
+    "src/agent/buildLlmRequest.ts": "ebe6177bac68d207bd83941e70f74ee8405ac680df5780fce3d6d6e8719c8e33",
+    "src/agent/executeMarker.ts": "e0ea79b086991d06e2a677556a659d501be79c4467b3238ebf28cc2ae5155e98",
+    "src/agent/executeBash.ts": "ee67f50f20012cbdeccb11e6f820512788d80aefb5f0aeeb8018bc14f2bcca5d",
+    "src/agent/formatMarkerResult.ts": "f689fd04b985cd37efb1946188010c3e4affd593b94b7d88743455a7451e51c6",
+    "src/agent/formatMarkerError.ts": "aec316932e6d8a3db14ae743db4c85df0595af450f0d8b8ad3b26c11d798e673",
+    "src/llm/refreshKimiCode.ts": "31a3c1df8b107453e462b6615bdf829bc8431b7b3bd432e575dbf28aff903b3e",
+    "src/llm/refreshClaudeCode.ts": "3f36a4e1f9624cf1c486dc2a941e88a300ccfef9aaea46b3b4b79337b54c7473",
+    "src/llm/refreshCodex.ts": "895bc66c6f751d33b29e150bd761a47bcba370bde95b4aa3f29a3ed85e22bdcb",
+    "src/llm/listModels.ts": "33abc7b5504330c97c6a8202347d717848858d5090029869d2663717e946d231",
+    "src/agent/$route_new_GET.ts": "dbe8e5164c99b683f47db056f319b3ef5365e43b01e0e3994c4201878b784f74",
+    "src/$main.ts": "024914a8ce6ace4e76c4114583eece44ccc8dc5207f1378d2093bbc580ae5521",
+    "src/$type_Context.ts": "d0887f02e9ec22eb09bd3cb351c4072b4add1975dc09c2b4d000043752129684",
+    "src/loadFns.ts": "d3b24cde1818c302eae4030bdc301718fcfea41cc43ff7d1ba15d96755a971bd",
+    "src/genTypes.ts": "93314c3492cc7db5263f4af67ae74ca41c56ea3e3d4f4e24df3568e206bed7fe",
+    "src/ctx_ns.d.ts": "03a575e68ed7682a1b3d3ca63447b942267e9d4e09321f01ecf2c82bd9f0e6c7",
+    "src/repl/eval.ts": "cab51fd25fb619aa60049f9469c5ebf579261bbe339840837bfd049e55a0c0b8",
+    "src/settings/get.ts": "a97e562bdbdc2d7b26056b8b788c49715d8737a6bd5a440802b8538b371154a9",
+    "src/settings/getString.ts": "a94fdcee145009c2871bd6084ceab74ffaced7f8a60b6b0c4de13a66f2cc80d1",
+    "src/settings/list.ts": "6e6bfa4e2cbfcca7e3ebd988486518fcb37f34f651ab1e338c90f373511c8507",
+    "src/db/select.ts": "6d07b66bb525b7b422d11b20d311eac2ba9dc5454edcf326ac4de3e8749c7e5a",
+    "src/files/read.ts": "7b4b5980467bb3d006fc9474d5d845fd5b691df2655f84c6247292180fd2d27c",
+    "src/session/appendMessage.ts": "add3551b37d847400c893b5a0e2ceff666a13f3d4eb599f75aba65562e29b6cd",
+    "src/session/appendEvent.ts": "a5a12371493994d1a3ad6a4a460cdef9290baf5e67b4e8c30d93532ae51750d1",
+    "src/session/appendEventWithHtml.ts": "6ebbd9baf7ce167a4257265031d6120790500ca8c64373b0f3d40e16cc9ef6b2",
+    "src/session/appendUserMessage.ts": "10b97ae71c97d74d2454850e66ab33d2cabf58d467075133a01de09e3cab8b74",
+    "src/session/appendAssistantMessage.ts": "c09122ebecf3f20065de842fe2ad8e34e1e0fd294d835b7a5c9ca59e25acc909",
+    "src/session/appendErrorEvent.ts": "32ab608aa6d1906c22823b0227fa0931ca2d6724d237617571cbbd68841c66b8",
+    "src/session/updateScratchpad.ts": "1ba52234cfbdad7b6f313a60b6791b1e3dbbc948bf0bd1515b35581f03ed13ea",
+    "src/session/save.ts": "ad543ca2fbdd0e2ae944ca7a70fb025c32febccc3b13d90a15532041e914023c",
+    "src/agent/renderEventHtml.ts": "5ace50b71ab2976f7d9167432df784d1f5f5f77ec884fa96d06eb94357b3326f"
+  },
+  "childEnvironmentKeys": [
+    "HOME",
+    "LANG",
+    "LC_ALL",
+    "NO_COLOR",
+    "PATH",
+    "TMPDIR"
+  ],
+  "frozenExecution": {
+    "candidates": 5,
+    "cells": 14,
+    "matrixRows": 70,
+    "rotatingOrders": [
+      [
+        "CAND-01",
+        "CAND-02",
+        "CAND-03",
+        "CAND-04",
+        "CAND-05"
+      ],
+      [
+        "CAND-02",
+        "CAND-03",
+        "CAND-04",
+        "CAND-05",
+        "CAND-01"
+      ],
+      [
+        "CAND-03",
+        "CAND-04",
+        "CAND-05",
+        "CAND-01",
+        "CAND-02"
+      ],
+      [
+        "CAND-04",
+        "CAND-05",
+        "CAND-01",
+        "CAND-02",
+        "CAND-03"
+      ],
+      [
+        "CAND-05",
+        "CAND-01",
+        "CAND-02",
+        "CAND-03",
+        "CAND-04"
+      ]
+    ],
+    "refreshFailureStages": [
+      "read",
+      "oauth-request",
+      "oauth-response",
+      "write"
+    ],
+    "stableCarrierRequiresPostCollectionReview": true
+  }
+}

@@ -13,10 +13,10 @@ audience: humans_and_agents
 
 # R-033: Evidence Log
 
-This log contains the reviewed static inventory and rejected or downgraded
-instrument/carrier attempts through V4.1. None supports candidate conformance,
-ranking or a mechanism decision. R-033 remains `collecting`; an executable
-staged collector satisfying the updated gate below is required.
+This log contains the reviewed static inventory, rejected or downgraded
+instrument/carrier attempts through V5.1, and the accepted bounded V5.2
+synthetic carrier. V5.2 supports comparison only inside its disposable fixture;
+it does not support production conformance, ranking or a mechanism decision.
 
 ## Sources
 
@@ -39,6 +39,8 @@ staged collector satisfying the updated gate below is required.
 | `SRC-15` | [V3 semantic adapters](../../../.protocols/experiments/r033-v3-semantics.ts), [contained matrix child](../../../.protocols/experiments/r033-v3-child.ts), [restart child](../../../.protocols/experiments/r033-v3-restart-child.ts) and [carrier parent](../../../.protocols/experiments/r033-v3-comparison.ts) | 2026-08-13 | Candidate-distinct CC semantics plus separate restart execution | Primary executable instrument; independent fidelity review pending |
 | `SRC-16` | [Rejected V3 carrier](../../../.protocols/experiments/runs/R-033/2026-08-13-semantic-adapters-v3/README.md), [summary](../../../.protocols/experiments/runs/R-033/2026-08-13-semantic-adapters-v3/summary.json) and [provenance](../../../.protocols/experiments/runs/R-033/2026-08-13-semantic-adapters-v3/provenance.json) | 2026-08-13 | Attempted semantic matrix | Rejected: shared mechanism core, incomplete mediated refresh/discovery/layer/serialization semantics, and provenance no longer matches current instrument |
 | `SRC-17` | [Rejected V4.1 pre-collection instrument](../../../.protocols/experiments/r033-v4/README.md) and [freeze manifest](../../../.protocols/experiments/r033-v4/precollection-freeze.json), freeze SHA-256 `01ecc10bea2a8657679c9d4fc8eb560ef9466194e875fc68cf4f06ffdd39e7c2` | 2026-08-13 | Instrument design and safety-control preflight only | Rejected before collection: no executable staged CC-01…14 collector or candidate-result carrier exists; no inference, refresh or discovery candidate matrix was collected |
+| `SRC-18` | [Rejected V5.1 diagnostic carrier](../../../.protocols/experiments/runs/R-033/v5-collection-2026-08-13-cac11c9e/README.md), collected under freeze SHA-256 `cac11c9e97f8ca4f80ccf04ae03b9c2befc3c81005f7795d9a7f23f6fad090e9` | 2026-08-13 | One approved contained collection followed by independent post-review | Diagnostic trace only: post-review rejected the CC-14 derived `deniedOrBounded` field because it counted detector-hit occurrences rather than zero-hit path probes and produced `-7`; no candidate total or conformance claim enters synthesis |
+| `SRC-19` | [Accepted bounded V5.2 carrier](../../../.protocols/experiments/runs/R-033/v5-collection-2026-08-13-36705a74/README.md), [results](../../../.protocols/experiments/runs/R-033/v5-collection-2026-08-13-36705a74/results.json), [controls](../../../.protocols/experiments/runs/R-033/v5-collection-2026-08-13-36705a74/cross-candidate-controls.json), [containment](../../../.protocols/experiments/runs/R-033/v5-collection-2026-08-13-36705a74/containment.json) and [provenance](../../../.protocols/experiments/runs/R-033/v5-collection-2026-08-13-36705a74/provenance.json); integrity manifest: `SHA256SUMS` in the same carrier; freeze SHA-256 `36705a74a8b61c6e123d73d026f2e4b280f506c91caf0aa00b98ae1ab945a0db` | 2026-08-13 | One exact-bound, independently pre-approved contained collection followed by independent post-collection review | Accepted for bounded synthetic synthesis only: 70 attributable rows, complete five-by-fourteen symmetry, stable bindings/checksums and sanitized outputs. No real secret, provider, network, operator-home store or production path was exercised. |
 
 ## Observations
 
@@ -62,6 +64,9 @@ staged collector satisfying the updated gate below is required.
 | `OBS-16` | V2 executed partial adapter methods and integrity controls, but independent review found that its CC semantics, transformed per-layer controls, full frozen request comparisons and actual restart process were incomplete. | [SRC-14](../../../.protocols/experiments/runs/R-033/2026-08-13-executable-adapters-v2/summary.json) | Review gate | V2 is bounded integrity/containment/schema and partial execution evidence only; its totals cannot support CC conformance. |
 | `OBS-17` | Independent review rejected V3 because candidate behavior still shared one resolver, refresh and discovery paths did not traverse the required distinct mechanisms, layer controls were parent-only, and serialization evidence did not establish fail-closed durability. | [SRC-15](../../../.protocols/experiments/r033-v3-semantics.ts), [SRC-16](../../../.protocols/experiments/runs/R-033/2026-08-13-semantic-adapters-v3/README.md) | Review gate | V3 candidate totals, coverage flags and failures are not evidence and cannot enter synthesis. |
 | `OBS-18` | V4.1 separates mechanism modules and executes detector/layer preflight controls, but independent pre-collection review found that its CC plan remains descriptive: CC-10 success/throw do not exercise `DurableSpy`; refresh, account derivation and discovery lack executable staged failure/order assertions; and its child/runner emits only a containment/provenance plan rather than rotating per-cell candidate results. | [SRC-17](../../../.protocols/experiments/r033-v4/precollection-freeze.json) | Review gate | V4.1 is rejected preflight/symmetry/containment-design evidence only. It authorizes no collection, conformance claim, synthesis or mechanism selection. |
+| `OBS-19` | V5.2 produced 70 attributable rows with 14 cells for each of five candidates. `CAND-01`, `CAND-02`, `CAND-03` and `CAND-05` passed all 14 synthetic cells; `CAND-04` passed 13 and failed `CC-14`. | [SRC-19](../../../.protocols/experiments/runs/R-033/v5-collection-2026-08-13-36705a74/results.json) | Fixed `CC-01…14 × CAND-01…05` fixture | These are disposable-fixture results, not production conformance scores or a ranking. |
+| `OBS-20` | In `CAND-04 × CC-14`, each of seven direct generated-code authority probes executed once, each returned a detectable secret-bearing value, and `deniedOrBounded` was correctly derived as `0`; the same seven probes produced zero detector hits and `deniedOrBounded=7` for every other candidate. | [SRC-19](../../../.protocols/experiments/runs/R-033/v5-collection-2026-08-13-36705a74/results.json) | Common direct-authority contract, `CC-14` | Provenance-aware sink redaction is incompatible with the fixture's non-transit contract when raw values remain directly readable; this does not test every possible redaction architecture or production integration. |
+| `OBS-21` | The V5.2 carrier binds 70 per-row checksums to the frozen instrument, fixture, source/dependency hashes, containment and execution digests. Its child environment contains six named non-credential keys, and recorded operator-home read, keychain read, outside write, listener, connect and fetch probes are denied. | [SRC-19](../../../.protocols/experiments/runs/R-033/v5-collection-2026-08-13-36705a74/provenance.json) | Collection integrity and bounded containment | This proves only the recorded carrier and probes on the recorded host; it is not a production isolation, OS portability or general network-denial claim. |
 
 ## Collection Log
 
@@ -77,6 +82,10 @@ staged collector satisfying the updated gate below is required.
 | 2026-08-13 | Independent review accepted v2 bounded integrity but rejected full fidelity; downgraded v2 and ran additive v3 semantics | 70 semantic cells, 72 layer controls and five restart processes recorded with checksums | Lifecycle remains `collecting`; v3 independent review required before synthesis |
 | 2026-08-13 | Independent review rejected V3 fidelity | V3 retained only as rejected trace; no new carrier generated from subsequently changed code | Clean-sheet V4 required; lifecycle remains `collecting` and synthesis is blocked |
 | 2026-08-13 | Built V4, received a rejected pre-collection review, froze V4.1, and received a second rejection | V4.1 improved module separation, control symmetry and containment/provenance planning but remained a preflight rather than an executable staged collector | Freeze retained as rejected trace; collection remains unauthorized and the next gate requires a new executable collector design and renewed independent review |
+| 2026-08-13 | First V5 freeze received an independent pre-collection rejection; corrected the six named design blockers and froze V5.1 | Freeze `0ddad70a…` is rejected; V5.1 freeze `cac11c9e…` passes only its 70-row in-memory self-test and exact-input self-check | No collector runner, contained child or stable carrier was executed; a new independent pre-collection review is required |
+| 2026-08-13 | Ran one independently approved V5.1 contained collection and received a post-collection rejection | Carrier retained as diagnostic trace; CC-14 `deniedOrBounded=-7` exposed invalid occurrence-based derived arithmetic | No V5.1 result enters synthesis; minimal V5.2 correction requires a new freeze and pre-collection review |
+| 2026-08-13 | Corrected only CC-14 derived path counting and froze V5.2 | CAND-04 seven leaking probes map to `0`; every other candidate maps to `7`; freeze `36705a74…` | Only in-memory self-tests run; collection remains unauthorized pending independent pre-collection review |
+| 2026-08-13 | Received exact-bound independent V5.2 pre-collection approval, ran one contained collection, and stopped for independent post-collection review | V5.2 carrier contains 70 symmetric attributable rows; checksums, sanitization, containment and provenance bindings were accepted for bounded synthesis | One synthetic fixture only; V5.1 remains rejected and no production, ranking, recommendation or mechanism claim was promoted |
 
 ## Evidence Quality Check
 
@@ -87,8 +96,7 @@ staged collector satisfying the updated gate below is required.
 - [x] No real secret, credential store, provider, network or shared state was
   accessed.
 - [x] Independent review signed off inventory completeness for the recorded
-  source scope before candidate prototype collection; carrier/symmetry review
-  remains required before synthesis.
+  source scope before candidate prototype collection.
 - [x] The stable carrier contains no raw sentinel or authentication header and
   its `SHA256SUMS` verify.
 - [x] Rejected first-carrier candidate claims are explicitly downgraded; its
@@ -97,47 +105,18 @@ staged collector satisfying the updated gate below is required.
   complete CC conformance.
 - [x] V3 candidate claims are explicitly rejected and its provenance mismatch
   after subsequent edits is disclosed.
-- [ ] Independent non-authoring review has verified the carrier, per-cell
-  checksums, symmetry, adapter fidelity and source/sink completeness; synthesis
-  remains blocked until this item is complete.
-- [ ] Independent non-authoring pre-collection review has approved a replacement
-  executable staged collector satisfying the next gate; V4.1 was rejected and
-  cannot authorize candidate collection.
+- [x] Independent non-authoring review verified the V5.2 carrier, per-cell
+  checksums, five-by-fourteen symmetry, bounded adapter fidelity and recorded
+  source/sink coverage for synthetic synthesis.
+- [x] Independent non-authoring pre-collection review approved exact V5.2 freeze
+  `36705a74…`; exactly one contained collection was run under that approval.
 
-## Required Next Collector Scope
+## Accepted Evidence Boundary
 
-The next attempt must be an executable staged collector frozen before collection:
-
-1. five separate mechanism implementations with no shared secret resolver:
-   broker/reference binding; source-excluded privileged transport; schema-owned
-   projection; provenance-aware redaction; and an explicit composition;
-2. separate inference, refresh and model-discovery contracts, with CC-05/06
-   synthetic read → OAuth → write operations traversing each mechanism and
-   CC-13 using its own discovery request, failure and render flow;
-3. S0-S8 values executed through every candidate at every prohibited layer,
-   including transformed positive leaks and clean negative controls;
-4. CC-10 secret-bearing success, throw and cyclic serialization paths that
-   prove failure before any durable write;
-5. `CC-10` secret-bearing success, throw and cyclic values must enter the actual
-   candidate serialization-to-durability path with a `DurableSpy`; every secret,
-   error or serialization rejection must prove `durable.calls === 0`;
-6. the full `CC-01…14 × CAND-01…05` matrix must be executable candidate behavior,
-   not a frozen list, declared receipt or parent-generated outcome;
-7. refresh must execute distinguishable read → OAuth request → OAuth response →
-   write stages for Kimi, Anthropic and Codex, with failure injected at every
-   stage and proof that later dispatch/write stages remain at zero;
-8. Codex account identity must be derived by a synthetic claim parser from the
-   privileged token fixture, not by hashing an arbitrary token string;
-9. discovery success must execute transport → non-secret model IDs → render;
-   discovery failure must prove no IDs and zero render calls;
-10. an actually contained rotating child collector must execute every candidate
-    cell and emit sanitized per-cell results/checksums plus exact HEAD, platform,
-    source, dependency, instrument, fixture, containment and execution provenance;
-11. frozen code and independent pre-collection review must precede collection;
-    a separate post-collection review must precede evidence promotion or synthesis.
-
-V4.1 freeze SHA-256
-`01ecc10bea2a8657679c9d4fc8eb560ef9466194e875fc68cf4f06ffdd39e7c2`
-is rejected input to this gate, not an approval token. Its manifest fields
-`collectionAuthorized: false` and `candidateResultsCollected: false` remain
-authoritative for that attempt.
+The V5.2 carrier satisfies the planned finite synthetic collection gate and
+allows R-033 to enter `synthesizing`. It does not resolve production topology,
+credential ownership, current-code integration, provider acceptance or any
+other production unknown listed in [synthesis.md](synthesis.md). V4.1 and V5.1
+remain rejected traces; their candidate totals do not enter synthesis. No
+additional collection, production implementation, ADR or owner selection is
+authorized by this promotion.
