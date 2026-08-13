@@ -56,21 +56,30 @@ UC-005 run directories are ignored and disposable.
 
 ## R-018 synthetic secret-transit collection
 
-`r018-collect.ts` executes a fixed mock success cell through current
-result, persistence, rendering and pre-provider request construction. The
+`r018-collect.ts` records the original partial attempt. The corrected
+`r018-contained-runner.ts` launches `r018-contained-child.ts` under a macOS
+deny-default `sandbox-exec` profile and executes the same fixed mock success
+cell through current result, persistence, rendering and pre-provider request construction. The
 detector library and tests cover the predeclared S0–S8 encodings with positive
 and negative controls. The run carrier is under `runs/R-018/`.
 
 ```bash
 bun test .protocols/experiments/r018-sentinel.test.ts
-bun .protocols/experiments/r018-collect.ts
+bun .protocols/experiments/r018-contained-runner.ts
 ```
 
-The collector uses only a deterministic non-secret fixture, in-memory state and
-a fail-closed provider/network stub. It stopped at the first prohibited transit
-and did not select an enforcement mechanism. The first collector did not satisfy
-the plan's OS-sandbox, minimal-environment and enforced write-boundary
-preconditions, so its carrier is partial evidence and R-018 remains collecting.
+The corrected child records containment before injection: exact allowlisted
+environment, disposable HOME/TMPDIR, absent provider auth and denied probes for
+operator-home read, outside-root write and network listen. The v2 profile has no
+Mach lookup allowance; it additionally checks sandbox-policy denial for two
+named securityd services, denial of the direct login-keychain path and failure
+of a deterministic nonexistent keychain lookup. It then uses only a
+deterministic non-secret fixture and in-memory state. It stopped at the first
+prohibited transit and did not select an enforcement mechanism. The first
+carriers remain unchanged; the `20260813-keychain-contained-static-mock-03`
+carrier closes the bounded evidence cycle. Independent review signed off the
+named controls and sampled transit; R-018 is terminal `validated` for that
+bounded non-conformance claim without selecting a mechanism.
 
 ## R-029 static network-authority inventory
 
@@ -83,8 +92,24 @@ carriers plus checksums under `runs/R-029/<run-id>/`.
 bun .protocols/experiments/r029-static-mock.ts
 ```
 
-The instrument aborts if HEAD changes or `src` has a worktree diff. It never
-opens a socket and intentionally excludes the runtime `.hyper` overlay. It does
-not select an authority mechanism or prove interface reachability. Its 11 mocks
-are representative rather than route-exhaustive; complete route/control
-reconciliation and independent review remain pending.
+The first instrument aborts if HEAD changes or `src` has a worktree diff. It
+never opens a socket and intentionally excludes the runtime `.hyper` overlay.
+Its 11 direct-handler mocks are representative rather than route-exhaustive.
+
+`r029-route-control-v2.ts` is the additive exhaustive reconciliation. It refuses
+source drift from the approved baseline, validates every prior source hash,
+reviews common and route-local caller-control candidates for all 36 entries, and
+sends missing, malformed and synthetic-invalid identity variants through the
+captured dispatcher for every entry (108 calls). It also records per-entry test
+or static-only coverage and all nine immediate/deferred authority classes. It
+does not overwrite the first carrier, execute handler side effects, open a
+socket, select a mechanism or prove interface reachability.
+
+```bash
+bun .protocols/experiments/r029-route-control-v2.ts
+```
+
+Independent review signed off the 36-entry committed-`src` caller-control claim
+and technical `STOP-01`. R-029 is terminal `validated` for that bounded gap; the
+instrument does not cover `.hyper`, middleware, reachability or production
+containment and does not select a mechanism.

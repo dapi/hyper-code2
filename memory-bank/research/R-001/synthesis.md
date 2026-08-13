@@ -34,7 +34,7 @@ audience: humans_and_agents
 | `LIM-05` | The runner was unrestricted; environment and filesystem boundaries were prompt-level instructions rather than technical controls. | The first pass does not satisfy `HG-02` and is not security validation. | Enforce the boundary in the revised instrument before another live run. |
 | `LIM-06` | Raw transcript/database and retained capability artifacts remained ephemeral. | Independent review cannot reconstruct every primary observation from repository evidence. | Preserve sanitized primary artifacts and checksums in the revised pass. |
 | `LIM-07` | The v2 broker is experiment support, not shipped production behavior. | Experiment containment cannot be promoted to a product security claim. | Keep R-018/R-029 independent and do not mark production `HG-02` complete. |
-| `LIM-08` | The second live pass still covers only tag normalization and one configured model alias. | Overall `VAL-01…05` remains undecided. | Owner decides whether to revise retention guidance before running the other two families. |
+| `LIM-08` | The second live pass still covers only tag normalization and one configured model alias. | Overall `VAL-01…05` remains undecided. | The owner stopped this cycle; any generalization requires a separately routed cycle with a changed discovery/retention contract. |
 
 ## Answer to Decision Question
 
@@ -43,9 +43,12 @@ separate-process restart check. Under that instrument, the current runtime/model
 completed the one-off baseline but did not retain a capability within the fixed
 call budget, so later reuse and restart correctly found nothing. This strengthens
 the conclusion that discovery and retention guidance are unresolved and removes
-the earlier false-success ambiguity. It remains insufficient to validate
-PRD-002, select mediation, prioritize compact-result delivery, or generalize to
-the two unrun task families.
+the earlier false-success ambiguity. The current cycle therefore cannot confirm
+retention/reuse and is terminally inconclusive. It remains insufficient to
+validate PRD-002, select mediation, prioritize compact-result delivery, or
+generalize to the two unrun task families. Those families must not run under the
+unchanged contract; a changed contract requires a new, separately routed
+research cycle.
 
 ## Review Check
 

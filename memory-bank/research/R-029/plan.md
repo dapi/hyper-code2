@@ -143,3 +143,20 @@ Each signal must be actively checked; none is currently asserted as observed.
 | Static/mock approval reference | Danil Pismenny, 2026-08-13: add the reviewed work to the plan and act |
 | Real reachability reviewer | Danil Pismenny and delegated security reviewer |
 | Real reachability approval reference | **Pending — real listener tests are prohibited** |
+
+## Collection Progress
+
+| Gate | State | Evidence / boundary |
+| --- | --- | --- |
+| Fixed-source entry reconciliation | complete | 34 route handlers plus two loader scripts reconcile to 36 unique dispatch entries at source baseline `d119f1c` |
+| Common and route-local caller-control review | complete | Listener, matcher, loader and every entry source have per-entry evidence in the additive v2 carrier |
+| Synthetic dispatch variants | complete | Missing, malformed and synthetic-invalid identity material reached the handler boundary for every entry: 108 captured calls, no socket |
+| Authority timing reconciliation | complete | All nine planned classes map to their immediate and/or deferred paths; no authority root was executed |
+| Handler coverage classification | complete | Seven entries link repository tests; 29 entries carry an explicit static-only rationale; the prior run retains 11 representative direct-handler mocks |
+| Independent matrix review | complete | Separate reviewer signed off entry completeness and control classifications for the bounded committed-`src` claim; manual authority timing remains a code-path classification rather than certified runtime behavior |
+| Optional real reachability | prohibited / not required for this gate | No approval exists; requested bind configuration is not actual interface reachability |
+
+Static/mock collection stopped under `STOP-01` after the complete technical
+reconciliation. Independent review then signed off the bounded committed-`src`
+caller-control claim. The next action inside this research package is decision
+preparation and owner disposition; mechanism comparison remains outside collection.

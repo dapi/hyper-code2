@@ -11,8 +11,11 @@ audience: humans_and_agents
 
 Lifecycle state, decision question and boundaries are owned by the
 [Research Brief](brief.md). The approved read-only inventory and controlled-test
-method is owned by the [Research Plan](plan.md). The partial fixed-snapshot
-observations and their provenance are in the [Evidence Log](evidence.md); their
-provisional bounded interpretation is in the [Research Synthesis](synthesis.md).
-Complete route/control reconciliation and reviewer sign-off remain pending. No authority
-mechanism is selected.
+method is owned by the [Research Plan](plan.md). The fixed-source inventory,
+additive 36-entry route/control reconciliation and their provenance are in the
+[Evidence Log](evidence.md); their bounded interpretation is in the
+[Research Synthesis](synthesis.md). Technical collection and independent review
+are complete for the bounded committed-`src` caller-control claim.
+[Decision](decision.md) records the terminal `validated` disposition and
+mechanism-neutral handoff. No authority mechanism is selected and no real
+reachability claim is made.

@@ -8,7 +8,7 @@ derived_from:
   - ../../prd/PRD-002-self-extending-agent-harness.md
   - ../../use-cases/UC-005-extend-and-reuse-capability.md
 status: active
-research_status: synthesizing
+research_status: inconclusive
 audience: humans_and_agents
 ---
 
@@ -22,7 +22,7 @@ audience: humans_and_agents
 | Research owner | Codex under Danil Pismenny's orchestration protocol |
 | Decision owner | Danil Pismenny |
 | Research mode | `product_discovery` with technical experiment |
-| Decision deadline / timebox | Revised collection stopped after the repeated first family on 2026-08-13; synthesis and refreshed owner disposition are pending |
+| Decision deadline / timebox | Revised collection stopped after the repeated first family on 2026-08-13; Danil Pismenny concluded the current cycle as `inconclusive` on 2026-08-13 |
 
 ## Decision Question
 
@@ -62,13 +62,18 @@ audience: humans_and_agents
   run have either met the thresholds or exposed a concrete failure; return to the
   owner before expanding cost or choosing architecture. The owner chose `revise
   and continue`; the next stop is the revised instrument gate in `plan.md`.
+- `STOP-02` The v2 repetition exposed a second concrete retain/reuse failure in
+  the first task family. The owner stopped the current research cycle as
+  `inconclusive`: do not run the two remaining families until a separately
+  routed research cycle defines a changed, versioned discovery/retention
+  contract.
 
 ## Open Questions
 
 | Question | Blocks | Owner | Resolution evidence |
 | --- | --- | --- | --- |
-| Does the revised instrument technically enforce its boundary and produce auditable primary evidence? | Any further live validation claim | Codex, reviewed by Danil Pismenny | Instrument-v2 isolation, evidence-preservation and new-process checks |
-| Do the other two task families reproduce the discovery/correctness failure? | Full `VAL-01…05` verdict | Danil Pismenny | Fixed-fixture runs after the revised instrument passes |
+| Can a changed, versioned discovery/retention contract make retention and later reuse reliable under the fixed call budget? | Any new current-runtime validation cycle | Danil Pismenny | Separately routed research package with an approved contract; no delivery feature is implied |
+| Do the other two task families reproduce the discovery/correctness failure under that changed contract? | Generalization beyond the first family | Future research owner | Fixed-fixture runs only after the new contract is approved |
 | Which capability surface best prevents signature misuse without reducing composition? | Architecture selection | R-014 / Danil Pismenny | Comparative experiment |
 
 ## Boundary Check

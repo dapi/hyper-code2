@@ -1,0 +1,560 @@
+{
+  "calls": [
+    {
+      "key": "GET /",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "GET /",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "GET /",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "POST /agent/:id/archive",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "POST /agent/:id/archive",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "POST /agent/:id/archive",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "POST /agent/:id/delete",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "POST /agent/:id/delete",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "POST /agent/:id/delete",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "DELETE /agent/:id",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "DELETE /agent/:id",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "DELETE /agent/:id",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "GET /agent/:id/events",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "GET /agent/:id/events",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "GET /agent/:id/events",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "GET /agent/:id/events.html",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "GET /agent/:id/events.html",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "GET /agent/:id/events.html",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "POST /agent/:id/fork",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "POST /agent/:id/fork",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "POST /agent/:id/fork",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "GET /agent/:id",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "GET /agent/:id",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "GET /agent/:id",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "POST /agent/:id/messages/delete",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "POST /agent/:id/messages/delete",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "POST /agent/:id/messages/delete",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "POST /agent/:id",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "POST /agent/:id",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "POST /agent/:id",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "GET /agent/:id/status",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "GET /agent/:id/status",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "GET /agent/:id/status",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "GET /agent/:id/statusbar",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "GET /agent/:id/statusbar",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "GET /agent/:id/statusbar",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "POST /agent/:id/stop",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "POST /agent/:id/stop",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "POST /agent/:id/stop",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "GET /agent/new",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "GET /agent/new",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "GET /agent/new",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "POST /agent/new",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "POST /agent/new",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "POST /agent/new",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "GET /agent/chat.js",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "GET /agent/chat.js",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "GET /agent/chat.js",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "GET /dev/fail",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "GET /dev/fail",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "GET /dev/fail",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "GET /events",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "GET /events",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "GET /events",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "GET /events/client.js",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "GET /events/client.js",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "GET /events/client.js",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "POST /files",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "POST /files",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "POST /files",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "PUT /files",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "PUT /files",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "PUT /files",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "POST /files/close",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "POST /files/close",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "POST /files/close",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "GET /files",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "GET /files",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "GET /files",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "GET /files/editor.js",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "GET /files/editor.js",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "GET /files/editor.js",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "POST /repl",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "POST /repl",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "POST /repl",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "GET /settings",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "GET /settings",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "GET /settings",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "POST /settings/codex/login",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "POST /settings/codex/login",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "POST /settings/codex/login",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "POST /settings/codex/logout",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "POST /settings/codex/logout",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "POST /settings/codex/logout",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "GET /settings/declared",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "GET /settings/declared",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "GET /settings/declared",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "POST /settings/declared",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "POST /settings/declared",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "POST /settings/declared",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "POST /settings/env",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "POST /settings/env",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "POST /settings/env",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "POST /settings/kimi/login",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "POST /settings/kimi/login",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "POST /settings/kimi/login",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "POST /settings/kimi/logout",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "POST /settings/kimi/logout",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "POST /settings/kimi/logout",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "GET /ui/control.js",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "GET /ui/control.js",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "GET /ui/control.js",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "POST /ui/eval/result",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "POST /ui/eval/result",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "POST /ui/eval/result",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    },
+    {
+      "key": "GET /ui/ping",
+      "identityVariant": "missing",
+      "authorizationObserved": null
+    },
+    {
+      "key": "GET /ui/ping",
+      "identityVariant": "malformed",
+      "authorizationObserved": "Malformed synthetic"
+    },
+    {
+      "key": "GET /ui/ping",
+      "identityVariant": "synthetic-invalid",
+      "authorizationObserved": "Bearer synthetic-invalid"
+    }
+  ],
+  "capture": {
+    "serveCalls": 1,
+    "writesIntercepted": [
+      {
+        "path": ".hyper/_runtime/port",
+        "bytes": 5
+      }
+    ],
+    "filesIntercepted": [
+      ".hyper/_runtime/http.log"
+    ],
+    "options": {
+      "port": 43112,
+      "hostname": "0.0.0.0"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "source": "src/http/$start.ts",
+    "sourceSha256": "037299b1e6cebf1868846c07d125bae174756a9b6a1ab7141a549db9640798e9",
+    "authorityControlTokens": [],
+    "headerCandidates": [],
+    "requestHeaderAccesses": [],
+    "dispatchSessionArgumentNull": true
+  },
+  {
+    "source": "src/http/match.ts",
+    "sourceSha256": "2ad9439adb64800eb1cd1c23b3432b49ad7ed2db2a367e8ada4799b350660ba3",
+    "authorityControlTokens": [],
+    "headerCandidates": [],
+    "requestHeaderAccesses": [],
+    "dispatchSessionArgumentNull": null
+  },
+  {
+    "source": "src/http/loadRoutes.ts",
+    "sourceSha256": "748cf5b8881cd26ae68582c9739ceec8735948072f3fd291ea4f0b46b259b63f",
+    "authorityControlTokens": [],
+    "headerCandidates": [],
+    "requestHeaderAccesses": [],
+    "dispatchSessionArgumentNull": null
+  }
+]

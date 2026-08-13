@@ -18,15 +18,17 @@ mechanisms.
 
 ## Current evidence
 
-- UC-005 instrument v2 proves the macOS experiment boundary and honest
-  failure reporting, but the repeated live task did not retain a reusable
-  capability; the remaining task families are stopped for owner review.
-- R-018 has provisional evidence that a deterministic synthetic declared-secret
-  value can reach sampled sinks. The collector missed the plan's OS-containment
-  preconditions, so the cycle remains open.
-- R-029 inventories 36 committed-source dispatch entries and exercises 11
-  representative mocks. Complete route/control reconciliation and independent
-  review remain pending; no socket was opened.
+- R-001 is terminal `inconclusive`: the tested runtime/model did not confirm
+  retention/reuse under either fixed contract, and the unrun families require a
+  separately routed changed contract rather than expansion of this cycle.
+- R-018 reproduces deterministic synthetic secret transit to sampled persisted,
+  rendered and model-bound sinks. Its immutable `-03` carrier corrects the
+  earlier containment gap with named keychain/Mach controls; independent review
+  signed off the bounded finding, now terminal `validated` without a mechanism.
+- R-029 independently reconciles all 36 committed-source dispatch entries and
+  108 dispatcher identity cases. Review signed off the bounded caller-control
+  gap, now terminal `validated`; `.hyper`, middleware and interface reachability
+  remain excluded.
 - Issue #27 has a separate failing regression reproduction for mutable fork
   inheritance; no storage design or runtime fix is included here.
 
@@ -36,8 +38,9 @@ mechanisms.
 - no security, capability-surface or persistence mechanism is selected;
 - TUI remains a supporting option, while multi-user/team workflow stays future
   scope;
-- R-001, R-018 and R-029 still require explicit owner dispositions before
-  delivery handoffs.
+- all three owner dispositions are recorded; any delivery handoff, target
+  contract comparison or architecture choice still requires separate routing
+  and approval.
 
 ## Validation
 

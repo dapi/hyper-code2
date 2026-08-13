@@ -1,0 +1,9 @@
+[migrate] applied 20260418000000_init
+[migrate] applied 20260428130000_add_archived_at
+[migrate] applied 20260428150000_add_forks
+[migrate] applied 20260509120000_settings
+[migrate] applied 20270410120000_add_messages_excluded
+[migrate] applied 20270501123000_add_kv
+[migrate] applied 20270502000000_inline_run_state
+[migrate] applied 20270503120000_add_messages_excluded_from_cursor
+[migrate] applied 20270504120000_drop_tool_calls

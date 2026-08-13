@@ -32,9 +32,9 @@ must_not_define:
 | Wave | State | Evidence / next gate |
 | --- | --- | --- |
 | `W0` | completed for experiment scope | `HG-01` and the macOS v2 experiment boundary exist; this does not claim production security implementation |
-| `W1` | synthesizing, stopped for owner review | V2 baseline passed but retain/reuse failed; remaining families are stopped under `STOP-03` |
+| `W1` | completed: inconclusive | R-001 is terminal `inconclusive`; the current runtime/model did not confirm retention/reuse, and the remaining families must not run until a separately routed cycle changes the discovery/retention contract |
 | `W2A` | routed | #26 uses Feature Flow for a persistent contract change; #27 uses Bug Fix Flow; #28 remains research |
-| `W2B` | collecting | R-018 has a containment deviation; R-029 lacks complete route/control reconciliation and independent review; partial findings remain bounded and mechanisms unselected |
+| `W2B` | completed: validated bounded gaps | R-018 and R-029 have terminal validated dispositions; target contracts/mechanisms and any delivery remain separate W4B handoffs |
 | `W3` | pending | R-014 desk pass is terminal `inconclusive`; symmetric runtime comparison is a new research cycle |
 | `W4A` | completed | Successor map exists and #10 is closed |
 | `W4B` | pending | No delivery handoff is approved by the administrative `W4A` closure |
@@ -44,9 +44,9 @@ must_not_define:
 Start with `EP-SI-01` through Research & Discovery Flow. It owns the experiment
 contract and baseline, not runtime delivery. Continue `EP-SI-02` only after both
 `HG-01` and experiment-scope `HG-02`. Instrument v2 satisfied that collection
-gate on macOS, but the repeated first family failed retain/reuse and stopped the
-remaining sample for owner review. Do
-not create an `FT-*` merely to run product discovery;
+gate on macOS, but the repeated first family failed retain/reuse. The owner
+concluded R-001 as `inconclusive`; do not run the remaining sample under the
+unchanged discovery/retention contract. Do not create an `FT-*` merely to run product discovery;
 create a feature package only when evidence identifies an approved runtime change.
 
 ## Handoff Gates

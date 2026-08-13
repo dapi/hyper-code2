@@ -33,7 +33,8 @@ audience: humans_and_agents
 - [Subissues](subissues.md) — accepted and conditional outcomes mapped to waves and product evidence.
 - [Risks](risks.md) — cross-feature product, contract, security and scope risks with controls.
 - [Decision Log](decision-log.md) — resolved epic-local scope and sequencing decisions; global architecture choices still require ADR when triggered.
-- [R-001](../../research/R-001/README.md) — current-runtime UC-005 experiment and first-run synthesis.
+- [R-001](../../research/R-001/README.md) — terminally inconclusive
+  current-runtime UC-005 experiment and owner disposition.
 - [R-014](../../research/R-014/README.md) — capability-surface comparison and architecture non-selection.
 - [R-018](../../research/R-018/README.md) — secret non-transit research and sentinel plan.
 - [R-029](../../research/R-029/README.md) — network-to-process authority research.

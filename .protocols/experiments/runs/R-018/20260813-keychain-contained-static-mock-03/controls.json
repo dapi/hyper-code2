@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "sequence": 2,
+  "phase": "pre-injection-detector-controls",
+  "negative": [],
+  "positive": [
+    {
+      "id": "S0",
+      "values": [
+        {
+          "digest": "0dc81427dbadb3d5b85f3c37190074be415c4237231a359b5d7e428c1cfd9ca8",
+          "detected": true
+        }
+      ]
+    },
+    {
+      "id": "S1",
+      "values": [
+        {
+          "digest": "a030e93b55d11a15182f6be44e1bb283277628b64274422a00dd3f98487fb7b6",
+          "detected": true
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "values": [
+        {
+          "digest": "6239108d9ef71259b9ac15857dc09cf98035db7fca90c88b1e39156b87c34d1a",
+          "detected": true
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "values": [
+        {
+          "digest": "e657c2dbe3be034c6ef9f11a3c2d21432efb255f53595bc09df742aa0f0ad882",
+          "detected": true
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "values": [
+        {
+          "digest": "cf2a52bb54ed6e7e5f85b5d61089905401de7f0d2df21746c8aa5a71b9a1e940",
+          "detected": true
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "values": [
+        {
+          "digest": "d258b2c06a1b6aca0ae027435853c25a7846862745a327e173ef52d5d66b4fdc",
+          "detected": true
+        }
+      ]
+    },
+    {
+      "id": "S6",
+      "values": [
+        {
+          "digest": "5f3f5ea25357ac0ff62a83df7943203af702fe42349d42d3dec9d7ceff3ef883",
+          "detected": true
+        }
+      ]
+    },
+    {
+      "id": "S7",
+      "values": [
+        {
+          "digest": "42b9ea69f69d0718d8e37e649281bff10e0174111d09efd1b66fa91cdf09f4f8",
+          "detected": true
+        }
+      ]
+    },
+    {
+      "id": "S8",
+      "values": [
+        {
+          "digest": "db3148df86d84c60cbe4dad23428ea2b8b547d1b89d181df4de9920d37b7ad8e",
+          "detected": true
+        }
+      ]
+    }
+  ]
+}

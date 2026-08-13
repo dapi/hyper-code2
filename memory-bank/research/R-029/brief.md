@@ -5,7 +5,7 @@ doc_function: canonical
 purpose: "Decide the target contract for the unauthenticated network-to-process path."
 derived_from: [../../flows/research.md, ../../engineering/security-boundary.md]
 status: active
-research_status: collecting
+research_status: validated
 audience: humans_and_agents
 ---
 # R-029: Network-to-Process Authority
@@ -15,10 +15,10 @@ audience: humans_and_agents
 | Field | Value |
 | --- | --- |
 | Source / trigger | PRD-002 `RISK-01`, GitHub #29 |
-| Research owner | Codex orchestration for static inventory and representative mocked tests; complete route/control reconciliation and reviewer sign-off remain pending |
+| Research owner | Codex orchestration completed the fixed-source reconciliation; Danil validated the bounded caller-control gap after independent review |
 | Decision owner | Danil Pismenny |
 | Research mode | `technical_discovery` |
-| Decision deadline / timebox | One current-code static inventory and mocked-test cycle; real reachability remains separately gated |
+| Decision deadline / timebox | Fixed-source collection, independent review and terminal owner disposition completed 2026-08-13; real reachability remains separately gated |
 
 ## Decision Question
 
@@ -67,9 +67,7 @@ separation or another mechanism.
 
 | Question | Blocks | Owner | Resolution evidence |
 | --- | --- | --- | --- |
-| What is the complete route set at the approved SHA, including generated/static routes? | Coverage claim | Research owner | Reproducible static inventory linked to source files |
-| Which routes exercise privileged authority directly or transitively? | Threat classification | Research owner | Reviewed handler/call-graph matrix |
-| Does any route-independent control enforce equivalent caller authority? | Broad unauthenticated-path statement | Research owner | Code-grounded control inventory plus mocked negative tests |
+| Which target authority contract and mechanism best close the validated gap? | Separate downstream decision | Danil Pismenny | New routed research/ADR package; not answered here |
 | Which interfaces can reach the listener under an isolated real network configuration? | Bind/reachability conclusion | Experiment operator and security reviewer | Separately approved isolated-network capture |
 | Which target mechanism should close any confirmed gap? | Downstream decision | Decision owner | Post-collection synthesis and decision; no mechanism chosen here |
 
@@ -97,6 +95,13 @@ separation or another mechanism.
   credentials/private data, an out-of-bound write or incomplete provenance.
 - `STOP-03` Do not compare or select mechanisms until route inventory makes the
   broader authority statement evidence-backed.
+
+The technical static/mock collection met `STOP-01` on 2026-08-13. An independent
+reviewer then signed off the bounded claim that all 36 committed-`src` entries at
+the recorded baseline lack a common or route-local caller identity/auth control.
+The package passed through `synthesizing` and `decision_ready` to terminal
+`validated` for the bounded committed-`src` gap. Optional real reachability
+remains prohibited and is not implied by this disposition.
 
 ## Boundary Check
 

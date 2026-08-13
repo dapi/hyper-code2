@@ -126,3 +126,35 @@ evidence claim and does not authorize collection.
 | --- | --- |
 | Reviewer / decision owner | Danil Pismenny or a delegated security reviewer |
 | Approval reference | Danil Pismenny, 2026-08-13: add the reviewed work to the plan and act; static/mock/synthetic scope only |
+
+## Execution Record
+
+The original `20260813-static-mock-01` carrier is retained as the record of the
+first partial attempt. The corrected
+`20260813-os-contained-static-mock-02` repetition executed `CELL-01` in a
+separate macOS `sandbox-exec` child. That child recorded and passed containment
+controls before detector controls and sentinel injection. `STOP-03` fired on the
+first prohibited sink, so the remaining current-state cells were not executed.
+
+Independent review rejected `-02` as closure evidence because its profile
+contained a broad `mach-lookup` allowance and did not probe macOS keychain
+denial. The immutable `20260813-keychain-contained-static-mock-03` repetition
+removed every `mach-lookup` allowance. Before injection it additionally:
+
+- queried the active sandbox policy for `com.apple.securityd` and
+  `com.apple.securityd.xpc` through a compiled `sandbox_check` probe;
+- attempted a deterministic lookup for nonexistent service
+  `com.hyper-code2.r018.nonexistent` and account `r018-contained-probe`;
+- attempted a direct read of the operator's login keychain path.
+
+Both named Mach lookups and the direct keychain-path read were denied, and the
+nonexistent lookup failed while those policy denials were active. The carrier
+retains the exact sanitized profile and classifications, not raw keychain
+content or command output. These controls prove only the recorded paths and
+named services; they do not prove denial of every credential store.
+
+For the current-route conformance question, that repeated prohibited transit is
+the planned disconfirming signal: accumulating the same unmitigated failure over
+additional outcomes would not help choose a mechanism. The complete
+success/error/serialization/retry matrix remains an acceptance requirement for
+future candidate comparisons, not evidence collected by this cycle.

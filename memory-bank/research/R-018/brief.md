@@ -5,7 +5,7 @@ doc_function: canonical
 purpose: "Determine an enforceable secret non-transit contract and validation method."
 derived_from: [../../flows/research.md, ../../engineering/security-boundary.md, ../../prd/PRD-002-self-extending-agent-harness.md]
 status: active
-research_status: collecting
+research_status: validated
 audience: humans_and_agents
 ---
 # R-018: Secret Non-Transit Boundary
@@ -15,7 +15,7 @@ audience: humans_and_agents
 | Field | Value |
 | --- | --- |
 | Source / trigger | PRD-002 `BR-05/VAL-08`, GitHub #18 |
-| Research owner | Codex orchestration; the first partial collector deviated from the approved containment preconditions and requires a corrected collection decision |
+| Research owner | Codex orchestration; Danil validated the bounded non-conformance finding after independent review |
 | Decision owner | Danil Pismenny |
 | Research mode | `technical_discovery` |
 | Decision deadline / timebox | One boundary-inventory and synthetic-sentinel cycle, limited to the approved static/mock scope |

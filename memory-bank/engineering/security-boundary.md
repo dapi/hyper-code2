@@ -62,10 +62,24 @@ This document does not select the mechanism: binding scope, authentication,
 authorization, route separation, and isolation remain design alternatives.
 This does not imply an adversarial sandbox; sandboxing is a different concern.
 
-Secret non-transit is also a target contract, not current verified behavior.
-Secret values must not enter LLM-visible input or action-result context. The
-current unrestricted process environment and result path do not yet guarantee
-this property; its realization belongs to downstream security design.
+Secret non-transit is a target contract, not current system behavior. Secret
+values must not enter LLM-visible input or action-result context. A bounded
+validated sample below demonstrates current non-conformance; completeness and
+its realization still belong to downstream security research/design.
+
+## Validated Gap Evidence
+
+- [R-029 decision](../research/R-029/decision.md) validates, for the fixed
+  committed-`src` baseline, that all 36 dispatch entries lack a common or
+  route-local caller identity/auth control. This does not cover runtime `.hyper`
+  overlays, external middleware or actual interface reachability.
+- [R-018 decision](../research/R-018/decision.md) validates that the sampled
+  declared-secret route sends a deterministic synthetic value into result,
+  persistence, rendering and pre-provider model-request sinks. This does not
+  generalize to every secret source or select an enforcement mechanism.
+
+These records strengthen the current-gap statements; they do not change the
+trusted-local operating boundary or authorize non-local/shared deployment.
 
 ## Implementation Evidence
 

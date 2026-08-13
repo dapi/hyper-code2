@@ -7,9 +7,10 @@
 - Started: 2026-08-13
 - Source: `memory-bank/prd/PRD-002-self-extending-agent-harness.md`
 - Scope: execute adapted plan items 1-3 after PRD acceptance
-- Execution batch status: `in_progress`; Danil Pismenny decided `revise and
-  continue` after the first failed run. Instrument hardening, the remaining
-  task families and a symmetric runtime comparison are not complete.
+- Execution batch status: `completed`; R-001 is terminal `inconclusive`, while
+  R-018 and R-029 are terminal `validated` for their bounded gaps. The remaining
+  UC-005 families and symmetric runtime comparison are separately routed future
+  research, not unfinished work in this batch.
 - Status vocabulary: `pending`, `in_progress`, `completed`, `blocked`, `superseded`
 - Completion rule: a step is `completed` only when its stated evidence exists;
   creating a document or issue does not substitute for experiment or decision evidence.
@@ -25,12 +26,11 @@
 
 ### 1. Establish the product-led epic and first validation slice
 
-The bounded setup and first exploratory live run below are complete. Full R-001
-validation is not complete: only one of three task families ran live, its strict
-gate failed, the runner did not provide technical isolation, and the apparent
-reload/reuse check stayed inside one Bun process. Danil Pismenny decided to
-revise the instrument and continue collection; this is not a terminal research
-disposition.
+The bounded setup, revised instrument and repeated first family are complete.
+Only one of three task families ran live, so the overall product hypothesis is
+not validated or invalidated. Danil Pismenny concluded the current R-001 cycle
+as `inconclusive`: do not run the remaining families under the unchanged
+discovery/retention contract.
 
 | ID | Substep | Status | Completion evidence |
 | --- | --- | --- | --- |
@@ -41,7 +41,7 @@ disposition.
 | `1.5` | Execute the first exploratory UC-005 live run in trusted local mode without real secrets | `completed` | [Runner](experiments/uc005-live-runner.ts), [observation](experiments/uc005-first-live-observation.md), [R-001](../memory-bank/research/R-001/README.md); strict correctness failed, same-process reload only, and `HG-02` was not proven |
 | `1.6` | Revise the instrument to enforce the experiment boundary, preserve sanitized primary evidence and verify reuse in a new OS process | `completed` | [Instrument v2](experiments/README.md) uses sandboxed agent children, a credential-owning broker, a separate restart process, gold/result/final checks and checksummed artifacts; this does not claim production `HG-02` |
 | `1.7a` | Repeat tag normalization on the revised instrument | `completed` | [Live v2 report](experiments/runs/2026-08-13-tags-v2/report.json): baseline passed; retain exhausted its call budget; reuse and restart correctly failed because no capability existed; no false success; sentinel was not injected and did not appear accidentally |
-| `1.7b` | Run the remaining repository-report and saved-JSON task families | `pending` | Stopped under `STOP-03` after the repeated first family exposed a concrete retain/discovery failure; owner review is required before expanding the sample |
+| `1.7b` | Run the remaining repository-report and saved-JSON task families under the original contract | `superseded` | R-001 is terminal `inconclusive`; any further families require a separately routed, versioned research cycle with a changed discovery/retention contract |
 
 ### 2. Triage active-contract and security gaps
 
@@ -81,9 +81,9 @@ disposition.
 | `4.1` | Correct lifecycle, restart, safety and W4 overclaims found by independent review | `completed` | R-001 moved to `synthesizing` after its v2 stop; R-014 desk pass is `inconclusive`; W4 split into administrative W4A and pending delivery W4B |
 | `4.2` | Build and verify instrument v2 with isolated agent processes, credential broker and stable primary evidence | `completed` | [Instrument v2](experiments/README.md), [canonical offline report](experiments/runs/canonical-offline/report.json), valid checksums and real separate-process restart verification |
 | `4.3` | Ground #27 through Bug Fix Flow and preserve a failing regression without selecting storage design | `completed` | #27 route/profile/reproduction updated; commit [`792a166`](https://github.com/dapi/hyper-code2/commit/792a166) on `agent/issue-27-reproduction` preserves the expected failing test without selecting a fix |
-| `4.4` | Execute approved R-018 static/mock/synthetic collection | `in_progress` | [Partial R-018 evidence](../memory-bank/research/R-018/evidence.md) found sampled transit, but the collector lacked the plan's OS containment; corrected collection or explicit reapproval is required |
-| `4.5` | Execute approved R-029 static inventory and mocked authority checks | `in_progress` | [Partial R-029 evidence](../memory-bank/research/R-029/evidence.md) inventories 36 entries and runs 11 representative mocks; full route/control reconciliation and independent review remain pending |
-| `4.6` | Obtain owner dispositions for stopped R-001 and complete R-018/R-029 collection | `pending` | Danil Pismenny chooses each next state only after the applicable evidence gate; no terminal research state or delivery handoff is inferred |
+| `4.4` | Execute approved R-018 static/mock/synthetic collection | `completed` | [R-018 evidence](../memory-bank/research/R-018/evidence.md) reproduced sampled transit in immutable `-03`; independent review signed off the named experimental controls and bounded finding |
+| `4.5` | Execute approved R-029 static inventory and mocked authority checks | `completed` | [R-029 evidence](../memory-bank/research/R-029/evidence.md) reconciles 36 entries and 108 dispatcher cases; independent review signed off technical `STOP-01` for the bounded committed-`src` claim |
+| `4.6` | Obtain owner dispositions for stopped R-001 and synthesized R-018/R-029 research | `completed` | R-001 is terminal `inconclusive`; R-018 and R-029 are terminal `validated` for bounded gaps; their decision maps require separate routing before delivery |
 
 ## Activity Log
 
@@ -103,10 +103,14 @@ disposition.
 | 2026-08-13 | Tag-normalization live v2 | Baseline exact; retain hit call limit without creating capability; later reuse returned an honest empty result; restart found no callable; remaining task families stopped |
 | 2026-08-13 | R-018 partial collection reviewed | Synthetic declared-secret value reached sampled sinks, but missing OS containment was recorded as a plan deviation; lifecycle returned to collection |
 | 2026-08-13 | R-029 partial static/mock collection reviewed | 36 committed-source entries inventoried and 11 representative mocks run; reconciliation/reviewer gate remains open |
+| 2026-08-13 | R-001 owner disposition | Danil Pismenny accepted the recommendation to close the current cycle as `inconclusive`; remaining families wait for a separately routed, changed discovery/retention contract |
+| 2026-08-13 | R-029 technical `STOP-01` signed off | Independent review accepted the 36-entry committed-`src` caller-control claim; reachability, overlays and mechanism remain excluded |
+| 2026-08-13 | R-018 containment correction | `-02` was rejected for broad Mach lookup; immutable `-03` removed the allowance and added named keychain controls before repeating `CELL-01` |
+| 2026-08-13 | Security research dispositions | R-018 sampled non-transit gap and R-029 committed-`src` caller-control gap validated; no mechanism or delivery selected |
 
 ## Final Verification
 
-- [x] Every completed row has concrete evidence; incomplete security collections are marked `in_progress` with their plan deviations.
+- [x] Every completed row has concrete evidence and linked independent review where required.
 - [x] GitHub state matches `EP-001/subissues.md` and issue links.
 - [x] Research findings do not become architecture decisions implicitly.
 - [x] `memory-bank-cli lint` passes.

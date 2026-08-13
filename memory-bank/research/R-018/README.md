@@ -11,7 +11,7 @@ audience: humans_and_agents
 
 Lifecycle state, decision question and boundaries are owned by the
 [Research Brief](brief.md). The [Research Plan](plan.md) owns the approved
-static/mock/synthetic method, [Evidence](evidence.md) the partial first-cell
-collection and its containment deviation, and [Synthesis](synthesis.md) its
-bounded provisional interpretation. Collection remains open. No
-enforcement mechanism is selected.
+static/mock/synthetic method, [Evidence](evidence.md) the retained prior
+carriers plus the keychain-denial-corrected OS-contained repetition, and [Synthesis](synthesis.md)
+the bounded interpretation, and [Decision](decision.md) the terminal `validated`
+disposition and mechanism-neutral handoff. No enforcement mechanism is selected.

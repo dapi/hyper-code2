@@ -1,0 +1,8 @@
+(version 1)
+(deny default)
+(allow process*)
+(allow sysctl-read)
+(allow file-read-metadata)
+(allow file-read* (require-not (subpath "[OPERATOR_HOME]")))
+(allow file-read* (literal "[BUN_EXECUTABLE]") (subpath "[REPOSITORY_ROOT]") (subpath "[DISPOSABLE_RUN_ROOT]"))
+(allow file-write* (subpath "[DISPOSABLE_RUN_ROOT]"))

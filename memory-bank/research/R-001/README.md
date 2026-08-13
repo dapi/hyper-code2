@@ -23,4 +23,5 @@ audience: humans_and_agents
 - [Research Plan](plan.md) — representative tasks, controls, thresholds and stop rules.
 - [Evidence Log](evidence.md) — scripted and live first-run observations with provenance.
 - [Research Synthesis](synthesis.md) — findings, confidence and limitations.
-- [Research Decision](decision.md) — the earlier `revise and continue` decision and the pending post-v2 owner disposition.
+- [Research Decision](decision.md) — the owner rationale for the terminal
+  `inconclusive` disposition and the boundary for any future research cycle.
