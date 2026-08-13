@@ -51,8 +51,10 @@ mechanisms.
   context, settings, arbitrary DB access and shared-process file/shell/keychain
   authority. Earlier attempts are downgraded or rejected. Corrected V5.2 passed
   exact-freeze pre-review, one contained 70-row collection and independent
-  post-review. Bounded synthesis records CAND-04's direct-authority
-  incompatibility without ranking or recommending a mechanism.
+  post-review. Danil accepted the supported non-terminal direction:
+  redaction-only is excluded as the standalone boundary and retained as defense
+  in depth. R-033 remains synthesizing because no choice is made among
+  `CAND-01/02/03/05`.
 - Issue #27 remains open: Bug Fix Flow proved that any correct fix selects a
   new persistent-data contract. R-034 V3 establishes bounded feasibility for a
   constant-size immutable revision reference and a structural-sharing COW
@@ -66,9 +68,8 @@ mechanisms.
 - no security, capability-surface or persistence mechanism is selected;
 - TUI remains a supporting option, while multi-user/team workflow stays future
   scope;
-- R-032/R-034 remain `collecting` and R-033 is only `synthesizing`; live/model
-  runs, owner dispositions and architecture/delivery handoffs remain separately
-  gated.
+- R-032/R-034 remain `collecting`; R-033 has only a partial owner disposition.
+  Live/model runs and architecture/delivery handoffs remain separately gated.
 
 ## Validation
 

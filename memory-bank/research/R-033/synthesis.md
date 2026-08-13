@@ -89,7 +89,15 @@ were exercised.
 
 ## Decision Boundary
 
-R-033 is `synthesizing`, not `decision_ready`. The bounded comparison is now
-available to Danil Pismenny, but no recommendation, ranking, owner choice,
-`decision.md`, ADR or delivery route is created here. Any mechanism choice and
-any further evidence request remain explicit owner actions.
+The evidence supports excluding standalone redaction-only `CAND-04` from the
+role of security boundary because its tested shape fails direct-authority
+non-transit. It also supports retaining redaction as defense in depth, where it
+does not carry sole responsibility for source/authority exclusion.
+
+The evidence does not distinguish production fitness among `CAND-01`,
+`CAND-02`, `CAND-03` and `CAND-05`. On 2026-08-13 Danil Pismenny explicitly
+accepted the supported `CAND-04` exclusion and retained redaction as
+defense-in-depth, but made no choice among those four. This is a non-terminal
+owner direction: R-033 remains `synthesizing`, original `RQ-01` remains open,
+and no terminal `decision.md`, ranking, ADR, delivery route or activation of
+GitHub #19 follows.
