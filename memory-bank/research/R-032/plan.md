@@ -58,6 +58,73 @@ approved change are evidence metadata, not analyst discretion during scoring.
 | Synthetic local-client lifecycle | Browser-cookie/header adapter and direct CLI/TUI credential-channel adapter; start, reconnect, expiry, revocation, recovery | In-memory requests and responses only | UI ergonomics are modeled, not usability-tested with participants |
 | Synthetic dynamic-route/overlay fixtures | Late registration, unclassified privileged route and override attempts | Temporary source strings/objects outside `src` and `.hyper` | Cannot prove behavior of arbitrary user overlays |
 
+### V6 Current-Runtime Wave
+
+The V5 fixed inventory remains valid only at execution HEAD `2ab427a`. Current
+HEAD `44225bf` has 37 committed dispatch entries: 35 route modules and two
+script registrations. The additive entry is route-local `GET /self`; its
+loopback-address check is reachability/peer evidence, not shared caller
+authentication or authorization. V6 therefore freezes an explicit 37-entry
+allowlist instead of silently extending the R-029/V5 fixture.
+
+V6 must exercise the same real disposable path for all nine labels:
+
+`loadRoutes → match → captured $start.fetch → real POST /agent/:id → disposable
+SQLite queue → workerLoop atomic claim and user-message frontier → safe
+candidate-specific use-time gate`.
+
+The safe gate replaces production `agent.run` before any provider, model or
+marker execution. CAN-06 and COM-03 must traverse a separate disposable stdio
+child during collection; otherwise those rows are fidelity-incompatible and
+cannot support broker/process-boundary claims. The child is a protocol boundary,
+not OS confinement evidence.
+
+V6 freezes the same cases for every label: enqueue-time missing, insufficient
+and sufficient authority; use-time expired, revoked, replayed, reduced and
+missing authority; mixed-principal messages coalesced into one queue claim;
+verifier, policy, broker and stale-state failures; and restart stale, missing
+and recovered authority. Authority envelopes bind to message indexes so the
+worker can compare every coalesced principal rather than infer one identity from
+the agent row.
+
+The S0-S8 detector covers request authority header, sanitized authority
+envelope, SQLite envelope, messages, results, IPC, audit, rendered events and
+would-be model input. The raw deterministic sentinel may exist only at S0; the
+POST body is always sentinel-free, persistent/IPC fields use a digest or safe
+labels, and positive raw plus digest-only negative detector controls are
+required.
+
+V6 may not call `mkTestCtx`, production `db.migrate`, `project.scan`, real
+`self.describe`, script handlers or production `agent.run`. It applies only an
+explicit hash-pinned allowlist of committed SQL migrations to a disposable
+SQLite database, supplies a synthetic self descriptor, and guarantees worker
+shutdown in `finally`. HEAD, clean `src`, source/instrument hashes and an exact
+independent pre-collection acceptance must verify before temp creation or child
+spawn. No collection is authorized by author self-tests.
+
+The first V6 freeze `0487736d…` was rejected before collection: it did not
+independently count the authority root, did not place broker roots exclusively
+inside an OS-contained child, derived several use states rather than executing
+persisted transitions, used an incomplete detector family/sink vocabulary, and
+lacked collection-time assertions and the full carrier/containment contract.
+V6.1 is additive and must retain all original scope while correcting every
+listed defect. Its pre-review additionally checks per-transform/per-sink R-018
+controls, exact 144-row outcomes/root suppression/S1-S8 assertions, minimal
+parent/child environments, disposable HOME/TMPDIR, sandbox receipts, child
+timeout/termination, and row hashes plus complete checksums/provenance.
+
+V6.1 freeze `56629e9a…` was also rejected before collection. Its root count was
+still assigned from a decision result rather than produced solely by an
+independently invoked callable, its collection assertions did not reuse the full
+author semantic suite, detector positives did not traverse the actual candidate
+sink adapters, restart recovery did not cross an independently observable new
+boundary, and parent/child containment plus full carrier receipts remained
+insufficient. Clean additive V6.2 is bound to HEAD `7828ad9` and remains
+explicitly WIP: it freezes callable-root, sink-adapter, cross-generation and
+shared assertion contracts, but it cannot receive an exact ready freeze until
+the real runtime collector, outer no-spawn preflight, OS containment and full
+carrier contracts are implemented together.
+
 Before collection, record the execution HEAD and verify whether relevant current
 `src` hashes still match the R-029 baseline. If they differ, create a new
 inventory-derived fixture instead of silently reusing the old one.
@@ -120,7 +187,8 @@ behavior into a numeric fact.
    `.protocols/experiments/runs/R-032/<run-id>/`.
 7. Run an independent review for fixture symmetry, source provenance, hard-gate
    interpretation, excluded combinations and mechanism-fidelity limitations.
-8. Only after review, create `evidence.md` and `synthesis.md`. Danil then records
+8. Only after review, append collected observations to `evidence.md` and create
+   `synthesis.md` when the lifecycle gate is independently satisfied. Danil then records
    a disposition in `decision.md`; any ADR or delivery work is routed separately.
 
 ## Controls
