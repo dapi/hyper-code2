@@ -1,0 +1,92 @@
+[
+  {
+    "adapter": "CAN-01",
+    "routeDefault": "ordinary",
+    "clientTransitions": 14,
+    "restartStaleRootCalls": 1,
+    "restartMissingRootCalls": 1,
+    "restartFreshRootCalls": 1,
+    "fidelity": "disposable-lifecycle-state-machine",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-02",
+    "routeDefault": "ordinary",
+    "clientTransitions": 14,
+    "restartStaleRootCalls": 1,
+    "restartMissingRootCalls": 1,
+    "restartFreshRootCalls": 1,
+    "fidelity": "disposable-lifecycle-state-machine",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-03",
+    "routeDefault": "privileged",
+    "clientTransitions": 14,
+    "restartStaleRootCalls": 0,
+    "restartMissingRootCalls": 0,
+    "restartFreshRootCalls": 1,
+    "fidelity": "disposable-lifecycle-state-machine",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-04",
+    "routeDefault": "privileged",
+    "clientTransitions": 14,
+    "restartStaleRootCalls": 0,
+    "restartMissingRootCalls": 0,
+    "restartFreshRootCalls": 1,
+    "fidelity": "disposable-lifecycle-state-machine",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-05",
+    "routeDefault": "deny",
+    "clientTransitions": 14,
+    "restartStaleRootCalls": 1,
+    "restartMissingRootCalls": 1,
+    "restartFreshRootCalls": 1,
+    "fidelity": "disposable-lifecycle-state-machine",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-06",
+    "routeDefault": "ordinary",
+    "clientTransitions": 14,
+    "restartStaleRootCalls": 1,
+    "restartMissingRootCalls": 1,
+    "restartFreshRootCalls": 1,
+    "fidelity": "incompatible-with-process-separation; lifecycle only",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "COM-01",
+    "routeDefault": "privileged",
+    "clientTransitions": 14,
+    "restartStaleRootCalls": 0,
+    "restartMissingRootCalls": 0,
+    "restartFreshRootCalls": 1,
+    "fidelity": "disposable-lifecycle-state-machine",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "COM-02",
+    "routeDefault": "privileged",
+    "clientTransitions": 14,
+    "restartStaleRootCalls": 0,
+    "restartMissingRootCalls": 0,
+    "restartFreshRootCalls": 1,
+    "fidelity": "disposable-lifecycle-state-machine",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "COM-03",
+    "routeDefault": "deny",
+    "clientTransitions": 14,
+    "restartStaleRootCalls": 0,
+    "restartMissingRootCalls": 0,
+    "restartFreshRootCalls": 1,
+    "fidelity": "disposable-lifecycle-state-machine",
+    "gateAssessment": "not-reviewed"
+  }
+]

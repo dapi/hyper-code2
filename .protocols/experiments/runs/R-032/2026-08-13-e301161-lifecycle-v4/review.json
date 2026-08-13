@@ -1,0 +1,12 @@
+{
+  "status": "pending-independent-review",
+  "gateAssessment": "not-reviewed",
+  "synthesisAuthorized": false,
+  "required": [
+    "registry behavior",
+    "reachability-field independence",
+    "client transition execution",
+    "restart retained-authority semantics",
+    "complete-matrix limitation"
+  ]
+}

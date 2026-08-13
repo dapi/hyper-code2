@@ -41,6 +41,7 @@ audience: humans_and_agents
 - [R-031](../../research/R-031/README.md) — versioned discovery and retention contract comparison.
 - [R-032](../../research/R-032/README.md) — network authority target-contract and mechanism comparison.
 - [R-033](../../research/R-033/README.md) — secret non-transit mechanism comparison.
+- [R-034](../../research/R-034/README.md) — immutable fork storage-contract comparison.
 
 ## Route And Promotion Record
 

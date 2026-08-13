@@ -139,6 +139,30 @@ cannot hide a failed non-transit assertion.
 8. Independent reviewer verifies carrier, symmetry and source/sink completeness
    before synthesis begins.
 
+### Rejected V4.1 And Next Pre-Collection Gate
+
+The V4.1 preflight is frozen in
+[`r033-v4/precollection-freeze.json`](../../../.protocols/experiments/r033-v4/precollection-freeze.json).
+Independent review rejected it because the candidate matrix and staged operation
+paths were not executable end to end. It remains preflight evidence only and
+cannot be reviewed into approval without replacing the missing collector.
+
+Before any collection, the replacement must execute all `CC-01…14` rows for all
+five candidates in rotating order. `CC-10` success, throw and cyclic values must
+use the actual candidate serialization path and a `DurableSpy`, proving zero
+writes on every secret/error path. Kimi, Anthropic and Codex refresh must expose
+separately injectable read, OAuth-request, OAuth-response and write stages;
+failure at one stage must prove that later stages did not run. Codex account
+identity requires a synthetic claim parser. Discovery failure must produce no
+render call, while success must carry only non-secret IDs into render.
+
+The collector itself must run in the reviewed disposable containment, rotate
+candidate order, and emit sanitized per-cell results and checksums bound to exact
+HEAD/platform/source/dependency/instrument/fixture hashes and containment
+receipts. Independent pre-collection review signs that executable design; a
+separate post-collection review signs the produced carrier. Until then,
+collection is unauthorized and R-033 remains `collecting` with no synthesis.
+
 ## Controls
 
 | Risk | Control | Owner |

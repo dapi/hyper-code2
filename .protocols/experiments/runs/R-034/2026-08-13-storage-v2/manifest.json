@@ -1,0 +1,10 @@
+{
+  "candidateCount": 6,
+  "eligibleCandidatesAllChecksPass": true,
+  "fullCopyBehaviorControlAllChecksPass": true,
+  "liveParentNegativeControlDetected": true,
+  "files": [
+    "results.json",
+    "provenance.json"
+  ]
+}

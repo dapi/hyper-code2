@@ -13,9 +13,10 @@ audience: humans_and_agents
 
 # R-033: Evidence Log
 
-This log contains the reviewed static inventory and three rejected or
-downgraded carriers. None supports candidate conformance, ranking or a mechanism
-decision. R-033 remains `collecting`; a clean-sheet V4 instrument is required.
+This log contains the reviewed static inventory and rejected or downgraded
+instrument/carrier attempts through V4.1. None supports candidate conformance,
+ranking or a mechanism decision. R-033 remains `collecting`; an executable
+staged collector satisfying the updated gate below is required.
 
 ## Sources
 
@@ -37,6 +38,7 @@ decision. R-033 remains `collecting`; a clean-sheet V4 instrument is required.
 | `SRC-14` | [Additive executable carrier](../../../.protocols/experiments/runs/R-033/2026-08-13-executable-adapters-v2/README.md), [results](../../../.protocols/experiments/runs/R-033/2026-08-13-executable-adapters-v2/results.json), [controls](../../../.protocols/experiments/runs/R-033/2026-08-13-executable-adapters-v2/controls.json), [summary](../../../.protocols/experiments/runs/R-033/2026-08-13-executable-adapters-v2/summary.json) and [provenance](../../../.protocols/experiments/runs/R-033/2026-08-13-executable-adapters-v2/provenance.json); integrity manifest: `SHA256SUMS` in the same carrier | 2026-08-13 | Adapter methods executed in a separate sandboxed child; parent sanitizes executed state | Mechanism-shaped disposable evidence only; no production fidelity claim |
 | `SRC-15` | [V3 semantic adapters](../../../.protocols/experiments/r033-v3-semantics.ts), [contained matrix child](../../../.protocols/experiments/r033-v3-child.ts), [restart child](../../../.protocols/experiments/r033-v3-restart-child.ts) and [carrier parent](../../../.protocols/experiments/r033-v3-comparison.ts) | 2026-08-13 | Candidate-distinct CC semantics plus separate restart execution | Primary executable instrument; independent fidelity review pending |
 | `SRC-16` | [Rejected V3 carrier](../../../.protocols/experiments/runs/R-033/2026-08-13-semantic-adapters-v3/README.md), [summary](../../../.protocols/experiments/runs/R-033/2026-08-13-semantic-adapters-v3/summary.json) and [provenance](../../../.protocols/experiments/runs/R-033/2026-08-13-semantic-adapters-v3/provenance.json) | 2026-08-13 | Attempted semantic matrix | Rejected: shared mechanism core, incomplete mediated refresh/discovery/layer/serialization semantics, and provenance no longer matches current instrument |
+| `SRC-17` | [Rejected V4.1 pre-collection instrument](../../../.protocols/experiments/r033-v4/README.md) and [freeze manifest](../../../.protocols/experiments/r033-v4/precollection-freeze.json), freeze SHA-256 `01ecc10bea2a8657679c9d4fc8eb560ef9466194e875fc68cf4f06ffdd39e7c2` | 2026-08-13 | Instrument design and safety-control preflight only | Rejected before collection: no executable staged CC-01…14 collector or candidate-result carrier exists; no inference, refresh or discovery candidate matrix was collected |
 
 ## Observations
 
@@ -59,6 +61,7 @@ decision. R-033 remains `collecting`; a clean-sheet V4 instrument is required.
 | `OBS-15` | The first carrier accounts for 70 rotating candidate/cell entries, but its child only emitted the case plan; parent constants assigned outcomes and auth digests self-compared. | [SRC-11](../../../.protocols/experiments/r033-contained-comparison.ts), [SRC-12](../../../.protocols/experiments/runs/R-033/2026-08-13-contained-symmetry-v1/summary.json) | Review gate | It is valid only for schema/accounting and bounded containment; none of its candidate outputs is evidence. |
 | `OBS-16` | V2 executed partial adapter methods and integrity controls, but independent review found that its CC semantics, transformed per-layer controls, full frozen request comparisons and actual restart process were incomplete. | [SRC-14](../../../.protocols/experiments/runs/R-033/2026-08-13-executable-adapters-v2/summary.json) | Review gate | V2 is bounded integrity/containment/schema and partial execution evidence only; its totals cannot support CC conformance. |
 | `OBS-17` | Independent review rejected V3 because candidate behavior still shared one resolver, refresh and discovery paths did not traverse the required distinct mechanisms, layer controls were parent-only, and serialization evidence did not establish fail-closed durability. | [SRC-15](../../../.protocols/experiments/r033-v3-semantics.ts), [SRC-16](../../../.protocols/experiments/runs/R-033/2026-08-13-semantic-adapters-v3/README.md) | Review gate | V3 candidate totals, coverage flags and failures are not evidence and cannot enter synthesis. |
+| `OBS-18` | V4.1 separates mechanism modules and executes detector/layer preflight controls, but independent pre-collection review found that its CC plan remains descriptive: CC-10 success/throw do not exercise `DurableSpy`; refresh, account derivation and discovery lack executable staged failure/order assertions; and its child/runner emits only a containment/provenance plan rather than rotating per-cell candidate results. | [SRC-17](../../../.protocols/experiments/r033-v4/precollection-freeze.json) | Review gate | V4.1 is rejected preflight/symmetry/containment-design evidence only. It authorizes no collection, conformance claim, synthesis or mechanism selection. |
 
 ## Collection Log
 
@@ -73,6 +76,7 @@ decision. R-033 remains `collecting`; a clean-sheet V4 instrument is required.
 | 2026-08-13 | Downgraded the first carrier and ran an additive contained executable-adapter matrix | 70 adapter cells and 70 injected-leak controls executed; auth placement checked against frozen expected digests; 10 standalone-redaction failures retained from observed state | Lifecycle remains `collecting`; independent carrier, symmetry and adapter-fidelity review required before synthesis |
 | 2026-08-13 | Independent review accepted v2 bounded integrity but rejected full fidelity; downgraded v2 and ran additive v3 semantics | 70 semantic cells, 72 layer controls and five restart processes recorded with checksums | Lifecycle remains `collecting`; v3 independent review required before synthesis |
 | 2026-08-13 | Independent review rejected V3 fidelity | V3 retained only as rejected trace; no new carrier generated from subsequently changed code | Clean-sheet V4 required; lifecycle remains `collecting` and synthesis is blocked |
+| 2026-08-13 | Built V4, received a rejected pre-collection review, froze V4.1, and received a second rejection | V4.1 improved module separation, control symmetry and containment/provenance planning but remained a preflight rather than an executable staged collector | Freeze retained as rejected trace; collection remains unauthorized and the next gate requires a new executable collector design and renewed independent review |
 
 ## Evidence Quality Check
 
@@ -96,10 +100,13 @@ decision. R-033 remains `collecting`; a clean-sheet V4 instrument is required.
 - [ ] Independent non-authoring review has verified the carrier, per-cell
   checksums, symmetry, adapter fidelity and source/sink completeness; synthesis
   remains blocked until this item is complete.
+- [ ] Independent non-authoring pre-collection review has approved a replacement
+  executable staged collector satisfying the next gate; V4.1 was rejected and
+  cannot authorize candidate collection.
 
-## Required V4 Scope
+## Required Next Collector Scope
 
-V4 must be a clean-sheet instrument frozen before collection:
+The next attempt must be an executable staged collector frozen before collection:
 
 1. five separate mechanism implementations with no shared secret resolver:
    broker/reference binding; source-excluded privileged transport; schema-owned
@@ -111,5 +118,26 @@ V4 must be a clean-sheet instrument frozen before collection:
    including transformed positive leaks and clean negative controls;
 4. CC-10 secret-bearing success, throw and cyclic serialization paths that
    prove failure before any durable write;
-5. frozen code and independent pre-collection review, followed by collection,
-   checksums/provenance and a separate post-collection review.
+5. `CC-10` secret-bearing success, throw and cyclic values must enter the actual
+   candidate serialization-to-durability path with a `DurableSpy`; every secret,
+   error or serialization rejection must prove `durable.calls === 0`;
+6. the full `CC-01…14 × CAND-01…05` matrix must be executable candidate behavior,
+   not a frozen list, declared receipt or parent-generated outcome;
+7. refresh must execute distinguishable read → OAuth request → OAuth response →
+   write stages for Kimi, Anthropic and Codex, with failure injected at every
+   stage and proof that later dispatch/write stages remain at zero;
+8. Codex account identity must be derived by a synthetic claim parser from the
+   privileged token fixture, not by hashing an arbitrary token string;
+9. discovery success must execute transport → non-secret model IDs → render;
+   discovery failure must prove no IDs and zero render calls;
+10. an actually contained rotating child collector must execute every candidate
+    cell and emit sanitized per-cell results/checksums plus exact HEAD, platform,
+    source, dependency, instrument, fixture, containment and execution provenance;
+11. frozen code and independent pre-collection review must precede collection;
+    a separate post-collection review must precede evidence promotion or synthesis.
+
+V4.1 freeze SHA-256
+`01ecc10bea2a8657679c9d4fc8eb560ef9466194e875fc68cf4f06ffdd39e7c2`
+is rejected input to this gate, not an approval token. Its manifest fields
+`collectionAuthorized: false` and `candidateResultsCollected: false` remain
+authoritative for that attempt.

@@ -42,7 +42,12 @@ The current lifecycle state exists only in `research_status` in the
   complete plan matrix remain open. It is not synthesis or a mechanism choice.
   CAN-06 is only an in-process broker-message adapter and is explicitly
   incompatible with a process-separation or residual-authority conclusion.
-
+- [Independently reviewed bounded lifecycle carrier](../../../.protocols/experiments/runs/R-032/2026-08-13-e301161-lifecycle-v4/README.md)
+  — preserves nine-label mechanical symmetry, experiment-local registry
+  mechanics, structurally separate reachability fields, generic client traces
+  and generation-store outcomes. It does not execute real route registration,
+  reachability, candidate-coupled UX or process separation, closes no new whole
+  hard gate and leaves synthesis blocked.
 ## Traceability
 
 - [GitHub issue #32](https://github.com/dapi/hyper-code2/issues/32) — public

@@ -33,7 +33,7 @@ must_not_define:
 | --- | --- | --- |
 | `W0` | completed for experiment scope | `HG-01` and the macOS v2 experiment boundary exist; this does not claim production security implementation |
 | `W1` | completed: inconclusive | R-001 is terminal `inconclusive`; the current runtime/model did not confirm retention/reuse, and the remaining families must not run until a separately routed cycle changes the discovery/retention contract |
-| `W2A` | routed | #26 uses Feature Flow; #27 Bug Fix Flow stopped at the persistent-contract gate; #34 owns immutable-storage research before #27, while #28 separately owns historical migration |
+| `W2A` | collecting storage-contract evidence | #26 uses Feature Flow; #27 Bug Fix Flow remains stopped at the persistent-contract gate; R-034 V2 supplies bounded aggregate/reopen evidence but no accepted representation, while #28 separately owns historical migration |
 | `W2B` | collecting successor decisions | R-018 and R-029 terminally validated bounded gaps; R-032/#32 and R-033/#33 now compare target contracts/mechanisms before any W4B delivery |
 | `W3` | collecting | R-031/#31 owns the separately routed symmetric runtime comparison of four versioned discovery/retention contracts |
 | `W4A` | completed | Successor map exists and #10 is closed |

@@ -1,0 +1,10 @@
+{
+  "classification": "bounded-executed-lifecycle-state-machines",
+  "adapters": 9,
+  "routeCases": 4,
+  "reachabilityCases": 2,
+  "clientMachinesPerAdapter": 2,
+  "restartSequence": true,
+  "completeMatrix": false,
+  "remainingGap": "Full symmetric matrix and real OS/network/process behavior remain unexecuted."
+}

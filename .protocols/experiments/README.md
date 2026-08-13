@@ -245,6 +245,24 @@ must trigger in all six sinks and a digest-only negative control must remain
 clear. This remains bounded in-process evidence with `not-reviewed` gates and
 does not select a mechanism.
 
+`r032-lifecycle-v4.ts` is a focused additive lifecycle carrier. For every
+candidate label it executes route registration and default-policy inheritance,
+records requested exposure, modelled reachability and peer evidence separately
+from caller authority, drives browser and CLI machines through bootstrap,
+disconnect, reconnect, expiry, revocation and recovery, and invalidates retained
+authority across a restart generation before reissuing it.
+
+```bash
+bun test ./.protocols/experiments/r032-lifecycle-v4.test.ts
+bun .protocols/experiments/r032-lifecycle-v4.ts
+```
+
+The carrier lives under
+`runs/R-032/2026-08-13-e301161-lifecycle-v4/`. It explicitly retains the gap:
+the complete symmetric matrix and real OS/network/process behavior remain
+unexecuted. CAN-06 stays incompatible with process-separation comparison. Gates
+remain `not-reviewed` and R-032 remains `collecting`.
+
 ## R-033 secret-mechanism disposable comparison
 
 The first `r033-contained-comparison.ts` carrier verifies source drift,

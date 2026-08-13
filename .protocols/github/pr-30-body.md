@@ -8,8 +8,8 @@
   research, bug-fix and future-delivery routes;
 - added reproducible UC-005, secret-transit and network-authority instruments
   with sanitized, checksummed evidence carriers;
-- routed the next evidence wave into R-031/R-032/R-033 and preserved the
-  immutable-fork blocker as research #34 instead of inventing a storage fix.
+- routed the next evidence wave into R-031/R-032/R-033/R-034 and preserved the
+  immutable-fork blocker instead of inventing a storage fix.
 
 ## Why
 
@@ -42,15 +42,19 @@ mechanisms.
   explicitly separating reachability, caller authority and residual process
   authority. Its first two carriers are downgraded; corrected v3 is accepted
   only as bounded executable evidence for partial G1/G2/G5/G7 observations.
-  Complete route, reachability, UX and restart coverage remains open.
+  V4 adds independently reviewed experiment-local registry, reachability-field,
+  generic client and generation-store traces, but closes no whole hard gate.
 - R-033 has an independently reviewed source/authority inventory and a frozen
   14-cell candidate matrix covering provider refresh, model discovery, root
   context, settings, arbitrary DB access and shared-process file/shell/keychain
-  authority. V1/V2 are downgraded and V3 is rejected after review; the exact
-  clean-sheet V4 scope is preserved, with no candidate recommendation.
+  authority. V1/V2 are downgraded and V3 is rejected after review. V4.1 exact
+  hashes and preflight controls verify, but review rejected collection because
+  executable staged flows and a carrier-bound collector are still missing.
 - Issue #27 remains open: Bug Fix Flow proved that any correct fix selects a
-  new persistent-data contract. Research #34 owns that prerequisite; #28 owns
-  historical migration. No storage design or runtime fix is included here.
+  new persistent-data contract. R-034 V2 supplies bounded aggregate/reopen
+  evidence for four synthetic shapes, but proves neither constant-size parent
+  revisions nor COW sharing, linkage or growth. #28 owns historical migration;
+  no storage design or runtime fix is included here.
 
 ## Boundaries
 

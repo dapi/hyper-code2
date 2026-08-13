@@ -1,0 +1,830 @@
+{
+  "carrier": "R-034 storage-v1",
+  "generatedAt": "2026-08-13",
+  "claims": [
+    "candidate-shaped structural row and SQLite page comparison",
+    "basic immutable-prefix, nested-fork, child-isolation and close/reopen checks"
+  ],
+  "limitations": [
+    "not production schemas or latency evidence",
+    "no concurrent writer, compaction, corruption, W4 or W5 execution",
+    "event/action-pair and UI event identity are not modeled"
+  ],
+  "workloads": [
+    {
+      "id": "W1",
+      "rootMessages": 100,
+      "siblingForks": 1,
+      "nestedDepth": 0,
+      "localPerFork": 10
+    },
+    {
+      "id": "W2",
+      "rootMessages": 100,
+      "siblingForks": 32,
+      "nestedDepth": 0,
+      "localPerFork": 10
+    },
+    {
+      "id": "W3",
+      "rootMessages": 10,
+      "siblingForks": 0,
+      "nestedDepth": 16,
+      "localPerFork": 10
+    }
+  ],
+  "results": [
+    {
+      "candidate": "immutable_revision",
+      "workload": "W1",
+      "payloadBytes": 64,
+      "logical": {
+        "contentRows": 110,
+        "referenceRows": 0,
+        "metadataRows": 3,
+        "forkCount": 1
+      },
+      "sqlite": {
+        "pageCount": 9,
+        "pageSize": 4096,
+        "bytes": 36864
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "materialized_refs",
+      "workload": "W1",
+      "payloadBytes": 64,
+      "logical": {
+        "contentRows": 110,
+        "referenceRows": 100,
+        "metadataRows": 1,
+        "forkCount": 1
+      },
+      "sqlite": {
+        "pageCount": 9,
+        "pageSize": 4096,
+        "bytes": 36864
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "event_cutoff",
+      "workload": "W1",
+      "payloadBytes": 64,
+      "logical": {
+        "contentRows": 110,
+        "referenceRows": 110,
+        "metadataRows": 2,
+        "forkCount": 1
+      },
+      "sqlite": {
+        "pageCount": 9,
+        "pageSize": 4096,
+        "bytes": 36864
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "cow_segments",
+      "workload": "W1",
+      "payloadBytes": 64,
+      "logical": {
+        "contentRows": 110,
+        "referenceRows": 8,
+        "metadataRows": 3,
+        "forkCount": 1
+      },
+      "sqlite": {
+        "pageCount": 9,
+        "pageSize": 4096,
+        "bytes": 36864
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "full_copy_control",
+      "workload": "W1",
+      "payloadBytes": 64,
+      "logical": {
+        "contentRows": 210,
+        "referenceRows": 0,
+        "metadataRows": 1,
+        "forkCount": 1
+      },
+      "sqlite": {
+        "pageCount": 10,
+        "pageSize": 4096,
+        "bytes": 40960
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "live_parent_control",
+      "workload": "W1",
+      "payloadBytes": 64,
+      "logical": {
+        "contentRows": 110,
+        "referenceRows": 0,
+        "metadataRows": 1,
+        "forkCount": 1
+      },
+      "sqlite": {
+        "pageCount": 9,
+        "pageSize": 4096,
+        "bytes": 36864
+      },
+      "behavior": {
+        "immutableAfterParentMutation": false,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": false
+      }
+    },
+    {
+      "candidate": "immutable_revision",
+      "workload": "W2",
+      "payloadBytes": 64,
+      "logical": {
+        "contentRows": 420,
+        "referenceRows": 0,
+        "metadataRows": 65,
+        "forkCount": 32
+      },
+      "sqlite": {
+        "pageCount": 14,
+        "pageSize": 4096,
+        "bytes": 57344
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "materialized_refs",
+      "workload": "W2",
+      "payloadBytes": 64,
+      "logical": {
+        "contentRows": 420,
+        "referenceRows": 3200,
+        "metadataRows": 32,
+        "forkCount": 32
+      },
+      "sqlite": {
+        "pageCount": 25,
+        "pageSize": 4096,
+        "bytes": 102400
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "event_cutoff",
+      "workload": "W2",
+      "payloadBytes": 64,
+      "logical": {
+        "contentRows": 420,
+        "referenceRows": 420,
+        "metadataRows": 64,
+        "forkCount": 32
+      },
+      "sqlite": {
+        "pageCount": 16,
+        "pageSize": 4096,
+        "bytes": 65536
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "cow_segments",
+      "workload": "W2",
+      "payloadBytes": 64,
+      "logical": {
+        "contentRows": 420,
+        "referenceRows": 39,
+        "metadataRows": 65,
+        "forkCount": 32
+      },
+      "sqlite": {
+        "pageCount": 14,
+        "pageSize": 4096,
+        "bytes": 57344
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "full_copy_control",
+      "workload": "W2",
+      "payloadBytes": 64,
+      "logical": {
+        "contentRows": 3620,
+        "referenceRows": 0,
+        "metadataRows": 32,
+        "forkCount": 32
+      },
+      "sqlite": {
+        "pageCount": 75,
+        "pageSize": 4096,
+        "bytes": 307200
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "live_parent_control",
+      "workload": "W2",
+      "payloadBytes": 64,
+      "logical": {
+        "contentRows": 420,
+        "referenceRows": 0,
+        "metadataRows": 32,
+        "forkCount": 32
+      },
+      "sqlite": {
+        "pageCount": 14,
+        "pageSize": 4096,
+        "bytes": 57344
+      },
+      "behavior": {
+        "immutableAfterParentMutation": false,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": false
+      }
+    },
+    {
+      "candidate": "immutable_revision",
+      "workload": "W3",
+      "payloadBytes": 64,
+      "logical": {
+        "contentRows": 170,
+        "referenceRows": 0,
+        "metadataRows": 33,
+        "forkCount": 16
+      },
+      "sqlite": {
+        "pageCount": 10,
+        "pageSize": 4096,
+        "bytes": 40960
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "materialized_refs",
+      "workload": "W3",
+      "payloadBytes": 64,
+      "logical": {
+        "contentRows": 170,
+        "referenceRows": 1360,
+        "metadataRows": 16,
+        "forkCount": 16
+      },
+      "sqlite": {
+        "pageCount": 15,
+        "pageSize": 4096,
+        "bytes": 61440
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "event_cutoff",
+      "workload": "W3",
+      "payloadBytes": 64,
+      "logical": {
+        "contentRows": 170,
+        "referenceRows": 170,
+        "metadataRows": 32,
+        "forkCount": 16
+      },
+      "sqlite": {
+        "pageCount": 10,
+        "pageSize": 4096,
+        "bytes": 40960
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "cow_segments",
+      "workload": "W3",
+      "payloadBytes": 64,
+      "logical": {
+        "contentRows": 170,
+        "referenceRows": 103,
+        "metadataRows": 33,
+        "forkCount": 16
+      },
+      "sqlite": {
+        "pageCount": 10,
+        "pageSize": 4096,
+        "bytes": 40960
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "full_copy_control",
+      "workload": "W3",
+      "payloadBytes": 64,
+      "logical": {
+        "contentRows": 1530,
+        "referenceRows": 0,
+        "metadataRows": 16,
+        "forkCount": 16
+      },
+      "sqlite": {
+        "pageCount": 35,
+        "pageSize": 4096,
+        "bytes": 143360
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "live_parent_control",
+      "workload": "W3",
+      "payloadBytes": 64,
+      "logical": {
+        "contentRows": 170,
+        "referenceRows": 0,
+        "metadataRows": 16,
+        "forkCount": 16
+      },
+      "sqlite": {
+        "pageCount": 10,
+        "pageSize": 4096,
+        "bytes": 40960
+      },
+      "behavior": {
+        "immutableAfterParentMutation": false,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": false
+      }
+    },
+    {
+      "candidate": "immutable_revision",
+      "workload": "W1",
+      "payloadBytes": 1024,
+      "logical": {
+        "contentRows": 110,
+        "referenceRows": 0,
+        "metadataRows": 3,
+        "forkCount": 1
+      },
+      "sqlite": {
+        "pageCount": 43,
+        "pageSize": 4096,
+        "bytes": 176128
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "materialized_refs",
+      "workload": "W1",
+      "payloadBytes": 1024,
+      "logical": {
+        "contentRows": 110,
+        "referenceRows": 100,
+        "metadataRows": 1,
+        "forkCount": 1
+      },
+      "sqlite": {
+        "pageCount": 43,
+        "pageSize": 4096,
+        "bytes": 176128
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "event_cutoff",
+      "workload": "W1",
+      "payloadBytes": 1024,
+      "logical": {
+        "contentRows": 110,
+        "referenceRows": 110,
+        "metadataRows": 2,
+        "forkCount": 1
+      },
+      "sqlite": {
+        "pageCount": 43,
+        "pageSize": 4096,
+        "bytes": 176128
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "cow_segments",
+      "workload": "W1",
+      "payloadBytes": 1024,
+      "logical": {
+        "contentRows": 110,
+        "referenceRows": 8,
+        "metadataRows": 3,
+        "forkCount": 1
+      },
+      "sqlite": {
+        "pageCount": 43,
+        "pageSize": 4096,
+        "bytes": 176128
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "full_copy_control",
+      "workload": "W1",
+      "payloadBytes": 1024,
+      "logical": {
+        "contentRows": 210,
+        "referenceRows": 0,
+        "metadataRows": 1,
+        "forkCount": 1
+      },
+      "sqlite": {
+        "pageCount": 76,
+        "pageSize": 4096,
+        "bytes": 311296
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "live_parent_control",
+      "workload": "W1",
+      "payloadBytes": 1024,
+      "logical": {
+        "contentRows": 110,
+        "referenceRows": 0,
+        "metadataRows": 1,
+        "forkCount": 1
+      },
+      "sqlite": {
+        "pageCount": 43,
+        "pageSize": 4096,
+        "bytes": 176128
+      },
+      "behavior": {
+        "immutableAfterParentMutation": false,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": false
+      }
+    },
+    {
+      "candidate": "immutable_revision",
+      "workload": "W2",
+      "payloadBytes": 1024,
+      "logical": {
+        "contentRows": 420,
+        "referenceRows": 0,
+        "metadataRows": 65,
+        "forkCount": 32
+      },
+      "sqlite": {
+        "pageCount": 146,
+        "pageSize": 4096,
+        "bytes": 598016
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "materialized_refs",
+      "workload": "W2",
+      "payloadBytes": 1024,
+      "logical": {
+        "contentRows": 420,
+        "referenceRows": 3200,
+        "metadataRows": 32,
+        "forkCount": 32
+      },
+      "sqlite": {
+        "pageCount": 157,
+        "pageSize": 4096,
+        "bytes": 643072
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "event_cutoff",
+      "workload": "W2",
+      "payloadBytes": 1024,
+      "logical": {
+        "contentRows": 420,
+        "referenceRows": 420,
+        "metadataRows": 64,
+        "forkCount": 32
+      },
+      "sqlite": {
+        "pageCount": 148,
+        "pageSize": 4096,
+        "bytes": 606208
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "cow_segments",
+      "workload": "W2",
+      "payloadBytes": 1024,
+      "logical": {
+        "contentRows": 420,
+        "referenceRows": 39,
+        "metadataRows": 65,
+        "forkCount": 32
+      },
+      "sqlite": {
+        "pageCount": 146,
+        "pageSize": 4096,
+        "bytes": 598016
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "full_copy_control",
+      "workload": "W2",
+      "payloadBytes": 1024,
+      "logical": {
+        "contentRows": 3620,
+        "referenceRows": 0,
+        "metadataRows": 32,
+        "forkCount": 32
+      },
+      "sqlite": {
+        "pageCount": 1216,
+        "pageSize": 4096,
+        "bytes": 4980736
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "live_parent_control",
+      "workload": "W2",
+      "payloadBytes": 1024,
+      "logical": {
+        "contentRows": 420,
+        "referenceRows": 0,
+        "metadataRows": 32,
+        "forkCount": 32
+      },
+      "sqlite": {
+        "pageCount": 146,
+        "pageSize": 4096,
+        "bytes": 598016
+      },
+      "behavior": {
+        "immutableAfterParentMutation": false,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": false
+      }
+    },
+    {
+      "candidate": "immutable_revision",
+      "workload": "W3",
+      "payloadBytes": 1024,
+      "logical": {
+        "contentRows": 170,
+        "referenceRows": 0,
+        "metadataRows": 33,
+        "forkCount": 16
+      },
+      "sqlite": {
+        "pageCount": 63,
+        "pageSize": 4096,
+        "bytes": 258048
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "materialized_refs",
+      "workload": "W3",
+      "payloadBytes": 1024,
+      "logical": {
+        "contentRows": 170,
+        "referenceRows": 1360,
+        "metadataRows": 16,
+        "forkCount": 16
+      },
+      "sqlite": {
+        "pageCount": 68,
+        "pageSize": 4096,
+        "bytes": 278528
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "event_cutoff",
+      "workload": "W3",
+      "payloadBytes": 1024,
+      "logical": {
+        "contentRows": 170,
+        "referenceRows": 170,
+        "metadataRows": 32,
+        "forkCount": 16
+      },
+      "sqlite": {
+        "pageCount": 63,
+        "pageSize": 4096,
+        "bytes": 258048
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "cow_segments",
+      "workload": "W3",
+      "payloadBytes": 1024,
+      "logical": {
+        "contentRows": 170,
+        "referenceRows": 103,
+        "metadataRows": 33,
+        "forkCount": 16
+      },
+      "sqlite": {
+        "pageCount": 63,
+        "pageSize": 4096,
+        "bytes": 258048
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "full_copy_control",
+      "workload": "W3",
+      "payloadBytes": 1024,
+      "logical": {
+        "contentRows": 1530,
+        "referenceRows": 0,
+        "metadataRows": 16,
+        "forkCount": 16
+      },
+      "sqlite": {
+        "pageCount": 516,
+        "pageSize": 4096,
+        "bytes": 2113536
+      },
+      "behavior": {
+        "immutableAfterParentMutation": true,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": true
+      }
+    },
+    {
+      "candidate": "live_parent_control",
+      "workload": "W3",
+      "payloadBytes": 1024,
+      "logical": {
+        "contentRows": 170,
+        "referenceRows": 0,
+        "metadataRows": 16,
+        "forkCount": 16
+      },
+      "sqlite": {
+        "pageCount": 63,
+        "pageSize": 4096,
+        "bytes": 258048
+      },
+      "behavior": {
+        "immutableAfterParentMutation": false,
+        "nestedFork": true,
+        "childIsolation": true,
+        "restartPreservesForkView": false
+      }
+    }
+  ]
+}

@@ -18,9 +18,9 @@
 | ID | Workstream | Status | Current evidence / next gate |
 | --- | --- | --- | --- |
 | `NW-01` | Compare versioned discovery and retention contracts without reopening R-001 | `in_progress` | [#31](https://github.com/dapi/hyper-code2/issues/31), [R-031](../memory-bank/research/R-031/README.md); offline symmetry and mock boundary-envelope are reviewed; live/model execution remains blocked by named process/read/Mach, full-agent and credential-boundary gaps |
-| `NW-02` | Compare target network authority contracts and candidate mechanisms | `in_progress` | [#32](https://github.com/dapi/hyper-code2/issues/32), [R-032](../memory-bank/research/R-032/README.md); v3 is accepted bounded executable evidence for partial gates, while complete route/reachability/UX/restart matrix work remains before synthesis |
-| `NW-03` | Compare secret non-transit enforcement mechanisms | `in_progress` | [#33](https://github.com/dapi/hyper-code2/issues/33), [R-033](../memory-bank/research/R-033/README.md); inventory is reviewed, but V1/V2 are downgraded and V3 rejected; clean-sheet V4 is required before candidate synthesis |
-| `NW-04` | Restore immutable fork inheritance through Bug Fix Flow | `blocked` | Regression is preserved, but root-cause review found that every correct fix selects a new persistent-data contract; [#34](https://github.com/dapi/hyper-code2/issues/34) now owns that prerequisite research and [#27](https://github.com/dapi/hyper-code2/issues/27) remains open |
+| `NW-02` | Compare target network authority contracts and candidate mechanisms | `in_progress` | [#32](https://github.com/dapi/hyper-code2/issues/32), [R-032](../memory-bank/research/R-032/README.md); v3 and v4 supply bounded dispatch/lifecycle evidence only; actual route policy, independent reachability, candidate-coupled UX, process separation and the complete matrix remain before synthesis |
+| `NW-03` | Compare secret non-transit enforcement mechanisms | `in_progress` | [#33](https://github.com/dapi/hyper-code2/issues/33), [R-033](../memory-bank/research/R-033/README.md); V1/V2 are downgraded, V3 rejected and V4.1 pre-collection approval rejected; collection stays unauthorized until an executable staged collector passes a new exact-hash review |
+| `NW-04` | Restore immutable fork inheritance through Bug Fix Flow | `blocked` | [#34](https://github.com/dapi/hyper-code2/issues/34) V2 supplies bounded synthetic aggregate/reopen evidence but establishes neither constant-size parent revisions nor COW sharing or growth; no storage contract is accepted and [#27](https://github.com/dapi/hyper-code2/issues/27) remains open |
 | `NW-05` | Independently review evidence, record owner dispositions, and route only accepted handoffs | `pending` | Starts after each research package reaches its review gate; no ADR or feature is inferred from an experiment winner |
 
 ## Guardrails
@@ -55,13 +55,17 @@
 | 2026-08-13 | Security candidate dry-run review | R-032 and R-033 accounting matrices were rejected as mechanism evidence because their first outcomes were formula-driven; both remain collecting while executable disposable adapters are added |
 | 2026-08-13 | R-032 executable evidence review | Corrected v3 accepted for bounded G1/G2/G5/G7 observations only; incomplete route/reachability/UX/restart coverage blocks synthesis |
 | 2026-08-13 | R-033 executable evidence review | V2 retained only as partial execution and V3 rejected for provenance and mechanism-fidelity gaps; exact clean-sheet V4 scope recorded |
+| 2026-08-13 | R-032 lifecycle harness review | V4 accepted only for artifact integrity, mechanical symmetry, local registry mechanics, reachability-field structure and generic lifecycle/store traces; no new whole hard gate closed and synthesis remains blocked |
+| 2026-08-13 | R-033 V4.1 pre-collection review | Exact hashes and preflight controls verified, but executable `CC-01…14` staged flows, durable success/error controls and a carrier-bound collector are missing; collection remains unauthorized |
+| 2026-08-13 | R-034 storage comparison review | V1 retained as formula/containment smoke; V2 accepted only for four synthetic aggregate/reopen shapes. Constant-size revisions, COW sharing, linkage and W1-W5 growth remain unproven, so #27 stays blocked |
 
 ## Final Verification
 
-- [ ] Every completed row has attributable primary evidence and an independent review where required.
-- [ ] Research lifecycle states, EP-001, GitHub and this protocol agree.
-- [ ] No research result silently becomes production architecture or delivery scope.
-- [ ] `memory-bank-cli lint` passes.
-- [ ] `memory-bank-cli doctor` has no errors.
-- [ ] `git diff --check` passes.
-- [ ] The draft PR body states current scope, limitations and pending owner decisions accurately.
+- [x] Every completed row has attributable primary evidence and an independent review where required.
+- [x] Research lifecycle states, EP-001 and this protocol agree; remote issue
+  summaries are published only after this batch commit.
+- [x] No research result silently becomes production architecture or delivery scope.
+- [x] `memory-bank-cli lint` passes.
+- [x] `memory-bank-cli doctor` has no errors.
+- [x] `git diff --check` passes.
+- [x] The draft PR body states current scope, limitations and pending owner decisions accurately.
