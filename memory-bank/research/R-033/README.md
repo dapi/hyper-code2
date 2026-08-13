@@ -23,6 +23,6 @@ The current lifecycle state is owned only by `research_status` in the
   scope, assumptions and stopping condition.
 - [Research Plan](plan.md) — owns the symmetric candidate matrix, compatibility
   criteria, safety controls, fail-closed cases and review gates.
-- [Evidence](evidence.md) — records the initial code-grounded source,
-  provider-transport and prohibited-sink inventory. It does not compare or
-  recommend candidates yet.
+- [Evidence](evidence.md) — records the reviewed inventory, downgraded V1/V2,
+  rejected V3 and the exact clean-sheet V4 scope. It does not recommend a
+  candidate; no carrier currently clears the synthesis gate.

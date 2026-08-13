@@ -1,0 +1,2256 @@
+{
+  "schemaVersion": 3,
+  "results": [
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-01",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": null,
+      "trace": [],
+      "observedDigest": "bd8a3c128493ad6b3e4021c146e4cba8ae058ad0d9fe10850f98233f5e11b17d",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-01",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "fc0c5e68e207c3a7157c9c7a78fb10ccd7334aee259ee5e8f5b981c5795b261e"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-01",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": null,
+      "trace": [],
+      "observedDigest": "bd8a3c128493ad6b3e4021c146e4cba8ae058ad0d9fe10850f98233f5e11b17d",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-02",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "5613c8c684394ad5ceaec76e7a033d8cfd34aa19f6f96c5174d63583c108ce7f"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-01",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": null,
+      "trace": [],
+      "observedDigest": "bd8a3c128493ad6b3e4021c146e4cba8ae058ad0d9fe10850f98233f5e11b17d",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-03",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "70a326950bd095c97c4f7f556b3a378a58d56881df658e80d96e0d9cdc8602e1"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-01",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": null,
+      "trace": [],
+      "observedDigest": "bd8a3c128493ad6b3e4021c146e4cba8ae058ad0d9fe10850f98233f5e11b17d",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-04",
+        "newProcess": true,
+        "rawRecovered": true,
+        "referenceRecovered": false,
+        "revalidationRequired": false,
+        "status": "fail"
+      },
+      "requestReceipts": [],
+      "cellSha256": "eb8f00c36d32aa92702bb32d70acceca009648e674a412ce4b99ccc514a7bf08"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-01",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": null,
+      "trace": [],
+      "observedDigest": "bd8a3c128493ad6b3e4021c146e4cba8ae058ad0d9fe10850f98233f5e11b17d",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-05",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "31b91763c3903d974d07289b363f1e436773ec8d7917148eaa768eda9caea226"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-02",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "CAND-02.resolve",
+        "privileged-source.excluded",
+        "transport.capture.CC-03"
+      ],
+      "observedDigest": "e55f09102460b6276fad7a6c9fae807caa43ffb57745bb7f068a852f1b7cc8b9",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-02",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "c98a6a187d20017f3c5374de566a51710176c108898b2d57b4131b4a3dd0e17d"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-02",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "CAND-03.resolve",
+        "schema.privileged-field",
+        "transport.capture.CC-03"
+      ],
+      "observedDigest": "e55f09102460b6276fad7a6c9fae807caa43ffb57745bb7f068a852f1b7cc8b9",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-03",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "d844a2441095a53916856b0c30a77e58a2d803e78c89d838c645a944896a9c21"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-02",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "CAND-04.resolve",
+        "ambient.provenance-tagged",
+        "transport.capture.CC-03"
+      ],
+      "observedDigest": "e55f09102460b6276fad7a6c9fae807caa43ffb57745bb7f068a852f1b7cc8b9",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-04",
+        "newProcess": true,
+        "rawRecovered": true,
+        "referenceRecovered": false,
+        "revalidationRequired": false,
+        "status": "fail"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "0cc23d531a717e52de2ce15f28c55477c5bfcb42c09a8cf6afe1af6f9cf9e76d"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-02",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "CAND-05.resolve",
+        "composition.bound-reference-source-exclusion-schema",
+        "transport.capture.CC-03"
+      ],
+      "observedDigest": "e55f09102460b6276fad7a6c9fae807caa43ffb57745bb7f068a852f1b7cc8b9",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-05",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "51e4e6631464bec23e8c94d7c885f4a351599ecd9b487b0086e5a740dcb27d7e"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-02",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "CAND-01.resolve",
+        "broker.bound-reference",
+        "transport.capture.CC-03"
+      ],
+      "observedDigest": "e55f09102460b6276fad7a6c9fae807caa43ffb57745bb7f068a852f1b7cc8b9",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-01",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "9a85f2543480bc9fedb4e3444e69829d3464d2bcb3ea71d73fa36c86eb0085cf"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-03",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "CAND-03.resolve",
+        "schema.privileged-field",
+        "transport.capture.CC-03"
+      ],
+      "observedDigest": "e55f09102460b6276fad7a6c9fae807caa43ffb57745bb7f068a852f1b7cc8b9",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-03",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "a63822b12ad6d35e104ad251e4b3062e81dd9ce9f512f83e8cd82bcfb3cba652"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-03",
+      "status": "fail",
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED"
+      ],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "CAND-04.resolve",
+        "ambient.provenance-tagged",
+        "transport.capture.CC-03"
+      ],
+      "observedDigest": "e55f09102460b6276fad7a6c9fae807caa43ffb57745bb7f068a852f1b7cc8b9",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-04",
+        "newProcess": true,
+        "rawRecovered": true,
+        "referenceRecovered": false,
+        "revalidationRequired": false,
+        "status": "fail"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "c3d7453b8135aa12275207579cd2da51efc503867b14e6333d055257e153227c"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-03",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "CAND-05.resolve",
+        "composition.bound-reference-source-exclusion-schema",
+        "transport.capture.CC-03"
+      ],
+      "observedDigest": "e55f09102460b6276fad7a6c9fae807caa43ffb57745bb7f068a852f1b7cc8b9",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-05",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "be2c182af7398589eeeadc4e75fe64076f6e4dcdae30b38091bac670b8e46a65"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-03",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "CAND-01.resolve",
+        "broker.bound-reference",
+        "transport.capture.CC-03"
+      ],
+      "observedDigest": "e55f09102460b6276fad7a6c9fae807caa43ffb57745bb7f068a852f1b7cc8b9",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-01",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "ee44fec27bacd1ff2af4c69ff205083eab0c019ab06a86d20e7c408a5a3323be"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-03",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "CAND-02.resolve",
+        "privileged-source.excluded",
+        "transport.capture.CC-03"
+      ],
+      "observedDigest": "e55f09102460b6276fad7a6c9fae807caa43ffb57745bb7f068a852f1b7cc8b9",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-02",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "eb816c1d5ce3a7c263bbe840eb3c659e6526f951fc3b1b3a245b52abdbf6208e"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-04",
+      "status": "fail",
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED"
+      ],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "CAND-04.resolve",
+        "ambient.provenance-tagged",
+        "transport.capture.CC-04"
+      ],
+      "observedDigest": "ab2bde22058e7f7deef8c193d8adc3a85046f77a87412e7b65b35a7350ae91ee",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-04",
+        "newProcess": true,
+        "rawRecovered": true,
+        "referenceRecovered": false,
+        "revalidationRequired": false,
+        "status": "fail"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "cb14412538d74ccadd0d42b4a34a3f91c06a4de1735aed682a082c524c404577",
+          "expectedRequestDigest": "cb14412538d74ccadd0d42b4a34a3f91c06a4de1735aed682a082c524c404577",
+          "requestMatched": true,
+          "authDigest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14",
+          "expectedAuthDigest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "50d55bd3f6e94086040f9a0a19b54e930078d3c2de0c79dd8c1331a75fe06adf"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-04",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "CAND-05.resolve",
+        "composition.bound-reference-source-exclusion-schema",
+        "transport.capture.CC-04"
+      ],
+      "observedDigest": "ab2bde22058e7f7deef8c193d8adc3a85046f77a87412e7b65b35a7350ae91ee",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-05",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "cb14412538d74ccadd0d42b4a34a3f91c06a4de1735aed682a082c524c404577",
+          "expectedRequestDigest": "cb14412538d74ccadd0d42b4a34a3f91c06a4de1735aed682a082c524c404577",
+          "requestMatched": true,
+          "authDigest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14",
+          "expectedAuthDigest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "4ff867db57f303d376c0d1dcb8ec003adcc6738b1dc48f29174df6646f84afbe"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-04",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "CAND-01.resolve",
+        "broker.bound-reference",
+        "transport.capture.CC-04"
+      ],
+      "observedDigest": "ab2bde22058e7f7deef8c193d8adc3a85046f77a87412e7b65b35a7350ae91ee",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-01",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "cb14412538d74ccadd0d42b4a34a3f91c06a4de1735aed682a082c524c404577",
+          "expectedRequestDigest": "cb14412538d74ccadd0d42b4a34a3f91c06a4de1735aed682a082c524c404577",
+          "requestMatched": true,
+          "authDigest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14",
+          "expectedAuthDigest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "12a6463f2a4c820142ac43c1c11b0166e986bcbeea89909487e05fdf144de4f1"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-04",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "CAND-02.resolve",
+        "privileged-source.excluded",
+        "transport.capture.CC-04"
+      ],
+      "observedDigest": "ab2bde22058e7f7deef8c193d8adc3a85046f77a87412e7b65b35a7350ae91ee",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-02",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "cb14412538d74ccadd0d42b4a34a3f91c06a4de1735aed682a082c524c404577",
+          "expectedRequestDigest": "cb14412538d74ccadd0d42b4a34a3f91c06a4de1735aed682a082c524c404577",
+          "requestMatched": true,
+          "authDigest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14",
+          "expectedAuthDigest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "ab318b0eef2bb6e3484e231abfc7022ebfd261aa91326f72e9730f86de8f5ff1"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-04",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "CAND-03.resolve",
+        "schema.privileged-field",
+        "transport.capture.CC-04"
+      ],
+      "observedDigest": "ab2bde22058e7f7deef8c193d8adc3a85046f77a87412e7b65b35a7350ae91ee",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-03",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "cb14412538d74ccadd0d42b4a34a3f91c06a4de1735aed682a082c524c404577",
+          "expectedRequestDigest": "cb14412538d74ccadd0d42b4a34a3f91c06a4de1735aed682a082c524c404577",
+          "requestMatched": true,
+          "authDigest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14",
+          "expectedAuthDigest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "38eb4797c3c9cfb6ab0c51a292c381caa1d123a14f76218fa323e74be0a08f11"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-05",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "synthetic.file.read",
+        "synthetic.keychain.read",
+        "CAND-05.resolve",
+        "composition.bound-reference-source-exclusion-schema",
+        "transport.capture.CC-05"
+      ],
+      "observedDigest": "e62048b71745c83783eefda4796693775e26954080cc534681465adce8184408",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-05",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "125c367992bfeb75f2ad3710fe3d51dc4f3789fd0e0f070cdd14c7499aa97871",
+          "expectedRequestDigest": "125c367992bfeb75f2ad3710fe3d51dc4f3789fd0e0f070cdd14c7499aa97871",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "548a205878c183cbe8db293dc669babfabc822a0009b138e82e2cd065227f802"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-05",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "synthetic.file.read",
+        "synthetic.keychain.read",
+        "CAND-01.resolve",
+        "broker.bound-reference",
+        "transport.capture.CC-05"
+      ],
+      "observedDigest": "e62048b71745c83783eefda4796693775e26954080cc534681465adce8184408",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-01",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "125c367992bfeb75f2ad3710fe3d51dc4f3789fd0e0f070cdd14c7499aa97871",
+          "expectedRequestDigest": "125c367992bfeb75f2ad3710fe3d51dc4f3789fd0e0f070cdd14c7499aa97871",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "8eb82a031652a3ac852de2899358de429cbbb09b77722f4b831bd41882d1d4d1"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-05",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "synthetic.file.read",
+        "synthetic.keychain.read",
+        "CAND-02.resolve",
+        "privileged-source.excluded",
+        "transport.capture.CC-05"
+      ],
+      "observedDigest": "e62048b71745c83783eefda4796693775e26954080cc534681465adce8184408",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-02",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "125c367992bfeb75f2ad3710fe3d51dc4f3789fd0e0f070cdd14c7499aa97871",
+          "expectedRequestDigest": "125c367992bfeb75f2ad3710fe3d51dc4f3789fd0e0f070cdd14c7499aa97871",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "3d3b2eb19f475c1601be42c498f4c2e56174547501881f3528d559e591bc20fc"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-05",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "synthetic.file.read",
+        "synthetic.keychain.read",
+        "CAND-03.resolve",
+        "schema.privileged-field",
+        "transport.capture.CC-05"
+      ],
+      "observedDigest": "e62048b71745c83783eefda4796693775e26954080cc534681465adce8184408",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-03",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "125c367992bfeb75f2ad3710fe3d51dc4f3789fd0e0f070cdd14c7499aa97871",
+          "expectedRequestDigest": "125c367992bfeb75f2ad3710fe3d51dc4f3789fd0e0f070cdd14c7499aa97871",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "8a203ccec319d1bd448261d90a888d14b17e9ef4c2424c502f1144d6f5630162"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-05",
+      "status": "fail",
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED"
+      ],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "synthetic.file.read",
+        "synthetic.keychain.read",
+        "CAND-04.resolve",
+        "ambient.provenance-tagged",
+        "transport.capture.CC-05"
+      ],
+      "observedDigest": "e62048b71745c83783eefda4796693775e26954080cc534681465adce8184408",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-04",
+        "newProcess": true,
+        "rawRecovered": true,
+        "referenceRecovered": false,
+        "revalidationRequired": false,
+        "status": "fail"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "125c367992bfeb75f2ad3710fe3d51dc4f3789fd0e0f070cdd14c7499aa97871",
+          "expectedRequestDigest": "125c367992bfeb75f2ad3710fe3d51dc4f3789fd0e0f070cdd14c7499aa97871",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "32394375f005f6ed08641cc26b463db6b2faf194bb9914f1d31bdd84ce1c97e5"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-06",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "synthetic.codex-file.read",
+        "synthetic.codex-oauth.refresh",
+        "synthetic.codex-file.write",
+        "CAND-01.resolve",
+        "broker.bound-reference",
+        "transport.capture.CC-06"
+      ],
+      "observedDigest": "0418c9828e6d6ea9fd20b1bef49df1f2d722e06b8e6464a166fcfa3d78ea44d3",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-01",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "06ac7692f923b6e5b2431114c305f84f29279e82eb8fd7303fde9d372b0c634a",
+          "expectedRequestDigest": "06ac7692f923b6e5b2431114c305f84f29279e82eb8fd7303fde9d372b0c634a",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "108ddaba4562e9fa1672b0c44d540fc8d60959fa13242ebec94f450a54f2919a"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-06",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "synthetic.codex-file.read",
+        "synthetic.codex-oauth.refresh",
+        "synthetic.codex-file.write",
+        "CAND-02.resolve",
+        "privileged-source.excluded",
+        "transport.capture.CC-06"
+      ],
+      "observedDigest": "0418c9828e6d6ea9fd20b1bef49df1f2d722e06b8e6464a166fcfa3d78ea44d3",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-02",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "06ac7692f923b6e5b2431114c305f84f29279e82eb8fd7303fde9d372b0c634a",
+          "expectedRequestDigest": "06ac7692f923b6e5b2431114c305f84f29279e82eb8fd7303fde9d372b0c634a",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "374aea20bf3bdc4b5cb09bb92fffeddc238302999ebad0f11b75f5970d7ce4c4"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-06",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "synthetic.codex-file.read",
+        "synthetic.codex-oauth.refresh",
+        "synthetic.codex-file.write",
+        "CAND-03.resolve",
+        "schema.privileged-field",
+        "transport.capture.CC-06"
+      ],
+      "observedDigest": "0418c9828e6d6ea9fd20b1bef49df1f2d722e06b8e6464a166fcfa3d78ea44d3",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-03",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "06ac7692f923b6e5b2431114c305f84f29279e82eb8fd7303fde9d372b0c634a",
+          "expectedRequestDigest": "06ac7692f923b6e5b2431114c305f84f29279e82eb8fd7303fde9d372b0c634a",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "5dba664464a38c9dbcebae450951a41735c049ff76ba6dbe2982431b980ffe22"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-06",
+      "status": "fail",
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED"
+      ],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "synthetic.codex-file.read",
+        "synthetic.codex-oauth.refresh",
+        "synthetic.codex-file.write",
+        "CAND-04.resolve",
+        "ambient.provenance-tagged",
+        "transport.capture.CC-06"
+      ],
+      "observedDigest": "0418c9828e6d6ea9fd20b1bef49df1f2d722e06b8e6464a166fcfa3d78ea44d3",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-04",
+        "newProcess": true,
+        "rawRecovered": true,
+        "referenceRecovered": false,
+        "revalidationRequired": false,
+        "status": "fail"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "06ac7692f923b6e5b2431114c305f84f29279e82eb8fd7303fde9d372b0c634a",
+          "expectedRequestDigest": "06ac7692f923b6e5b2431114c305f84f29279e82eb8fd7303fde9d372b0c634a",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "a1087a3c2bf4112abcaaf401ad58e5a1145d514f15b378bc06aaff6db769042e"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-06",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "synthetic.codex-file.read",
+        "synthetic.codex-oauth.refresh",
+        "synthetic.codex-file.write",
+        "CAND-05.resolve",
+        "composition.bound-reference-source-exclusion-schema",
+        "transport.capture.CC-06"
+      ],
+      "observedDigest": "0418c9828e6d6ea9fd20b1bef49df1f2d722e06b8e6464a166fcfa3d78ea44d3",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-05",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "06ac7692f923b6e5b2431114c305f84f29279e82eb8fd7303fde9d372b0c634a",
+          "expectedRequestDigest": "06ac7692f923b6e5b2431114c305f84f29279e82eb8fd7303fde9d372b0c634a",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "0c295e0cd0c4581701c3f4a05fd86d03a248c4d87f6e30eab327dd6be2a15190"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-07",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": "CREDENTIAL_REFERENCE_INVALID",
+      "trace": [
+        "CAND-02.resolve",
+        "error.CREDENTIAL_REFERENCE_INVALID"
+      ],
+      "observedDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-02",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "e68b97a7d001611e7a1f04c63c8158ceb6d15aab206d7a83a18feabf4cd9570c"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-07",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": "CREDENTIAL_REFERENCE_INVALID",
+      "trace": [
+        "CAND-03.resolve",
+        "error.CREDENTIAL_REFERENCE_INVALID"
+      ],
+      "observedDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-03",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "13a69a58e02db612a2eef30c95d5ed9fd3725f7936fd4d3d22fb01f65bb79f35"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-07",
+      "status": "fail",
+      "reasons": [
+        "FAIL_CLOSED_ERROR_MISMATCH",
+        "FAIL_CLOSED_DISPATCH_OCCURRED"
+      ],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "CAND-04.resolve",
+        "ambient.provenance-tagged",
+        "transport.capture.CC-03"
+      ],
+      "observedDigest": "e55f09102460b6276fad7a6c9fae807caa43ffb57745bb7f068a852f1b7cc8b9",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-04",
+        "newProcess": true,
+        "rawRecovered": true,
+        "referenceRecovered": false,
+        "revalidationRequired": false,
+        "status": "fail"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "e0ca82a2dc7d5e06cfeef7edd51a379663def2d0f796b18be15046296fe4a3ed"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-07",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": "CREDENTIAL_REFERENCE_INVALID",
+      "trace": [
+        "CAND-05.resolve",
+        "error.CREDENTIAL_REFERENCE_INVALID"
+      ],
+      "observedDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-05",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "087fc5b5dd4f5872993f3649f3ee2566b459187d68300ed45baabe2a59aecfbc"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-07",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": "CREDENTIAL_REFERENCE_INVALID",
+      "trace": [
+        "CAND-01.resolve",
+        "error.CREDENTIAL_REFERENCE_INVALID"
+      ],
+      "observedDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-01",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "0da23ae8e9e8b8cb3174974569d7fb6348d049b4f8b8ac3c1da5af961b9e5a31"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-08",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": "CREDENTIAL_RESOLVER_UNAVAILABLE",
+      "trace": [
+        "CAND-03.resolve",
+        "error.CREDENTIAL_RESOLVER_UNAVAILABLE"
+      ],
+      "observedDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-03",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "d1985647797b2e34c1180d24e2b61bfab2fd91ae38bab6ba28219253456cea7f"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-08",
+      "status": "fail",
+      "reasons": [
+        "FAIL_CLOSED_ERROR_MISMATCH",
+        "FAIL_CLOSED_DISPATCH_OCCURRED"
+      ],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "CAND-04.resolve",
+        "ambient.provenance-tagged",
+        "transport.capture.CC-03"
+      ],
+      "observedDigest": "e55f09102460b6276fad7a6c9fae807caa43ffb57745bb7f068a852f1b7cc8b9",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-04",
+        "newProcess": true,
+        "rawRecovered": true,
+        "referenceRecovered": false,
+        "revalidationRequired": false,
+        "status": "fail"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "b6e9e6872e04cb8ef5a7ea2088f404fb848cddc6341d6125a85e647de7cb8980"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-08",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": "CREDENTIAL_RESOLVER_UNAVAILABLE",
+      "trace": [
+        "CAND-05.resolve",
+        "error.CREDENTIAL_RESOLVER_UNAVAILABLE"
+      ],
+      "observedDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-05",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "7153a3f0cefb5d73db3a3c26f60bf878a4a5f717ab24698b2377dcc2df9f9c7b"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-08",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": "CREDENTIAL_RESOLVER_UNAVAILABLE",
+      "trace": [
+        "CAND-01.resolve",
+        "error.CREDENTIAL_RESOLVER_UNAVAILABLE"
+      ],
+      "observedDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-01",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "be7d34c63a00f3e2aeda86f387e76854e68ab29477f54c2630abe36ee78dce37"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-08",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": "CREDENTIAL_RESOLVER_UNAVAILABLE",
+      "trace": [
+        "CAND-02.resolve",
+        "error.CREDENTIAL_RESOLVER_UNAVAILABLE"
+      ],
+      "observedDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-02",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "42b4297eaf5dac20c90703efb611a9e020b5aec58441b1ec82561f0146ad1e36"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-09",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": "SECRET_CLASSIFICATION_LOST",
+      "trace": [
+        "CAND-04.sink.persistence",
+        "error.SECRET_CLASSIFICATION_LOST"
+      ],
+      "observedDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-04",
+        "newProcess": true,
+        "rawRecovered": true,
+        "referenceRecovered": false,
+        "revalidationRequired": false,
+        "status": "fail"
+      },
+      "requestReceipts": [],
+      "cellSha256": "6627aa609c3e58ddbbc75d9dd0cba1cf93506b2b00b0a08e1063048f8defa41c"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-09",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": "SECRET_CLASSIFICATION_LOST",
+      "trace": [
+        "CAND-05.sink.persistence",
+        "error.SECRET_CLASSIFICATION_LOST"
+      ],
+      "observedDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-05",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "e3f133eb2c0a080d3a6bcd5e896c0dfd169748b25c1c3741caa498ced3c35669"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-09",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": "SECRET_CLASSIFICATION_LOST",
+      "trace": [
+        "CAND-01.sink.persistence",
+        "error.SECRET_CLASSIFICATION_LOST"
+      ],
+      "observedDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-01",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "be8c1356b2aa27fe4349def7d540ac34284d54659dfcf451acd3e736b0d76eb1"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-09",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": "SECRET_CLASSIFICATION_LOST",
+      "trace": [
+        "CAND-02.sink.persistence",
+        "error.SECRET_CLASSIFICATION_LOST"
+      ],
+      "observedDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-02",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "072aa273cd23bdaa9a987d687986ec646350e82de7a53cdc3481c8bce704f29e"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-09",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": "SECRET_CLASSIFICATION_LOST",
+      "trace": [
+        "CAND-03.sink.persistence",
+        "error.SECRET_CLASSIFICATION_LOST"
+      ],
+      "observedDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-03",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "05fd5a60999b3b15e21a987aaa3d87e3b30d845939409021aa65b76e9438e8d8"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-10",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": null,
+      "trace": [
+        "CAND-05.sink.success",
+        "CAND-05.sink.throw",
+        "CAND-05.sink.serialization"
+      ],
+      "observedDigest": "b811330c3c0eaf3ec6a54ec9e585c597d9858f109a2b7fb09cf1fe45ba849a7e",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-05",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "4dc605e4a91e8a159b85d3e669e9aa7381be07a22e7f3bce092c42c9d5a69b25"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-10",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": null,
+      "trace": [
+        "CAND-01.sink.success",
+        "CAND-01.sink.throw",
+        "CAND-01.sink.serialization"
+      ],
+      "observedDigest": "da19d1f7a2359a09e976d6248b8c77e49f574359644102d4b1d802a9ccb6dbaf",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-01",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "bacc1f47f3b14859412215e4cab767640e11ec25545fe01ad06dd9f318bf4744"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-10",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": null,
+      "trace": [
+        "CAND-02.sink.success",
+        "CAND-02.sink.throw",
+        "CAND-02.sink.serialization"
+      ],
+      "observedDigest": "da19d1f7a2359a09e976d6248b8c77e49f574359644102d4b1d802a9ccb6dbaf",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-02",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "f537818f2a83f29ccebc51efe8c4948577aeb624fad33394f4b0851d56395f19"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-10",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": null,
+      "trace": [
+        "CAND-03.sink.success",
+        "CAND-03.sink.throw",
+        "CAND-03.sink.serialization"
+      ],
+      "observedDigest": "bd07da87351f72d30ab1403b03f41b5279b8754c22a60405b178624a8aa637de",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-03",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "46154eb7bfcfd31455a2ed2fd44816a5e430436d9b201fddc822d4be85b02eef"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-10",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": null,
+      "trace": [
+        "CAND-04.sink.success",
+        "CAND-04.sink.throw",
+        "CAND-04.sink.serialization"
+      ],
+      "observedDigest": "b811330c3c0eaf3ec6a54ec9e585c597d9858f109a2b7fb09cf1fe45ba849a7e",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-04",
+        "newProcess": true,
+        "rawRecovered": true,
+        "referenceRecovered": false,
+        "revalidationRequired": false,
+        "status": "fail"
+      },
+      "requestReceipts": [],
+      "cellSha256": "1f4719c0e5a2c4d88ca36eadf04e61c601d30482e1a3c997888416f656b8f2ce"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-11",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 2,
+      "stableError": null,
+      "trace": [
+        "CAND-01.resolve",
+        "broker.bound-reference",
+        "transport.capture.CC-03",
+        "CAND-01.resolve",
+        "broker.bound-reference",
+        "transport.capture.CC-03",
+        "CAND-01.resolve",
+        "CAND-01.resolve"
+      ],
+      "observedDigest": "d046aeb9bfd40d52dcdd1b6c0bc29cb950a3c8140b58bafca22da26e84f67103",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-01",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        },
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "6fdcbbc17dac9e5fd70ca5047d20e2b525204a0118ce9e74f4b3ab6bc9cd4d03"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-11",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 2,
+      "stableError": null,
+      "trace": [
+        "CAND-02.resolve",
+        "privileged-source.excluded",
+        "transport.capture.CC-03",
+        "CAND-02.resolve",
+        "privileged-source.excluded",
+        "transport.capture.CC-03",
+        "CAND-02.resolve",
+        "CAND-02.resolve"
+      ],
+      "observedDigest": "d046aeb9bfd40d52dcdd1b6c0bc29cb950a3c8140b58bafca22da26e84f67103",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-02",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        },
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "970de23f77342663f63cb680158613f3d0e9acc058b965d2e1b0a6f70e131d10"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-11",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 2,
+      "stableError": null,
+      "trace": [
+        "CAND-03.resolve",
+        "schema.privileged-field",
+        "transport.capture.CC-03",
+        "CAND-03.resolve",
+        "schema.privileged-field",
+        "transport.capture.CC-03",
+        "CAND-03.resolve",
+        "CAND-03.resolve"
+      ],
+      "observedDigest": "d046aeb9bfd40d52dcdd1b6c0bc29cb950a3c8140b58bafca22da26e84f67103",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-03",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        },
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "ae3f7ffd855274eb8899909cb3fdca7408ca9cc46dd9e27b34c308a897ed28de"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-11",
+      "status": "fail",
+      "reasons": [
+        "RETRY_STATE_SECRET_HIT",
+        "BOUNDED_REUSE_NOT_ENFORCED",
+        "CANCELLATION_NOT_ENFORCED"
+      ],
+      "dispatches": 4,
+      "stableError": null,
+      "trace": [
+        "CAND-04.resolve",
+        "ambient.provenance-tagged",
+        "transport.capture.CC-03",
+        "CAND-04.resolve",
+        "ambient.provenance-tagged",
+        "transport.capture.CC-03",
+        "CAND-04.resolve",
+        "ambient.provenance-tagged",
+        "transport.capture.CC-03",
+        "CAND-04.resolve",
+        "ambient.provenance-tagged",
+        "transport.capture.CC-03"
+      ],
+      "observedDigest": "4f7739ea0c8d378f96c717590c1713dee2efd97d65d20d264ffd33bc3b5bb508",
+      "observedRaw": false,
+      "retryRaw": true,
+      "restart": {
+        "candidate": "CAND-04",
+        "newProcess": true,
+        "rawRecovered": true,
+        "referenceRecovered": false,
+        "revalidationRequired": false,
+        "status": "fail"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        },
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "562fffcbab24c827d5b5afe60acb85f0a2437ae875015a70fb5b24e819565a85"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-11",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 2,
+      "stableError": null,
+      "trace": [
+        "CAND-05.resolve",
+        "composition.bound-reference-source-exclusion-schema",
+        "transport.capture.CC-03",
+        "CAND-05.resolve",
+        "composition.bound-reference-source-exclusion-schema",
+        "transport.capture.CC-03",
+        "CAND-05.resolve",
+        "CAND-05.resolve"
+      ],
+      "observedDigest": "d046aeb9bfd40d52dcdd1b6c0bc29cb950a3c8140b58bafca22da26e84f67103",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-05",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        },
+        {
+          "requestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "expectedRequestDigest": "f6ed811a80390734fae2c175a9139c4db31668f7521372ab8378117210dbec65",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "e5debd1e5550cedf072123e2735ecaed9c55887170c01d5c114500249ef8d15f"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-12",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": null,
+      "trace": [],
+      "observedDigest": "d69d8ac8407bb3e528abb3853c33a9492e603d6b2275d38a27b4081be6c9caaf",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-02",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "ffe32ee23f9aabe0c72c2f184c959f552b02945f8c9fdfdb99c2316c435e8618"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-12",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": null,
+      "trace": [],
+      "observedDigest": "d69d8ac8407bb3e528abb3853c33a9492e603d6b2275d38a27b4081be6c9caaf",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-03",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "95da1777ab9b5c583c0ce77509fc0647e60f931da6c9980e7764c5b19b14e190"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-12",
+      "status": "fail",
+      "reasons": [
+        "PROHIBITED_SINK_HIT",
+        "RESTART_STATE_SECRET_HIT"
+      ],
+      "dispatches": 0,
+      "stableError": null,
+      "trace": [
+        "CAND-04.resolve",
+        "ambient.provenance-tagged"
+      ],
+      "observedDigest": "908fecfc336b81e01c09101f475ab7b061eca4e4e529ca81846e851e8e9466f6",
+      "observedRaw": true,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-04",
+        "newProcess": true,
+        "rawRecovered": true,
+        "referenceRecovered": false,
+        "revalidationRequired": false,
+        "status": "fail"
+      },
+      "requestReceipts": [],
+      "cellSha256": "3fbd339344ad60821c3428481e1585206f1dcfcabc04a61a43591433c0fb1146"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-12",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": null,
+      "trace": [],
+      "observedDigest": "d69d8ac8407bb3e528abb3853c33a9492e603d6b2275d38a27b4081be6c9caaf",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-05",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "db0836f5dbdaa5c4f634aedb45cbaa80ce920c61b1dc17bb9290d3706ac68c8b"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-12",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": null,
+      "trace": [],
+      "observedDigest": "d69d8ac8407bb3e528abb3853c33a9492e603d6b2275d38a27b4081be6c9caaf",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-01",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "d3d665d42eb962b7de3a81070c5368e26209bb0e1e2befb8f4ca8ad532ca298d"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-13",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "CAND-03.resolve",
+        "schema.privileged-field",
+        "transport.capture.CC-06",
+        "CAND-03.resolve"
+      ],
+      "observedDigest": "42cd1bc161ea0db9473ecdc365de2a8102b66f8252e4ce3178439f7d7ae23496",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-03",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "06ac7692f923b6e5b2431114c305f84f29279e82eb8fd7303fde9d372b0c634a",
+          "expectedRequestDigest": "06ac7692f923b6e5b2431114c305f84f29279e82eb8fd7303fde9d372b0c634a",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "f191fba978a32fa6f907b734e24dc029b652f8cb747fd9109e2080ad56c84696"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-13",
+      "status": "fail",
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED",
+        "DISCOVERY_FAILURE_NOT_FAIL_CLOSED"
+      ],
+      "dispatches": 2,
+      "stableError": null,
+      "trace": [
+        "CAND-04.resolve",
+        "ambient.provenance-tagged",
+        "transport.capture.CC-06",
+        "CAND-04.resolve",
+        "ambient.provenance-tagged",
+        "transport.capture.CC-06"
+      ],
+      "observedDigest": "f2e066d8b2f6ebe9bd31845844be84a5d42fbf86fc52873584ac564999f7de3f",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-04",
+        "newProcess": true,
+        "rawRecovered": true,
+        "referenceRecovered": false,
+        "revalidationRequired": false,
+        "status": "fail"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "06ac7692f923b6e5b2431114c305f84f29279e82eb8fd7303fde9d372b0c634a",
+          "expectedRequestDigest": "06ac7692f923b6e5b2431114c305f84f29279e82eb8fd7303fde9d372b0c634a",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "4952dbb9bbe29997d4cb7df2c4dffe3f4eecb4882cac84eb64bec0210f6b962d"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-13",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "CAND-05.resolve",
+        "composition.bound-reference-source-exclusion-schema",
+        "transport.capture.CC-06",
+        "CAND-05.resolve"
+      ],
+      "observedDigest": "42cd1bc161ea0db9473ecdc365de2a8102b66f8252e4ce3178439f7d7ae23496",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-05",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "06ac7692f923b6e5b2431114c305f84f29279e82eb8fd7303fde9d372b0c634a",
+          "expectedRequestDigest": "06ac7692f923b6e5b2431114c305f84f29279e82eb8fd7303fde9d372b0c634a",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "6d779c6cb30fd51bc743d534296950b8c68f7bc0c2c0c60f76c23f7137f3bd2f"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-13",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "CAND-01.resolve",
+        "broker.bound-reference",
+        "transport.capture.CC-06",
+        "CAND-01.resolve"
+      ],
+      "observedDigest": "42cd1bc161ea0db9473ecdc365de2a8102b66f8252e4ce3178439f7d7ae23496",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-01",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "06ac7692f923b6e5b2431114c305f84f29279e82eb8fd7303fde9d372b0c634a",
+          "expectedRequestDigest": "06ac7692f923b6e5b2431114c305f84f29279e82eb8fd7303fde9d372b0c634a",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "f3f7fd2c3976520b022b0b4b41d9cd3c007781f15303b8d2e1f66410640c2891"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-13",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 1,
+      "stableError": null,
+      "trace": [
+        "CAND-02.resolve",
+        "privileged-source.excluded",
+        "transport.capture.CC-06",
+        "CAND-02.resolve"
+      ],
+      "observedDigest": "42cd1bc161ea0db9473ecdc365de2a8102b66f8252e4ce3178439f7d7ae23496",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-02",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [
+        {
+          "requestDigest": "06ac7692f923b6e5b2431114c305f84f29279e82eb8fd7303fde9d372b0c634a",
+          "expectedRequestDigest": "06ac7692f923b6e5b2431114c305f84f29279e82eb8fd7303fde9d372b0c634a",
+          "requestMatched": true,
+          "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "expectedAuthDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+          "authMatched": true
+        }
+      ],
+      "cellSha256": "e3b8070a02e651b90a155d825bd82daab510d50bcc2a8aa7de67c3b3a7113c23"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-14",
+      "status": "fail",
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED",
+        "PROHIBITED_SINK_HIT"
+      ],
+      "dispatches": 0,
+      "stableError": null,
+      "trace": [
+        "generated-probe.ctxEnv.invoke",
+        "generated-probe.settingsGet.invoke",
+        "generated-probe.settingsGetString.invoke",
+        "generated-probe.settingsList.invoke",
+        "generated-probe.dbSelect.invoke",
+        "generated-probe.fileRead.invoke",
+        "generated-probe.keychainCommand.invoke"
+      ],
+      "observedDigest": "35a44f9dae78ee3125a4ce4aa618f8e13240b9e1d3474ed6c502a4b18af105da",
+      "observedRaw": true,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-04",
+        "newProcess": true,
+        "rawRecovered": true,
+        "referenceRecovered": false,
+        "revalidationRequired": false,
+        "status": "fail"
+      },
+      "requestReceipts": [],
+      "cellSha256": "699e22a9820ef9972124294af03630b25f3531a2f7b482b2e17cba453432ee2d"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-14",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": null,
+      "trace": [
+        "generated-probe.ctxEnv.invoke",
+        "generated-probe.settingsGet.invoke",
+        "generated-probe.settingsGetString.invoke",
+        "generated-probe.settingsList.invoke",
+        "generated-probe.dbSelect.invoke",
+        "generated-probe.fileRead.invoke",
+        "generated-probe.keychainCommand.invoke"
+      ],
+      "observedDigest": "374008f0ff42d521683c5a95bb683fb64a2cfa2029111ac6f3c4b0a08dadad19",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-05",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "240461d3eb6da57955341705195774c73d1b502084dc79585d674edf94a95fcb"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-14",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": null,
+      "trace": [
+        "generated-probe.ctxEnv.invoke",
+        "generated-probe.settingsGet.invoke",
+        "generated-probe.settingsGetString.invoke",
+        "generated-probe.settingsList.invoke",
+        "generated-probe.dbSelect.invoke",
+        "generated-probe.fileRead.invoke",
+        "generated-probe.keychainCommand.invoke"
+      ],
+      "observedDigest": "374008f0ff42d521683c5a95bb683fb64a2cfa2029111ac6f3c4b0a08dadad19",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-01",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "7ded2011c2b0422901f606e937b34f17c1ceb63e1a815f36313bf96659c908ac"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-14",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": null,
+      "trace": [
+        "generated-probe.ctxEnv.invoke",
+        "generated-probe.settingsGet.invoke",
+        "generated-probe.settingsGetString.invoke",
+        "generated-probe.settingsList.invoke",
+        "generated-probe.dbSelect.invoke",
+        "generated-probe.fileRead.invoke",
+        "generated-probe.keychainCommand.invoke"
+      ],
+      "observedDigest": "4f24d2258ddea2884618b2ca98391fe94174e178e3ab70d36cc3560830855fa5",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-02",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "a7be6b298c1023595664d07a73ce1e20ff977f9252de1baf669680e65411eb77"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-14",
+      "status": "pass",
+      "reasons": [],
+      "dispatches": 0,
+      "stableError": null,
+      "trace": [
+        "generated-probe.ctxEnv.invoke",
+        "generated-probe.settingsGet.invoke",
+        "generated-probe.settingsGetString.invoke",
+        "generated-probe.settingsList.invoke",
+        "generated-probe.dbSelect.invoke",
+        "generated-probe.fileRead.invoke",
+        "generated-probe.keychainCommand.invoke"
+      ],
+      "observedDigest": "c0edad53f69e7691431b701b94ee6c1e2b04414aad012718c32306681769fb08",
+      "observedRaw": false,
+      "retryRaw": false,
+      "restart": {
+        "candidate": "CAND-03",
+        "newProcess": true,
+        "rawRecovered": false,
+        "referenceRecovered": true,
+        "revalidationRequired": true,
+        "status": "pass"
+      },
+      "requestReceipts": [],
+      "cellSha256": "632f21ec4409f1fb21ac1a3032f17d6f06959b1138cbe9d876f6a3e189c84fc4"
+    }
+  ]
+}

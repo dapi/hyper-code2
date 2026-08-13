@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "brokerMode": "offline-mock",
+  "brokerHandledRequests": 36,
+  "providerCalls": 0,
+  "brokerIsSeparateProcess": true,
+  "agentCredentialsProvided": false,
+  "exactAgentEnvironmentKeys": [
+    "HOME",
+    "LANG",
+    "LC_ALL",
+    "NO_COLOR",
+    "PATH",
+    "TMPDIR"
+  ],
+  "authLikeAgentEnvironmentKeys": [],
+  "deniedNetworkOperations": [
+    "bind/listen:tcp-loopback",
+    "connect:tcp-loopback-established-listener"
+  ],
+  "allNamedNetworkProbeCasesDenied": true,
+  "broadMachLookupAllowed": false,
+  "machLookupAllowlist": [],
+  "namedMachServiceProbes": [],
+  "networkListenDeniedProbeCases": 36,
+  "outboundConnectDeniedProbeCases": 36,
+  "operatorRepositoryReadDeniedProbeCases": 36,
+  "operatorHomeReadDeniedProbeCases": 36,
+  "processSpawnDeniedProbeCases": 36,
+  "broadProcessAuthorityAllowed": true,
+  "processExecRestriction": "non-Bun executables denied; process* remains allowed for Bun compatibility",
+  "broadNonHomeReadsAllowed": true,
+  "filesystemBrokerTransport": true,
+  "futureProviderOwner": "credential-owning-broker-only-after-explicit-authorization",
+  "realSecretsRead": false,
+  "productionSourceChanged": false,
+  "modelComparisonRun": false,
+  "boundaryDisposition": "mock-boundary-envelope-only; not approved for live model execution",
+  "remainingBoundaryGaps": [
+    "process* remains allowed for Bun compatibility even though non-Bun exec is denied by a named probe",
+    "reads outside operator HOME remain broadly allowed for Bun compatibility",
+    "network evidence covers only TCP loopback bind/listen and connect to an established listener",
+    "deny-default Mach policy has no named service probe in this carrier",
+    "child exercises the comparison envelope and broker transport, not the full agent marker/write/reload runtime",
+    "broker is mock-only; credential ownership and secret non-transit are not exercised",
+    "macOS sandbox-exec evidence is host-specific and not a portable production containment contract"
+  ]
+}

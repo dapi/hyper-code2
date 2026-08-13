@@ -1,0 +1,13 @@
+{
+  "status": "pending-independent-review",
+  "synthesisAuthorized": false,
+  "gateAssessment": "not-reviewed",
+  "required": [
+    "common dispatch chain fidelity",
+    "handler/root spy independence",
+    "candidate semantics",
+    "expanded fixture symmetry",
+    "sink instrumentation and transforms",
+    "failure preservation"
+  ]
+}

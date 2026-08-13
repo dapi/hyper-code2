@@ -1,0 +1,654 @@
+{
+  "schemaVersion": 2,
+  "detectorNegativeControl": true,
+  "detectorPositiveControls": [
+    {
+      "id": "S0",
+      "detected": true,
+      "digests": [
+        "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14"
+      ]
+    },
+    {
+      "id": "S1",
+      "detected": true,
+      "digests": [
+        "2c6ed6a11487cc437537c6bf80d189bf8371ab64775d5acac0cf0499088088c5"
+      ]
+    },
+    {
+      "id": "S2",
+      "detected": true,
+      "digests": [
+        "d155d063fff8294460864702a80c4887f3017caf4e61cf2faa016e7ddf98671c"
+      ]
+    },
+    {
+      "id": "S3",
+      "detected": true,
+      "digests": [
+        "09d9c0a21354ca020d246af9d38dcbd7e06b58eb29630ed60f674655e5f0f3b1"
+      ]
+    },
+    {
+      "id": "S4",
+      "detected": true,
+      "digests": [
+        "c30e84cbfbd8533dbd761f0ce286c623b42cba6f5e4a27b2b7b1dec1802c0b46"
+      ]
+    },
+    {
+      "id": "S5",
+      "detected": true,
+      "digests": [
+        "ebb0b46815ff87151ac29a1609bc86f6a8228b3190078ed5772607797ff96bca"
+      ]
+    },
+    {
+      "id": "S6",
+      "detected": true,
+      "digests": [
+        "a22d6134d4a9b4a6a0cbaffd2be3a0258e93f6823e212cf4a418a96a0fda7fd6"
+      ]
+    },
+    {
+      "id": "S7",
+      "detected": true,
+      "digests": [
+        "26956441f40ac5781f8d7fffccd04aaab866fd78c5e32a4b692c965497f7f377"
+      ]
+    },
+    {
+      "id": "S8",
+      "detected": true,
+      "digests": [
+        "b5bf926548ad02127d46e6a7e3b107a7b9ed6676c00b73326ac9936998b6758b"
+      ]
+    }
+  ],
+  "independentExpectedAuthDigests": {
+    "bearer": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+    "xApiKey": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14"
+  },
+  "observedTransportDigests": [
+    "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+    "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14"
+  ],
+  "allObservedAuthDigestsExpected": true,
+  "injectedLeakControls": [
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-01",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-01",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-01",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-01",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-01",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-02",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-02",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-02",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-02",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-02",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-03",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-03",
+      "detected": true,
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED",
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-03",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-03",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-03",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-04",
+      "detected": true,
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED",
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-04",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-04",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-04",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-04",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-05",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-05",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-05",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-05",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-05",
+      "detected": true,
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED",
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-06",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-06",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-06",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-06",
+      "detected": true,
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED",
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-06",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-07",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-07",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-07",
+      "detected": true,
+      "reasons": [
+        "DISPATCH_AFTER_REVOKE",
+        "PROHIBITED_SINK_HIT",
+        "FAIL_CLOSED_ERROR_MISMATCH",
+        "FAIL_CLOSED_DISPATCH_OCCURRED"
+      ]
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-07",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-07",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-08",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-08",
+      "detected": true,
+      "reasons": [
+        "DISPATCH_AFTER_RESOLVER_FAILURE",
+        "PROHIBITED_SINK_HIT",
+        "FAIL_CLOSED_ERROR_MISMATCH",
+        "FAIL_CLOSED_DISPATCH_OCCURRED"
+      ]
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-08",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-08",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-08",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-09",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-09",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-09",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-09",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-09",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-10",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-10",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-10",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-10",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-10",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-11",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-11",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-11",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-11",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT",
+        "RETRY_STATE_SECRET_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-11",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-12",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-12",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-12",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT",
+        "RESTART_STATE_SECRET_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-12",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-12",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-13",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-13",
+      "detected": true,
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED",
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-13",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-13",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-13",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-14",
+      "detected": true,
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED",
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-14",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-14",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-14",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-14",
+      "detected": true,
+      "reasons": [
+        "PROHIBITED_SINK_HIT"
+      ]
+    }
+  ]
+}

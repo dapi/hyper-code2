@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 2,
+  "runId": "2026-08-13-executable-adapters-v2",
+  "sourceBaseline": "06ae8dfb401e858887512049cbe4f32be98174de",
+  "executionHead": "e301161a70ca685feedfaa5bfba0d3580c73e3f7",
+  "inventoriedSourceDrift": false,
+  "instrumentSha256": {
+    "r033-executable-adapters.ts": "1777498cef6e255cf7ae90be23a1d70b131613865f8d6a83103d6d958044a4fa",
+    "r033-executable-child.ts": "3e8e5f2af6354d3e756b6028d9325dbcfc25d17f19c36f3fff9afc1a0dd9cdc2",
+    "r033-executable-comparison.ts": "9aba5408e2e902356674032c067b1ca4248370539559a1880ecf4f79cb563349"
+  },
+  "child": {
+    "separateProcess": true,
+    "osSandboxEnforced": true,
+    "providerAuthPassedInEnvironment": false,
+    "environmentKeys": [
+      "HOME",
+      "LANG",
+      "LC_ALL",
+      "NO_COLOR",
+      "PATH",
+      "TMPDIR"
+    ]
+  },
+  "boundaries": {
+    "realCredentialOrStoreRead": false,
+    "providerCalls": 0,
+    "listeners": 0,
+    "sharedState": false,
+    "productionSourceChanges": false,
+    "parentHomePathUsedOnlyForDenyRule": true
+  },
+  "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

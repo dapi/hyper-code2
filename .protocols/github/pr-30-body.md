@@ -35,14 +35,19 @@ mechanisms.
   versioned discovery/retention variants over the same ordinary callables. V3
   crosses an explicit descriptor adapter, all variants retain ordinary
   composition, and 12 positive plus 12 false-success cases pass in fresh
-  processes. This is not live/model evidence.
+  processes. A second reviewed mock boundary-envelope proves context symmetry
+  and five named denied probes, but explicitly remains non-live because wider
+  Bun process/read, Mach, full-agent and credential-boundary gaps remain.
 - R-032 frames a symmetric comparison of network authority target contracts,
   explicitly separating reachability, caller authority and residual process
-  authority. Collection has not started and no mechanism is selected.
+  authority. Its first two carriers are downgraded; corrected v3 is accepted
+  only as bounded executable evidence for partial G1/G2/G5/G7 observations.
+  Complete route, reachability, UX and restart coverage remains open.
 - R-033 has an independently reviewed source/authority inventory and a frozen
   14-cell candidate matrix covering provider refresh, model discovery, root
   context, settings, arbitrary DB access and shared-process file/shell/keychain
-  authority. Candidate prototype evidence has not been collected.
+  authority. V1/V2 are downgraded and V3 is rejected after review; the exact
+  clean-sheet V4 scope is preserved, with no candidate recommendation.
 - Issue #27 remains open: Bug Fix Flow proved that any correct fix selects a
   new persistent-data contract. Research #34 owns that prerequisite; #28 owns
   historical migration. No storage design or runtime fix is included here.
@@ -64,6 +69,8 @@ mechanisms.
 - `bun test ./.protocols/experiments/r018-sentinel.test.ts` — 11 passed
 - `bun test ./.protocols/experiments/r031-offline-comparison.test.ts` — 2 passed,
   37 assertions
+- R-031 boundary, R-032 and R-033 experiment suites — passed; rejected and
+  downgraded carriers remain labeled non-conforming evidence
 - deterministic R-029 static/mock replay — passed
 - all checked-in evidence-carrier checksums, including R-031 — passed
 - `memory-bank-cli lint` — passed

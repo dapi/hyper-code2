@@ -2,7 +2,7 @@
 title: "R-033: Evidence Log"
 doc_kind: research
 doc_function: canonical
-purpose: "Traceable initial code-grounded inventory for secret non-transit candidate comparison."
+purpose: "Traceable code-grounded inventory and contained synthetic evidence for secret non-transit candidate comparison."
 derived_from:
   - brief.md
   - plan.md
@@ -13,8 +13,9 @@ audience: humans_and_agents
 
 # R-033: Evidence Log
 
-This log currently contains only the initial static inventory. It is not
-candidate comparison evidence and does not support a mechanism recommendation.
+This log contains the reviewed static inventory and three rejected or
+downgraded carriers. None supports candidate conformance, ranking or a mechanism
+decision. R-033 remains `collecting`; a clean-sheet V4 instrument is required.
 
 ## Sources
 
@@ -30,6 +31,12 @@ candidate comparison evidence and does not support a mechanism recommendation.
 | `SRC-08` | [`streamAnthropic.ts`](../../../src/llm/streamAnthropic.ts), [`streamCodex.ts`](../../../src/llm/streamCodex.ts), [`llmCall.ts`](../../../src/agent/llmCall.ts) and generated [`ctx_ns.d.ts`](../../../src/ctx_ns.d.ts) at published commit `06ae8df` | 2026-08-13 | Read-only direct-caller and callable-registry inspection | Generated registry establishes callable exposure, not caller intent or runtime invocation |
 | `SRC-09` | [`$main.ts`](../../../src/$main.ts), [`$type_Context.ts`](../../../src/$type_Context.ts), [`loadFns.ts`](../../../src/loadFns.ts), [`genTypes.ts`](../../../src/genTypes.ts), [`repl/eval.ts`](../../../src/repl/eval.ts) and [`executeMarker.ts`](../../../src/agent/executeMarker.ts) at published commit `06ae8df` | 2026-08-13 | Read-only context-construction and generated-eval authority inspection; files match baseline | Primary code; generated code was not executed |
 | `SRC-10` | [`settings/get.ts`](../../../src/settings/get.ts), [`settings/getString.ts`](../../../src/settings/getString.ts), [`settings/list.ts`](../../../src/settings/list.ts), [`db/select.ts`](../../../src/db/select.ts) and generated [`ctx_ns.d.ts`](../../../src/ctx_ns.d.ts) at published commit `06ae8df` | 2026-08-13 | Read-only settings/database authority inspection; files match baseline | No environment value, database row or setting value was read |
+| `SRC-11` | [Rejected first instrument](../../../.protocols/experiments/r033-contained-comparison.ts) and [containment/case-plan child](../../../.protocols/experiments/r033-contained-child.ts) | 2026-08-13 | Deterministic dry run after inventory sign-off | Valid only for bounded containment and case-plan accounting; parent-generated candidate outcomes were rejected |
+| `SRC-12` | [Downgraded dry-run carrier](../../../.protocols/experiments/runs/R-033/2026-08-13-contained-symmetry-v1/README.md), [containment](../../../.protocols/experiments/runs/R-033/2026-08-13-contained-symmetry-v1/containment.json) and [summary](../../../.protocols/experiments/runs/R-033/2026-08-13-contained-symmetry-v1/summary.json); integrity manifest: `SHA256SUMS` in the same carrier | 2026-08-13 | Containment plus five-by-fourteen schema/accounting dry run | Its candidate pass/fail and compatibility outputs are explicitly not evidence |
+| `SRC-13` | [Executable adapter library](../../../.protocols/experiments/r033-executable-adapters.ts), [contained child](../../../.protocols/experiments/r033-executable-child.ts) and [sanitizing parent](../../../.protocols/experiments/r033-executable-comparison.ts) | 2026-08-13 | Minimal disposable adapter execution over the finite matrix and injected-leak controls | Primary executable instrument; independent adapter-fidelity review pending |
+| `SRC-14` | [Additive executable carrier](../../../.protocols/experiments/runs/R-033/2026-08-13-executable-adapters-v2/README.md), [results](../../../.protocols/experiments/runs/R-033/2026-08-13-executable-adapters-v2/results.json), [controls](../../../.protocols/experiments/runs/R-033/2026-08-13-executable-adapters-v2/controls.json), [summary](../../../.protocols/experiments/runs/R-033/2026-08-13-executable-adapters-v2/summary.json) and [provenance](../../../.protocols/experiments/runs/R-033/2026-08-13-executable-adapters-v2/provenance.json); integrity manifest: `SHA256SUMS` in the same carrier | 2026-08-13 | Adapter methods executed in a separate sandboxed child; parent sanitizes executed state | Mechanism-shaped disposable evidence only; no production fidelity claim |
+| `SRC-15` | [V3 semantic adapters](../../../.protocols/experiments/r033-v3-semantics.ts), [contained matrix child](../../../.protocols/experiments/r033-v3-child.ts), [restart child](../../../.protocols/experiments/r033-v3-restart-child.ts) and [carrier parent](../../../.protocols/experiments/r033-v3-comparison.ts) | 2026-08-13 | Candidate-distinct CC semantics plus separate restart execution | Primary executable instrument; independent fidelity review pending |
+| `SRC-16` | [Rejected V3 carrier](../../../.protocols/experiments/runs/R-033/2026-08-13-semantic-adapters-v3/README.md), [summary](../../../.protocols/experiments/runs/R-033/2026-08-13-semantic-adapters-v3/summary.json) and [provenance](../../../.protocols/experiments/runs/R-033/2026-08-13-semantic-adapters-v3/provenance.json) | 2026-08-13 | Attempted semantic matrix | Rejected: shared mechanism core, incomplete mediated refresh/discovery/layer/serialization semantics, and provenance no longer matches current instrument |
 
 ## Observations
 
@@ -48,6 +55,10 @@ candidate comparison evidence and does not support a mechanism recommendation.
 | `OBS-11` | `settings.get` returns parsed raw DB values or declared environment/default values; `getString` returns the string unchanged; `settings.list` returns parsed values even when `isSecret` is true. All are generated `ctx.fns.settings` procedures. | [SRC-10](../../../src/settings/get.ts) | `RSC-06`, `CC-14` | This is direct value authority, independent of provider transport and downstream redaction. No setting was queried. |
 | `OBS-12` | Generated `ctx.fns.db.select` accepts caller-provided SQL and returns result rows from the shared database. Because eval receives `ctx`, a sink-clean candidate still fails non-transit if this or shared `ctx.state` exposes synthetic secret storage. | [SRC-10](../../../src/db/select.ts), [SRC-09](../../../src/repl/eval.ts) | `RSC-06`, `CC-14` | Static function authority only; no SQL was executed and no database content was inspected. |
 | `OBS-13` | The same generated-eval authority runs in the server process whose file helpers, shell and credential access are intentionally not an adversarial sandbox. Excluding refresh procedures alone therefore cannot establish source exclusion for file/keychain credentials. | [SRC-05](../../engineering/security-boundary.md), [SRC-09](../../../src/repl/eval.ts) | `CAND-02`, `CAND-05`, `CC-14` | This is a current authority constraint, not evidence that every candidate must use a particular process topology. |
+| `OBS-14` | Before synthetic injection, a separate child with an exact six-key environment and no auth-like keys passed the recorded deny-default probes for an operator-home file path, login-keychain path, outside-root write, listener creation, two named securityd services and a nonexistent keychain lookup. The child received only candidate/cell identifiers and opaque references. | [SRC-12](../../../.protocols/experiments/runs/R-033/2026-08-13-contained-symmetry-v1/containment.json) | `STOP-01`, collection safety | macOS sandbox evidence for only these probes in this child; it does not establish general private-service denial or a production isolation topology. The parent used HOME only to construct deny rules. |
+| `OBS-15` | The first carrier accounts for 70 rotating candidate/cell entries, but its child only emitted the case plan; parent constants assigned outcomes and auth digests self-compared. | [SRC-11](../../../.protocols/experiments/r033-contained-comparison.ts), [SRC-12](../../../.protocols/experiments/runs/R-033/2026-08-13-contained-symmetry-v1/summary.json) | Review gate | It is valid only for schema/accounting and bounded containment; none of its candidate outputs is evidence. |
+| `OBS-16` | V2 executed partial adapter methods and integrity controls, but independent review found that its CC semantics, transformed per-layer controls, full frozen request comparisons and actual restart process were incomplete. | [SRC-14](../../../.protocols/experiments/runs/R-033/2026-08-13-executable-adapters-v2/summary.json) | Review gate | V2 is bounded integrity/containment/schema and partial execution evidence only; its totals cannot support CC conformance. |
+| `OBS-17` | Independent review rejected V3 because candidate behavior still shared one resolver, refresh and discovery paths did not traverse the required distinct mechanisms, layer controls were parent-only, and serialization evidence did not establish fail-closed durability. | [SRC-15](../../../.protocols/experiments/r033-v3-semantics.ts), [SRC-16](../../../.protocols/experiments/runs/R-033/2026-08-13-semantic-adapters-v3/README.md) | Review gate | V3 candidate totals, coverage flags and failures are not evidence and cannot enter synthesis. |
 
 ## Collection Log
 
@@ -58,6 +69,10 @@ candidate comparison evidence and does not support a mechanism recommendation.
 | 2026-08-13 | Independent review rejected the first inventory as incomplete; statically added refresh Kimi/Claude/Codex sources, credential-store writes, OAuth refresh, callable-registry, list-model bearer transport and new-agent route caller | Inventory and matrix expanded through `CC-13`; lifecycle remains `collecting` | No prototype collection began; updated inventory requires renewed independent review |
 | 2026-08-13 | Second review found direct root-context authority missing; statically added copied environment, settings raw/list access, arbitrary DB select and shared-process file/keychain authority roots | Inventory and symmetric matrix expanded through `CC-14`; lifecycle remains `collecting` | No generated code or data-source probe executed |
 | 2026-08-13 | Independent non-authoring review rechecked the expanded source/authority map | Inventory completeness and candidate-injection planning gate signed off for the recorded `06ae8df` scope | This is not candidate evidence, containment proof, mechanism selection or authorization for real secret/network access |
+| 2026-08-13 | Ran the first contained outcome-model dry run after confirming no inventoried source drift | Containment and 70-cell accounting completed | Independent review rejected all candidate evidence because the child only emitted a plan, outcomes were parent constants and auth checks self-compared |
+| 2026-08-13 | Downgraded the first carrier and ran an additive contained executable-adapter matrix | 70 adapter cells and 70 injected-leak controls executed; auth placement checked against frozen expected digests; 10 standalone-redaction failures retained from observed state | Lifecycle remains `collecting`; independent carrier, symmetry and adapter-fidelity review required before synthesis |
+| 2026-08-13 | Independent review accepted v2 bounded integrity but rejected full fidelity; downgraded v2 and ran additive v3 semantics | 70 semantic cells, 72 layer controls and five restart processes recorded with checksums | Lifecycle remains `collecting`; v3 independent review required before synthesis |
+| 2026-08-13 | Independent review rejected V3 fidelity | V3 retained only as rejected trace; no new carrier generated from subsequently changed code | Clean-sheet V4 required; lifecycle remains `collecting` and synthesis is blocked |
 
 ## Evidence Quality Check
 
@@ -70,3 +85,31 @@ candidate comparison evidence and does not support a mechanism recommendation.
 - [x] Independent review signed off inventory completeness for the recorded
   source scope before candidate prototype collection; carrier/symmetry review
   remains required before synthesis.
+- [x] The stable carrier contains no raw sentinel or authentication header and
+  its `SHA256SUMS` verify.
+- [x] Rejected first-carrier candidate claims are explicitly downgraded; its
+  pass/fail and compatibility fields cannot enter synthesis.
+- [x] V2 is explicitly limited to partial execution evidence; it cannot support
+  complete CC conformance.
+- [x] V3 candidate claims are explicitly rejected and its provenance mismatch
+  after subsequent edits is disclosed.
+- [ ] Independent non-authoring review has verified the carrier, per-cell
+  checksums, symmetry, adapter fidelity and source/sink completeness; synthesis
+  remains blocked until this item is complete.
+
+## Required V4 Scope
+
+V4 must be a clean-sheet instrument frozen before collection:
+
+1. five separate mechanism implementations with no shared secret resolver:
+   broker/reference binding; source-excluded privileged transport; schema-owned
+   projection; provenance-aware redaction; and an explicit composition;
+2. separate inference, refresh and model-discovery contracts, with CC-05/06
+   synthetic read → OAuth → write operations traversing each mechanism and
+   CC-13 using its own discovery request, failure and render flow;
+3. S0-S8 values executed through every candidate at every prohibited layer,
+   including transformed positive leaks and clean negative controls;
+4. CC-10 secret-bearing success, throw and cyclic serialization paths that
+   prove failure before any durable write;
+5. frozen code and independent pre-collection review, followed by collection,
+   checksums/provenance and a separate post-collection review.

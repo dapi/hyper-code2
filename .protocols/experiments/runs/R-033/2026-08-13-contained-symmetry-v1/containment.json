@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "runner": "r033-contained-child.ts@1",
+  "sequence": 1,
+  "phase": "pre-injection-containment",
+  "sandbox": {
+    "implementation": "macOS sandbox-exec deny-default profile",
+    "profileSha256": "18ec03196cf261b7cf5be4afdd3d1d5263ba7a464bbf7fea7efd28ebbba8bd77",
+    "networkPolicy": "deny all network operations",
+    "writePolicy": "allow writes only below disposable run root",
+    "homeReadPolicy": "deny operator home except repository instrument path",
+    "machLookupPolicy": "deny default; no mach-lookup allow rule"
+  },
+  "environment": {
+    "expectedKeys": [
+      "HOME",
+      "LANG",
+      "LC_ALL",
+      "NO_COLOR",
+      "PATH",
+      "TMPDIR"
+    ],
+    "actualKeys": [
+      "HOME",
+      "LANG",
+      "LC_ALL",
+      "NO_COLOR",
+      "PATH",
+      "TMPDIR"
+    ],
+    "exactAllowlist": true,
+    "credentialLikeKeys": [],
+    "providerAuthPresent": false,
+    "disposableHome": true,
+    "disposableTmp": true
+  },
+  "probes": {
+    "operatorHomeFileReadDenied": true,
+    "outsideRootWriteDenied": true,
+    "insideRootWriteAllowed": true,
+    "networkListenDenied": true,
+    "operatorKeychainFileReadDenied": true,
+    "keychainMachServicesDeniedBySandboxCheck": true,
+    "nonexistentKeychainLookupFailed": true
+  },
+  "passed": true
+}

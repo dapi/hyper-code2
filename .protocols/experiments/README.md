@@ -138,3 +138,158 @@ required by R-031 `STOP-01`: it uses no model/provider, opens no socket, reads n
 real secret, changes no production source and does not select an architecture
 or a preferred variant. Independent symmetry review remains required before a
 live comparison.
+
+`r031-live-boundary-runner.ts` is a mock boundary-envelope harness. It
+spawns one macOS-sandboxed agent child for every variant/family/phase case and a
+separate filesystem broker. The checked-in control keeps the broker in
+`offline-mock` mode, where live/provider execution is rejected and provider
+calls remain zero. Agent children receive only disposable HOME/TMPDIR plus four
+non-auth process keys, and their network probe must fail before a request is
+accepted. The operator repository, operator HOME and other projections remain
+outside each lineage. Named TCP loopback listen/connect and non-Bun exec probes
+must also fail.
+
+```bash
+bun test ./.protocols/experiments/r031-live-boundary.test.ts
+bun .protocols/experiments/r031-live-boundary-runner.ts
+```
+
+The sanitized carrier is under
+`runs/R-031/2026-08-13-live-boundary-mock-v1/`. Its common-context digest proves
+that every phase/family comparison receives the same prompt, mock model alias, task, fixture,
+golden result, authority declaration and six-continuation budget. The only
+attributable envelope difference is the frozen projection. This is not yet a
+live-agent boundary: `process*` and broad non-HOME reads remain allowed for Bun
+compatibility; Mach denial has no named service probe; the child does not run
+the full agent marker/write/reload runtime; and the broker is mock-only.
+`safety-boundary.json` owns this exact remaining-gap list. A stricter boundary,
+broker-owned provider execution and explicit authorization are required before
+any live comparison.
+
+## R-032 network-authority contract-model dry run
+
+`r032-network-authority.ts` verifies the fixed R-029 committed-source carrier,
+starts itself with a minimal `PATH`-only child environment, denies common Bun
+and web network APIs, and generates one mechanism-neutral contract model over
+all six candidates and three predeclared combinations. Each row receives the same
+407 cases: all 36 committed routes and eight caller states, all nine deferred
+authority tuples and six use-time states, committed/late/unclassified/overlay
+route lifecycles, browser and direct CLI/TUI lifecycles, failures, locality and
+synthetic non-transit controls.
+
+```bash
+bun test ./.protocols/experiments/r032-network-authority.test.ts
+bun .protocols/experiments/r032-network-authority.ts
+```
+
+The sanitized checked-in carrier is under
+`runs/R-032/2026-08-13-e301161-authority-contract-v1/`. Independent review
+rejected it as candidate evidence: all 3,663 rows are formula-derived
+contract/schema/accounting output, no candidate adapter ran, and its zero
+non-transit counts had neither raw sentinel injection nor a positive detector
+control. It therefore records no hard-gate pass or failure. It remains useful
+only for frozen fixture cardinality, field/schema and source-provenance checks.
+It opens no listener/socket, uses no real secret or user state, changes no
+production source and selects no mechanism. R-032 stays `collecting`; a separate
+additive executable-adapter carrier and another independent review are required
+before synthesis.
+
+`r032-executable-adapters.ts` is an additive bounded adapter-decision instrument.
+It directly invokes decision/lifecycle methods for six minimal candidates and
+three predeclared compositions over 19 identical representative cells per
+adapter (171 total): immediate and deferred authority, late/unclassified/overlay routes,
+verifier/policy/broker failures, browser and CLI lifecycle, and non-transit.
+Unlike the dry run, it passes the raw synthetic sentinel into every adapter and
+proves its detector with deliberately leaky positive and sanitized negative
+controls.
+
+It does not execute a common dispatcher, handler or authority-root spy chain;
+therefore v2 supplies no evidence about those boundaries and no reviewed gate.
+
+```bash
+bun test ./.protocols/experiments/r032-executable-adapters.test.ts
+bun .protocols/experiments/r032-executable-adapters.ts
+```
+
+The additive carrier is under
+`runs/R-032/2026-08-13-e301161-executable-adapters-v2/`. It is intentionally a
+representative executed subset, not a claim that every one of the 3,663 model
+rows ran. Failures and uncovered mechanism behavior are retained. Its gate
+assessment remains `not-reviewed`, and its in-process adapters do not prove OS
+transport, external identity, cryptography or process confinement.
+
+`r032-dispatch-chain-v3.ts` adds the boundary missing from v2. The same common
+dispatcher invokes a real handler function, which invokes an independently
+counted authority-root spy only after the adapter allows the call. Its 38 frozen
+cells per candidate cover locality/peer cases, immediate caller states,
+deferred expiry/revocation/replay/reduced scope, late and overlay routes,
+verifier/policy/broker/stale/restart failures, and distinct browser/CLI start,
+reconnect, expiry, revocation and recovery behavior. CAN-03 models identity
+policy, CAN-04 models capability audience/scope/attenuation/expiry/revocation/
+replay, and CAN-06 emits explicit broker-boundary messages.
+CAN-06 is only an in-process broker-message adapter: no separate child process
+or isolated broker handler/root boundary executes, so its fidelity is marked
+incompatible with process-separation and residual-authority comparison.
+
+```bash
+bun test ./.protocols/experiments/r032-dispatch-chain-v3.test.ts
+bun .protocols/experiments/r032-dispatch-chain-v3.ts
+```
+
+The v3 carrier is under
+`runs/R-032/2026-08-13-e301161-dispatch-chain-v3/`. A raw synthetic credential
+enters each candidate request and passes through six actual projection functions
+for log, render, transcript, result, model input and persistence. The detector
+declares raw, base64, hex, URL and reversed transforms; a deliberate leak path
+must trigger in all six sinks and a digest-only negative control must remain
+clear. This remains bounded in-process evidence with `not-reviewed` gates and
+does not select a mechanism.
+
+## R-033 secret-mechanism disposable comparison
+
+The first `r033-contained-comparison.ts` carrier verifies source drift,
+containment and a rotating 70-cell case-plan schema. Independent review rejected
+its candidate evidence because the child only emitted the plan, the parent
+assigned outcomes from constants and authentication digests self-compared.
+
+```bash
+bun .protocols/experiments/r033-contained-comparison.ts
+```
+
+That downgraded carrier remains under
+`runs/R-033/2026-08-13-contained-symmetry-v1/` only as containment,
+matrix-schema and accounting evidence. Its pass/fail and compatibility fields
+are explicitly rejected output, not candidate evidence.
+
+The v2 additive instrument executes partial candidate adapters in a contained
+child. It establishes bounded integrity and method execution, but independent
+review found incomplete per-cell semantics, request controls and restart
+execution. Its candidate totals are not full CC conformance evidence.
+
+```bash
+bun .protocols/experiments/r033-executable-comparison.ts
+```
+
+The v2 carrier is under
+`runs/R-033/2026-08-13-executable-adapters-v2/`. This remains mechanism-shaped
+partial execution evidence, not complete candidate fidelity or a decision.
+
+`r033-v3-comparison.ts` adds candidate-distinct semantic adapters, frozen full
+request/auth controls, S0-S8 controls at eight prohibited layers, synthetic
+file/keychain/OAuth refresh cycles, actual throw/serialization paths,
+retry/cancellation/use bounds, five separate restart processes, discovery
+render/failure and callable generated-code-style probes.
+
+```bash
+bun .protocols/experiments/r033-v3-comparison.ts
+```
+
+The v3 carrier is under
+`runs/R-033/2026-08-13-semantic-adapters-v3/`. Independent review rejected it:
+the candidates shared a resolver core, refresh/discovery did not traverse
+distinct mechanisms, layer controls were parent-only, and cyclic serialization
+did not prove failure before durability. Subsequent instrument edits also make
+its recorded provenance stale. It is retained only as a rejected trace; none of
+its candidate outputs can enter synthesis. The R-033 evidence log owns the
+clean-sheet V4 requirements. R-033 stays `collecting`; synthesis is blocked and
+no mechanism, winner or ADR is selected.

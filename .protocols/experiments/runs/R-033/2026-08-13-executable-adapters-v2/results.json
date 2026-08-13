@@ -1,0 +1,2293 @@
+{
+  "schemaVersion": 2,
+  "results": [
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-01",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "negative": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "bf3eed84ec92128f7b3d611cea3f3aca433a17fd86f67202e0651c0a2dd134c4"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-01",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "negative": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "257cb31245e10dac6c8ed28a1e55c4ab30217e8c9f79140c5a8321ccfdf39fd1"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-01",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "negative": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "51d3216dd83ce23133ecaa6b54b0cd04cc51aa47ec585dff4e051daf6e24bdf5"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-01",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "ctxEnv": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGet": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGetString": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsList": {
+          "disposition": "raw-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "raw-value-observed"
+        },
+        "fileReadAdapter": {
+          "disposition": "raw-value-observed"
+        },
+        "keychainCommandAdapter": {
+          "disposition": "raw-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "negative": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "3601ac5cf6b65e9945db6d061bec9575512603a7f0e8a7b97ac1dd4d5422cce4"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-01",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "negative": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "abbcfe741ebd1540f6e00cf255bb56a066d85786670049aae943ef416464b173"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-02",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "control": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "294c939bd8a6364e30994a00acacd6ceb49c20240066d2039c3c8a0362906fe3"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-02",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "control": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "ee3794e1d39835ce5d62d2a9a6618c20f97ecd9cee5d5fd740b46a7cbc88eaa3"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-02",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "ctxEnv": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGet": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGetString": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsList": {
+          "disposition": "raw-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "raw-value-observed"
+        },
+        "fileReadAdapter": {
+          "disposition": "raw-value-observed"
+        },
+        "keychainCommandAdapter": {
+          "disposition": "raw-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "control": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "bca67b087d1b78ce7bbeb1749642bdf6d20350ef15fd60c7f0cf43f96519e756"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-02",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "control": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "67a4fe4167e7cf68973db49d5b9953255eebc26ad2a37824153fedb49fee0d02"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-02",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "control": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "85961736bdfb263d063bf6bf52e007be096b4025681d7d83c95379115173aa84"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-03",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "b2e87d8b6f332b6acfda928ac0afb8033eb613daf535e858a66665c2e2347e5a",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "1b9441f10361928136449cee123e1b11e377a3436e4e068133b0f6314c219933"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-03",
+      "status": "fail",
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED"
+      ],
+      "executionTrace": [
+        "resolver.enter",
+        "ambient-source.read",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "b2e87d8b6f332b6acfda928ac0afb8033eb613daf535e858a66665c2e2347e5a",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "ctxEnv": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGet": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGetString": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsList": {
+          "disposition": "raw-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "raw-value-observed"
+        },
+        "fileReadAdapter": {
+          "disposition": "raw-value-observed"
+        },
+        "keychainCommandAdapter": {
+          "disposition": "raw-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "0e1e5763900fa058f2dd2624254fd1f32d93c61ae7b2bb164ffdf298a5330146"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-03",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "b2e87d8b6f332b6acfda928ac0afb8033eb613daf535e858a66665c2e2347e5a",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "6759b32dbbe3d7ae06774bd706c9d40c0e2376676909acf32ba9095236d6f29d"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-03",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "b2e87d8b6f332b6acfda928ac0afb8033eb613daf535e858a66665c2e2347e5a",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "b41d48d0b9701da3084c7ad5f1c2040ba7c96a4fda2687efaf1b4048d3d805a4"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-03",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "b2e87d8b6f332b6acfda928ac0afb8033eb613daf535e858a66665c2e2347e5a",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "58ac3cf51909aca6151f8fe0fdc5f61cb18499e032d419a0fbf2cbb0da8d1037"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-04",
+      "status": "fail",
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED"
+      ],
+      "executionTrace": [
+        "resolver.enter",
+        "ambient-source.read",
+        "transport.xApiKey.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "xApiKey",
+        "authDigest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14",
+        "bodyDigest": "91c1dd359799b4255875ad0bc2455d7a8e40ba466252ae41f379ad95b4b7840b",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "ctxEnv": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGet": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGetString": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsList": {
+          "disposition": "raw-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "raw-value-observed"
+        },
+        "fileReadAdapter": {
+          "disposition": "raw-value-observed"
+        },
+        "keychainCommandAdapter": {
+          "disposition": "raw-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "b26b649ae61b485890e68e90ac68017c6bba030ad1f2822b2aeeacd5049ee9a1"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-04",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "transport.xApiKey.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "xApiKey",
+        "authDigest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14",
+        "bodyDigest": "91c1dd359799b4255875ad0bc2455d7a8e40ba466252ae41f379ad95b4b7840b",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "649258e94a874cbcf7d44ae7123e5679b37f64c0a5c6d7a1440ce8b7c9f9184c"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-04",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "transport.xApiKey.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "xApiKey",
+        "authDigest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14",
+        "bodyDigest": "91c1dd359799b4255875ad0bc2455d7a8e40ba466252ae41f379ad95b4b7840b",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "eac5669ae79ade0c9b88fd4041af1790ebff7d9da07f25a8357d5647688f5014"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-04",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "transport.xApiKey.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "xApiKey",
+        "authDigest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14",
+        "bodyDigest": "91c1dd359799b4255875ad0bc2455d7a8e40ba466252ae41f379ad95b4b7840b",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "3ef7018fad23a7b3434587628cc26e9f0cd94a6b7cbd3b3bd01814b3be51df30"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-04",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "transport.xApiKey.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "xApiKey",
+        "authDigest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14",
+        "bodyDigest": "91c1dd359799b4255875ad0bc2455d7a8e40ba466252ae41f379ad95b4b7840b",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "6b1e24d569d7665f443bae33602ff3a823c543bcb7839c27ddd928a1b5d8a286"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-05",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "7212d7db78a879c777dd5d6dd25ce1468ee48ef2ed904ebc1cb0aa58d539efa8",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "aacc56b29ce8d2e0d8bd0aa33f79bcf2ef2214d5036c081246c83e97d958a826"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-05",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "7212d7db78a879c777dd5d6dd25ce1468ee48ef2ed904ebc1cb0aa58d539efa8",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "1177154f5725cd1bc17887774f3002f14b076a9ce2cb8d921d236ae27a201247"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-05",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "7212d7db78a879c777dd5d6dd25ce1468ee48ef2ed904ebc1cb0aa58d539efa8",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "55a4204da38690079662b9f91a8665f8cd048f063274b1a052733dcf07494b03"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-05",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "7212d7db78a879c777dd5d6dd25ce1468ee48ef2ed904ebc1cb0aa58d539efa8",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "149bb0fadefb63c3e5f760e4d5ee5652e4bc41922d65837c20b4c54bde7e6504"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-05",
+      "status": "fail",
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED"
+      ],
+      "executionTrace": [
+        "resolver.enter",
+        "ambient-source.read",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "7212d7db78a879c777dd5d6dd25ce1468ee48ef2ed904ebc1cb0aa58d539efa8",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "ctxEnv": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGet": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGetString": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsList": {
+          "disposition": "raw-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "raw-value-observed"
+        },
+        "fileReadAdapter": {
+          "disposition": "raw-value-observed"
+        },
+        "keychainCommandAdapter": {
+          "disposition": "raw-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "c4d23cea08d0b805927d6b4b65e7ad7a0163b3968a7f4c3babe6cc44da40c703"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-06",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "3b7e623b471c01ac1cc906dbda13a427247df527ba3db8e805cd59cd591c3f5b",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "f33c51a0008b2327a6d47cfb8f0857540145ac20b324c9e442c9f26f0ac7885d"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-06",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "3b7e623b471c01ac1cc906dbda13a427247df527ba3db8e805cd59cd591c3f5b",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "63703044342ca62c9ecee20635bee571a3475664dd75f28e0a0e3c411745ac1d"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-06",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "3b7e623b471c01ac1cc906dbda13a427247df527ba3db8e805cd59cd591c3f5b",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "745e7bdf8ac24dc3c3e8002abf1fbe9f10fa9b9a0abf70ed6761b2d72e2d4f5d"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-06",
+      "status": "fail",
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED"
+      ],
+      "executionTrace": [
+        "resolver.enter",
+        "ambient-source.read",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "3b7e623b471c01ac1cc906dbda13a427247df527ba3db8e805cd59cd591c3f5b",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "ctxEnv": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGet": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGetString": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsList": {
+          "disposition": "raw-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "raw-value-observed"
+        },
+        "fileReadAdapter": {
+          "disposition": "raw-value-observed"
+        },
+        "keychainCommandAdapter": {
+          "disposition": "raw-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "eebea2e3f4caf1b5a2a1ec9de95d94250d461aa235f3b3170e3c03777fe1b05e"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-06",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "3b7e623b471c01ac1cc906dbda13a427247df527ba3db8e805cd59cd591c3f5b",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "d887af8f174f68f8c6c611165aaa41ea288a53cd91ced654e96750668930b916"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-07",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "error.CREDENTIAL_REFERENCE_INVALID"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": "CREDENTIAL_REFERENCE_INVALID",
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "1402ae980d89088bf191209f992550f7860decad27903f1814c264dff95b32ab"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-07",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "error.CREDENTIAL_REFERENCE_INVALID"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": "CREDENTIAL_REFERENCE_INVALID",
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "9af1a88b95ba711a40599a92ec1bbf4e8576501c13454e269e144ab53a6377f2"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-07",
+      "status": "fail",
+      "reasons": [
+        "DISPATCH_AFTER_REVOKE",
+        "FAIL_CLOSED_ERROR_MISMATCH",
+        "FAIL_CLOSED_DISPATCH_OCCURRED"
+      ],
+      "executionTrace": [
+        "resolver.enter",
+        "ambient-source.read",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "dacdee4317a09e8efaef2f7cbd5d100dcbdb81010758ff6a212deda6bf673caa",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "ctxEnv": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGet": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGetString": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsList": {
+          "disposition": "raw-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "raw-value-observed"
+        },
+        "fileReadAdapter": {
+          "disposition": "raw-value-observed"
+        },
+        "keychainCommandAdapter": {
+          "disposition": "raw-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "8ce3a1e5baf328301f01556f6d09f95d1cbb6e910919693b01b2fe62760a9b7a"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-07",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "error.CREDENTIAL_REFERENCE_INVALID"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": "CREDENTIAL_REFERENCE_INVALID",
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "f932c0eca168705d7dc7fc77a4727413e2e9153ddcc664e0ad9c84d8a7f98ae8"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-07",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "error.CREDENTIAL_REFERENCE_INVALID"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": "CREDENTIAL_REFERENCE_INVALID",
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "d1e3e25dc639e076fbf8785400502dca51bddb67422371ce1e2e7ae3cec210af"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-08",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "error.CREDENTIAL_RESOLVER_UNAVAILABLE"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": "CREDENTIAL_RESOLVER_UNAVAILABLE",
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "e673e0a8297d797b1d8e8f772cd15f707ff221ce64b9ee215ab8f6bc63e357f1"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-08",
+      "status": "fail",
+      "reasons": [
+        "DISPATCH_AFTER_RESOLVER_FAILURE",
+        "FAIL_CLOSED_ERROR_MISMATCH",
+        "FAIL_CLOSED_DISPATCH_OCCURRED"
+      ],
+      "executionTrace": [
+        "resolver.enter",
+        "ambient-source.read",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "dacdee4317a09e8efaef2f7cbd5d100dcbdb81010758ff6a212deda6bf673caa",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "ctxEnv": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGet": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGetString": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsList": {
+          "disposition": "raw-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "raw-value-observed"
+        },
+        "fileReadAdapter": {
+          "disposition": "raw-value-observed"
+        },
+        "keychainCommandAdapter": {
+          "disposition": "raw-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "0b1e704a114ea10fcbacb34aa38037177dc8458cee7b3f8e0ab04d9427309410"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-08",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "error.CREDENTIAL_RESOLVER_UNAVAILABLE"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": "CREDENTIAL_RESOLVER_UNAVAILABLE",
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "bcfcf50d7459ade777ae5e1deb28472c5dd61ac3389257ed73489a76529ec6b3"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-08",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "error.CREDENTIAL_RESOLVER_UNAVAILABLE"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": "CREDENTIAL_RESOLVER_UNAVAILABLE",
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "a1259049531d93b4fc7d268ba4518ccc7f9094b2a2c32eb971c57054c64d9d3e"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-08",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "error.CREDENTIAL_RESOLVER_UNAVAILABLE"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": "CREDENTIAL_RESOLVER_UNAVAILABLE",
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "2697e39c7ebf16ee673f29b78d1f2ff9fbb176b670ad0a68cf09b97b0622570c"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-09",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "sink.project",
+        "error.SECRET_CLASSIFICATION_LOST"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": "SECRET_CLASSIFICATION_LOST",
+      "authority": {
+        "ctxEnv": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGet": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGetString": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsList": {
+          "disposition": "raw-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "raw-value-observed"
+        },
+        "fileReadAdapter": {
+          "disposition": "raw-value-observed"
+        },
+        "keychainCommandAdapter": {
+          "disposition": "raw-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "8886169f4eed9985143eaa0b7862ebfcd7dc7c95942e1d60819224dcbf0ea8fb"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-09",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "sink.project",
+        "error.SECRET_CLASSIFICATION_LOST"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": "SECRET_CLASSIFICATION_LOST",
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "718b4327e9d9c250dfb103f8378e55bcf527bbf4eebc8fd547e7e32769b7b2e5"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-09",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "sink.project",
+        "error.SECRET_CLASSIFICATION_LOST"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": "SECRET_CLASSIFICATION_LOST",
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "be3f5bd0b8fe1fb16a45a6a13382a75e6aa922da5cc51dc9728d7ccc2ab7f5ea"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-09",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "sink.project",
+        "error.SECRET_CLASSIFICATION_LOST"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": "SECRET_CLASSIFICATION_LOST",
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "f6de5d1afc292c4b0964dea3c9fd8481e68797b06ce1a0924e4a4020fe9338f3"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-09",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "sink.project",
+        "error.SECRET_CLASSIFICATION_LOST"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": "SECRET_CLASSIFICATION_LOST",
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "b757c2a691692167af384020103dc80f5c2fd331e8c95695d7aa9e40d72ff00a"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-10",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "sink.project",
+        "sink.project",
+        "sink.project"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "success": false,
+        "error": false,
+        "serialization": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "1e244958ab15817de7f20bd431c0df506dad2d45fb7e4693fb7a03672ecb6b0d"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-10",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "sink.project",
+        "sink.project",
+        "sink.project"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "success": false,
+        "error": false,
+        "serialization": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "a2a5d75e50be8c1ae9e37cd4c2daeb3d0140bcb064e3a2f180c5b6dc86b1d70e"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-10",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "sink.project",
+        "sink.project",
+        "sink.project"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "success": false,
+        "error": false,
+        "serialization": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "c47a31d0483a1f1c8b5879324772b7682f86677fad8c57c4617b8ea23905e6cb"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-10",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "sink.project",
+        "sink.project",
+        "sink.project"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "success": false,
+        "error": false,
+        "serialization": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "b42fc195779d6dd49174b72308bbc989ea555347ea55e54aa7c9ada38c56ae19"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-10",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "sink.project",
+        "sink.project",
+        "sink.project"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "ctxEnv": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGet": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGetString": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsList": {
+          "disposition": "raw-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "raw-value-observed"
+        },
+        "fileReadAdapter": {
+          "disposition": "raw-value-observed"
+        },
+        "keychainCommandAdapter": {
+          "disposition": "raw-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "success": false,
+        "error": false,
+        "serialization": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "6ef34f9cb532618f93b6a39b8af8860498b29095942dcb6fb28626908cf3daa5"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-11",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "retry.state.write"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "340a1e9ed38fd8776937f1b224fa3d5d0467a1f567d87b2a74fe810764a9cf4d"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-11",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "retry.state.write"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "ff1665d462028c4e7479d58f9b6a55284748bab9cfd9cd782a5cf0a9907c1b5c"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-11",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "retry.state.write"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "bfd4ace46eb9edaf76eb5724084eea281e40c62a9d2899db1e7084bb1cf7aff9"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-11",
+      "status": "fail",
+      "reasons": [
+        "RETRY_STATE_SECRET_HIT"
+      ],
+      "executionTrace": [
+        "resolver.enter",
+        "ambient-source.read",
+        "retry.state.write"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "ctxEnv": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGet": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGetString": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsList": {
+          "disposition": "raw-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "raw-value-observed"
+        },
+        "fileReadAdapter": {
+          "disposition": "raw-value-observed"
+        },
+        "keychainCommandAdapter": {
+          "disposition": "raw-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": true,
+      "restartStateSecretHit": false,
+      "cellSha256": "c627be300daff0f3ea11640fb528f6df17f8a7ee56ba273b1dffdd9a9c084db2"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-11",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "retry.state.write"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "a4c554dac2fae03660741dc152fc30c5aed882819184b48a086b23ef75fbca16"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-12",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "restart.state.serialize"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "dd0cd6a121bde21f397ec6526cd18840e8cb3da45c4c6fe9c1a0ecc452fa973c"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-12",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "restart.state.serialize"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "06092ececf8dfa8a5545fc47771df224c21f4dade920943312537af41824894c"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-12",
+      "status": "fail",
+      "reasons": [
+        "RESTART_STATE_SECRET_HIT"
+      ],
+      "executionTrace": [
+        "resolver.enter",
+        "ambient-source.read",
+        "restart.state.serialize"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "ctxEnv": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGet": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGetString": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsList": {
+          "disposition": "raw-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "raw-value-observed"
+        },
+        "fileReadAdapter": {
+          "disposition": "raw-value-observed"
+        },
+        "keychainCommandAdapter": {
+          "disposition": "raw-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": true,
+      "cellSha256": "79683a7d3577178c7cb3e3f59dba59e0e3f6e2e125820dd1404fe143f71e31ef"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-12",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "restart.state.serialize"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "15c334ae51d1c18736c2da27f01aa1dd7df53f4c98b10fa0228f0e81054474f8"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-12",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "restart.state.serialize"
+      ],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {},
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "e0999c42443dac2b1ecbfa638d88eda050189ff15b719671ea94a48b353cdd34"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-13",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "renderedModels": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "3cd6a133469c7bdc5c1bb738a560dd87f136284274b4b5863aadb3490a0cf08b"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-13",
+      "status": "fail",
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED"
+      ],
+      "executionTrace": [
+        "resolver.enter",
+        "ambient-source.read",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "ctxEnv": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGet": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGetString": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsList": {
+          "disposition": "raw-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "raw-value-observed"
+        },
+        "fileReadAdapter": {
+          "disposition": "raw-value-observed"
+        },
+        "keychainCommandAdapter": {
+          "disposition": "raw-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "renderedModels": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "135dcf10f46d7f0335dcfdcc1bd1a8462c563998bdf3a9595ff738cd092f2c75"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-13",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "renderedModels": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "608e8c96261901ba8307cd265ef962f33efb4d8d68eb4f245459dda2363034d1"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-13",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "renderedModels": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "bb501843420e938ffb0ff338eba153d10e41e31870407b96199de279916ecf02"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-13",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [
+        "resolver.enter",
+        "privileged-source.resolve",
+        "transport.bearer.construct",
+        "transport.capture.sanitized"
+      ],
+      "dispatchCount": 1,
+      "transport": {
+        "scheme": "bearer",
+        "authDigest": "d3177e877ed48485413a652e3b1df8358c3a9828744821898aebe6ab76f32be1",
+        "bodyDigest": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "rawRetained": false
+      },
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "renderedModels": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "a2af9cc8e62af77147165093968428e587c83aa6b10b10948f50b99f44c6441e"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-14",
+      "status": "fail",
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED",
+        "PROHIBITED_SINK_HIT"
+      ],
+      "executionTrace": [],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "ctxEnv": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGet": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsGetString": {
+          "disposition": "raw-value-observed"
+        },
+        "settingsList": {
+          "disposition": "raw-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "raw-value-observed"
+        },
+        "fileReadAdapter": {
+          "disposition": "raw-value-observed"
+        },
+        "keychainCommandAdapter": {
+          "disposition": "raw-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "authorityProbe": true
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "491b7f54017822ac7327c379492eb65f7c1b25b64c20093db4805102a236ed41"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-14",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "authorityProbe": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "5effa1c0df9a9b0d35d551de4c3870e797e258591fa50f277c6fbbff5fc84122"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-14",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsGet": {
+          "disposition": "bounded-value-observed"
+        },
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "authorityProbe": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "85496609f1bcfc3b7cc4c96af262e94894cdf007c16b90bd5b63d9df476d776e"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-14",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "authorityProbe": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "5d9dc358d419db6f8b6769aae3bc03761e29606f3e00b4a5427784f8ce16c931"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-14",
+      "status": "pass",
+      "reasons": [],
+      "executionTrace": [],
+      "dispatchCount": 0,
+      "transport": null,
+      "stableErrorCode": null,
+      "authority": {
+        "settingsList": {
+          "disposition": "bounded-value-observed"
+        },
+        "dbSelect": {
+          "disposition": "bounded-value-observed"
+        }
+      },
+      "prohibitedSinkHits": {
+        "authorityProbe": false
+      },
+      "retryStateSecretHit": false,
+      "restartStateSecretHit": false,
+      "cellSha256": "8b79ac3fc2c32193af80cf563a762732fd7edaa5ba6c896ef89a319de3d2de56"
+    }
+  ]
+}

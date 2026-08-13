@@ -1,0 +1,2871 @@
+{
+  "schemaVersion": 1,
+  "contractVersion": "R-033.secret-non-transit.v1",
+  "results": [
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-01",
+      "cell": "CC-01",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "12bb7bbd5ff181b0943a0ade4f934c2f1b7d9aeb40ea04ca506393db0a521531"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-02",
+      "cell": "CC-01",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "daa4b33a501389cbaa41d789103fdc5fcb0beb8720a45cf61658203e3ee7a1a2"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-03",
+      "cell": "CC-01",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "cc491c126712a29971037011553cba07e10445f61849464a326155d8005390f9"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-04",
+      "cell": "CC-01",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "0c9e524d41d90eac24d3bb02ba9a07884e8544c0e50c7a31d1a5d874506b6d33"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-05",
+      "cell": "CC-01",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "a1b15d7ec77189de7bf5497aae30d809f380cdf45b5e93a58c3a962342d28024"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-02",
+      "cell": "CC-02",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "7e227fa8c30bfd3227ae5698d7febd7eb753e8624d9d77b1de55318f857ed1e3"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-03",
+      "cell": "CC-02",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "25e0fdcb27fc292bf094a4e1197a73e93e1ca870163309a26c219241dcda36ff"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-04",
+      "cell": "CC-02",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "93727bae6072e67ad2ac359d054583f125fa904fdf3a9a98dc6a96fe7338be7a"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-05",
+      "cell": "CC-02",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "d09eb82b83d8a49568cf45464a54fcfd76dbb83a37ebc6f13a0a27b6bfc96daa"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-01",
+      "cell": "CC-02",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "ed60c9d504ed845f994f410de303c642fc33609074c340b7951fe61d184c2c84"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-03",
+      "cell": "CC-03",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "bearer",
+        "method": "POST",
+        "bodySha256": "3bcf3a0676345d9311b7ff345e589963c114e6b1604c20d2f905bf5f6814ce68",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": null
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "634908f46589bb271d3d8c5042b167bc7e56faf68184bdb0e6c02b3580d7887d"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-04",
+      "cell": "CC-03",
+      "status": "fail",
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED_BEFORE_TRANSPORT"
+      ],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "bearer",
+        "method": "POST",
+        "bodySha256": "3bcf3a0676345d9311b7ff345e589963c114e6b1604c20d2f905bf5f6814ce68",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": null
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "settingsGet": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "settingsGetString": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "settingsList": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "dbSelect": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "fileReadAdapter": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "keychainCommandAdapter": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          }
+        },
+        "exposedPathCount": 7,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "45fc377ff4788f1f8f1e687ee886860f11024e43e2cc831881dc4d02e90c09d0"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-05",
+      "cell": "CC-03",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "bearer",
+        "method": "POST",
+        "bodySha256": "3bcf3a0676345d9311b7ff345e589963c114e6b1604c20d2f905bf5f6814ce68",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": null
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "8d965b90170554c2399c3f612decd100d1463c4669b3632e6d21880b677b0ce0"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-01",
+      "cell": "CC-03",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "bearer",
+        "method": "POST",
+        "bodySha256": "3bcf3a0676345d9311b7ff345e589963c114e6b1604c20d2f905bf5f6814ce68",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": null
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "69ef7532f23aebe8a939dd8f1eb1f80e109434453fd28ab9f02c8a71b8b4162c"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-02",
+      "cell": "CC-03",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "bearer",
+        "method": "POST",
+        "bodySha256": "3bcf3a0676345d9311b7ff345e589963c114e6b1604c20d2f905bf5f6814ce68",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": null
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "df629ba90813c0446b9dd8ab4d20e3465145e8574c4c9570e9dd5603a79ef91b"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-04",
+      "cell": "CC-04",
+      "status": "fail",
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED_BEFORE_TRANSPORT"
+      ],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "x-api-key",
+        "method": "POST",
+        "bodySha256": "7702863d7c519a759d99f18918ea1c506be07a73a5e2e08e163aea277e9044a6",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": null
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "settingsGet": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "settingsGetString": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "settingsList": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "dbSelect": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "fileReadAdapter": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "keychainCommandAdapter": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          }
+        },
+        "exposedPathCount": 7,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "888473d4b12b4cd409c404528b15b0e4638d4efb2e81061e3131ea8765d4341d"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-05",
+      "cell": "CC-04",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "x-api-key",
+        "method": "POST",
+        "bodySha256": "7702863d7c519a759d99f18918ea1c506be07a73a5e2e08e163aea277e9044a6",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": null
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "d01acc11041c0810f85d9084197207cac6547fa704b4ced8bcf1e53ed56570ad"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-01",
+      "cell": "CC-04",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "x-api-key",
+        "method": "POST",
+        "bodySha256": "7702863d7c519a759d99f18918ea1c506be07a73a5e2e08e163aea277e9044a6",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": null
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "c6bcf44484ae7465b2e2f236b29dc01806b7d855e72d9988c48ce4ca7acbc1d0"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-02",
+      "cell": "CC-04",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "x-api-key",
+        "method": "POST",
+        "bodySha256": "7702863d7c519a759d99f18918ea1c506be07a73a5e2e08e163aea277e9044a6",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": null
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "c6a4b6838eca7dc370f8168a282c5c8daef78f22bfc1012f5665ba4daf86ec50"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-03",
+      "cell": "CC-04",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "x-api-key",
+        "method": "POST",
+        "bodySha256": "7702863d7c519a759d99f18918ea1c506be07a73a5e2e08e163aea277e9044a6",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": null
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "3c3ed2cabbe7d50d89fe817e79efe4dbfbc889e4a61c2963236bdea62b18f139"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-05",
+      "cell": "CC-05",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "lazy-refresh-bearer-and-x-api-key",
+        "method": "POST",
+        "bodySha256": "7f20e86671e874c89386496c86260c8edab2083ebf0405027fbe0fdb1dd71506",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": null
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "4c96bd5c90474c75bc3b1e7a370d56fb4682d6916ffaa8c69eaf36b3d2ce9ea1"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-01",
+      "cell": "CC-05",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "lazy-refresh-bearer-and-x-api-key",
+        "method": "POST",
+        "bodySha256": "7f20e86671e874c89386496c86260c8edab2083ebf0405027fbe0fdb1dd71506",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": null
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "04014d484711f3f1e5cea04a78c5b2f053f5cd29fe817194676d797a5ca16b73"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-02",
+      "cell": "CC-05",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "lazy-refresh-bearer-and-x-api-key",
+        "method": "POST",
+        "bodySha256": "7f20e86671e874c89386496c86260c8edab2083ebf0405027fbe0fdb1dd71506",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": null
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "f62cffc20e6579c2375c071b1fa2025805d30044c7cea5ab70a8ba69d7a3c8b1"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-03",
+      "cell": "CC-05",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "lazy-refresh-bearer-and-x-api-key",
+        "method": "POST",
+        "bodySha256": "7f20e86671e874c89386496c86260c8edab2083ebf0405027fbe0fdb1dd71506",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": null
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "8508a9f4a176c8b029a0631f5c9f18a2d8ab782604403107ad416aa55b3358a6"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-04",
+      "cell": "CC-05",
+      "status": "fail",
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED_BEFORE_TRANSPORT"
+      ],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "lazy-refresh-bearer-and-x-api-key",
+        "method": "POST",
+        "bodySha256": "7f20e86671e874c89386496c86260c8edab2083ebf0405027fbe0fdb1dd71506",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": null
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "settingsGet": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "settingsGetString": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "settingsList": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "dbSelect": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "fileReadAdapter": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "keychainCommandAdapter": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          }
+        },
+        "exposedPathCount": 7,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "3c765f9788c2072e6e5b430c4f1c3e988648d8a7c51617a273da5cc77eaf4903"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-01",
+      "cell": "CC-06",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "responses-bearer",
+        "method": "POST",
+        "bodySha256": "fbc553aa698dc3dca142d2c419b725da1d5662b960395dc8a028daf3e887777b",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": "5d21a9f0aa3bee9a"
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "c2a38f091a520fe99eebe04b3f141aa638a97bb31579df4ef3a556fc2d0e7101"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-02",
+      "cell": "CC-06",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "responses-bearer",
+        "method": "POST",
+        "bodySha256": "fbc553aa698dc3dca142d2c419b725da1d5662b960395dc8a028daf3e887777b",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": "5d21a9f0aa3bee9a"
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "ec936a8254ed36b38d663e9513eab5d8be72243a6452ebb10476454ed269e096"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-03",
+      "cell": "CC-06",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "responses-bearer",
+        "method": "POST",
+        "bodySha256": "fbc553aa698dc3dca142d2c419b725da1d5662b960395dc8a028daf3e887777b",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": "5d21a9f0aa3bee9a"
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "8d082723a0f76a11b3fc84f1758f2cf9f3d99e6400f5d13921b09f6fd48adcbb"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-04",
+      "cell": "CC-06",
+      "status": "fail",
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED_BEFORE_TRANSPORT"
+      ],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "responses-bearer",
+        "method": "POST",
+        "bodySha256": "fbc553aa698dc3dca142d2c419b725da1d5662b960395dc8a028daf3e887777b",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": "5d21a9f0aa3bee9a"
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "settingsGet": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "settingsGetString": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "settingsList": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "dbSelect": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "fileReadAdapter": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "keychainCommandAdapter": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          }
+        },
+        "exposedPathCount": 7,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "285ac207ba0f514c133fa588e272dbf17cb5437d80c6f9698811e329636b11a0"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-05",
+      "cell": "CC-06",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "responses-bearer",
+        "method": "POST",
+        "bodySha256": "fbc553aa698dc3dca142d2c419b725da1d5662b960395dc8a028daf3e887777b",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": "5d21a9f0aa3bee9a"
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "0ccea9df29c0d1efaa3ef3710223c7c99c6427a317d5e0943a8590dc3d745c16"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-02",
+      "cell": "CC-07",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "4f242fbf71c2bf2adcb65879761ebebec3462a998c5cdaf36509d5600118dafa"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-03",
+      "cell": "CC-07",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "9201ca373c15a6b169b0bd48582b0a73d3c299a61beb4bf15b202e29b0476cc1"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-04",
+      "cell": "CC-07",
+      "status": "fail",
+      "reasons": [
+        "AMBIENT_FALLBACK_NOT_PREVENTED"
+      ],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": true,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "6eac1b4b86bd31e4df46dc2b4c096218a670d3f5a4abe23f86b70797dfaeb17e"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-05",
+      "cell": "CC-07",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "ef431a7a62019cd0d26203ae04bbd30939d2c34600644bfa763ca8557fd307ca"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-01",
+      "cell": "CC-07",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "e9aaf3f089686d5e837f00fdbccc147f1349f1973b4be30cd7e606e5e444d22a"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-03",
+      "cell": "CC-08",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "5b1aace4c72dfe6bd2abd774ca00c6e5ade0a6f746c34c316b2dbac7e8de8150"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-04",
+      "cell": "CC-08",
+      "status": "fail",
+      "reasons": [
+        "RESOLVER_FAILURE_CANNOT_FAIL_CLOSED"
+      ],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": true,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "77bd024ff0aa0c196fef2c57de97fa99f5796c1b9ed67ccca24e948645efd419"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-05",
+      "cell": "CC-08",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "bea716ebc624586ad4e747d4b56cb61873fdc73116e01e154758890d77038989"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-01",
+      "cell": "CC-08",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "fc75fe5616934c94c0e61fb8314571090771281075c3adb3047e7ea864f50a87"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-02",
+      "cell": "CC-08",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "16c5ba0ae05e2d27fa8d49c58c0f82f798a43adf8bc3fb40c76d953a3d31f4a0"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-04",
+      "cell": "CC-09",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "c8ea5530354b2c2ed1b3eb20dd0774ec93a6354e847b89558100bc76a7f67fa6"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-05",
+      "cell": "CC-09",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "afa2716bf39030babb8db71a2dac2be1adc3d2f7044e89d85157cc6dcb5b56db"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-01",
+      "cell": "CC-09",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "84a744d0c98aa115dfcb17f1313698c5c68b19371a33a82bc719b1a916f34238"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-02",
+      "cell": "CC-09",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "ef2d90985b06a9f61323da7370b7ad24efe47c5c8ff62f875d937ab2a2fd1ea2"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-03",
+      "cell": "CC-09",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "2b30ca0066a849831663b6b158091a72277d7be2c5803ca0f7a63b0677508f3c"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-05",
+      "cell": "CC-10",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "ffc14f45fe11ec345725ef7132c3b9f043dc49decc3c033ac181e31aba095a1e"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-01",
+      "cell": "CC-10",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "c42f0ac847308507bf579d3ee9ffbeb34e0af690a1b022e221f585eac1cfa095"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-02",
+      "cell": "CC-10",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "41a94c066bd495af77c8b33946ff80d445cb67bc65b62fca75893b344bdd01b7"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-03",
+      "cell": "CC-10",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "9a6e1f3fd1f9ac201b4194373708bdf7954de00d13a251362e4221f996e77653"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-04",
+      "cell": "CC-10",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "14ae8c3d027fa1172bf2290e7131d695101f3b4667077e6f091db5d96a1c5f1c"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-01",
+      "cell": "CC-11",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "405e298af52a01ed2827cc2596f722f135e1f7ba1762148372c7a5bf67e049a7"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-02",
+      "cell": "CC-11",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "5220e0bb2354d37c38d333c77421d43f3ecb2daf2c8e8f7f89269242d44d44ad"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-03",
+      "cell": "CC-11",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "93c58e9eed9d47e3d2939ca50e57cf74c8f3bc21b875750cf415ec4f1ea6683e"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-04",
+      "cell": "CC-11",
+      "status": "fail",
+      "reasons": [
+        "RAW_VALUE_ENTERED_RETRY_STATE"
+      ],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 2,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "ce2e1bf235be29bb9c507cd87c79f0418b8485545f1493ed66b8b298cc9a488d"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-05",
+      "cell": "CC-11",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "8f57d35bcee8af25228988ade852dd942366809ffc63bf87472d34c9ca3b2679"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-02",
+      "cell": "CC-12",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "1d26b6cae3e7eb57de16a24a977c5eb75fd9bab98ad6ffd7dbdb08c1d841a5bb"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-03",
+      "cell": "CC-12",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "fc88b96403d7b42893243ae95fe1bb464bf70934d701b3a6a1dc13451534cb8d"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-04",
+      "cell": "CC-12",
+      "status": "fail",
+      "reasons": [
+        "RAW_VALUE_RECOVERABLE_FROM_AGENT_STATE"
+      ],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 2,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "17c0d28dba6488efd66b1ac3e1a57bf0c659527a60a2c53694d8843137eda265"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-05",
+      "cell": "CC-12",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "7d6f81c7741925601d2bedd305da12c28b9dfdc4bea2243b5c7b7dbb30e73700"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-01",
+      "cell": "CC-12",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": null,
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "89d5833afad0ccfe47e456e397383d196b09e196240577efe53eafb74a755b9f"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-03",
+      "cell": "CC-13",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "discovery-bearer",
+        "method": "GET",
+        "bodySha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": null
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "c74de5ad2d8f56f168d42120412047a1cc2c668520300e44b65f83f7dc27d107"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-04",
+      "cell": "CC-13",
+      "status": "fail",
+      "reasons": [
+        "DISCOVERY_TOKEN_AGENT_ACCESSIBLE"
+      ],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "discovery-bearer",
+        "method": "GET",
+        "bodySha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": null
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "settingsGet": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "settingsGetString": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "settingsList": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "dbSelect": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "fileReadAdapter": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "keychainCommandAdapter": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          }
+        },
+        "exposedPathCount": 7,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "0f0346b378c0379f7732a605d3aa93ffdef9ac6238f8977a6a78824de5be6e38"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-05",
+      "cell": "CC-13",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "discovery-bearer",
+        "method": "GET",
+        "bodySha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": null
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "01f5acd8b2fb92d805b6785ccaa4de3b1743961f20413f2af99900a0274a22dd"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-01",
+      "cell": "CC-13",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "discovery-bearer",
+        "method": "GET",
+        "bodySha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": null
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "b35d811e814a3790700b9f036a8c5f2a2d0ae63e959e7190e91f81e194108ebb"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-02",
+      "cell": "CC-13",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": {
+        "scheme": "discovery-bearer",
+        "method": "GET",
+        "bodySha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "authDigestMatched": true,
+        "authRawRetained": false,
+        "derivedNonSecretIdentity": null
+      },
+      "mockDispatches": 1,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "119abb47bc45030cf136d9079cfa5ab707523a31c5f71b7ffb8e31e796828e46"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-04",
+      "cell": "CC-14",
+      "status": "fail",
+      "reasons": [
+        "DIRECT_AUTHORITY_PROBE_EXPOSED_VALUE"
+      ],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "settingsGet": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "settingsGetString": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "settingsList": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "dbSelect": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "fileReadAdapter": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          },
+          "keychainCommandAdapter": {
+            "disposition": "raw_value_exposed",
+            "syntheticValueDetected": true
+          }
+        },
+        "exposedPathCount": 7,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "7e425af2ee6d5e4016ee788fc537fae8fdfda7ce84755b07f3c25ae7ff330024"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-05",
+      "cell": "CC-14",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "eba45cc6eed26c68b18cf163c3dc89ea2f9a0704a992f4086da3b66f9e3e60b1"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-01",
+      "cell": "CC-14",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "219c8e603e76f58ce318bb30f488d58726919890c757c238d188a478219e5340"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-02",
+      "cell": "CC-14",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "e894e3784c26091f160c935ff074723327511c38cf230b41eece321335d833f1"
+    },
+    {
+      "schemaVersion": 1,
+      "contractVersion": "R-033.secret-non-transit.v1",
+      "candidate": "CAND-03",
+      "cell": "CC-14",
+      "status": "pass",
+      "reasons": [],
+      "controls": {
+        "negativeControlPassed": true,
+        "positiveFormCount": 9
+      },
+      "transport": null,
+      "mockDispatches": 0,
+      "providerCalls": 0,
+      "socketsOpened": 0,
+      "ambientFallbackAttempted": false,
+      "authority": {
+        "paths": {
+          "ctxEnv": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGet": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsGetString": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "settingsList": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "dbSelect": {
+            "disposition": "bounded_reference_or_projection",
+            "syntheticValueDetected": false
+          },
+          "fileReadAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          },
+          "keychainCommandAdapter": {
+            "disposition": "absent_or_denied",
+            "syntheticValueDetected": false
+          }
+        },
+        "exposedPathCount": 0,
+        "denialDiagnosticSecretHits": 0
+      },
+      "prohibitedSinkHits": 0,
+      "retryStateSecretHits": 0,
+      "restartStateSecretHits": 0,
+      "diagnosticsSecretHits": 0,
+      "carrierSecretHits": 0,
+      "cellSha256": "eed92f98d501a1f2978a9fd65dc6ee1ffed151f9875f43248d338215ce980682"
+    }
+  ]
+}
