@@ -1,0 +1,12 @@
+{
+  "scenarioCount": 2,
+  "growthCaseCount": 20,
+  "allScenarioChecksPass": true,
+  "allIntegrityPass": true,
+  "constantForkMetadataObserved": true,
+  "cowForkMetadataObserved": true,
+  "files": [
+    "results.json",
+    "provenance.json"
+  ]
+}

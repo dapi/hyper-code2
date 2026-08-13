@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "4.1",
+  "status": "frozen-awaiting-independent-precollection-review",
+  "collectionAuthorized": false,
+  "candidateResultsCollected": false,
+  "head": "680be81564f6192a7f147da9e3deada79357517e",
+  "environment": {
+    "platform": "Darwin",
+    "release": "25.5.0",
+    "arch": "arm64",
+    "bun": "1.3.14",
+    "git": "git version 2.50.1 (Apple Git-155)"
+  },
+  "fixturePlanSha256": "6a09117fcfd40725992fbdaa4916b6bb303a36330ca91a8ccbbe51f02820ca97",
+  "dependencySha256": {
+    ".protocols/experiments/r018-sentinel-lib.ts": "8371ca966a5589df324e1fd72d12fdd1002eedda715bafeb452ae2df31006fd3"
+  },
+  "instrumentSha256": {
+    "contracts.ts": "2617cb9b5026a2541564ea0b8920efba9fd23a92e175433985a3d1b7692887e9",
+    "fixtures.ts": "ce61165a0b6af58176da865f38c21e134520b5c763c2e13f167e8f39cd1682c4",
+    "candidate-01-broker.ts": "7897893252c5b925199dc2f676318e7ab5b9f7791b8c739cdcca0e343d5adacf",
+    "candidate-02-source-excluded.ts": "54b7b1e7d5c6351827ffc5ff0f6061f59cef5a202a5a0a8740d276eb50d88331",
+    "candidate-03-schema-projection.ts": "d24e15f9b8d1a0cc89959cacfdc4b39bf54aa7f490fabbeb4aa30ed0a43af4f6",
+    "candidate-04-provenance-redaction.ts": "994ac9f3ae56af77ec83cd385a414827e4ac46302913303e0c63ce087e73b4c2",
+    "candidate-05-composition.ts": "3f8a4f52dcb24c6fece862273ecfae6eff99b549671ad942a051693aca52b4e7",
+    "instrument.ts": "83e59612e24211004c1f73bc1fafc042d191376eda6ccb71c31f38be88ad8632",
+    "precollection-child.ts": "b4c9c00bfd3f10619a2ccdb478f8939038f16becddc5fda7fbf1c23941aba9af",
+    "precollection-runner.ts": "922a266c63f104c685a68acdbc6f9f471153bdf11f1d2ff2ae5de17105c3abbe",
+    "precollection.test.ts": "b5bafb07467f0ba7afdb71cdf7df746505ba53c2f82bf80235de9e60ac8bb36a"
+  },
+  "sourceSha256": {
+    "src/llm/resolveEndpoint.ts": "03f254e70da6738a8191e2f65d1050276fa27073f2997647d1fee3cacbac0616",
+    "src/llm/streamOpenAI.ts": "ac17b31f4505f32f2cecdfb1bde3b5e428c45b54293dc0fc77dad48237a31b9c",
+    "src/llm/streamAnthropic.ts": "235e58ed74407d02ee9ca28804a91ed988f6bb7047e1827cb6597c4d626df50b",
+    "src/llm/streamCodex.ts": "911c9165a0dbe0c5ec65e371e42365ce305cb42973a687a46653d7e10bc4ee92",
+    "src/agent/llmCall.ts": "9b0b1169a912d7609a9d63cac6d64aef05bdd1983b3a94b564f423af15549002",
+    "src/agent/buildLlmRequest.ts": "ebe6177bac68d207bd83941e70f74ee8405ac680df5780fce3d6d6e8719c8e33",
+    "src/agent/executeMarker.ts": "e0ea79b086991d06e2a677556a659d501be79c4467b3238ebf28cc2ae5155e98",
+    "src/llm/refreshKimiCode.ts": "31a3c1df8b107453e462b6615bdf829bc8431b7b3bd432e575dbf28aff903b3e",
+    "src/llm/refreshClaudeCode.ts": "3f36a4e1f9624cf1c486dc2a941e88a300ccfef9aaea46b3b4b79337b54c7473",
+    "src/llm/refreshCodex.ts": "895bc66c6f751d33b29e150bd761a47bcba370bde95b4aa3f29a3ed85e22bdcb",
+    "src/llm/listModels.ts": "33abc7b5504330c97c6a8202347d717848858d5090029869d2663717e946d231",
+    "src/agent/$route_new_GET.ts": "dbe8e5164c99b683f47db056f319b3ef5365e43b01e0e3994c4201878b784f74",
+    "src/$main.ts": "024914a8ce6ace4e76c4114583eece44ccc8dc5207f1378d2093bbc580ae5521",
+    "src/$type_Context.ts": "d0887f02e9ec22eb09bd3cb351c4072b4add1975dc09c2b4d000043752129684",
+    "src/loadFns.ts": "d3b24cde1818c302eae4030bdc301718fcfea41cc43ff7d1ba15d96755a971bd",
+    "src/genTypes.ts": "93314c3492cc7db5263f4af67ae74ca41c56ea3e3d4f4e24df3568e206bed7fe",
+    "src/ctx_ns.d.ts": "03a575e68ed7682a1b3d3ca63447b942267e9d4e09321f01ecf2c82bd9f0e6c7",
+    "src/repl/eval.ts": "cab51fd25fb619aa60049f9469c5ebf579261bbe339840837bfd049e55a0c0b8",
+    "src/settings/get.ts": "a97e562bdbdc2d7b26056b8b788c49715d8737a6bd5a440802b8538b371154a9",
+    "src/settings/getString.ts": "a94fdcee145009c2871bd6084ceab74ffaced7f8a60b6b0c4de13a66f2cc80d1",
+    "src/settings/list.ts": "6e6bfa4e2cbfcca7e3ebd988486518fcb37f34f651ab1e338c90f373511c8507",
+    "src/db/select.ts": "6d07b66bb525b7b422d11b20d311eac2ba9dc5454edcf326ac4de3e8749c7e5a",
+    "src/agent/renderEventHtml.ts": "5ace50b71ab2976f7d9167432df784d1f5f5f77ec884fa96d06eb94357b3326f"
+  },
+  "frozenControls": {
+    "candidates": 5,
+    "ccRows": 70,
+    "inferenceRequests": 4,
+    "refreshRequests": 3,
+    "discoveryRequests": 1,
+    "layers": 8,
+    "sentinelForms": 9,
+    "candidatePathControlsExecutedByPreflight": 360,
+    "transformedPositiveLeakControlsExecutedByPreflight": 360,
+    "cleanLayerControlsExecutedByPreflight": 40,
+    "cc10SecretSuccessControls": 5,
+    "cc10SecretThrowControls": 5,
+    "cc10CyclicFailBeforeDurableControls": 5
+  },
+  "futureCollectionCarrierContract": {
+    "perCandidatePerCellChecksums": true,
+    "exactSourceInstrumentDependencyHashes": true,
+    "separatePostCollectionReview": true,
+    "noRawSentinelOrAuthenticationHeader": true
+  },
+  "reviewRequired": [
+    "five mechanism implementations are genuinely separate and share no secret resolver",
+    "inference refresh and discovery traverse each candidate mechanism separately",
+    "Kimi Anthropic and Codex refresh cover synthetic read OAuth response and write",
+    "Anthropic OAuth inference Codex account derivation and discovery failure are explicit",
+    "CC07 CC08 CC09 CC11 CC12 and CC14 cases are frozen symmetrically",
+    "S0-S8 traverse every candidate at every layer with candidate-path positive-leak and clean controls executed in preflight",
+    "CC10 secret-bearing success throw and cyclic serialization fail before durable write",
+    "disposable child empty credential environment throwing network APIs home and keychain denial listener denial and write-root confinement are mandatory",
+    "future carrier has per-candidate per-cell checksums and complete provenance"
+  ]
+}

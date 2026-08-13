@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 3,
+  "evidenceClassification": "rejected-semantic-adapter-attempt",
+  "candidateOutcomesAreEvidence": false,
+  "provenanceMatchesCurrentInstrument": false,
+  "reviewFinding": "shared resolver with trace labels; refresh paths not mediated per candidate; discovery reused inference fixture; layer controls parent-only; cyclic serialization did not establish fail-closed durable boundary",
+  "runId": "2026-08-13-semantic-adapters-v3",
+  "matrix": {
+    "candidates": 5,
+    "cells": 14,
+    "results": 70,
+    "symmetric": true
+  },
+  "semanticCoverage": {
+    "cc02RealFormsAndTransport": true,
+    "perLayerTransformedControls": true,
+    "cc03to06FrozenFullRequestControls": true,
+    "cc05SyntheticStoreRefreshOAuth": true,
+    "cc06IdentityAndRefresh": true,
+    "cc10ThrownAndSerialization": true,
+    "cc11RetryCancellationBound": true,
+    "cc12NewProcessRevalidation": true,
+    "cc13DiscoveryRenderFailure": true,
+    "cc14CallableProbes": true
+  },
+  "outcomes": {
+    "CAND-01": {
+      "pass": 14,
+      "fail": 0
+    },
+    "CAND-02": {
+      "pass": 14,
+      "fail": 0
+    },
+    "CAND-03": {
+      "pass": 14,
+      "fail": 0
+    },
+    "CAND-04": {
+      "pass": 4,
+      "fail": 10
+    },
+    "CAND-05": {
+      "pass": 14,
+      "fail": 0
+    }
+  },
+  "synthesisAllowed": false,
+  "mechanismSelected": false
+}

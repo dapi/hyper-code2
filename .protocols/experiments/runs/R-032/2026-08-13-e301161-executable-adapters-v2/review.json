@@ -1,0 +1,11 @@
+{
+  "status": "pending-independent-review",
+  "synthesisAuthorized": false,
+  "required": [
+    "adapter execution fidelity",
+    "representative subset symmetry",
+    "preserved failures",
+    "sentinel detector controls",
+    "gate interpretation"
+  ]
+}

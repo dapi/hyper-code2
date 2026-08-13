@@ -1,0 +1,1937 @@
+[
+  {
+    "adapter": "CAN-01",
+    "routeBehavior": {
+      "committed": {
+        "policy": "privileged",
+        "source": "committed",
+        "inherited": false
+      },
+      "late": {
+        "policy": "ordinary",
+        "source": "late-registration",
+        "inherited": true
+      },
+      "overlay": {
+        "policy": "ordinary",
+        "source": "overlay-override",
+        "inherited": true
+      },
+      "unresolved": {
+        "policy": "ordinary",
+        "source": "unregistered",
+        "inherited": true
+      },
+      "actualRegistrationCount": 2
+    },
+    "reachability": [
+      {
+        "requestedExposure": "local",
+        "modeledReachability": "local-only",
+        "peerEvidence": "synthetic-local-peer",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false
+      },
+      {
+        "requestedExposure": "non-local",
+        "modeledReachability": "local-only",
+        "peerEvidence": "synthetic-non-local-peer",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false
+      }
+    ],
+    "clientTransitions": [
+      {
+        "kind": "browser",
+        "final": "ready",
+        "trace": [
+          {
+            "event": "bootstrap",
+            "before": "new",
+            "after": "ready",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": null
+          },
+          {
+            "event": "disconnect",
+            "before": "ready",
+            "after": "disconnected",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "before": "disconnected",
+            "after": "ready",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": null
+          },
+          {
+            "event": "expire",
+            "before": "ready",
+            "after": "expired",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "recover",
+            "before": "expired",
+            "after": "ready",
+            "generation": 1,
+            "channel": "http-only-session",
+            "prompt": "authority-revalidated"
+          },
+          {
+            "event": "revoke",
+            "before": "ready",
+            "after": "revoked",
+            "generation": 1,
+            "channel": "http-only-session",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "recover",
+            "before": "revoked",
+            "after": "ready",
+            "generation": 2,
+            "channel": "http-only-session",
+            "prompt": "authority-revalidated"
+          }
+        ]
+      },
+      {
+        "kind": "cli",
+        "final": "ready",
+        "trace": [
+          {
+            "event": "bootstrap",
+            "before": "new",
+            "after": "ready",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "disconnect",
+            "before": "ready",
+            "after": "disconnected",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "before": "disconnected",
+            "after": "ready",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "expire",
+            "before": "ready",
+            "after": "expired",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "recover",
+            "before": "expired",
+            "after": "ready",
+            "generation": 1,
+            "channel": "private-cli-channel",
+            "prompt": "authority-revalidated"
+          },
+          {
+            "event": "revoke",
+            "before": "ready",
+            "after": "revoked",
+            "generation": 1,
+            "channel": "private-cli-channel",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "recover",
+            "before": "revoked",
+            "after": "ready",
+            "generation": 2,
+            "channel": "private-cli-channel",
+            "prompt": "authority-revalidated"
+          }
+        ]
+      }
+    ],
+    "restartSequence": {
+      "controlled": false,
+      "issued": {
+        "generation": 1,
+        "scope": "privileged"
+      },
+      "before": {
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-retained-gap"
+        },
+        "rootCalls": 1
+      },
+      "restart": {
+        "generation": 2,
+        "invalidated": [
+          "job-1"
+        ]
+      },
+      "stale": {
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-retained-gap"
+        },
+        "rootCalls": 1
+      },
+      "missing": {
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-retained-gap"
+        },
+        "rootCalls": 1
+      },
+      "after": {
+        "handle": {
+          "generation": 2,
+          "scope": "privileged"
+        },
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-retained-gap"
+        },
+        "rootCalls": 1
+      }
+    },
+    "fidelity": "disposable-lifecycle-state-machine",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-02",
+    "routeBehavior": {
+      "committed": {
+        "policy": "privileged",
+        "source": "committed",
+        "inherited": false
+      },
+      "late": {
+        "policy": "ordinary",
+        "source": "late-registration",
+        "inherited": true
+      },
+      "overlay": {
+        "policy": "ordinary",
+        "source": "overlay-override",
+        "inherited": true
+      },
+      "unresolved": {
+        "policy": "ordinary",
+        "source": "unregistered",
+        "inherited": true
+      },
+      "actualRegistrationCount": 2
+    },
+    "reachability": [
+      {
+        "requestedExposure": "local",
+        "modeledReachability": "filesystem-endpoint",
+        "peerEvidence": "synthetic-local-peer",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false
+      },
+      {
+        "requestedExposure": "non-local",
+        "modeledReachability": "filesystem-endpoint",
+        "peerEvidence": "synthetic-non-local-peer",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false
+      }
+    ],
+    "clientTransitions": [
+      {
+        "kind": "browser",
+        "final": "ready",
+        "trace": [
+          {
+            "event": "bootstrap",
+            "before": "new",
+            "after": "ready",
+            "generation": 0,
+            "channel": "browser-bridge",
+            "prompt": null
+          },
+          {
+            "event": "disconnect",
+            "before": "ready",
+            "after": "disconnected",
+            "generation": 0,
+            "channel": "browser-bridge",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "before": "disconnected",
+            "after": "ready",
+            "generation": 0,
+            "channel": "browser-bridge",
+            "prompt": null
+          },
+          {
+            "event": "expire",
+            "before": "ready",
+            "after": "expired",
+            "generation": 0,
+            "channel": "browser-bridge",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "recover",
+            "before": "expired",
+            "after": "ready",
+            "generation": 1,
+            "channel": "browser-bridge",
+            "prompt": "authority-revalidated"
+          },
+          {
+            "event": "revoke",
+            "before": "ready",
+            "after": "revoked",
+            "generation": 1,
+            "channel": "browser-bridge",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "recover",
+            "before": "revoked",
+            "after": "ready",
+            "generation": 2,
+            "channel": "browser-bridge",
+            "prompt": "authority-revalidated"
+          }
+        ]
+      },
+      {
+        "kind": "cli",
+        "final": "ready",
+        "trace": [
+          {
+            "event": "bootstrap",
+            "before": "new",
+            "after": "ready",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "disconnect",
+            "before": "ready",
+            "after": "disconnected",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "before": "disconnected",
+            "after": "ready",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "expire",
+            "before": "ready",
+            "after": "expired",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "recover",
+            "before": "expired",
+            "after": "ready",
+            "generation": 1,
+            "channel": "private-cli-channel",
+            "prompt": "authority-revalidated"
+          },
+          {
+            "event": "revoke",
+            "before": "ready",
+            "after": "revoked",
+            "generation": 1,
+            "channel": "private-cli-channel",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "recover",
+            "before": "revoked",
+            "after": "ready",
+            "generation": 2,
+            "channel": "private-cli-channel",
+            "prompt": "authority-revalidated"
+          }
+        ]
+      }
+    ],
+    "restartSequence": {
+      "controlled": false,
+      "issued": {
+        "generation": 1,
+        "scope": "privileged"
+      },
+      "before": {
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-retained-gap"
+        },
+        "rootCalls": 1
+      },
+      "restart": {
+        "generation": 2,
+        "invalidated": [
+          "job-1"
+        ]
+      },
+      "stale": {
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-retained-gap"
+        },
+        "rootCalls": 1
+      },
+      "missing": {
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-retained-gap"
+        },
+        "rootCalls": 1
+      },
+      "after": {
+        "handle": {
+          "generation": 2,
+          "scope": "privileged"
+        },
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-retained-gap"
+        },
+        "rootCalls": 1
+      }
+    },
+    "fidelity": "disposable-lifecycle-state-machine",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-03",
+    "routeBehavior": {
+      "committed": {
+        "policy": "privileged",
+        "source": "committed",
+        "inherited": false
+      },
+      "late": {
+        "policy": "privileged",
+        "source": "late-registration",
+        "inherited": true
+      },
+      "overlay": {
+        "policy": "privileged",
+        "source": "overlay-override",
+        "inherited": true
+      },
+      "unresolved": {
+        "policy": "privileged",
+        "source": "unregistered",
+        "inherited": true
+      },
+      "actualRegistrationCount": 2
+    },
+    "reachability": [
+      {
+        "requestedExposure": "local",
+        "modeledReachability": "unrestricted",
+        "peerEvidence": "synthetic-local-peer",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false
+      },
+      {
+        "requestedExposure": "non-local",
+        "modeledReachability": "unrestricted",
+        "peerEvidence": "synthetic-non-local-peer",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false
+      }
+    ],
+    "clientTransitions": [
+      {
+        "kind": "browser",
+        "final": "ready",
+        "trace": [
+          {
+            "event": "bootstrap",
+            "before": "new",
+            "after": "ready",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": null
+          },
+          {
+            "event": "disconnect",
+            "before": "ready",
+            "after": "disconnected",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "before": "disconnected",
+            "after": "ready",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": null
+          },
+          {
+            "event": "expire",
+            "before": "ready",
+            "after": "expired",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "recover",
+            "before": "expired",
+            "after": "ready",
+            "generation": 1,
+            "channel": "http-only-session",
+            "prompt": "authority-revalidated"
+          },
+          {
+            "event": "revoke",
+            "before": "ready",
+            "after": "revoked",
+            "generation": 1,
+            "channel": "http-only-session",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "recover",
+            "before": "revoked",
+            "after": "ready",
+            "generation": 2,
+            "channel": "http-only-session",
+            "prompt": "authority-revalidated"
+          }
+        ]
+      },
+      {
+        "kind": "cli",
+        "final": "ready",
+        "trace": [
+          {
+            "event": "bootstrap",
+            "before": "new",
+            "after": "ready",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "disconnect",
+            "before": "ready",
+            "after": "disconnected",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "before": "disconnected",
+            "after": "ready",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "expire",
+            "before": "ready",
+            "after": "expired",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "recover",
+            "before": "expired",
+            "after": "ready",
+            "generation": 1,
+            "channel": "private-cli-channel",
+            "prompt": "authority-revalidated"
+          },
+          {
+            "event": "revoke",
+            "before": "ready",
+            "after": "revoked",
+            "generation": 1,
+            "channel": "private-cli-channel",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "recover",
+            "before": "revoked",
+            "after": "ready",
+            "generation": 2,
+            "channel": "private-cli-channel",
+            "prompt": "authority-revalidated"
+          }
+        ]
+      }
+    ],
+    "restartSequence": {
+      "controlled": true,
+      "issued": {
+        "generation": 1,
+        "scope": "privileged"
+      },
+      "before": {
+        "decision": {
+          "allow": true,
+          "reason": "current-generation"
+        },
+        "rootCalls": 1
+      },
+      "restart": {
+        "generation": 2,
+        "invalidated": [
+          "job-1"
+        ]
+      },
+      "stale": {
+        "decision": {
+          "allow": false,
+          "reason": "stale-generation"
+        },
+        "rootCalls": 0
+      },
+      "missing": {
+        "decision": {
+          "allow": false,
+          "reason": "missing-after-restart"
+        },
+        "rootCalls": 0
+      },
+      "after": {
+        "handle": {
+          "generation": 2,
+          "scope": "privileged"
+        },
+        "decision": {
+          "allow": true,
+          "reason": "current-generation"
+        },
+        "rootCalls": 1
+      }
+    },
+    "fidelity": "disposable-lifecycle-state-machine",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-04",
+    "routeBehavior": {
+      "committed": {
+        "policy": "privileged",
+        "source": "committed",
+        "inherited": false
+      },
+      "late": {
+        "policy": "privileged",
+        "source": "late-registration",
+        "inherited": true
+      },
+      "overlay": {
+        "policy": "privileged",
+        "source": "overlay-override",
+        "inherited": true
+      },
+      "unresolved": {
+        "policy": "privileged",
+        "source": "unregistered",
+        "inherited": true
+      },
+      "actualRegistrationCount": 2
+    },
+    "reachability": [
+      {
+        "requestedExposure": "local",
+        "modeledReachability": "unrestricted",
+        "peerEvidence": "synthetic-local-peer",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false
+      },
+      {
+        "requestedExposure": "non-local",
+        "modeledReachability": "unrestricted",
+        "peerEvidence": "synthetic-non-local-peer",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false
+      }
+    ],
+    "clientTransitions": [
+      {
+        "kind": "browser",
+        "final": "ready",
+        "trace": [
+          {
+            "event": "bootstrap",
+            "before": "new",
+            "after": "ready",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": null
+          },
+          {
+            "event": "disconnect",
+            "before": "ready",
+            "after": "disconnected",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "before": "disconnected",
+            "after": "ready",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": null
+          },
+          {
+            "event": "expire",
+            "before": "ready",
+            "after": "expired",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "recover",
+            "before": "expired",
+            "after": "ready",
+            "generation": 1,
+            "channel": "http-only-session",
+            "prompt": "authority-revalidated"
+          },
+          {
+            "event": "revoke",
+            "before": "ready",
+            "after": "revoked",
+            "generation": 1,
+            "channel": "http-only-session",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "recover",
+            "before": "revoked",
+            "after": "ready",
+            "generation": 2,
+            "channel": "http-only-session",
+            "prompt": "authority-revalidated"
+          }
+        ]
+      },
+      {
+        "kind": "cli",
+        "final": "ready",
+        "trace": [
+          {
+            "event": "bootstrap",
+            "before": "new",
+            "after": "ready",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "disconnect",
+            "before": "ready",
+            "after": "disconnected",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "before": "disconnected",
+            "after": "ready",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "expire",
+            "before": "ready",
+            "after": "expired",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "recover",
+            "before": "expired",
+            "after": "ready",
+            "generation": 1,
+            "channel": "private-cli-channel",
+            "prompt": "authority-revalidated"
+          },
+          {
+            "event": "revoke",
+            "before": "ready",
+            "after": "revoked",
+            "generation": 1,
+            "channel": "private-cli-channel",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "recover",
+            "before": "revoked",
+            "after": "ready",
+            "generation": 2,
+            "channel": "private-cli-channel",
+            "prompt": "authority-revalidated"
+          }
+        ]
+      }
+    ],
+    "restartSequence": {
+      "controlled": true,
+      "issued": {
+        "generation": 1,
+        "scope": "privileged"
+      },
+      "before": {
+        "decision": {
+          "allow": true,
+          "reason": "current-generation"
+        },
+        "rootCalls": 1
+      },
+      "restart": {
+        "generation": 2,
+        "invalidated": [
+          "job-1"
+        ]
+      },
+      "stale": {
+        "decision": {
+          "allow": false,
+          "reason": "stale-generation"
+        },
+        "rootCalls": 0
+      },
+      "missing": {
+        "decision": {
+          "allow": false,
+          "reason": "missing-after-restart"
+        },
+        "rootCalls": 0
+      },
+      "after": {
+        "handle": {
+          "generation": 2,
+          "scope": "privileged"
+        },
+        "decision": {
+          "allow": true,
+          "reason": "current-generation"
+        },
+        "rootCalls": 1
+      }
+    },
+    "fidelity": "disposable-lifecycle-state-machine",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-05",
+    "routeBehavior": {
+      "committed": {
+        "policy": "privileged",
+        "source": "committed",
+        "inherited": false
+      },
+      "late": {
+        "policy": "deny",
+        "source": "late-registration",
+        "inherited": true
+      },
+      "overlay": {
+        "policy": "deny",
+        "source": "overlay-override",
+        "inherited": true
+      },
+      "unresolved": {
+        "policy": "deny",
+        "source": "unregistered",
+        "inherited": true
+      },
+      "actualRegistrationCount": 2
+    },
+    "reachability": [
+      {
+        "requestedExposure": "local",
+        "modeledReachability": "unrestricted",
+        "peerEvidence": "synthetic-local-peer",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false
+      },
+      {
+        "requestedExposure": "non-local",
+        "modeledReachability": "unrestricted",
+        "peerEvidence": "synthetic-non-local-peer",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false
+      }
+    ],
+    "clientTransitions": [
+      {
+        "kind": "browser",
+        "final": "ready",
+        "trace": [
+          {
+            "event": "bootstrap",
+            "before": "new",
+            "after": "ready",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": null
+          },
+          {
+            "event": "disconnect",
+            "before": "ready",
+            "after": "disconnected",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "before": "disconnected",
+            "after": "ready",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": null
+          },
+          {
+            "event": "expire",
+            "before": "ready",
+            "after": "expired",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "recover",
+            "before": "expired",
+            "after": "ready",
+            "generation": 1,
+            "channel": "http-only-session",
+            "prompt": "authority-revalidated"
+          },
+          {
+            "event": "revoke",
+            "before": "ready",
+            "after": "revoked",
+            "generation": 1,
+            "channel": "http-only-session",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "recover",
+            "before": "revoked",
+            "after": "ready",
+            "generation": 2,
+            "channel": "http-only-session",
+            "prompt": "authority-revalidated"
+          }
+        ]
+      },
+      {
+        "kind": "cli",
+        "final": "ready",
+        "trace": [
+          {
+            "event": "bootstrap",
+            "before": "new",
+            "after": "ready",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "disconnect",
+            "before": "ready",
+            "after": "disconnected",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "before": "disconnected",
+            "after": "ready",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "expire",
+            "before": "ready",
+            "after": "expired",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "recover",
+            "before": "expired",
+            "after": "ready",
+            "generation": 1,
+            "channel": "private-cli-channel",
+            "prompt": "authority-revalidated"
+          },
+          {
+            "event": "revoke",
+            "before": "ready",
+            "after": "revoked",
+            "generation": 1,
+            "channel": "private-cli-channel",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "recover",
+            "before": "revoked",
+            "after": "ready",
+            "generation": 2,
+            "channel": "private-cli-channel",
+            "prompt": "authority-revalidated"
+          }
+        ]
+      }
+    ],
+    "restartSequence": {
+      "controlled": false,
+      "issued": {
+        "generation": 1,
+        "scope": "privileged"
+      },
+      "before": {
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-retained-gap"
+        },
+        "rootCalls": 1
+      },
+      "restart": {
+        "generation": 2,
+        "invalidated": [
+          "job-1"
+        ]
+      },
+      "stale": {
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-retained-gap"
+        },
+        "rootCalls": 1
+      },
+      "missing": {
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-retained-gap"
+        },
+        "rootCalls": 1
+      },
+      "after": {
+        "handle": {
+          "generation": 2,
+          "scope": "privileged"
+        },
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-retained-gap"
+        },
+        "rootCalls": 1
+      }
+    },
+    "fidelity": "disposable-lifecycle-state-machine",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-06",
+    "routeBehavior": {
+      "committed": {
+        "policy": "privileged",
+        "source": "committed",
+        "inherited": false
+      },
+      "late": {
+        "policy": "ordinary",
+        "source": "late-registration",
+        "inherited": true
+      },
+      "overlay": {
+        "policy": "ordinary",
+        "source": "overlay-override",
+        "inherited": true
+      },
+      "unresolved": {
+        "policy": "ordinary",
+        "source": "unregistered",
+        "inherited": true
+      },
+      "actualRegistrationCount": 2
+    },
+    "reachability": [
+      {
+        "requestedExposure": "local",
+        "modeledReachability": "unrestricted",
+        "peerEvidence": "synthetic-local-peer",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false
+      },
+      {
+        "requestedExposure": "non-local",
+        "modeledReachability": "unrestricted",
+        "peerEvidence": "synthetic-non-local-peer",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false
+      }
+    ],
+    "clientTransitions": [
+      {
+        "kind": "browser",
+        "final": "ready",
+        "trace": [
+          {
+            "event": "bootstrap",
+            "before": "new",
+            "after": "ready",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": null
+          },
+          {
+            "event": "disconnect",
+            "before": "ready",
+            "after": "disconnected",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "before": "disconnected",
+            "after": "ready",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": null
+          },
+          {
+            "event": "expire",
+            "before": "ready",
+            "after": "expired",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "recover",
+            "before": "expired",
+            "after": "ready",
+            "generation": 1,
+            "channel": "http-only-session",
+            "prompt": "authority-revalidated"
+          },
+          {
+            "event": "revoke",
+            "before": "ready",
+            "after": "revoked",
+            "generation": 1,
+            "channel": "http-only-session",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "recover",
+            "before": "revoked",
+            "after": "ready",
+            "generation": 2,
+            "channel": "http-only-session",
+            "prompt": "authority-revalidated"
+          }
+        ]
+      },
+      {
+        "kind": "cli",
+        "final": "ready",
+        "trace": [
+          {
+            "event": "bootstrap",
+            "before": "new",
+            "after": "ready",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "disconnect",
+            "before": "ready",
+            "after": "disconnected",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "before": "disconnected",
+            "after": "ready",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "expire",
+            "before": "ready",
+            "after": "expired",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "recover",
+            "before": "expired",
+            "after": "ready",
+            "generation": 1,
+            "channel": "private-cli-channel",
+            "prompt": "authority-revalidated"
+          },
+          {
+            "event": "revoke",
+            "before": "ready",
+            "after": "revoked",
+            "generation": 1,
+            "channel": "private-cli-channel",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "recover",
+            "before": "revoked",
+            "after": "ready",
+            "generation": 2,
+            "channel": "private-cli-channel",
+            "prompt": "authority-revalidated"
+          }
+        ]
+      }
+    ],
+    "restartSequence": {
+      "controlled": false,
+      "issued": {
+        "generation": 1,
+        "scope": "privileged"
+      },
+      "before": {
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-retained-gap"
+        },
+        "rootCalls": 1
+      },
+      "restart": {
+        "generation": 2,
+        "invalidated": [
+          "job-1"
+        ]
+      },
+      "stale": {
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-retained-gap"
+        },
+        "rootCalls": 1
+      },
+      "missing": {
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-retained-gap"
+        },
+        "rootCalls": 1
+      },
+      "after": {
+        "handle": {
+          "generation": 2,
+          "scope": "privileged"
+        },
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-retained-gap"
+        },
+        "rootCalls": 1
+      }
+    },
+    "fidelity": "incompatible-with-process-separation; lifecycle only",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "COM-01",
+    "routeBehavior": {
+      "committed": {
+        "policy": "privileged",
+        "source": "committed",
+        "inherited": false
+      },
+      "late": {
+        "policy": "privileged",
+        "source": "late-registration",
+        "inherited": true
+      },
+      "overlay": {
+        "policy": "privileged",
+        "source": "overlay-override",
+        "inherited": true
+      },
+      "unresolved": {
+        "policy": "privileged",
+        "source": "unregistered",
+        "inherited": true
+      },
+      "actualRegistrationCount": 2
+    },
+    "reachability": [
+      {
+        "requestedExposure": "local",
+        "modeledReachability": "local-only",
+        "peerEvidence": "synthetic-local-peer",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false
+      },
+      {
+        "requestedExposure": "non-local",
+        "modeledReachability": "local-only",
+        "peerEvidence": "synthetic-non-local-peer",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false
+      }
+    ],
+    "clientTransitions": [
+      {
+        "kind": "browser",
+        "final": "ready",
+        "trace": [
+          {
+            "event": "bootstrap",
+            "before": "new",
+            "after": "ready",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": null
+          },
+          {
+            "event": "disconnect",
+            "before": "ready",
+            "after": "disconnected",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "before": "disconnected",
+            "after": "ready",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": null
+          },
+          {
+            "event": "expire",
+            "before": "ready",
+            "after": "expired",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "recover",
+            "before": "expired",
+            "after": "ready",
+            "generation": 1,
+            "channel": "http-only-session",
+            "prompt": "authority-revalidated"
+          },
+          {
+            "event": "revoke",
+            "before": "ready",
+            "after": "revoked",
+            "generation": 1,
+            "channel": "http-only-session",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "recover",
+            "before": "revoked",
+            "after": "ready",
+            "generation": 2,
+            "channel": "http-only-session",
+            "prompt": "authority-revalidated"
+          }
+        ]
+      },
+      {
+        "kind": "cli",
+        "final": "ready",
+        "trace": [
+          {
+            "event": "bootstrap",
+            "before": "new",
+            "after": "ready",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "disconnect",
+            "before": "ready",
+            "after": "disconnected",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "before": "disconnected",
+            "after": "ready",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "expire",
+            "before": "ready",
+            "after": "expired",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "recover",
+            "before": "expired",
+            "after": "ready",
+            "generation": 1,
+            "channel": "private-cli-channel",
+            "prompt": "authority-revalidated"
+          },
+          {
+            "event": "revoke",
+            "before": "ready",
+            "after": "revoked",
+            "generation": 1,
+            "channel": "private-cli-channel",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "recover",
+            "before": "revoked",
+            "after": "ready",
+            "generation": 2,
+            "channel": "private-cli-channel",
+            "prompt": "authority-revalidated"
+          }
+        ]
+      }
+    ],
+    "restartSequence": {
+      "controlled": true,
+      "issued": {
+        "generation": 1,
+        "scope": "privileged"
+      },
+      "before": {
+        "decision": {
+          "allow": true,
+          "reason": "current-generation"
+        },
+        "rootCalls": 1
+      },
+      "restart": {
+        "generation": 2,
+        "invalidated": [
+          "job-1"
+        ]
+      },
+      "stale": {
+        "decision": {
+          "allow": false,
+          "reason": "stale-generation"
+        },
+        "rootCalls": 0
+      },
+      "missing": {
+        "decision": {
+          "allow": false,
+          "reason": "missing-after-restart"
+        },
+        "rootCalls": 0
+      },
+      "after": {
+        "handle": {
+          "generation": 2,
+          "scope": "privileged"
+        },
+        "decision": {
+          "allow": true,
+          "reason": "current-generation"
+        },
+        "rootCalls": 1
+      }
+    },
+    "fidelity": "disposable-lifecycle-state-machine",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "COM-02",
+    "routeBehavior": {
+      "committed": {
+        "policy": "privileged",
+        "source": "committed",
+        "inherited": false
+      },
+      "late": {
+        "policy": "privileged",
+        "source": "late-registration",
+        "inherited": true
+      },
+      "overlay": {
+        "policy": "privileged",
+        "source": "overlay-override",
+        "inherited": true
+      },
+      "unresolved": {
+        "policy": "privileged",
+        "source": "unregistered",
+        "inherited": true
+      },
+      "actualRegistrationCount": 2
+    },
+    "reachability": [
+      {
+        "requestedExposure": "local",
+        "modeledReachability": "filesystem-endpoint",
+        "peerEvidence": "synthetic-local-peer",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false
+      },
+      {
+        "requestedExposure": "non-local",
+        "modeledReachability": "filesystem-endpoint",
+        "peerEvidence": "synthetic-non-local-peer",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false
+      }
+    ],
+    "clientTransitions": [
+      {
+        "kind": "browser",
+        "final": "ready",
+        "trace": [
+          {
+            "event": "bootstrap",
+            "before": "new",
+            "after": "ready",
+            "generation": 0,
+            "channel": "browser-bridge",
+            "prompt": null
+          },
+          {
+            "event": "disconnect",
+            "before": "ready",
+            "after": "disconnected",
+            "generation": 0,
+            "channel": "browser-bridge",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "before": "disconnected",
+            "after": "ready",
+            "generation": 0,
+            "channel": "browser-bridge",
+            "prompt": null
+          },
+          {
+            "event": "expire",
+            "before": "ready",
+            "after": "expired",
+            "generation": 0,
+            "channel": "browser-bridge",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "recover",
+            "before": "expired",
+            "after": "ready",
+            "generation": 1,
+            "channel": "browser-bridge",
+            "prompt": "authority-revalidated"
+          },
+          {
+            "event": "revoke",
+            "before": "ready",
+            "after": "revoked",
+            "generation": 1,
+            "channel": "browser-bridge",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "recover",
+            "before": "revoked",
+            "after": "ready",
+            "generation": 2,
+            "channel": "browser-bridge",
+            "prompt": "authority-revalidated"
+          }
+        ]
+      },
+      {
+        "kind": "cli",
+        "final": "ready",
+        "trace": [
+          {
+            "event": "bootstrap",
+            "before": "new",
+            "after": "ready",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "disconnect",
+            "before": "ready",
+            "after": "disconnected",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "before": "disconnected",
+            "after": "ready",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "expire",
+            "before": "ready",
+            "after": "expired",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "recover",
+            "before": "expired",
+            "after": "ready",
+            "generation": 1,
+            "channel": "private-cli-channel",
+            "prompt": "authority-revalidated"
+          },
+          {
+            "event": "revoke",
+            "before": "ready",
+            "after": "revoked",
+            "generation": 1,
+            "channel": "private-cli-channel",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "recover",
+            "before": "revoked",
+            "after": "ready",
+            "generation": 2,
+            "channel": "private-cli-channel",
+            "prompt": "authority-revalidated"
+          }
+        ]
+      }
+    ],
+    "restartSequence": {
+      "controlled": true,
+      "issued": {
+        "generation": 1,
+        "scope": "privileged"
+      },
+      "before": {
+        "decision": {
+          "allow": true,
+          "reason": "current-generation"
+        },
+        "rootCalls": 1
+      },
+      "restart": {
+        "generation": 2,
+        "invalidated": [
+          "job-1"
+        ]
+      },
+      "stale": {
+        "decision": {
+          "allow": false,
+          "reason": "stale-generation"
+        },
+        "rootCalls": 0
+      },
+      "missing": {
+        "decision": {
+          "allow": false,
+          "reason": "missing-after-restart"
+        },
+        "rootCalls": 0
+      },
+      "after": {
+        "handle": {
+          "generation": 2,
+          "scope": "privileged"
+        },
+        "decision": {
+          "allow": true,
+          "reason": "current-generation"
+        },
+        "rootCalls": 1
+      }
+    },
+    "fidelity": "disposable-lifecycle-state-machine",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "COM-03",
+    "routeBehavior": {
+      "committed": {
+        "policy": "privileged",
+        "source": "committed",
+        "inherited": false
+      },
+      "late": {
+        "policy": "deny",
+        "source": "late-registration",
+        "inherited": true
+      },
+      "overlay": {
+        "policy": "deny",
+        "source": "overlay-override",
+        "inherited": true
+      },
+      "unresolved": {
+        "policy": "deny",
+        "source": "unregistered",
+        "inherited": true
+      },
+      "actualRegistrationCount": 2
+    },
+    "reachability": [
+      {
+        "requestedExposure": "local",
+        "modeledReachability": "local-only",
+        "peerEvidence": "synthetic-local-peer",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false
+      },
+      {
+        "requestedExposure": "non-local",
+        "modeledReachability": "local-only",
+        "peerEvidence": "synthetic-non-local-peer",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false
+      }
+    ],
+    "clientTransitions": [
+      {
+        "kind": "browser",
+        "final": "ready",
+        "trace": [
+          {
+            "event": "bootstrap",
+            "before": "new",
+            "after": "ready",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": null
+          },
+          {
+            "event": "disconnect",
+            "before": "ready",
+            "after": "disconnected",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "before": "disconnected",
+            "after": "ready",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": null
+          },
+          {
+            "event": "expire",
+            "before": "ready",
+            "after": "expired",
+            "generation": 0,
+            "channel": "http-only-session",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "recover",
+            "before": "expired",
+            "after": "ready",
+            "generation": 1,
+            "channel": "http-only-session",
+            "prompt": "authority-revalidated"
+          },
+          {
+            "event": "revoke",
+            "before": "ready",
+            "after": "revoked",
+            "generation": 1,
+            "channel": "http-only-session",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "recover",
+            "before": "revoked",
+            "after": "ready",
+            "generation": 2,
+            "channel": "http-only-session",
+            "prompt": "authority-revalidated"
+          }
+        ]
+      },
+      {
+        "kind": "cli",
+        "final": "ready",
+        "trace": [
+          {
+            "event": "bootstrap",
+            "before": "new",
+            "after": "ready",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "disconnect",
+            "before": "ready",
+            "after": "disconnected",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "before": "disconnected",
+            "after": "ready",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": null
+          },
+          {
+            "event": "expire",
+            "before": "ready",
+            "after": "expired",
+            "generation": 0,
+            "channel": "private-cli-channel",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "recover",
+            "before": "expired",
+            "after": "ready",
+            "generation": 1,
+            "channel": "private-cli-channel",
+            "prompt": "authority-revalidated"
+          },
+          {
+            "event": "revoke",
+            "before": "ready",
+            "after": "revoked",
+            "generation": 1,
+            "channel": "private-cli-channel",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "recover",
+            "before": "revoked",
+            "after": "ready",
+            "generation": 2,
+            "channel": "private-cli-channel",
+            "prompt": "authority-revalidated"
+          }
+        ]
+      }
+    ],
+    "restartSequence": {
+      "controlled": true,
+      "issued": {
+        "generation": 1,
+        "scope": "privileged"
+      },
+      "before": {
+        "decision": {
+          "allow": true,
+          "reason": "current-generation"
+        },
+        "rootCalls": 1
+      },
+      "restart": {
+        "generation": 2,
+        "invalidated": [
+          "job-1"
+        ]
+      },
+      "stale": {
+        "decision": {
+          "allow": false,
+          "reason": "stale-generation"
+        },
+        "rootCalls": 0
+      },
+      "missing": {
+        "decision": {
+          "allow": false,
+          "reason": "missing-after-restart"
+        },
+        "rootCalls": 0
+      },
+      "after": {
+        "handle": {
+          "generation": 2,
+          "scope": "privileged"
+        },
+        "decision": {
+          "allow": true,
+          "reason": "current-generation"
+        },
+        "rootCalls": 1
+      }
+    },
+    "fidelity": "disposable-lifecycle-state-machine",
+    "gateAssessment": "not-reviewed"
+  }
+]

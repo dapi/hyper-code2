@@ -2,8 +2,15 @@
 // Bootstrap: ctx.fns is empty when this runs, so we import project/scan
 // directly to do the first sweep. After that all other code (genTypes,
 // repl.load, etc.) can use ctx.fns.project.scan normally.
+import { realpath, stat } from 'node:fs/promises';
+import { resolve } from 'node:path';
+
+const FUNCTION_SOURCE_IDENTITY = Symbol.for('hyper-code2.function-source.loaded-function');
+const FUNCTION_SOURCE_PATH = Symbol.for('hyper-code2.function-source.loaded-physical-path');
+
 export default async function (ctx: Context): Promise<void> {
-    const { default: scan } = await import("./project/scan?t=" + Date.now());
+    const scan = ctx.fns.project?.scan
+        ?? (await import("./project/scan?load=" + crypto.randomUUID())).default;
     const entries = await scan(ctx);
 
     // Settings registry — populated alongside fns so it's ready by the time
@@ -12,7 +19,7 @@ export default async function (ctx: Context): Promise<void> {
 
     for (const entry of entries) {
         if (entry.kind === 'setting') {
-            const mod = await import(entry.abs + `?t=${Date.now()}`);
+            const mod = await import(entry.abs + `?load=${crypto.randomUUID()}`);
             const descriptor = mod.default;
             if (!descriptor || typeof descriptor !== 'object') {
                 console.warn(`[settings] skip (no default-export descriptor): ${entry.root}/${entry.rel}`);
@@ -25,11 +32,22 @@ export default async function (ctx: Context): Promise<void> {
         }
 
         if (entry.kind !== 'fn') continue;
-        const mod = await import(entry.abs + `?t=${Date.now()}`);
+        const sourcePath = await realpath(resolve(entry.abs));
+        const sourceBefore = await sourceVersion(sourcePath);
+        const loadedHash = await sha256(sourcePath);
+        const mod = await import(sourcePath + `?load=${crypto.randomUUID()}`);
         const fn = mod.default;
         if (typeof fn !== 'function') continue;
+        const currentHash = await sha256(sourcePath);
+        const sourceAfter = await sourceVersion(sourcePath);
+        if (currentHash !== loadedHash || sourceAfter !== sourceBefore) {
+            throw new Error(`${entry.root}/${entry.rel}: source changed while loading`);
+        }
         const fnName = entry.runtimeName;
         const label = entry.root;
+        const qualifiedName = entry.moduleDir === '.'
+            ? fnName
+            : `${entry.moduleDir.replaceAll('/', '.')}.${fnName}`;
         if (entry.moduleDir === '.') {
             (ctx as any)[fnName] = fn;
             console.log(`[fns] ctx.${fnName}  ←  ${label}/${entry.rel}`);
@@ -43,5 +61,53 @@ export default async function (ctx: Context): Promise<void> {
             target[fnName] = fn;
             console.log(`[fns] ctx.fns.${segments.join('.')}.${fnName}  ←  ${label}/${entry.rel}`);
         }
+        recordSource(ctx, qualifiedName, entry, sourcePath, loadedHash, fn);
     }
+}
+
+function recordSource(
+    ctx: Context,
+    name: string,
+    entry: any,
+    sourcePath: string,
+    loadedHash: string,
+    fn: Function,
+) {
+    const state = ((ctx as any).state ??= {});
+    const registry = (state.functionSources ??= {});
+    const generation = (state.functionSourceGeneration ?? 0) + 1;
+    state.functionSourceGeneration = generation;
+    const receipt = {
+        name,
+        root: entry.root,
+        rel: entry.rel,
+        loadedHash,
+        loadedAt: new Date().toISOString(),
+        generation,
+    };
+    Object.defineProperties(receipt, {
+        [FUNCTION_SOURCE_IDENTITY]: {
+            value: fn,
+            enumerable: false,
+            writable: false,
+            configurable: false,
+        },
+        [FUNCTION_SOURCE_PATH]: {
+            value: sourcePath,
+            enumerable: false,
+            writable: false,
+            configurable: false,
+        },
+    });
+    registry[name] = receipt;
+}
+
+async function sha256(path: string) {
+    const digest = await crypto.subtle.digest('SHA-256', await Bun.file(path).arrayBuffer());
+    return [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, '0')).join('');
+}
+
+async function sourceVersion(path: string) {
+    const info = await stat(path, { bigint: true });
+    return [info.dev, info.ino, info.size, info.mtimeNs, info.ctimeNs].join(':');
 }

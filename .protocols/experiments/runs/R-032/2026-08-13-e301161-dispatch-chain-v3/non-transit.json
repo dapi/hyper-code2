@@ -1,0 +1,369 @@
+{
+  "declaredTransforms": [
+    "raw",
+    "base64",
+    "hex",
+    "url",
+    "reverse"
+  ],
+  "sentinelDigest": "2a832ca7ff8b986237ecefd17ec074a5a328a467e88bcf6a29c0a37391e0475e",
+  "rawStored": false,
+  "candidateResults": [
+    {
+      "adapter": "CAN-01",
+      "rawInjectedAtRequest": true,
+      "sinks": {
+        "log": {
+          "detections": []
+        },
+        "render": {
+          "detections": []
+        },
+        "transcript": {
+          "detections": []
+        },
+        "result": {
+          "detections": []
+        },
+        "modelInput": {
+          "detections": []
+        },
+        "persistence": {
+          "detections": []
+        }
+      },
+      "allClear": true
+    },
+    {
+      "adapter": "CAN-02",
+      "rawInjectedAtRequest": true,
+      "sinks": {
+        "log": {
+          "detections": []
+        },
+        "render": {
+          "detections": []
+        },
+        "transcript": {
+          "detections": []
+        },
+        "result": {
+          "detections": []
+        },
+        "modelInput": {
+          "detections": []
+        },
+        "persistence": {
+          "detections": []
+        }
+      },
+      "allClear": true
+    },
+    {
+      "adapter": "CAN-03",
+      "rawInjectedAtRequest": true,
+      "sinks": {
+        "log": {
+          "detections": []
+        },
+        "render": {
+          "detections": []
+        },
+        "transcript": {
+          "detections": []
+        },
+        "result": {
+          "detections": []
+        },
+        "modelInput": {
+          "detections": []
+        },
+        "persistence": {
+          "detections": []
+        }
+      },
+      "allClear": true
+    },
+    {
+      "adapter": "CAN-04",
+      "rawInjectedAtRequest": true,
+      "sinks": {
+        "log": {
+          "detections": []
+        },
+        "render": {
+          "detections": []
+        },
+        "transcript": {
+          "detections": []
+        },
+        "result": {
+          "detections": []
+        },
+        "modelInput": {
+          "detections": []
+        },
+        "persistence": {
+          "detections": []
+        }
+      },
+      "allClear": true
+    },
+    {
+      "adapter": "CAN-05",
+      "rawInjectedAtRequest": true,
+      "sinks": {
+        "log": {
+          "detections": []
+        },
+        "render": {
+          "detections": []
+        },
+        "transcript": {
+          "detections": []
+        },
+        "result": {
+          "detections": []
+        },
+        "modelInput": {
+          "detections": []
+        },
+        "persistence": {
+          "detections": []
+        }
+      },
+      "allClear": true
+    },
+    {
+      "adapter": "CAN-06",
+      "rawInjectedAtRequest": true,
+      "sinks": {
+        "log": {
+          "detections": []
+        },
+        "render": {
+          "detections": []
+        },
+        "transcript": {
+          "detections": []
+        },
+        "result": {
+          "detections": []
+        },
+        "modelInput": {
+          "detections": []
+        },
+        "persistence": {
+          "detections": []
+        }
+      },
+      "allClear": true
+    },
+    {
+      "adapter": "COM-01",
+      "rawInjectedAtRequest": true,
+      "sinks": {
+        "log": {
+          "detections": []
+        },
+        "render": {
+          "detections": []
+        },
+        "transcript": {
+          "detections": []
+        },
+        "result": {
+          "detections": []
+        },
+        "modelInput": {
+          "detections": []
+        },
+        "persistence": {
+          "detections": []
+        }
+      },
+      "allClear": true
+    },
+    {
+      "adapter": "COM-02",
+      "rawInjectedAtRequest": true,
+      "sinks": {
+        "log": {
+          "detections": []
+        },
+        "render": {
+          "detections": []
+        },
+        "transcript": {
+          "detections": []
+        },
+        "result": {
+          "detections": []
+        },
+        "modelInput": {
+          "detections": []
+        },
+        "persistence": {
+          "detections": []
+        }
+      },
+      "allClear": true
+    },
+    {
+      "adapter": "COM-03",
+      "rawInjectedAtRequest": true,
+      "sinks": {
+        "log": {
+          "detections": []
+        },
+        "render": {
+          "detections": []
+        },
+        "transcript": {
+          "detections": []
+        },
+        "result": {
+          "detections": []
+        },
+        "modelInput": {
+          "detections": []
+        },
+        "persistence": {
+          "detections": []
+        }
+      },
+      "allClear": true
+    }
+  ],
+  "positiveControl": {
+    "path": "per-transform-six-sink-controls",
+    "controls": {
+      "raw": {
+        "path": "deliberate-raw-leak",
+        "detections": {
+          "log": [
+            "raw"
+          ],
+          "render": [
+            "raw"
+          ],
+          "transcript": [
+            "raw"
+          ],
+          "result": [
+            "raw"
+          ],
+          "modelInput": [
+            "raw"
+          ],
+          "persistence": [
+            "raw"
+          ]
+        },
+        "detected": true
+      },
+      "base64": {
+        "path": "deliberate-base64-leak",
+        "detections": {
+          "log": [
+            "base64"
+          ],
+          "render": [
+            "base64"
+          ],
+          "transcript": [
+            "base64"
+          ],
+          "result": [
+            "base64"
+          ],
+          "modelInput": [
+            "base64"
+          ],
+          "persistence": [
+            "base64"
+          ]
+        },
+        "detected": true
+      },
+      "hex": {
+        "path": "deliberate-hex-leak",
+        "detections": {
+          "log": [
+            "hex"
+          ],
+          "render": [
+            "hex"
+          ],
+          "transcript": [
+            "hex"
+          ],
+          "result": [
+            "hex"
+          ],
+          "modelInput": [
+            "hex"
+          ],
+          "persistence": [
+            "hex"
+          ]
+        },
+        "detected": true
+      },
+      "url": {
+        "path": "deliberate-url-leak",
+        "detections": {
+          "log": [
+            "url"
+          ],
+          "render": [
+            "url"
+          ],
+          "transcript": [
+            "url"
+          ],
+          "result": [
+            "url"
+          ],
+          "modelInput": [
+            "url"
+          ],
+          "persistence": [
+            "url"
+          ]
+        },
+        "detected": true
+      },
+      "reverse": {
+        "path": "deliberate-reverse-leak",
+        "detections": {
+          "log": [
+            "reverse"
+          ],
+          "render": [
+            "reverse"
+          ],
+          "transcript": [
+            "reverse"
+          ],
+          "result": [
+            "reverse"
+          ],
+          "modelInput": [
+            "reverse"
+          ],
+          "persistence": [
+            "reverse"
+          ]
+        },
+        "detected": true
+      }
+    },
+    "detected": true
+  },
+  "negativeControl": {
+    "path": "digest-only",
+    "detections": [],
+    "detected": false
+  }
+}

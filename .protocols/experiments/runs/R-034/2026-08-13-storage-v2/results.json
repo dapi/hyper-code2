@@ -1,0 +1,229 @@
+{
+  "carrier": "R-034 storage-v2",
+  "generatedAt": "2026-08-13",
+  "results": [
+    {
+      "candidate": "immutable_revision",
+      "checks": {
+        "rootAndMidFork": true,
+        "fullSiblingFork": true,
+        "parentMutationIsolation": true,
+        "childMutationAndSiblingIsolation": true,
+        "nestedFork": true,
+        "closeReopen": true
+      },
+      "digests": {
+        "root": "0cb8060231d51f3c4f51b34d44fd106e7d937ac9aeff1598b0a37c46cb37e5d9",
+        "mid": "ed79404aefc2540f7fa663293604696d4d9e5f20d035d4baaf8287d51978bef3",
+        "sibling": "2eedd41d04171606d3640d957720ad9cdb08b04ce2d49271f13781875c61a7fc",
+        "nested": "e9ffcb005ffb5f4922501a413fb259063c115b08b0bd7fe9ddf736a08e755338"
+      },
+      "schema": {
+        "tables": [
+          "agents",
+          "revision_entries",
+          "revisions",
+          "versions"
+        ],
+        "indexes": [
+          "rev_agent",
+          "revision_version",
+          "version_logical"
+        ],
+        "counts": {
+          "agents": 4,
+          "revision_entries": 77,
+          "revisions": 23,
+          "versions": 13
+        },
+        "sqliteBytes": 40960,
+        "integrity": [
+          "ok"
+        ]
+      }
+    },
+    {
+      "candidate": "materialized_refs",
+      "checks": {
+        "rootAndMidFork": true,
+        "fullSiblingFork": true,
+        "parentMutationIsolation": true,
+        "childMutationAndSiblingIsolation": true,
+        "nestedFork": true,
+        "closeReopen": true
+      },
+      "digests": {
+        "root": "0cb8060231d51f3c4f51b34d44fd106e7d937ac9aeff1598b0a37c46cb37e5d9",
+        "mid": "ed79404aefc2540f7fa663293604696d4d9e5f20d035d4baaf8287d51978bef3",
+        "sibling": "2eedd41d04171606d3640d957720ad9cdb08b04ce2d49271f13781875c61a7fc",
+        "nested": "e9ffcb005ffb5f4922501a413fb259063c115b08b0bd7fe9ddf736a08e755338"
+      },
+      "schema": {
+        "tables": [
+          "agents",
+          "inherited_refs",
+          "local_refs",
+          "versions"
+        ],
+        "indexes": [
+          "inherited_version",
+          "local_version",
+          "version_logical"
+        ],
+        "counts": {
+          "agents": 4,
+          "inherited_refs": 15,
+          "local_refs": 8,
+          "versions": 60
+        },
+        "sqliteBytes": 45056,
+        "integrity": [
+          "ok"
+        ]
+      }
+    },
+    {
+      "candidate": "event_cutoff",
+      "checks": {
+        "rootAndMidFork": true,
+        "fullSiblingFork": true,
+        "parentMutationIsolation": true,
+        "childMutationAndSiblingIsolation": true,
+        "nestedFork": true,
+        "closeReopen": true
+      },
+      "digests": {
+        "root": "0cb8060231d51f3c4f51b34d44fd106e7d937ac9aeff1598b0a37c46cb37e5d9",
+        "mid": "ed79404aefc2540f7fa663293604696d4d9e5f20d035d4baaf8287d51978bef3",
+        "sibling": "2eedd41d04171606d3640d957720ad9cdb08b04ce2d49271f13781875c61a7fc",
+        "nested": "e9ffcb005ffb5f4922501a413fb259063c115b08b0bd7fe9ddf736a08e755338"
+      },
+      "schema": {
+        "tables": [
+          "agents",
+          "events",
+          "versions"
+        ],
+        "indexes": [
+          "event_parent",
+          "event_version"
+        ],
+        "counts": {
+          "agents": 4,
+          "events": 16,
+          "versions": 14
+        },
+        "sqliteBytes": 32768,
+        "integrity": [
+          "ok"
+        ]
+      }
+    },
+    {
+      "candidate": "cow_segments",
+      "checks": {
+        "rootAndMidFork": true,
+        "fullSiblingFork": true,
+        "parentMutationIsolation": true,
+        "childMutationAndSiblingIsolation": true,
+        "nestedFork": true,
+        "closeReopen": true
+      },
+      "digests": {
+        "root": "0cb8060231d51f3c4f51b34d44fd106e7d937ac9aeff1598b0a37c46cb37e5d9",
+        "mid": "ed79404aefc2540f7fa663293604696d4d9e5f20d035d4baaf8287d51978bef3",
+        "sibling": "2eedd41d04171606d3640d957720ad9cdb08b04ce2d49271f13781875c61a7fc",
+        "nested": "e9ffcb005ffb5f4922501a413fb259063c115b08b0bd7fe9ddf736a08e755338"
+      },
+      "schema": {
+        "tables": [
+          "agents",
+          "root_entries",
+          "roots",
+          "versions"
+        ],
+        "indexes": [
+          "root_version"
+        ],
+        "counts": {
+          "agents": 4,
+          "root_entries": 77,
+          "roots": 23,
+          "versions": 13
+        },
+        "sqliteBytes": 32768,
+        "integrity": [
+          "ok"
+        ]
+      }
+    },
+    {
+      "candidate": "full_copy_control",
+      "checks": {
+        "rootAndMidFork": true,
+        "fullSiblingFork": true,
+        "parentMutationIsolation": true,
+        "childMutationAndSiblingIsolation": true,
+        "nestedFork": true,
+        "closeReopen": true
+      },
+      "digests": {
+        "root": "0cb8060231d51f3c4f51b34d44fd106e7d937ac9aeff1598b0a37c46cb37e5d9",
+        "mid": "ed79404aefc2540f7fa663293604696d4d9e5f20d035d4baaf8287d51978bef3",
+        "sibling": "2eedd41d04171606d3640d957720ad9cdb08b04ce2d49271f13781875c61a7fc",
+        "nested": "e9ffcb005ffb5f4922501a413fb259063c115b08b0bd7fe9ddf736a08e755338"
+      },
+      "schema": {
+        "tables": [
+          "agents",
+          "messages"
+        ],
+        "indexes": [
+          "control_parent"
+        ],
+        "counts": {
+          "agents": 4,
+          "messages": 23
+        },
+        "sqliteBytes": 24576,
+        "integrity": [
+          "ok"
+        ]
+      }
+    },
+    {
+      "candidate": "live_parent_control",
+      "checks": {
+        "rootAndMidFork": true,
+        "fullSiblingFork": true,
+        "parentMutationIsolation": false,
+        "childMutationAndSiblingIsolation": false,
+        "nestedFork": false,
+        "closeReopen": true
+      },
+      "digests": {
+        "root": "0cb8060231d51f3c4f51b34d44fd106e7d937ac9aeff1598b0a37c46cb37e5d9",
+        "mid": "e35c0e6f15526e3ba81f28e7a1c4375adcb5433d9816e83c3b09f6edd264ccfd",
+        "sibling": "0cb8060231d51f3c4f51b34d44fd106e7d937ac9aeff1598b0a37c46cb37e5d9",
+        "nested": "b5fc55ac8bc7afea5dde36ff6301521073b621ad9d77418c9189a9028d152ce7"
+      },
+      "schema": {
+        "tables": [
+          "agents",
+          "messages"
+        ],
+        "indexes": [
+          "control_parent"
+        ],
+        "counts": {
+          "agents": 4,
+          "messages": 8
+        },
+        "sqliteBytes": 24576,
+        "integrity": [
+          "ok"
+        ]
+      }
+    }
+  ]
+}

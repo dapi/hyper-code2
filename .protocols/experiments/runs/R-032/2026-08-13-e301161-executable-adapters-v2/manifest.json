@@ -1,0 +1,80 @@
+{
+  "classification": "bounded-executed-representative-subset",
+  "adapters": [
+    {
+      "id": "CAN-01",
+      "label": "loopback",
+      "residual": "single-process-root"
+    },
+    {
+      "id": "CAN-02",
+      "label": "unix",
+      "residual": "single-process-root"
+    },
+    {
+      "id": "CAN-03",
+      "label": "identity-policy",
+      "residual": "single-process-root"
+    },
+    {
+      "id": "CAN-04",
+      "label": "capability",
+      "residual": "single-process-root"
+    },
+    {
+      "id": "CAN-05",
+      "label": "route-separation",
+      "residual": "partitioned-single-process-root"
+    },
+    {
+      "id": "CAN-06",
+      "label": "broker",
+      "residual": "stub-broker-root"
+    },
+    {
+      "id": "COM-01",
+      "label": "loopback-identity",
+      "residual": "single-process-root"
+    },
+    {
+      "id": "COM-02",
+      "label": "unix-capability",
+      "residual": "single-process-root"
+    },
+    {
+      "id": "COM-03",
+      "label": "layered",
+      "residual": "stub-broker-root"
+    }
+  ],
+  "routes": [
+    {
+      "id": "committed-ordinary",
+      "authority": "ordinary"
+    },
+    {
+      "id": "committed-privileged",
+      "authority": "privileged"
+    },
+    {
+      "id": "late-unclassified",
+      "authority": "unclassified"
+    },
+    {
+      "id": "overlay-override",
+      "authority": "privileged",
+      "overlay": true
+    }
+  ],
+  "cellsPerAdapter": 19,
+  "axes": [
+    "immediate",
+    "deferred",
+    "route-lifecycle",
+    "failure",
+    "local-ux",
+    "non-transit"
+  ],
+  "notFullMatrix": true,
+  "fullContractModelCarrier": "../2026-08-13-e301161-authority-contract-v1/README.md"
+}

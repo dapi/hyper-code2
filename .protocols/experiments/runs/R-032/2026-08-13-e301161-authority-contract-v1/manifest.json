@@ -1,0 +1,177 @@
+{
+  "frozenAt": "2026-08-13",
+  "candidates": [
+    {
+      "id": "CAN-01",
+      "label": "loopback default",
+      "locality": "loopback",
+      "authority": "none",
+      "routeSeparation": false,
+      "broker": false,
+      "browserBridge": false,
+      "fidelity": "Bind behavior is modeled only; no interface was opened or probed."
+    },
+    {
+      "id": "CAN-02",
+      "label": "Unix-domain transport",
+      "locality": "unix",
+      "authority": "none",
+      "routeSeparation": false,
+      "broker": false,
+      "browserBridge": true,
+      "fidelity": "Filesystem ownership, peer metadata, kernel enforcement and browser bridging are modeled assumptions."
+    },
+    {
+      "id": "CAN-03",
+      "label": "authentication plus authorization",
+      "locality": "unrestricted",
+      "authority": "identity-policy",
+      "routeSeparation": false,
+      "broker": false,
+      "browserBridge": false,
+      "fidelity": "Synthetic identity verifier and policy only; no external identity provider."
+    },
+    {
+      "id": "CAN-04",
+      "label": "scoped capability",
+      "locality": "unrestricted",
+      "authority": "capability",
+      "routeSeparation": false,
+      "broker": false,
+      "browserBridge": false,
+      "fidelity": "Opaque in-memory labels model capability lifecycle; cryptography is not evaluated."
+    },
+    {
+      "id": "CAN-05",
+      "label": "route separation",
+      "locality": "unrestricted",
+      "authority": "none",
+      "routeSeparation": true,
+      "broker": false,
+      "browserBridge": false,
+      "fidelity": "Route partitions are in-process data structures; separation does not identify callers."
+    },
+    {
+      "id": "CAN-06",
+      "label": "process separation",
+      "locality": "unrestricted",
+      "authority": "none",
+      "routeSeparation": false,
+      "broker": true,
+      "browserBridge": false,
+      "fidelity": "Broker/worker is an in-process adapter; OS confinement and IPC behavior are not established."
+    },
+    {
+      "id": "COM-01",
+      "label": "loopback plus authentication/authorization",
+      "locality": "loopback",
+      "authority": "identity-policy",
+      "routeSeparation": false,
+      "broker": false,
+      "browserBridge": false,
+      "fidelity": "Locality and identity policy are modeled; no network or external identity provider."
+    },
+    {
+      "id": "COM-02",
+      "label": "Unix-domain transport plus capability",
+      "locality": "unix",
+      "authority": "capability",
+      "routeSeparation": false,
+      "broker": false,
+      "browserBridge": true,
+      "fidelity": "Transport and capability cryptography are modeled, not kernel- or provider-validated."
+    },
+    {
+      "id": "COM-03",
+      "label": "loopback plus authz, route separation and broker",
+      "locality": "loopback",
+      "authority": "identity-policy",
+      "routeSeparation": true,
+      "broker": true,
+      "browserBridge": false,
+      "fidelity": "All boundaries are disposable in-process adapters; OS isolation is not established."
+    }
+  ],
+  "excludedCombinations": "All non-COM-01..03 combinations remain excluded by the approved plan; none were added during collection.",
+  "axes": [
+    "reachability",
+    "immediate",
+    "deferred",
+    "route-lifecycle",
+    "local-ux",
+    "failure",
+    "non-transit"
+  ],
+  "callerStates": [
+    "missing",
+    "malformed",
+    "invalid",
+    "valid-insufficient",
+    "valid-sufficient",
+    "expired",
+    "revoked",
+    "replayed"
+  ],
+  "routeLifecycle": [
+    "committed",
+    "late-registration",
+    "unclassified",
+    "overlay-override"
+  ],
+  "clientKinds": [
+    "browser",
+    "cli-tui"
+  ],
+  "clientPhases": [
+    "start",
+    "reconnect",
+    "expiry",
+    "revocation",
+    "recovery"
+  ],
+  "failureKinds": [
+    "stale-state",
+    "verifier-broker-unavailable",
+    "policy-parse-failure",
+    "restart"
+  ],
+  "reachabilityCases": [
+    "default-locality",
+    "explicit-non-local-request",
+    "peer-address-metadata",
+    "recovery"
+  ],
+  "deferredCases": [
+    "later-valid",
+    "later-expired",
+    "later-revoked",
+    "missing-propagation",
+    "reduced-scope",
+    "replay"
+  ],
+  "sinks": [
+    "ordinary-log",
+    "rendered-html",
+    "durable-transcript",
+    "action-result",
+    "model-input",
+    "persistence"
+  ],
+  "caseCountPerCandidate": 407,
+  "scoringRubric": {
+    "rule": "No aggregate preference score and no mechanism selection. Hard gates are reported independently; trade-offs remain descriptive.",
+    "criteria": [
+      "coverage strength",
+      "least-authority precision",
+      "trusted-local friction",
+      "implementation surface",
+      "operational/recovery burden",
+      "migration compatibility",
+      "observability/auditability",
+      "testability",
+      "residual reachability risk",
+      "residual caller risk",
+      "residual process risk"
+    ]
+  }
+}

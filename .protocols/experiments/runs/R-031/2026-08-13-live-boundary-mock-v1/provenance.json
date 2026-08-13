@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "runId": "2026-08-13-live-boundary-mock-v1",
+  "date": "2026-08-13",
+  "head": "e301161a70ca685feedfaa5bfba0d3580c73e3f7",
+  "bunVersion": "1.3.14",
+  "platform": "darwin-arm64",
+  "instrumentSha256": {
+    "r031-live-boundary-lib.ts": "7c56eb5629c61da6c5e1133c4a140c1a8669d8b1f271531f097b7839f1284965",
+    "r031-live-boundary-child.ts": "f0dc113b212abb23f1a81a7ac1a684403b82c64abd99c1d87a45d2587060164b",
+    "r031-live-boundary-broker.ts": "8828b3f972081c57b6118d5adcedbb3043a3627be6ed12c4107978a94dd9b5c3",
+    "r031-live-boundary-runner.ts": "71f1d9f66f883e4df468f6f3d5f2d5d300eb1c39489f03000b818b0331996b29"
+  },
+  "sandboxProfileTemplateSha256": "67aa1edff84bbe5596b77c4d9ac3093d2c4cfa061a0ae5ac72bd70582f49bf33",
+  "sourceDiff": [],
+  "sanitizedCarrier": true
+}

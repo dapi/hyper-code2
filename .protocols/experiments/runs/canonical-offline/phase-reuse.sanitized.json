@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 2,
+  "phase": "reuse",
+  "mode": "mock",
+  "pid": 50399,
+  "error": null,
+  "llmCalls": 2,
+  "messages": [
+    {
+      "role": "user",
+      "content": "In this new process, discover and use the retained callable for ['Enterprise', ' enterprise ', 'Customer Success', 'customer-success']. Return only JSON with tags, csv and count. Do not create another capability."
+    },
+    {
+      "role": "assistant",
+      "content": "§eval\nconst tags = await ctx.fns.text.dedupeTags(ctx, { values: [\"Enterprise\", \" enterprise \", \"Customer Success\", \"customer-success\"] }); console.log(JSON.stringify({ tags, csv: tags.join(\",\"), count: tags.length }));"
+    },
+    {
+      "role": "user",
+      "content": "§result:eval\n{\"tags\":[\"enterprise\",\"customer-success\"],\"csv\":\"enterprise,customer-success\",\"count\":2}"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"tags\":[\"enterprise\",\"customer-success\"],\"csv\":\"enterprise,customer-success\",\"count\":2}"
+    }
+  ],
+  "events": [
+    {
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "text": "In this new process, discover and use the retained callable for ['Enterprise', ' enterprise ', 'Customer Success', 'customer-success']. Return only JSON with tags, csv and count. Do not create another capability.",
+        "messageIdx": 0,
+        "html": "<div class=\"group relative flex justify-end\"><div class=\"absolute right-2 top-2 opacity-0 group-hover:opacity-100 transition-opacity flex gap-1\"><button type=\"button\" hx-post=\"/agent/a/messages/delete\" hx-vals='{\"idx\":\"0\",\"mode\":\"one\"}' hx-confirm=\"delete this message?\" hx-on::after-request=\"if (event.detail.successful) location.reload();\" class=\"text-[10px] px-1.5 py-0.5 rounded border border-gray-300 bg-white text-gray-600 shadow-sm hover:bg-gray-50\">delete</button><button type=\"button\" hx-post=\"/agent/a/messages/delete\" hx-vals='{\"idx\":\"0\",\"mode\":\"from\"}' hx-confirm=\"delete this and everything after?\" hx-on::after-request=\"if (event.detail.successful) location.reload();\" class=\"text-[10px] px-1.5 py-0.5 rounded border border-gray-300 bg-white text-gray-600 shadow-sm hover:bg-gray-50\">from here</button></div><div class=\"ml-auto max-w-[80%] rounded-2xl bg-gray-900 px-4 py-3 text-white whitespace-pre-wrap break-words shadow-sm\">In this new process, discover and use the retained callable for [&#39;Enterprise&#39;, &#39; enterprise &#39;, &#39;Customer Success&#39;, &#39;customer-success&#39;]. Return only JSON with tags, csv and count. Do not create another capability.</div></div>"
+      }
+    },
+    {
+      "type": "tool_call",
+      "payload": {
+        "type": "tool_call",
+        "name": "eval",
+        "args": {
+          "code": "const tags = await ctx.fns.text.dedupeTags(ctx, { values: [\"Enterprise\", \" enterprise \", \"Customer Success\", \"customer-success\"] }); console.log(JSON.stringify({ tags, csv: tags.join(\",\"), count: tags.length }));"
+        },
+        "result": "{\"tags\":[\"enterprise\",\"customer-success\"],\"csv\":\"enterprise,customer-success\",\"count\":2}",
+        "argsHtml": "<pre class=\"shiki github-light\" style=\"background-color:#fff;color:#24292e\" tabindex=\"0\"><code><span class=\"line\"><span style=\"color:#D73A49\">const</span><span style=\"color:#005CC5\"> tags</span><span style=\"color:#D73A49\"> =</span><span style=\"color:#D73A49\"> await</span><span style=\"color:#24292E\"> ctx.fns.text.</span><span style=\"color:#6F42C1\">dedupeTags</span><span style=\"color:#24292E\">(ctx, { values: [</span><span style=\"color:#032F62\">\"Enterprise\"</span><span style=\"color:#24292E\">, </span><span style=\"color:#032F62\">\" enterprise \"</span><span style=\"color:#24292E\">, </span><span style=\"color:#032F62\">\"Customer Success\"</span><span style=\"color:#24292E\">, </span><span style=\"color:#032F62\">\"customer-success\"</span><span style=\"color:#24292E\">] }); console.</span><span style=\"color:#6F42C1\">log</span><span style=\"color:#24292E\">(</span><span style=\"color:#005CC5\">JSON</span><span style=\"color:#24292E\">.</span><span style=\"color:#6F42C1\">stringify</span><span style=\"color:#24292E\">({ tags, csv: tags.</span><span style=\"color:#6F42C1\">join</span><span style=\"color:#24292E\">(</span><span style=\"color:#032F62\">\",\"</span><span style=\"color:#24292E\">), count: tags.</span><span style=\"color:#005CC5\">length</span><span style=\"color:#24292E\"> }));</span></span></code></pre>",
+        "resultHtml": "<pre class=\"shiki github-light\" style=\"background-color:#fff;color:#24292e\" tabindex=\"0\"><code><span class=\"line\"><span style=\"color:#24292E\">{</span></span>\n<span class=\"line\"><span style=\"color:#005CC5\">  \"tags\"</span><span style=\"color:#24292E\">: [</span></span>\n<span class=\"line\"><span style=\"color:#032F62\">    \"enterprise\"</span><span style=\"color:#24292E\">,</span></span>\n<span class=\"line\"><span style=\"color:#032F62\">    \"customer-success\"</span></span>\n<span class=\"line\"><span style=\"color:#24292E\">  ],</span></span>\n<span class=\"line\"><span style=\"color:#005CC5\">  \"csv\"</span><span style=\"color:#24292E\">: </span><span style=\"color:#032F62\">\"enterprise,customer-success\"</span><span style=\"color:#24292E\">,</span></span>\n<span class=\"line\"><span style=\"color:#005CC5\">  \"count\"</span><span style=\"color:#24292E\">: </span><span style=\"color:#005CC5\">2</span></span>\n<span class=\"line\"><span style=\"color:#24292E\">}</span></span></code></pre>",
+        "isError": false,
+        "messageIdx": 1,
+        "html": "<details class=\"tool border border-gray-200 rounded-xl overflow-hidden text-xs leading-snug bg-white shadow-sm \"><summary class=\"cursor-pointer select-none flex items-center justify-between gap-3 px-4 py-2.5 bg-gray-50 border-b border-gray-200\"><span class=\"font-mono font-semibold text-gray-800\">§eval</span><span class=\"text-gray-500 font-mono\">args 212c · result 88c · <span class=\"text-green-700\">ok</span></span></summary><div class=\"bg-white px-4 py-3 tool-code\"><pre class=\"shiki github-light\" style=\"background-color:#fff;color:#24292e\" tabindex=\"0\"><code><span class=\"line\"><span style=\"color:#D73A49\">const</span><span style=\"color:#005CC5\"> tags</span><span style=\"color:#D73A49\"> =</span><span style=\"color:#D73A49\"> await</span><span style=\"color:#24292E\"> ctx.fns.text.</span><span style=\"color:#6F42C1\">dedupeTags</span><span style=\"color:#24292E\">(ctx, { values: [</span><span style=\"color:#032F62\">\"Enterprise\"</span><span style=\"color:#24292E\">, </span><span style=\"color:#032F62\">\" enterprise \"</span><span style=\"color:#24292E\">, </span><span style=\"color:#032F62\">\"Customer Success\"</span><span style=\"color:#24292E\">, </span><span style=\"color:#032F62\">\"customer-success\"</span><span style=\"color:#24292E\">] }); console.</span><span style=\"color:#6F42C1\">log</span><span style=\"color:#24292E\">(</span><span style=\"color:#005CC5\">JSON</span><span style=\"color:#24292E\">.</span><span style=\"color:#6F42C1\">stringify</span><span style=\"color:#24292E\">({ tags, csv: tags.</span><span style=\"color:#6F42C1\">join</span><span style=\"color:#24292E\">(</span><span style=\"color:#032F62\">\",\"</span><span style=\"color:#24292E\">), count: tags.</span><span style=\"color:#005CC5\">length</span><span style=\"color:#24292E\"> }));</span></span></code></pre></div><div class=\"bg-gray-50 border-t border-gray-200 px-4 py-3 text-gray-700 tool-result\"><pre class=\"shiki github-light\" style=\"background-color:#fff;color:#24292e\" tabindex=\"0\"><code><span class=\"line\"><span style=\"color:#24292E\">{</span></span>\n<span class=\"line\"><span style=\"color:#005CC5\">  \"tags\"</span><span style=\"color:#24292E\">: [</span></span>\n<span class=\"line\"><span style=\"color:#032F62\">    \"enterprise\"</span><span style=\"color:#24292E\">,</span></span>\n<span class=\"line\"><span style=\"color:#032F62\">    \"customer-success\"</span></span>\n<span class=\"line\"><span style=\"color:#24292E\">  ],</span></span>\n<span class=\"line\"><span style=\"color:#005CC5\">  \"csv\"</span><span style=\"color:#24292E\">: </span><span style=\"color:#032F62\">\"enterprise,customer-success\"</span><span style=\"color:#24292E\">,</span></span>\n<span class=\"line\"><span style=\"color:#005CC5\">  \"count\"</span><span style=\"color:#24292E\">: </span><span style=\"color:#005CC5\">2</span></span>\n<span class=\"line\"><span style=\"color:#24292E\">}</span></span></code></pre></div></details>"
+      }
+    },
+    {
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "text": "{\"tags\":[\"enterprise\",\"customer-success\"],\"csv\":\"enterprise,customer-success\",\"count\":2}",
+        "html": "<p>{&quot;tags&quot;:[&quot;enterprise&quot;,&quot;customer-success&quot;],&quot;csv&quot;:&quot;enterprise,customer-success&quot;,&quot;count&quot;:2}</p>\n",
+        "usage": {
+          "prompt_tokens": 2,
+          "total_tokens": 3
+        },
+        "messageIdx": 3,
+        "eventHtml": "<div class=\"group relative flex justify-start\"><div class=\"absolute right-2 top-2 opacity-0 group-hover:opacity-100 transition-opacity flex gap-1\"><button type=\"button\" hx-post=\"/agent/a/messages/delete\" hx-vals='{\"idx\":\"3\",\"mode\":\"one\"}' hx-confirm=\"delete this message?\" hx-on::after-request=\"if (event.detail.successful) location.reload();\" class=\"text-[10px] px-1.5 py-0.5 rounded border border-gray-300 bg-white text-gray-600 shadow-sm hover:bg-gray-50\">delete</button><button type=\"button\" hx-post=\"/agent/a/messages/delete\" hx-vals='{\"idx\":\"3\",\"mode\":\"from\"}' hx-confirm=\"delete this and everything after?\" hx-on::after-request=\"if (event.detail.successful) location.reload();\" class=\"text-[10px] px-1.5 py-0.5 rounded border border-gray-300 bg-white text-gray-600 shadow-sm hover:bg-gray-50\">from here</button></div><div class=\"assistant max-w-[90%] rounded-2xl bg-gray-50 px-4 py-3 shadow-sm border border-gray-200\"><div class=\"prose prose-sm max-w-none prose-p:my-1 prose-headings:my-2 prose-pre:my-2\"><p>{&quot;tags&quot;:[&quot;enterprise&quot;,&quot;customer-success&quot;],&quot;csv&quot;:&quot;enterprise,customer-success&quot;,&quot;count&quot;:2}</p>\n</div></div></div>"
+      }
+    }
+  ],
+  "observed": {
+    "lastToolResult": {
+      "tags": [
+        "enterprise",
+        "customer-success"
+      ],
+      "csv": "enterprise,customer-success",
+      "count": 2
+    },
+    "finalAnswer": {
+      "tags": [
+        "enterprise",
+        "customer-success"
+      ],
+      "csv": "enterprise,customer-success",
+      "count": 2
+    },
+    "finalAssistant": "{\"tags\":[\"enterprise\",\"customer-success\"],\"csv\":\"enterprise,customer-success\",\"count\":2}",
+    "sentinelLeakDetected": false
+  },
+  "writeAudit": {
+    "scope": "disposable run root only",
+    "changedPaths": [
+      "broker/reuse-01.request.json",
+      "broker/reuse-01.response.json",
+      "broker/reuse-02.request.json",
+      "broker/reuse-02.response.json",
+      "phase-reuse.sqlite",
+      "phase-reuse.sqlite-shm",
+      "phase-reuse.sqlite-wal"
+    ],
+    "limitation": "No claim about writes to arbitrary absolute paths unless the parent reports OS sandbox enforcement."
+  }
+}

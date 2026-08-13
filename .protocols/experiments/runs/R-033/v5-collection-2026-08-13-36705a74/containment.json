@@ -1,0 +1,17 @@
+{
+  "environmentKeys": [
+    "HOME",
+    "LANG",
+    "LC_ALL",
+    "NO_COLOR",
+    "PATH",
+    "TMPDIR"
+  ],
+  "credentialLikeKeys": [],
+  "operatorHomeReadDenied": true,
+  "keychainReadDenied": true,
+  "outsideWriteDenied": true,
+  "listenerDenied": true,
+  "connectDenied": true,
+  "fetchDenied": true
+}

@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "negativeControlPassed": true,
+  "positiveControls": [
+    {
+      "id": "S0",
+      "digests": [
+        "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14"
+      ],
+      "detected": true
+    },
+    {
+      "id": "S1",
+      "digests": [
+        "2c6ed6a11487cc437537c6bf80d189bf8371ab64775d5acac0cf0499088088c5"
+      ],
+      "detected": true
+    },
+    {
+      "id": "S2",
+      "digests": [
+        "d155d063fff8294460864702a80c4887f3017caf4e61cf2faa016e7ddf98671c"
+      ],
+      "detected": true
+    },
+    {
+      "id": "S3",
+      "digests": [
+        "09d9c0a21354ca020d246af9d38dcbd7e06b58eb29630ed60f674655e5f0f3b1"
+      ],
+      "detected": true
+    },
+    {
+      "id": "S4",
+      "digests": [
+        "c30e84cbfbd8533dbd761f0ce286c623b42cba6f5e4a27b2b7b1dec1802c0b46"
+      ],
+      "detected": true
+    },
+    {
+      "id": "S5",
+      "digests": [
+        "ebb0b46815ff87151ac29a1609bc86f6a8228b3190078ed5772607797ff96bca"
+      ],
+      "detected": true
+    },
+    {
+      "id": "S6",
+      "digests": [
+        "a22d6134d4a9b4a6a0cbaffd2be3a0258e93f6823e212cf4a418a96a0fda7fd6"
+      ],
+      "detected": true
+    },
+    {
+      "id": "S7",
+      "digests": [
+        "26956441f40ac5781f8d7fffccd04aaab866fd78c5e32a4b692c965497f7f377"
+      ],
+      "detected": true
+    },
+    {
+      "id": "S8",
+      "digests": [
+        "b5bf926548ad02127d46e6a7e3b107a7b9ed6676c00b73326ac9936998b6758b"
+      ],
+      "detected": true
+    }
+  ],
+  "transportPositiveControl": {
+    "bearerDigestMatched": true,
+    "xApiKeyDigestMatched": true,
+    "rawHeaderRetained": false
+  }
+}

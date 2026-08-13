@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "runId": "20260813-keychain-contained-static-mock-03",
+  "collectedAt": "2026-08-13",
+  "repository": {
+    "commit": "4b96616cffafb19e58b9e233991d5a45c6a4a793",
+    "sourceTreeDiffLines": 0
+  },
+  "instrument": {
+    "runner": "r018-contained-runner.ts@2",
+    "child": "r018-contained-child.ts@2",
+    "bunVersion": "1.3.14",
+    "platform": "darwin-arm64",
+    "sourceSha256": {
+      "r018-contained-runner.ts": "087de24bb92bbda79b38eff4ccb87b86b1497b21da77fc86cfb3d8bb11b5647a",
+      "r018-contained-child.ts": "8b79dc66d9f23029a81405fdcb670a7976e6bfacee6921e55d52a7a51c161c33",
+      "r018-sentinel-lib.ts": "8371ca966a5589df324e1fd72d12fdd1002eedda715bafeb452ae2df31006fd3",
+      "r018-sentinel.test.ts": "132d6b302fba676f5ece6a3264304b16930828298cc214d9364648f7edd85f2d",
+      "r018-sandbox-policy-probe.c": "ecae5e6f7809467596bb4fd870911d6ea81f847cdf87d836047227c4da4f8146"
+    }
+  },
+  "executionBoundary": {
+    "childPid": 18436,
+    "parentPid": 18432,
+    "separateProcess": true,
+    "osSandboxEnforced": true,
+    "sandboxProfileSha256": "3654c77b6be1c3096059fe412d4c35ea76cdcf9f1cf90f0c74598a606ca0173e",
+    "broadMachLookupAllowed": false,
+    "sandboxPolicyProbeCompiledOutsideChild": true,
+    "providerAuthPassedToChild": false,
+    "providerCalls": 0,
+    "disposableHomeAndTmp": true,
+    "stableCarrierSanitizedByParent": true
+  },
+  "order": [
+    "containment.json",
+    "controls.json",
+    "capture.json"
+  ],
+  "stop": {
+    "fired": "STOP-03",
+    "afterCell": "CELL-01",
+    "remainingCellsExecuted": false
+  },
+  "priorCarriers": [
+    "20260813-static-mock-01 retained unchanged",
+    "20260813-os-contained-static-mock-02 retained unchanged"
+  ]
+}

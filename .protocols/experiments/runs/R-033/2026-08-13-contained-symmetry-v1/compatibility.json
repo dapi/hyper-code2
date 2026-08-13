@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "evidenceClassification": "plan-labels-only-not-candidate-evidence",
+  "ratings": [
+    {
+      "candidate": "CAND-01",
+      "rating": "bounded adaptation",
+      "changedContract": "resolveEndpoint returns opaque identity; stream and discovery callers use privileged broker injection",
+      "validationSurface": "all provider transports, refresh lifecycle, discovery and broker availability"
+    },
+    {
+      "candidate": "CAND-02",
+      "rating": "bounded adaptation",
+      "changedContract": "generated root context and callable registry exclude credential sources; separate privileged resolver remains",
+      "validationSurface": "context construction, settings/db/fs/keychain authority and all privileged callers"
+    },
+    {
+      "candidate": "CAND-03",
+      "rating": "bounded adaptation",
+      "changedContract": "typed projections guard agent context and every prohibited sink before write/send",
+      "validationSurface": "projection schemas, classification loss and serialization outcomes"
+    },
+    {
+      "candidate": "CAND-04",
+      "rating": "incompatible",
+      "changedContract": null,
+      "validationSurface": "fails common non-transit contract because direct authority, retry and restart can retain raw values"
+    },
+    {
+      "candidate": "CAND-05",
+      "rating": "bounded adaptation",
+      "changedContract": "composed broker, source exclusion and projection boundaries with redaction as additional sink control",
+      "validationSurface": "component identity/provenance, independent fail-closed behavior and all adapter paths"
+    }
+  ]
+}

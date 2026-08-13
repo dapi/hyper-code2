@@ -1,0 +1,2765 @@
+[
+  {
+    "adapter": "CAN-01",
+    "committedPath": {
+      "loadedEntryCount": 36,
+      "loadedRouteCount": 36,
+      "actualOverrideReplacedHandler": true,
+      "loaderAuthorityPolicyField": false,
+      "exactStop": "committed loadRoutes registers and overwrites handlers but has no authority default/inheritance contract"
+    },
+    "dispatchPath": {
+      "requestedHostname": "0.0.0.0",
+      "requestedPort": 31337,
+      "matchedAndDispatched": true,
+      "handlerCalls": 1,
+      "interceptedCalls": [
+        "Bun.serve:intercepted-no-listener",
+        "Bun.write:intercepted-no-write"
+      ]
+    },
+    "routeCases": [
+      {
+        "routeCase": "committed",
+        "declaredAuthority": "privileged",
+        "inherited": false,
+        "effectivePolicy": "privileged",
+        "missing": {
+          "allow": true,
+          "reason": "ambient-authority-gap"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "ambient-authority-gap"
+        },
+        "handlerReachedMissing": true,
+        "authorityRootReachedMissing": true,
+        "bypassObserved": true
+      },
+      {
+        "routeCase": "late",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "ordinary",
+        "missing": {
+          "allow": true,
+          "reason": "ordinary-or-ambient"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "ordinary-or-ambient"
+        },
+        "handlerReachedMissing": true,
+        "authorityRootReachedMissing": true,
+        "bypassObserved": true
+      },
+      {
+        "routeCase": "unclassified",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "ordinary",
+        "missing": {
+          "allow": true,
+          "reason": "ordinary-or-ambient"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "ordinary-or-ambient"
+        },
+        "handlerReachedMissing": true,
+        "authorityRootReachedMissing": true,
+        "bypassObserved": true
+      },
+      {
+        "routeCase": "override",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "ordinary",
+        "missing": {
+          "allow": true,
+          "reason": "ordinary-or-ambient"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "ordinary-or-ambient"
+        },
+        "handlerReachedMissing": true,
+        "authorityRootReachedMissing": true,
+        "bypassObserved": true
+      }
+    ],
+    "reachability": [
+      {
+        "case": "default-locality",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "default",
+        "modeledExposure": "local-only",
+        "peerMetadata": "synthetic-local-peer",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "explicit-non-local-request",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "non-local",
+        "modeledExposure": "local-only",
+        "peerMetadata": "synthetic-non-local-peer",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "peer-address-metadata",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "peer-observation",
+        "modeledExposure": "local-only",
+        "peerMetadata": "synthetic-address-only",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "recovery",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "recovery",
+        "modeledExposure": "local-only",
+        "peerMetadata": "synthetic-recovered-peer",
+        "recovery": "rebind-modeled-endpoint",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      }
+    ],
+    "clients": [
+      {
+        "kind": "browser",
+        "transitions": [
+          {
+            "event": "start",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry",
+            "caller": "expired",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry-recovery",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation",
+            "caller": "revoked",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation-recovery",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          }
+        ]
+      },
+      {
+        "kind": "cli",
+        "transitions": [
+          {
+            "event": "start",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry",
+            "caller": "expired",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry-recovery",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation",
+            "caller": "revoked",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation-recovery",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          }
+        ]
+      }
+    ],
+    "restart": {
+      "controlled": false,
+      "stale": {
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-gap"
+        },
+        "rootCalls": 1
+      },
+      "missing": {
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-gap"
+        },
+        "rootCalls": 1
+      },
+      "fresh": {
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-gap"
+        },
+        "rootCalls": 1
+      },
+      "retainedAuthority": "single-process authority retained"
+    },
+    "fidelity": "committed-loader-and-dispatch-plus-disposable-policy-adapter",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-02",
+    "committedPath": {
+      "loadedEntryCount": 36,
+      "loadedRouteCount": 36,
+      "actualOverrideReplacedHandler": true,
+      "loaderAuthorityPolicyField": false,
+      "exactStop": "committed loadRoutes registers and overwrites handlers but has no authority default/inheritance contract"
+    },
+    "dispatchPath": {
+      "requestedHostname": "0.0.0.0",
+      "requestedPort": 31337,
+      "matchedAndDispatched": true,
+      "handlerCalls": 1,
+      "interceptedCalls": [
+        "Bun.serve:intercepted-no-listener",
+        "Bun.write:intercepted-no-write"
+      ]
+    },
+    "routeCases": [
+      {
+        "routeCase": "committed",
+        "declaredAuthority": "privileged",
+        "inherited": false,
+        "effectivePolicy": "privileged",
+        "missing": {
+          "allow": true,
+          "reason": "ambient-authority-gap"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "ambient-authority-gap"
+        },
+        "handlerReachedMissing": true,
+        "authorityRootReachedMissing": true,
+        "bypassObserved": true
+      },
+      {
+        "routeCase": "late",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "ordinary",
+        "missing": {
+          "allow": true,
+          "reason": "ordinary-or-ambient"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "ordinary-or-ambient"
+        },
+        "handlerReachedMissing": true,
+        "authorityRootReachedMissing": true,
+        "bypassObserved": true
+      },
+      {
+        "routeCase": "unclassified",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "ordinary",
+        "missing": {
+          "allow": true,
+          "reason": "ordinary-or-ambient"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "ordinary-or-ambient"
+        },
+        "handlerReachedMissing": true,
+        "authorityRootReachedMissing": true,
+        "bypassObserved": true
+      },
+      {
+        "routeCase": "override",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "ordinary",
+        "missing": {
+          "allow": true,
+          "reason": "ordinary-or-ambient"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "ordinary-or-ambient"
+        },
+        "handlerReachedMissing": true,
+        "authorityRootReachedMissing": true,
+        "bypassObserved": true
+      }
+    ],
+    "reachability": [
+      {
+        "case": "default-locality",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "default",
+        "modeledExposure": "filesystem-endpoint",
+        "peerMetadata": "synthetic-local-peer",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "explicit-non-local-request",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "non-local",
+        "modeledExposure": "filesystem-endpoint",
+        "peerMetadata": "synthetic-non-local-peer",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "peer-address-metadata",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "peer-observation",
+        "modeledExposure": "filesystem-endpoint",
+        "peerMetadata": "synthetic-filesystem-owner",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "recovery",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "recovery",
+        "modeledExposure": "filesystem-endpoint",
+        "peerMetadata": "synthetic-recovered-peer",
+        "recovery": "remove-stale-endpoint-and-recreate",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      }
+    ],
+    "clients": [
+      {
+        "kind": "browser",
+        "transitions": [
+          {
+            "event": "start",
+            "caller": "sufficient",
+            "channel": "browser-bridge",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "caller": "sufficient",
+            "channel": "browser-bridge",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry",
+            "caller": "expired",
+            "channel": "browser-bridge",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry-recovery",
+            "caller": "sufficient",
+            "channel": "browser-bridge",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation",
+            "caller": "revoked",
+            "channel": "browser-bridge",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation-recovery",
+            "caller": "sufficient",
+            "channel": "browser-bridge",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          }
+        ]
+      },
+      {
+        "kind": "cli",
+        "transitions": [
+          {
+            "event": "start",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry",
+            "caller": "expired",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry-recovery",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation",
+            "caller": "revoked",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation-recovery",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          }
+        ]
+      }
+    ],
+    "restart": {
+      "controlled": false,
+      "stale": {
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-gap"
+        },
+        "rootCalls": 1
+      },
+      "missing": {
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-gap"
+        },
+        "rootCalls": 1
+      },
+      "fresh": {
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-gap"
+        },
+        "rootCalls": 1
+      },
+      "retainedAuthority": "single-process authority retained; kernel peer semantics untested"
+    },
+    "fidelity": "committed-loader-and-dispatch-plus-disposable-policy-adapter",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-03",
+    "committedPath": {
+      "loadedEntryCount": 36,
+      "loadedRouteCount": 36,
+      "actualOverrideReplacedHandler": true,
+      "loaderAuthorityPolicyField": false,
+      "exactStop": "committed loadRoutes registers and overwrites handlers but has no authority default/inheritance contract"
+    },
+    "dispatchPath": {
+      "requestedHostname": "0.0.0.0",
+      "requestedPort": 31337,
+      "matchedAndDispatched": true,
+      "handlerCalls": 1,
+      "interceptedCalls": [
+        "Bun.serve:intercepted-no-listener",
+        "Bun.write:intercepted-no-write"
+      ]
+    },
+    "routeCases": [
+      {
+        "routeCase": "committed",
+        "declaredAuthority": "privileged",
+        "inherited": false,
+        "effectivePolicy": "privileged",
+        "missing": {
+          "allow": false,
+          "reason": "identity-missing-deny"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "identity-authorized"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      },
+      {
+        "routeCase": "late",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "privileged",
+        "missing": {
+          "allow": false,
+          "reason": "identity-missing-deny"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "identity-authorized"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      },
+      {
+        "routeCase": "unclassified",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "privileged",
+        "missing": {
+          "allow": false,
+          "reason": "identity-missing-deny"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "identity-authorized"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      },
+      {
+        "routeCase": "override",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "privileged",
+        "missing": {
+          "allow": false,
+          "reason": "identity-missing-deny"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "identity-authorized"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      }
+    ],
+    "reachability": [
+      {
+        "case": "default-locality",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "default",
+        "modeledExposure": "unrestricted",
+        "peerMetadata": "synthetic-local-peer",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "explicit-non-local-request",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "non-local",
+        "modeledExposure": "unrestricted",
+        "peerMetadata": "synthetic-non-local-peer",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "peer-address-metadata",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "peer-observation",
+        "modeledExposure": "unrestricted",
+        "peerMetadata": "synthetic-address-only",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "recovery",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "recovery",
+        "modeledExposure": "unrestricted",
+        "peerMetadata": "synthetic-recovered-peer",
+        "recovery": "rebind-modeled-endpoint",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      }
+    ],
+    "clients": [
+      {
+        "kind": "browser",
+        "transitions": [
+          {
+            "event": "start",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry",
+            "caller": "expired",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": false,
+              "reason": "identity-expired-deny"
+            },
+            "state": "reauthorization-required",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "expiry-recovery",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation",
+            "caller": "revoked",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": false,
+              "reason": "identity-revoked-deny"
+            },
+            "state": "reauthorization-required",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "revocation-recovery",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          }
+        ]
+      },
+      {
+        "kind": "cli",
+        "transitions": [
+          {
+            "event": "start",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry",
+            "caller": "expired",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": false,
+              "reason": "identity-expired-deny"
+            },
+            "state": "reauthorization-required",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "expiry-recovery",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation",
+            "caller": "revoked",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": false,
+              "reason": "identity-revoked-deny"
+            },
+            "state": "reauthorization-required",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "revocation-recovery",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          }
+        ]
+      }
+    ],
+    "restart": {
+      "controlled": true,
+      "stale": {
+        "decision": {
+          "allow": false,
+          "reason": "stale-generation"
+        },
+        "rootCalls": 0
+      },
+      "missing": {
+        "decision": {
+          "allow": false,
+          "reason": "missing-after-restart"
+        },
+        "rootCalls": 0
+      },
+      "fresh": {
+        "decision": {
+          "allow": true,
+          "reason": "identity-authorized"
+        },
+        "rootCalls": 1
+      },
+      "retainedAuthority": "authorized caller reaches single-process authority"
+    },
+    "fidelity": "committed-loader-and-dispatch-plus-disposable-policy-adapter",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-04",
+    "committedPath": {
+      "loadedEntryCount": 36,
+      "loadedRouteCount": 36,
+      "actualOverrideReplacedHandler": true,
+      "loaderAuthorityPolicyField": false,
+      "exactStop": "committed loadRoutes registers and overwrites handlers but has no authority default/inheritance contract"
+    },
+    "dispatchPath": {
+      "requestedHostname": "0.0.0.0",
+      "requestedPort": 31337,
+      "matchedAndDispatched": true,
+      "handlerCalls": 1,
+      "interceptedCalls": [
+        "Bun.serve:intercepted-no-listener",
+        "Bun.write:intercepted-no-write"
+      ]
+    },
+    "routeCases": [
+      {
+        "routeCase": "committed",
+        "declaredAuthority": "privileged",
+        "inherited": false,
+        "effectivePolicy": "privileged",
+        "missing": {
+          "allow": false,
+          "reason": "capability-missing-deny"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "capability-authorized"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      },
+      {
+        "routeCase": "late",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "privileged",
+        "missing": {
+          "allow": false,
+          "reason": "capability-missing-deny"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "capability-authorized"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      },
+      {
+        "routeCase": "unclassified",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "privileged",
+        "missing": {
+          "allow": false,
+          "reason": "capability-missing-deny"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "capability-authorized"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      },
+      {
+        "routeCase": "override",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "privileged",
+        "missing": {
+          "allow": false,
+          "reason": "capability-missing-deny"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "capability-authorized"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      }
+    ],
+    "reachability": [
+      {
+        "case": "default-locality",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "default",
+        "modeledExposure": "unrestricted",
+        "peerMetadata": "synthetic-local-peer",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "explicit-non-local-request",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "non-local",
+        "modeledExposure": "unrestricted",
+        "peerMetadata": "synthetic-non-local-peer",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "peer-address-metadata",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "peer-observation",
+        "modeledExposure": "unrestricted",
+        "peerMetadata": "synthetic-address-only",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "recovery",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "recovery",
+        "modeledExposure": "unrestricted",
+        "peerMetadata": "synthetic-recovered-peer",
+        "recovery": "rebind-modeled-endpoint",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      }
+    ],
+    "clients": [
+      {
+        "kind": "browser",
+        "transitions": [
+          {
+            "event": "start",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "capability-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "capability-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry",
+            "caller": "expired",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": false,
+              "reason": "capability-expired-deny"
+            },
+            "state": "reauthorization-required",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "expiry-recovery",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "capability-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation",
+            "caller": "revoked",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": false,
+              "reason": "capability-revoked-deny"
+            },
+            "state": "reauthorization-required",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "revocation-recovery",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "capability-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          }
+        ]
+      },
+      {
+        "kind": "cli",
+        "transitions": [
+          {
+            "event": "start",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "capability-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "capability-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry",
+            "caller": "expired",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": false,
+              "reason": "capability-expired-deny"
+            },
+            "state": "reauthorization-required",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "expiry-recovery",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "capability-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation",
+            "caller": "revoked",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": false,
+              "reason": "capability-revoked-deny"
+            },
+            "state": "reauthorization-required",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "revocation-recovery",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "capability-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          }
+        ]
+      }
+    ],
+    "restart": {
+      "controlled": true,
+      "stale": {
+        "decision": {
+          "allow": false,
+          "reason": "stale-generation"
+        },
+        "rootCalls": 0
+      },
+      "missing": {
+        "decision": {
+          "allow": false,
+          "reason": "missing-after-restart"
+        },
+        "rootCalls": 0
+      },
+      "fresh": {
+        "decision": {
+          "allow": true,
+          "reason": "capability-authorized"
+        },
+        "rootCalls": 1
+      },
+      "retainedAuthority": "capability holder reaches single-process authority"
+    },
+    "fidelity": "committed-loader-and-dispatch-plus-disposable-policy-adapter",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-05",
+    "committedPath": {
+      "loadedEntryCount": 36,
+      "loadedRouteCount": 36,
+      "actualOverrideReplacedHandler": true,
+      "loaderAuthorityPolicyField": false,
+      "exactStop": "committed loadRoutes registers and overwrites handlers but has no authority default/inheritance contract"
+    },
+    "dispatchPath": {
+      "requestedHostname": "0.0.0.0",
+      "requestedPort": 31337,
+      "matchedAndDispatched": true,
+      "handlerCalls": 1,
+      "interceptedCalls": [
+        "Bun.serve:intercepted-no-listener",
+        "Bun.write:intercepted-no-write"
+      ]
+    },
+    "routeCases": [
+      {
+        "routeCase": "committed",
+        "declaredAuthority": "privileged",
+        "inherited": false,
+        "effectivePolicy": "privileged",
+        "missing": {
+          "allow": true,
+          "reason": "ambient-authority-gap"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "ambient-authority-gap"
+        },
+        "handlerReachedMissing": true,
+        "authorityRootReachedMissing": true,
+        "bypassObserved": true
+      },
+      {
+        "routeCase": "late",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "deny",
+        "missing": {
+          "allow": false,
+          "reason": "route-default-deny"
+        },
+        "sufficient": {
+          "allow": false,
+          "reason": "route-default-deny"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      },
+      {
+        "routeCase": "unclassified",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "deny",
+        "missing": {
+          "allow": false,
+          "reason": "route-default-deny"
+        },
+        "sufficient": {
+          "allow": false,
+          "reason": "route-default-deny"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      },
+      {
+        "routeCase": "override",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "deny",
+        "missing": {
+          "allow": false,
+          "reason": "route-default-deny"
+        },
+        "sufficient": {
+          "allow": false,
+          "reason": "route-default-deny"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      }
+    ],
+    "reachability": [
+      {
+        "case": "default-locality",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "default",
+        "modeledExposure": "unrestricted",
+        "peerMetadata": "synthetic-local-peer",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "explicit-non-local-request",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "non-local",
+        "modeledExposure": "unrestricted",
+        "peerMetadata": "synthetic-non-local-peer",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "peer-address-metadata",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "peer-observation",
+        "modeledExposure": "unrestricted",
+        "peerMetadata": "synthetic-address-only",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "recovery",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "recovery",
+        "modeledExposure": "unrestricted",
+        "peerMetadata": "synthetic-recovered-peer",
+        "recovery": "rebind-modeled-endpoint",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      }
+    ],
+    "clients": [
+      {
+        "kind": "browser",
+        "transitions": [
+          {
+            "event": "start",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry",
+            "caller": "expired",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry-recovery",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation",
+            "caller": "revoked",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation-recovery",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          }
+        ]
+      },
+      {
+        "kind": "cli",
+        "transitions": [
+          {
+            "event": "start",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry",
+            "caller": "expired",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry-recovery",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation",
+            "caller": "revoked",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation-recovery",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "ambient-authority-gap"
+            },
+            "state": "ready",
+            "prompt": null
+          }
+        ]
+      }
+    ],
+    "restart": {
+      "controlled": false,
+      "stale": {
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-gap"
+        },
+        "rootCalls": 1
+      },
+      "missing": {
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-gap"
+        },
+        "rootCalls": 1
+      },
+      "fresh": {
+        "decision": {
+          "allow": true,
+          "reason": "ambient-authority-gap"
+        },
+        "rootCalls": 1
+      },
+      "retainedAuthority": "partitioned routes share process authority"
+    },
+    "fidelity": "committed-loader-and-dispatch-plus-disposable-policy-adapter",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-06",
+    "committedPath": {
+      "loadedEntryCount": 36,
+      "loadedRouteCount": 36,
+      "actualOverrideReplacedHandler": true,
+      "loaderAuthorityPolicyField": false,
+      "exactStop": "committed loadRoutes registers and overwrites handlers but has no authority default/inheritance contract"
+    },
+    "dispatchPath": {
+      "requestedHostname": "0.0.0.0",
+      "requestedPort": 31337,
+      "matchedAndDispatched": true,
+      "handlerCalls": 1,
+      "interceptedCalls": [
+        "Bun.serve:intercepted-no-listener",
+        "Bun.write:intercepted-no-write"
+      ]
+    },
+    "routeCases": [
+      {
+        "routeCase": "committed",
+        "declaredAuthority": "privileged",
+        "inherited": false,
+        "effectivePolicy": "privileged",
+        "missing": {
+          "allow": true,
+          "reason": "broker-message-authorized"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "broker-message-authorized"
+        },
+        "handlerReachedMissing": true,
+        "authorityRootReachedMissing": true,
+        "bypassObserved": true
+      },
+      {
+        "routeCase": "late",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "ordinary",
+        "missing": {
+          "allow": true,
+          "reason": "ordinary-or-ambient"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "ordinary-or-ambient"
+        },
+        "handlerReachedMissing": true,
+        "authorityRootReachedMissing": true,
+        "bypassObserved": true
+      },
+      {
+        "routeCase": "unclassified",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "ordinary",
+        "missing": {
+          "allow": true,
+          "reason": "ordinary-or-ambient"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "ordinary-or-ambient"
+        },
+        "handlerReachedMissing": true,
+        "authorityRootReachedMissing": true,
+        "bypassObserved": true
+      },
+      {
+        "routeCase": "override",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "ordinary",
+        "missing": {
+          "allow": true,
+          "reason": "ordinary-or-ambient"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "ordinary-or-ambient"
+        },
+        "handlerReachedMissing": true,
+        "authorityRootReachedMissing": true,
+        "bypassObserved": true
+      }
+    ],
+    "reachability": [
+      {
+        "case": "default-locality",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "default",
+        "modeledExposure": "unrestricted",
+        "peerMetadata": "synthetic-local-peer",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "explicit-non-local-request",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "non-local",
+        "modeledExposure": "unrestricted",
+        "peerMetadata": "synthetic-non-local-peer",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "peer-address-metadata",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "peer-observation",
+        "modeledExposure": "unrestricted",
+        "peerMetadata": "synthetic-address-only",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "recovery",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "recovery",
+        "modeledExposure": "unrestricted",
+        "peerMetadata": "synthetic-recovered-peer",
+        "recovery": "rebind-modeled-endpoint",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      }
+    ],
+    "clients": [
+      {
+        "kind": "browser",
+        "transitions": [
+          {
+            "event": "start",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "broker-message-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "broker-message-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry",
+            "caller": "expired",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "broker-message-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry-recovery",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "broker-message-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation",
+            "caller": "revoked",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "broker-message-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation-recovery",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "broker-message-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          }
+        ]
+      },
+      {
+        "kind": "cli",
+        "transitions": [
+          {
+            "event": "start",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "broker-message-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "broker-message-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry",
+            "caller": "expired",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "broker-message-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry-recovery",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "broker-message-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation",
+            "caller": "revoked",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "broker-message-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation-recovery",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "broker-message-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          }
+        ]
+      }
+    ],
+    "restart": {
+      "controlled": true,
+      "stale": {
+        "decision": {
+          "allow": false,
+          "reason": "broker-generation-stale"
+        },
+        "rootCalls": 0
+      },
+      "missing": {
+        "decision": {
+          "allow": false,
+          "reason": "missing-after-restart"
+        },
+        "rootCalls": 0
+      },
+      "fresh": {
+        "decision": {
+          "allow": true,
+          "reason": "broker-message-authorized"
+        },
+        "rootCalls": 1
+      },
+      "retainedAuthority": "fidelity-incompatible: no separate child process or isolated broker handler/root executed"
+    },
+    "fidelity": "in-process-broker-label-only; incompatible-with-process-separation-claim",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "COM-01",
+    "committedPath": {
+      "loadedEntryCount": 36,
+      "loadedRouteCount": 36,
+      "actualOverrideReplacedHandler": true,
+      "loaderAuthorityPolicyField": false,
+      "exactStop": "committed loadRoutes registers and overwrites handlers but has no authority default/inheritance contract"
+    },
+    "dispatchPath": {
+      "requestedHostname": "0.0.0.0",
+      "requestedPort": 31337,
+      "matchedAndDispatched": true,
+      "handlerCalls": 1,
+      "interceptedCalls": [
+        "Bun.serve:intercepted-no-listener",
+        "Bun.write:intercepted-no-write"
+      ]
+    },
+    "routeCases": [
+      {
+        "routeCase": "committed",
+        "declaredAuthority": "privileged",
+        "inherited": false,
+        "effectivePolicy": "privileged",
+        "missing": {
+          "allow": false,
+          "reason": "identity-missing-deny"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "identity-authorized"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      },
+      {
+        "routeCase": "late",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "privileged",
+        "missing": {
+          "allow": false,
+          "reason": "identity-missing-deny"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "identity-authorized"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      },
+      {
+        "routeCase": "unclassified",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "privileged",
+        "missing": {
+          "allow": false,
+          "reason": "identity-missing-deny"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "identity-authorized"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      },
+      {
+        "routeCase": "override",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "privileged",
+        "missing": {
+          "allow": false,
+          "reason": "identity-missing-deny"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "identity-authorized"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      }
+    ],
+    "reachability": [
+      {
+        "case": "default-locality",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "default",
+        "modeledExposure": "local-only",
+        "peerMetadata": "synthetic-local-peer",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "explicit-non-local-request",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "non-local",
+        "modeledExposure": "local-only",
+        "peerMetadata": "synthetic-non-local-peer",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "peer-address-metadata",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "peer-observation",
+        "modeledExposure": "local-only",
+        "peerMetadata": "synthetic-address-only",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "recovery",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "recovery",
+        "modeledExposure": "local-only",
+        "peerMetadata": "synthetic-recovered-peer",
+        "recovery": "rebind-modeled-endpoint",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      }
+    ],
+    "clients": [
+      {
+        "kind": "browser",
+        "transitions": [
+          {
+            "event": "start",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry",
+            "caller": "expired",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": false,
+              "reason": "identity-expired-deny"
+            },
+            "state": "reauthorization-required",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "expiry-recovery",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation",
+            "caller": "revoked",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": false,
+              "reason": "identity-revoked-deny"
+            },
+            "state": "reauthorization-required",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "revocation-recovery",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          }
+        ]
+      },
+      {
+        "kind": "cli",
+        "transitions": [
+          {
+            "event": "start",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry",
+            "caller": "expired",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": false,
+              "reason": "identity-expired-deny"
+            },
+            "state": "reauthorization-required",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "expiry-recovery",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation",
+            "caller": "revoked",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": false,
+              "reason": "identity-revoked-deny"
+            },
+            "state": "reauthorization-required",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "revocation-recovery",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          }
+        ]
+      }
+    ],
+    "restart": {
+      "controlled": true,
+      "stale": {
+        "decision": {
+          "allow": false,
+          "reason": "stale-generation"
+        },
+        "rootCalls": 0
+      },
+      "missing": {
+        "decision": {
+          "allow": false,
+          "reason": "missing-after-restart"
+        },
+        "rootCalls": 0
+      },
+      "fresh": {
+        "decision": {
+          "allow": true,
+          "reason": "identity-authorized"
+        },
+        "rootCalls": 1
+      },
+      "retainedAuthority": "authorized caller reaches single-process authority"
+    },
+    "fidelity": "committed-loader-and-dispatch-plus-disposable-policy-adapter",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "COM-02",
+    "committedPath": {
+      "loadedEntryCount": 36,
+      "loadedRouteCount": 36,
+      "actualOverrideReplacedHandler": true,
+      "loaderAuthorityPolicyField": false,
+      "exactStop": "committed loadRoutes registers and overwrites handlers but has no authority default/inheritance contract"
+    },
+    "dispatchPath": {
+      "requestedHostname": "0.0.0.0",
+      "requestedPort": 31337,
+      "matchedAndDispatched": true,
+      "handlerCalls": 1,
+      "interceptedCalls": [
+        "Bun.serve:intercepted-no-listener",
+        "Bun.write:intercepted-no-write"
+      ]
+    },
+    "routeCases": [
+      {
+        "routeCase": "committed",
+        "declaredAuthority": "privileged",
+        "inherited": false,
+        "effectivePolicy": "privileged",
+        "missing": {
+          "allow": false,
+          "reason": "capability-missing-deny"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "capability-authorized"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      },
+      {
+        "routeCase": "late",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "privileged",
+        "missing": {
+          "allow": false,
+          "reason": "capability-missing-deny"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "capability-authorized"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      },
+      {
+        "routeCase": "unclassified",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "privileged",
+        "missing": {
+          "allow": false,
+          "reason": "capability-missing-deny"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "capability-authorized"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      },
+      {
+        "routeCase": "override",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "privileged",
+        "missing": {
+          "allow": false,
+          "reason": "capability-missing-deny"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "capability-authorized"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      }
+    ],
+    "reachability": [
+      {
+        "case": "default-locality",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "default",
+        "modeledExposure": "filesystem-endpoint",
+        "peerMetadata": "synthetic-local-peer",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "explicit-non-local-request",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "non-local",
+        "modeledExposure": "filesystem-endpoint",
+        "peerMetadata": "synthetic-non-local-peer",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "peer-address-metadata",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "peer-observation",
+        "modeledExposure": "filesystem-endpoint",
+        "peerMetadata": "synthetic-filesystem-owner",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "recovery",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "recovery",
+        "modeledExposure": "filesystem-endpoint",
+        "peerMetadata": "synthetic-recovered-peer",
+        "recovery": "remove-stale-endpoint-and-recreate",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      }
+    ],
+    "clients": [
+      {
+        "kind": "browser",
+        "transitions": [
+          {
+            "event": "start",
+            "caller": "sufficient",
+            "channel": "browser-bridge",
+            "decision": {
+              "allow": true,
+              "reason": "capability-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "caller": "sufficient",
+            "channel": "browser-bridge",
+            "decision": {
+              "allow": true,
+              "reason": "capability-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry",
+            "caller": "expired",
+            "channel": "browser-bridge",
+            "decision": {
+              "allow": false,
+              "reason": "capability-expired-deny"
+            },
+            "state": "reauthorization-required",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "expiry-recovery",
+            "caller": "sufficient",
+            "channel": "browser-bridge",
+            "decision": {
+              "allow": true,
+              "reason": "capability-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation",
+            "caller": "revoked",
+            "channel": "browser-bridge",
+            "decision": {
+              "allow": false,
+              "reason": "capability-revoked-deny"
+            },
+            "state": "reauthorization-required",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "revocation-recovery",
+            "caller": "sufficient",
+            "channel": "browser-bridge",
+            "decision": {
+              "allow": true,
+              "reason": "capability-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          }
+        ]
+      },
+      {
+        "kind": "cli",
+        "transitions": [
+          {
+            "event": "start",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "capability-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "capability-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry",
+            "caller": "expired",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": false,
+              "reason": "capability-expired-deny"
+            },
+            "state": "reauthorization-required",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "expiry-recovery",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "capability-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation",
+            "caller": "revoked",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": false,
+              "reason": "capability-revoked-deny"
+            },
+            "state": "reauthorization-required",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "revocation-recovery",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "capability-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          }
+        ]
+      }
+    ],
+    "restart": {
+      "controlled": true,
+      "stale": {
+        "decision": {
+          "allow": false,
+          "reason": "stale-generation"
+        },
+        "rootCalls": 0
+      },
+      "missing": {
+        "decision": {
+          "allow": false,
+          "reason": "missing-after-restart"
+        },
+        "rootCalls": 0
+      },
+      "fresh": {
+        "decision": {
+          "allow": true,
+          "reason": "capability-authorized"
+        },
+        "rootCalls": 1
+      },
+      "retainedAuthority": "capability holder reaches single-process authority"
+    },
+    "fidelity": "committed-loader-and-dispatch-plus-disposable-policy-adapter",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "COM-03",
+    "committedPath": {
+      "loadedEntryCount": 36,
+      "loadedRouteCount": 36,
+      "actualOverrideReplacedHandler": true,
+      "loaderAuthorityPolicyField": false,
+      "exactStop": "committed loadRoutes registers and overwrites handlers but has no authority default/inheritance contract"
+    },
+    "dispatchPath": {
+      "requestedHostname": "0.0.0.0",
+      "requestedPort": 31337,
+      "matchedAndDispatched": true,
+      "handlerCalls": 1,
+      "interceptedCalls": [
+        "Bun.serve:intercepted-no-listener",
+        "Bun.write:intercepted-no-write"
+      ]
+    },
+    "routeCases": [
+      {
+        "routeCase": "committed",
+        "declaredAuthority": "privileged",
+        "inherited": false,
+        "effectivePolicy": "privileged",
+        "missing": {
+          "allow": false,
+          "reason": "identity-missing-deny"
+        },
+        "sufficient": {
+          "allow": true,
+          "reason": "identity-authorized"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      },
+      {
+        "routeCase": "late",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "deny",
+        "missing": {
+          "allow": false,
+          "reason": "route-default-deny"
+        },
+        "sufficient": {
+          "allow": false,
+          "reason": "route-default-deny"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      },
+      {
+        "routeCase": "unclassified",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "deny",
+        "missing": {
+          "allow": false,
+          "reason": "route-default-deny"
+        },
+        "sufficient": {
+          "allow": false,
+          "reason": "route-default-deny"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      },
+      {
+        "routeCase": "override",
+        "declaredAuthority": "privileged",
+        "inherited": true,
+        "effectivePolicy": "deny",
+        "missing": {
+          "allow": false,
+          "reason": "route-default-deny"
+        },
+        "sufficient": {
+          "allow": false,
+          "reason": "route-default-deny"
+        },
+        "handlerReachedMissing": false,
+        "authorityRootReachedMissing": false,
+        "bypassObserved": false
+      }
+    ],
+    "reachability": [
+      {
+        "case": "default-locality",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "default",
+        "modeledExposure": "local-only",
+        "peerMetadata": "synthetic-local-peer",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "explicit-non-local-request",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "non-local",
+        "modeledExposure": "local-only",
+        "peerMetadata": "synthetic-non-local-peer",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "peer-address-metadata",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "peer-observation",
+        "modeledExposure": "local-only",
+        "peerMetadata": "synthetic-address-only",
+        "recovery": null,
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      },
+      {
+        "case": "recovery",
+        "requestedBind": "0.0.0.0",
+        "requestedExposure": "recovery",
+        "modeledExposure": "local-only",
+        "peerMetadata": "synthetic-recovered-peer",
+        "recovery": "rebind-modeled-endpoint",
+        "callerAuthorityChanged": false,
+        "actualNetworkTested": false,
+        "fidelity": "data-model-only"
+      }
+    ],
+    "clients": [
+      {
+        "kind": "browser",
+        "transitions": [
+          {
+            "event": "start",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry",
+            "caller": "expired",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": false,
+              "reason": "identity-expired-deny"
+            },
+            "state": "reauthorization-required",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "expiry-recovery",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation",
+            "caller": "revoked",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": false,
+              "reason": "identity-revoked-deny"
+            },
+            "state": "reauthorization-required",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "revocation-recovery",
+            "caller": "sufficient",
+            "channel": "http-only-session",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          }
+        ]
+      },
+      {
+        "kind": "cli",
+        "transitions": [
+          {
+            "event": "start",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "reconnect",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "expiry",
+            "caller": "expired",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": false,
+              "reason": "identity-expired-deny"
+            },
+            "state": "reauthorization-required",
+            "prompt": "refresh-authority"
+          },
+          {
+            "event": "expiry-recovery",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          },
+          {
+            "event": "revocation",
+            "caller": "revoked",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": false,
+              "reason": "identity-revoked-deny"
+            },
+            "state": "reauthorization-required",
+            "prompt": "clear-and-reauthorize"
+          },
+          {
+            "event": "revocation-recovery",
+            "caller": "sufficient",
+            "channel": "private-cli-channel",
+            "decision": {
+              "allow": true,
+              "reason": "identity-authorized"
+            },
+            "state": "ready",
+            "prompt": null
+          }
+        ]
+      }
+    ],
+    "restart": {
+      "controlled": true,
+      "stale": {
+        "decision": {
+          "allow": false,
+          "reason": "stale-generation"
+        },
+        "rootCalls": 0
+      },
+      "missing": {
+        "decision": {
+          "allow": false,
+          "reason": "missing-after-restart"
+        },
+        "rootCalls": 0
+      },
+      "fresh": {
+        "decision": {
+          "allow": true,
+          "reason": "identity-authorized"
+        },
+        "rootCalls": 1
+      },
+      "retainedAuthority": "broker retains stubbed privileged authority"
+    },
+    "fidelity": "committed-loader-and-dispatch-plus-disposable-policy-adapter",
+    "gateAssessment": "not-reviewed"
+  }
+]

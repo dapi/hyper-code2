@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "cell": "CELL-01",
+  "source": "declared setting env fixture",
+  "fixtureKind": "deterministic non-secret",
+  "action": "mock eval result through current executeMarker pipeline",
+  "outcome": "success",
+  "providerCalls": 0,
+  "sinks": {
+    "syntheticResultMessage": { "prohibited": true, "formsDetected": ["S0"], "hitCount": 1 },
+    "persistedEvent": { "prohibited": true, "formsDetected": ["S0", "S1"], "hitCount": 5 },
+    "renderedEventHtml": { "prohibited": true, "formsDetected": ["S0"], "hitCount": 1 },
+    "preProviderRequest": { "prohibited": true, "formsDetected": ["S0"], "hitCount": 1 }
+  },
+  "stopRule": "STOP-03",
+  "unexecutedAfterStop": [
+    "error",
+    "serialization-failure",
+    "retry-cancellation",
+    "additional-source-cells"
+  ],
+  "sanitization": "No raw provider token, credential, home path, private content, raw HTML payload or production identifier is stored."
+}

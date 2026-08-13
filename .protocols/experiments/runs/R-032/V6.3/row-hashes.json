@@ -1,0 +1,578 @@
+[
+  {
+    "key": "CAN-01/immediate-missing",
+    "sha256": "4e91af5c060ade7286a16a17da5f29246f7fb3f9325df0953b35f53599f1585b"
+  },
+  {
+    "key": "CAN-01/immediate-insufficient",
+    "sha256": "d71d09b6c426cc8db3e57671f45ff28dec1acb09665770555997a1b84500c80f"
+  },
+  {
+    "key": "CAN-01/immediate-sufficient",
+    "sha256": "aaeba1f50c0109735027aefc5a36dc98de7e4c1a591dacb379263b5118e51887"
+  },
+  {
+    "key": "CAN-01/use-expired",
+    "sha256": "6186fd74c0431311e156567c94b51f52c3462ec3d1d4739d274b94ec7751c6a7"
+  },
+  {
+    "key": "CAN-01/use-revoked",
+    "sha256": "0fcc85235cbac26d63fa776e4ef7b0a8c08b970c5d571af0aac2ad0d7f958c1e"
+  },
+  {
+    "key": "CAN-01/use-replay",
+    "sha256": "e60dfcb15194d26fb29609637b9d9f3de60c70c313b69a53c87b459d26851269"
+  },
+  {
+    "key": "CAN-01/use-reduced",
+    "sha256": "1d77677ababc69a29c903e5d8220b1b321e4f6a125f9b8c4a67cb984ab48e6b7"
+  },
+  {
+    "key": "CAN-01/use-missing",
+    "sha256": "7777136a5583dcfaba3c438d55b7eef40645c75e1ea542a9ab0a1e17fe06c08b"
+  },
+  {
+    "key": "CAN-01/mixed-principals-coalesced",
+    "sha256": "11ad063f263be131143a5237018e6c3dd75544551b1bd8bd973b24dcd4618c71"
+  },
+  {
+    "key": "CAN-01/failure-verifier",
+    "sha256": "0d0d2588affe6afe461791a0d2e4f3a856bc48e965062b5d11c708ff51893162"
+  },
+  {
+    "key": "CAN-01/failure-policy",
+    "sha256": "2c430858d2dd232309ded662fae3a145c6b68ebf780b9bdf6bd208a18ef86856"
+  },
+  {
+    "key": "CAN-01/failure-broker",
+    "sha256": "261a8145b53b5ecafb771a02700fb67afd41178f5b0e66a30d200f073508d34d"
+  },
+  {
+    "key": "CAN-01/failure-stale",
+    "sha256": "cd1a0ea1cd24d99b5b8501175cd1df5535d5606d52671846b9fffd92e131ff5a"
+  },
+  {
+    "key": "CAN-01/restart-stale",
+    "sha256": "bcd946833d3fa0397db7740b8c0fa124c0b4b3b7f0fdf563cb277ab61b86db34"
+  },
+  {
+    "key": "CAN-01/restart-missing",
+    "sha256": "935246fef057f47eeb7053d0d0b5531b3877ac529a76f91f00a2f02b6317b1d0"
+  },
+  {
+    "key": "CAN-01/restart-recovery",
+    "sha256": "6b9851bbd7037ae55e6b2e6d9a746031ca750db05a04bcb4b2a112b3c244669d"
+  },
+  {
+    "key": "CAN-02/immediate-missing",
+    "sha256": "b2f5e7f5a80ba4d071461d1962e0d627e6ec15dff3b692ee535212fabfc1d1cf"
+  },
+  {
+    "key": "CAN-02/immediate-insufficient",
+    "sha256": "54992f1f0d60a9e6da35e5234e598f73c242ca0ff8455d4627c8954f9dda1aba"
+  },
+  {
+    "key": "CAN-02/immediate-sufficient",
+    "sha256": "932066012673078fcbea9da628f2ff94aad5dc48e517a28cf2d277deb7523b67"
+  },
+  {
+    "key": "CAN-02/use-expired",
+    "sha256": "11b19b34a2ab5625a131a02d18b2f090e257fc8e06d2046dbb6b3e1f9e773085"
+  },
+  {
+    "key": "CAN-02/use-revoked",
+    "sha256": "23517a0c5b1792f13252a785b386dd34a7068dcbe9bae34b85e7dfddf7471f45"
+  },
+  {
+    "key": "CAN-02/use-replay",
+    "sha256": "f0b493b05889f638845c49a4e59b2b0cb2b98a92e4dccf007509f26919fb3425"
+  },
+  {
+    "key": "CAN-02/use-reduced",
+    "sha256": "5a2cff59a03fedcecb607c6acde990a1ab64b0054711e1449db7667e3b32f458"
+  },
+  {
+    "key": "CAN-02/use-missing",
+    "sha256": "2925fabfba5b6a84983bc162e8bdd414f3b2fe3972ac6e78298d5e4c99eaf951"
+  },
+  {
+    "key": "CAN-02/mixed-principals-coalesced",
+    "sha256": "2af43d014bb83a7a7503dcde6bf5382ca20ef39c8173360ee9f0d80f6290fb20"
+  },
+  {
+    "key": "CAN-02/failure-verifier",
+    "sha256": "91c9b26d389d9e837844ba235c92c057480314bb10b4a32286c83225948abc82"
+  },
+  {
+    "key": "CAN-02/failure-policy",
+    "sha256": "0e6cf1fe31524a5b5a0315e1a14c3bc33822b8157a6ba676142532211fd313e0"
+  },
+  {
+    "key": "CAN-02/failure-broker",
+    "sha256": "61bec47f32b31e9511fbe2e0ca5410753087e0e2c838667b37b9d167f687b858"
+  },
+  {
+    "key": "CAN-02/failure-stale",
+    "sha256": "2fce6e7474b1ba372fb2b29fcd95359cc04a1b16dec901221424f3566c9055f5"
+  },
+  {
+    "key": "CAN-02/restart-stale",
+    "sha256": "faea5cf71b114a7869aec9111b9995932603e2d07b3a0bd62cc9cdb9051665d3"
+  },
+  {
+    "key": "CAN-02/restart-missing",
+    "sha256": "855a52e52bb40ca27d3e3c4401518b7437d18ec66d0b84d6abbe0a4dffe3e1b0"
+  },
+  {
+    "key": "CAN-02/restart-recovery",
+    "sha256": "e362e65717d0828c4bb574e00f5ed8ff04dc6fc70a4093bf171f7136839e2b59"
+  },
+  {
+    "key": "CAN-03/immediate-missing",
+    "sha256": "1da26b6c8369689a21502409d142afe5031d4fb04622c9624daf89e4e8f61dd5"
+  },
+  {
+    "key": "CAN-03/immediate-insufficient",
+    "sha256": "c943abc16752d5dc268cb57b9310fc8a29a1f150bbf39ff5ca77315ce0677a51"
+  },
+  {
+    "key": "CAN-03/immediate-sufficient",
+    "sha256": "f106f70d634a99a5cebef47140e99e694269aa4c188ee763188593fe1cc33f60"
+  },
+  {
+    "key": "CAN-03/use-expired",
+    "sha256": "3fa01015919641b7fc21d072a822c4cdff2d0aa317e5a0b3e884cf2c199052d2"
+  },
+  {
+    "key": "CAN-03/use-revoked",
+    "sha256": "34a66331e72aebded95ca37501b3e8297566d89ef8c004f9752bda2d2769639d"
+  },
+  {
+    "key": "CAN-03/use-replay",
+    "sha256": "720c5ffa5844241d16e11d373d1a1995f9d6c64ed47cb51681f1523e6321a22f"
+  },
+  {
+    "key": "CAN-03/use-reduced",
+    "sha256": "fe2c2c724981a211e32dc68212be94667cdbc3b063786da32a204e430783ecb7"
+  },
+  {
+    "key": "CAN-03/use-missing",
+    "sha256": "14c807a4177a0d9482214870420ef2d35f507544e321a293e9e978bb4f083c05"
+  },
+  {
+    "key": "CAN-03/mixed-principals-coalesced",
+    "sha256": "e3493a4f6ca1b9b482af29616ef024da12f4e1cfeced12b8741da866133e6f96"
+  },
+  {
+    "key": "CAN-03/failure-verifier",
+    "sha256": "24918ec8660ceb553cd440ef734bee1e85d5ed5a56225871e1bccf57cd6ab98e"
+  },
+  {
+    "key": "CAN-03/failure-policy",
+    "sha256": "28db80f192050f72e3f58d2af35b8b29117da5a6c584e56786a8a3aa831e6228"
+  },
+  {
+    "key": "CAN-03/failure-broker",
+    "sha256": "8ab1014201c0a65dd9de4db3629cbea2b900596b947223b7eea0be091c6fda9a"
+  },
+  {
+    "key": "CAN-03/failure-stale",
+    "sha256": "c1c6bc0a855da3a53051610a2bd873dc14a17fe14babbcd4148f857703bd68a1"
+  },
+  {
+    "key": "CAN-03/restart-stale",
+    "sha256": "d88d605c3b74c2443ee82f69fb9a8b78d00ccfdc2df7362821034c109dd2169c"
+  },
+  {
+    "key": "CAN-03/restart-missing",
+    "sha256": "3c7c16815c868e293f8de7dfe9823b7a4f3cb84b110fca512aa50915de2756c9"
+  },
+  {
+    "key": "CAN-03/restart-recovery",
+    "sha256": "240c73acbfb2fcbb748b9f30e15097e134f50af362889b9fb98c937003b6c611"
+  },
+  {
+    "key": "CAN-04/immediate-missing",
+    "sha256": "9417459dab692dfe1d8c52b0890cf594ccac373138f7640a065bb6f24b13e4bc"
+  },
+  {
+    "key": "CAN-04/immediate-insufficient",
+    "sha256": "4ccba9347c1d1239d7a997bf6ef970b536334d55cdc91a4e2a60f766150c857b"
+  },
+  {
+    "key": "CAN-04/immediate-sufficient",
+    "sha256": "70de640fcadaf43334a33998f955acf783a586e8bcc73f44e567a0e699bc5137"
+  },
+  {
+    "key": "CAN-04/use-expired",
+    "sha256": "bb2c590c3ee713824fbd704b1e75bc281ea95c5bdb0dcee85bba874c3b40f03a"
+  },
+  {
+    "key": "CAN-04/use-revoked",
+    "sha256": "db6d8b04b0e1f46ddec030d6e2dafdffe3e754398b8dd9b98d4fa27ded73fe69"
+  },
+  {
+    "key": "CAN-04/use-replay",
+    "sha256": "c29565f1c2f056e3d2362450fe760c956f02d8e10b7c2d56157b022b95d5d320"
+  },
+  {
+    "key": "CAN-04/use-reduced",
+    "sha256": "fc98dede77116be1dce2e363b75bb755c7175704ce976c7ee13080f4b597bd10"
+  },
+  {
+    "key": "CAN-04/use-missing",
+    "sha256": "7805ddedc4d91cad7ee0a19713932a47dabd7aef22cae498d32a3b0f61ef21e0"
+  },
+  {
+    "key": "CAN-04/mixed-principals-coalesced",
+    "sha256": "1f3bd07240169a00f2969fcb79a75af23c26a3c060ceb51184e5cea0e77e4e2a"
+  },
+  {
+    "key": "CAN-04/failure-verifier",
+    "sha256": "1131a1da1c9648aa119e5e0ff2bdbcf17aaf16194086e6b0d636028f6cc7afbc"
+  },
+  {
+    "key": "CAN-04/failure-policy",
+    "sha256": "b40a5aa3addb55fd4eea4edf1f7d6a0ad23e1df53cd4ebd38f33c434c1121338"
+  },
+  {
+    "key": "CAN-04/failure-broker",
+    "sha256": "31c7c9d70b77e0e396c65daa27b435d4dedc85e8781342600e92f144400e0b2f"
+  },
+  {
+    "key": "CAN-04/failure-stale",
+    "sha256": "3838bdc2637cc83444b68fe27d090861ee7e11d39148e66f2970677da9d71a5f"
+  },
+  {
+    "key": "CAN-04/restart-stale",
+    "sha256": "030295201f0022f020c5d586a07fcad1ea16f14f01abc527ad43cfb754a1406a"
+  },
+  {
+    "key": "CAN-04/restart-missing",
+    "sha256": "95e016d02630ff61c49cad4fb98309ba93f2cbf1584ecd8e06bba37638f00371"
+  },
+  {
+    "key": "CAN-04/restart-recovery",
+    "sha256": "8575506c5faf95a4f5527dbfac608cbecabcb9bfd429b981c36dcc411d873d0e"
+  },
+  {
+    "key": "CAN-05/immediate-missing",
+    "sha256": "6ec57e8a19fecdbbf39b4a8be509293f0bc7d522fc592de34d9485e7be0aabc2"
+  },
+  {
+    "key": "CAN-05/immediate-insufficient",
+    "sha256": "7a36687e0ff64cf7109b0ab4672b8c264598463a5b126a2974bdb4f7edab936d"
+  },
+  {
+    "key": "CAN-05/immediate-sufficient",
+    "sha256": "32ce7da3d23e88a7a1f69d3c20c70f0d81915f350992673d8768427431a5fe78"
+  },
+  {
+    "key": "CAN-05/use-expired",
+    "sha256": "d9d76b130bbb20359d8386232695de0d87d08ba7371ffafbe35984c37446900c"
+  },
+  {
+    "key": "CAN-05/use-revoked",
+    "sha256": "2054d41207e9f92af74b4aa8054860f50d047a2b9ed64e876939ff3262ceccc4"
+  },
+  {
+    "key": "CAN-05/use-replay",
+    "sha256": "edfaf3ab501118ef4b3c8ea2c352bd3b0dc2a2f83d8a803ed80445cfb11458ba"
+  },
+  {
+    "key": "CAN-05/use-reduced",
+    "sha256": "3f7c6f1eabd45f89eaf8b3387887d0a2f9b6e54ec90935d6d147e67059b0b037"
+  },
+  {
+    "key": "CAN-05/use-missing",
+    "sha256": "2d90cb216302a34fa0e880e790c15f5d82ba85d87810884c369b4d6e648119b4"
+  },
+  {
+    "key": "CAN-05/mixed-principals-coalesced",
+    "sha256": "1e6889206799f06104e11d499721c0745e3f8a2ad2766783132fc78477c7795d"
+  },
+  {
+    "key": "CAN-05/failure-verifier",
+    "sha256": "cbb5e412c71b0c446d9869754b58ffcc9737ee1c12af721c6a94f62f95b8ed6e"
+  },
+  {
+    "key": "CAN-05/failure-policy",
+    "sha256": "40bfde704305d84b73f4fa754104815198ffaf3ddb972304f03d40650f5c66ca"
+  },
+  {
+    "key": "CAN-05/failure-broker",
+    "sha256": "fc282f4fbee668659513ecb692ef057d412dd64aaaaac15766946e33c83b032f"
+  },
+  {
+    "key": "CAN-05/failure-stale",
+    "sha256": "26e6eb41a175f01b408253c4b14e74491322f6e06c1318075de175c3ac136a1d"
+  },
+  {
+    "key": "CAN-05/restart-stale",
+    "sha256": "8d93700282ffd0bd466eb22542c6e68d937451d4683b9b43252a4ec1590f2bc0"
+  },
+  {
+    "key": "CAN-05/restart-missing",
+    "sha256": "237b4befcca71c7a92b0db3e84c9179cccbb31d38277194c567b497a6b5a2d35"
+  },
+  {
+    "key": "CAN-05/restart-recovery",
+    "sha256": "4001efe22dccb325a88faded23015623d737b90d6c0cac1eb91de592f74e9574"
+  },
+  {
+    "key": "CAN-06/immediate-missing",
+    "sha256": "d35d0c007467abf001d0cc7ee2a7d15a52f57967f211a8f03d18d049a7e4c5a3"
+  },
+  {
+    "key": "CAN-06/immediate-insufficient",
+    "sha256": "c217eeb48be4d8d6346436cceb9acd75116a1c05583c0a87e7e442a643be3bb5"
+  },
+  {
+    "key": "CAN-06/immediate-sufficient",
+    "sha256": "e5a5010f60ddffcefb47031bbfda7358eab5cb119084a0ff60f110aa2280d84a"
+  },
+  {
+    "key": "CAN-06/use-expired",
+    "sha256": "58eabd740c90465b2be55f9218439b215275c8d5408761a79e5fac74ae795247"
+  },
+  {
+    "key": "CAN-06/use-revoked",
+    "sha256": "4dabf53c47ad3cfb74cb4d06ec589663f13f7f8d0bfb9da5797abd479ac7ed56"
+  },
+  {
+    "key": "CAN-06/use-replay",
+    "sha256": "09d34c0f428f8e7b900b948d35d0e8c06b501d43a07079f557c0894cb018df1b"
+  },
+  {
+    "key": "CAN-06/use-reduced",
+    "sha256": "efa997191216add6bad10ccf898937b20ae42fc3f12d3f187c7b918951ad0729"
+  },
+  {
+    "key": "CAN-06/use-missing",
+    "sha256": "216c6cdeb80b91813cf0602aacf4bbd100bb0503f1513646df04200e65f16a3e"
+  },
+  {
+    "key": "CAN-06/mixed-principals-coalesced",
+    "sha256": "1cc440cb96106fa09c28b24c1ed0d20d47a6b87491cb4da27db7b679fd169457"
+  },
+  {
+    "key": "CAN-06/failure-verifier",
+    "sha256": "353cc79fa98d7dad54b52eaf72609583422658717ab86955ef007a9b19e642de"
+  },
+  {
+    "key": "CAN-06/failure-policy",
+    "sha256": "712d8e15d3c68c48dfa6b16668b1521e18615fdea95fe4784f1f02025afdc5c5"
+  },
+  {
+    "key": "CAN-06/failure-broker",
+    "sha256": "bc64a3e9da04b16b0d383e2b09fa8a81838dbda940af0c98894fce21fb0b9a63"
+  },
+  {
+    "key": "CAN-06/failure-stale",
+    "sha256": "b3a7d63f39e9a6ecbea1dce1679fc090158afef8656a43d3dae4c6d4ab866873"
+  },
+  {
+    "key": "CAN-06/restart-stale",
+    "sha256": "bf0240027efc22107fb42bd756f0915b0d775ac453ac07f4efd6b182299775ba"
+  },
+  {
+    "key": "CAN-06/restart-missing",
+    "sha256": "97d5554bc37fcb5858de494f76c31076040a188c0cfa1bb32ec264c1cddf8713"
+  },
+  {
+    "key": "CAN-06/restart-recovery",
+    "sha256": "e82ba24f60040044108bc9951913da018779619dcf2fa6366300c0c74050b05b"
+  },
+  {
+    "key": "COM-01/immediate-missing",
+    "sha256": "83ca7623736eb8f35535f027c34ed752e1b93af53dc4962c236fdcb1ef9cc5ba"
+  },
+  {
+    "key": "COM-01/immediate-insufficient",
+    "sha256": "aa73c2dcfb5b89677680d7fd28727c790dc796b88b239ee30770e5ef9a8ed49f"
+  },
+  {
+    "key": "COM-01/immediate-sufficient",
+    "sha256": "d256adc5d101e22fd0909ca1cf0eeed8523a6effe5a55f3da957b90980526dbb"
+  },
+  {
+    "key": "COM-01/use-expired",
+    "sha256": "6971d8a1ee1d9ae1f0018b9666c6e728cdf8745ce16e18cfaa958b9efec2df23"
+  },
+  {
+    "key": "COM-01/use-revoked",
+    "sha256": "8d45f8bafa74a53c9c1c1ce1dc9d6851e91cae469c69185894cca5313cb56b73"
+  },
+  {
+    "key": "COM-01/use-replay",
+    "sha256": "5508e72e9f2ecea97b65c1d8b223b09764db065d2592dbc1e1882189554f020a"
+  },
+  {
+    "key": "COM-01/use-reduced",
+    "sha256": "cd38402addd270714f1caa5a88a362005be4092f09bcbe1be04737ea8d7d59de"
+  },
+  {
+    "key": "COM-01/use-missing",
+    "sha256": "847360fa67f5bd9454d4c603e81b39f6ff0bbf32c6011ac564b6d870822a8357"
+  },
+  {
+    "key": "COM-01/mixed-principals-coalesced",
+    "sha256": "1f66ea407da629a5b722046ca7bf272a2bb4ad614635273d03f03c2069df482d"
+  },
+  {
+    "key": "COM-01/failure-verifier",
+    "sha256": "ecd16907d6d7058a338ef9a6950719df870cff4ce56848df9ca224e74dd091b7"
+  },
+  {
+    "key": "COM-01/failure-policy",
+    "sha256": "461643055ff13acacaf2ff6130af22056141eb538422d07e49eeceb67ec6804d"
+  },
+  {
+    "key": "COM-01/failure-broker",
+    "sha256": "e0823426f7a688e94278721fd6a9e7cbacf38fed8a11bd1f064019fc8dc7db83"
+  },
+  {
+    "key": "COM-01/failure-stale",
+    "sha256": "9c751ba75d5bb8c6228c949f6d08d719d122d5e409fd16d64bc3c2cb1833421b"
+  },
+  {
+    "key": "COM-01/restart-stale",
+    "sha256": "07b2db621013a3c4f72a3dc083c735125121ed957e3551da77df97557a75ce12"
+  },
+  {
+    "key": "COM-01/restart-missing",
+    "sha256": "86e9f2a8c9d7008150b016ca05ed817ac45667a6e84b30594ed1ae0391ddef14"
+  },
+  {
+    "key": "COM-01/restart-recovery",
+    "sha256": "add7e4719fdf3cbfd6b66711c169c9ab0c866b06e484d17637a218809c4a487d"
+  },
+  {
+    "key": "COM-02/immediate-missing",
+    "sha256": "c45c606b34d0c4746c14b2385d492933b0241fbcc45909a6b4ee820234aa8919"
+  },
+  {
+    "key": "COM-02/immediate-insufficient",
+    "sha256": "a5a6b2955e095d125655500a6366487e866c2fd638035ab1c47b048e368dddcc"
+  },
+  {
+    "key": "COM-02/immediate-sufficient",
+    "sha256": "8f6f71bbf9f4d8799e1157f770a69e37c28265e410e79cdbe54e36064cf193c9"
+  },
+  {
+    "key": "COM-02/use-expired",
+    "sha256": "ff6edda8f4283a0fdd37e5fb46d83d41b85c6e67d334d520033638ffc4890c53"
+  },
+  {
+    "key": "COM-02/use-revoked",
+    "sha256": "fb263c4adcfbfd17d8f05c348ff5e8bf5c5c306bb3d57c9fe6690037ac9064ba"
+  },
+  {
+    "key": "COM-02/use-replay",
+    "sha256": "f3c006e8838f8820ee82702117fc26f7e4f0b80b6a9ef0afa8639c67080383db"
+  },
+  {
+    "key": "COM-02/use-reduced",
+    "sha256": "e848590aa05ca3ca56d10451376007a1c6e5e7de230118c9f7cbea5d35b3c237"
+  },
+  {
+    "key": "COM-02/use-missing",
+    "sha256": "508e70f0d64f66f702a04b13eba721ea662396a507e70b79c069e42eab33c60b"
+  },
+  {
+    "key": "COM-02/mixed-principals-coalesced",
+    "sha256": "7a5f32c3a17945ad50d592b3590bf5e9f1e532b53ab9a197b64df80a2e4d1864"
+  },
+  {
+    "key": "COM-02/failure-verifier",
+    "sha256": "13d83b6d985cb7bb4f560774570bbac9799acbb57aadce00fac0b59f59abfe85"
+  },
+  {
+    "key": "COM-02/failure-policy",
+    "sha256": "999a3d196e4329f3fa9dc8a9d3140fdbb089941a8bc35c8f05f9e7f93c54e737"
+  },
+  {
+    "key": "COM-02/failure-broker",
+    "sha256": "e714e5ba7475174c47b61aa82824c6bee59ca8c792f73704d088dba69b7133d7"
+  },
+  {
+    "key": "COM-02/failure-stale",
+    "sha256": "eb8a042c9c138589382e38c767646d2e836d5e73b93684900687bea2a17ec192"
+  },
+  {
+    "key": "COM-02/restart-stale",
+    "sha256": "27bdff1d3313fd2a6ab384e7bcf8bd211dc4150ff6128582723407b7146e9e33"
+  },
+  {
+    "key": "COM-02/restart-missing",
+    "sha256": "7cf3bae39d27d483ce4b777e4dfd1f462973ea7ef99d1bce5e77e6f7861fd998"
+  },
+  {
+    "key": "COM-02/restart-recovery",
+    "sha256": "ea79a3a3edc3dc8f88ee321876b0d2ff7e6535e85255d26b368a42de5dd37d59"
+  },
+  {
+    "key": "COM-03/immediate-missing",
+    "sha256": "70b6c8516d46951b53e16599121640557250bd719140df1200c8e5d978c6fd54"
+  },
+  {
+    "key": "COM-03/immediate-insufficient",
+    "sha256": "fdc86deee357c5b743ccb941178519960e958f06114064774d0eddd3c5bb9956"
+  },
+  {
+    "key": "COM-03/immediate-sufficient",
+    "sha256": "f453e205a363b2534698e7c76649b5cdb550e24d96435e502a5b3ee0b1bfc780"
+  },
+  {
+    "key": "COM-03/use-expired",
+    "sha256": "23e655c26e2217414d3f208ac2bf0b30d8327b7ae524e8858e28449ce243d859"
+  },
+  {
+    "key": "COM-03/use-revoked",
+    "sha256": "1c92a3e5bf2f44365329f565c31b0af61d54501c416bf3690e3acb31fe25d794"
+  },
+  {
+    "key": "COM-03/use-replay",
+    "sha256": "ea2c84bb27b9c09bf872636d174de83cdfd798f0189d266451a8312e46c32d31"
+  },
+  {
+    "key": "COM-03/use-reduced",
+    "sha256": "f8a74dd190d9b64e8f96a0f021c1094f37d8f4e11a021b9563a81fc73896c278"
+  },
+  {
+    "key": "COM-03/use-missing",
+    "sha256": "044e7b9d8ae12c3310779a2462c37abcbb6473090944f2cd32edd67b2616f2d6"
+  },
+  {
+    "key": "COM-03/mixed-principals-coalesced",
+    "sha256": "d93bc42ec258f0fce064cd75ffa474af367e55edd73eab2d3bc1530f029c2ed2"
+  },
+  {
+    "key": "COM-03/failure-verifier",
+    "sha256": "02eb7e700baee4524044c5a135ec67918003a867612acd4f22b43a0bc1b71f86"
+  },
+  {
+    "key": "COM-03/failure-policy",
+    "sha256": "062b2087212da56b8aa2e6128af055db3c9f976eb1a08a6294f35952c01f1662"
+  },
+  {
+    "key": "COM-03/failure-broker",
+    "sha256": "fe8a0c89efacd000bbc05f70895c8779099d009cf69bc3bc951741674c4b622d"
+  },
+  {
+    "key": "COM-03/failure-stale",
+    "sha256": "afca069b890962c386217dc14406c5ef7e7ea851847c123c39493bce43dd0b7a"
+  },
+  {
+    "key": "COM-03/restart-stale",
+    "sha256": "192a62ca20be2d1c0a5b1cdbed9d71a72dac6b3f8746ede0bbc0569f0f592752"
+  },
+  {
+    "key": "COM-03/restart-missing",
+    "sha256": "b130ed77d19fd82f5d52bbfdb2461213873657573e931c6905429886fb7cc927"
+  },
+  {
+    "key": "COM-03/restart-recovery",
+    "sha256": "344d2c7892f15fb6e31700f4b0923cc3c33df25a4775acea7f0b1dbd6e250e7c"
+  }
+]

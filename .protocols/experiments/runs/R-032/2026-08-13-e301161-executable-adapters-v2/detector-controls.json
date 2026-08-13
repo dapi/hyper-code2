@@ -1,0 +1,12 @@
+{
+  "sentinelDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184",
+  "rawSentinelStored": false,
+  "positive": {
+    "fixture": "deliberately-leaky-detector-control",
+    "detected": true
+  },
+  "negative": {
+    "fixture": "sanitized-detector-control",
+    "detected": false
+  }
+}

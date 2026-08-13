@@ -1,0 +1,2231 @@
+[
+  {
+    "key": "GET /",
+    "source": "src/$route_GET.ts",
+    "loaderRule": "route",
+    "sourceSha256": "f3e9ce8d4b9d1917feae9dadc6dec5fd7c379c770a73872185aef3937dc77881",
+    "dependencies": [],
+    "authority": [],
+    "executionTiming": [],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "_req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "GET /#missing",
+        "GET /#malformed",
+        "GET /#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "302 to first agent or rendered empty-state page"
+  },
+  {
+    "key": "POST /agent/:id/archive",
+    "source": "src/agent/$route_$id_archive_POST.ts",
+    "loaderRule": "route",
+    "sourceSha256": "ad7f13357f28025e0dc476a529391b2d8cd7f728b153f46e374825fb285b9d12",
+    "dependencies": [
+      "session.archive"
+    ],
+    "authority": [
+      {
+        "class": "agent_or_session_mutation",
+        "reach": "direct",
+        "note": "archive durable agent and remove runtime view",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "POST /agent/:id/archive#missing",
+        "POST /agent/:id/archive#malformed",
+        "POST /agent/:id/archive#synthetic-invalid"
+      ],
+      "handlerClassification": "repository_test_plus_static_control_review",
+      "repositoryTests": [
+        "src/agent/$route_$id_archive_POST.test.ts"
+      ],
+      "staticOnlyRationale": null
+    },
+    "responseAndError": "303; archive exceptions are logged and suppressed"
+  },
+  {
+    "key": "POST /agent/:id/delete",
+    "source": "src/agent/$route_$id_delete_POST.ts",
+    "loaderRule": "route",
+    "sourceSha256": "81537c6ad0390cb5b6e864a2c3142bc54fe40d91899eef74f65bd646556e4efc",
+    "dependencies": [
+      "session.delete",
+      "session.list"
+    ],
+    "authority": [
+      {
+        "class": "agent_or_session_mutation",
+        "reach": "direct",
+        "note": "delete durable agent and runtime view",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "POST /agent/:id/delete#missing",
+        "POST /agent/:id/delete#malformed",
+        "POST /agent/:id/delete#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "303"
+  },
+  {
+    "key": "DELETE /agent/:id",
+    "source": "src/agent/$route_$id_DELETE.ts",
+    "loaderRule": "route",
+    "sourceSha256": "9a2d831bcaab35cd8fe58b48e00215c365e18be7fa173377dc9a6143b2c8c175",
+    "dependencies": [
+      "agent.clear",
+      "session?.delete"
+    ],
+    "authority": [
+      {
+        "class": "agent_or_session_mutation",
+        "reach": "direct",
+        "note": "clear/delete agent state",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "DELETE /agent/:id#missing",
+        "DELETE /agent/:id#malformed",
+        "DELETE /agent/:id#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "200 JSON; session delete exceptions are logged and suppressed"
+  },
+  {
+    "key": "GET /agent/:id/events",
+    "source": "src/agent/$route_$id_events_GET.ts",
+    "loaderRule": "route",
+    "sourceSha256": "6fc0ee6c6cc5cc489b75ccd4fd8640c98e48ea1f07e2cbf06380608bcf1bbd75",
+    "dependencies": [
+      "db.select",
+      "session.getEvents",
+      "session.getMaxEventIdx",
+      "session?.load"
+    ],
+    "authority": [
+      {
+        "class": "agent_or_session_mutation",
+        "reach": "direct",
+        "note": "load agent and read durable events/run state",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "GET /agent/:id/events#missing",
+        "GET /agent/:id/events#malformed",
+        "GET /agent/:id/events#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "404 or 200 JSON"
+  },
+  {
+    "key": "GET /agent/:id/events.html",
+    "source": "src/agent/$route_$id_events.html_GET.ts",
+    "loaderRule": "route",
+    "sourceSha256": "eb82bb6641b970fdd9737fba85628f5edd117fa37425f00dc75f2a33bf062924",
+    "dependencies": [
+      "agent.renderEventHtml",
+      "db.select",
+      "session.getEvents",
+      "session.getMaxEventIdx"
+    ],
+    "authority": [
+      {
+        "class": "agent_or_session_mutation",
+        "reach": "direct",
+        "note": "read durable event/run state",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "GET /agent/:id/events.html#missing",
+        "GET /agent/:id/events.html#malformed",
+        "GET /agent/:id/events.html#synthetic-invalid"
+      ],
+      "handlerClassification": "repository_test_plus_static_control_review",
+      "repositoryTests": [
+        "src/agent/$route_$id_events.html_GET.test.ts"
+      ],
+      "staticOnlyRationale": null
+    },
+    "responseAndError": "404 or event HTML fragment"
+  },
+  {
+    "key": "POST /agent/:id/fork",
+    "source": "src/agent/$route_$id_fork_POST.ts",
+    "loaderRule": "route",
+    "sourceSha256": "4d68acfded4167d209fcf970d38f7940aee8e7ce963b86c0b8d19ba8d0e08401",
+    "dependencies": [
+      "session.fork",
+      "session.load"
+    ],
+    "authority": [
+      {
+        "class": "agent_or_session_mutation",
+        "reach": "direct",
+        "note": "create durable child agent",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "POST /agent/:id/fork#missing",
+        "POST /agent/:id/fork#malformed",
+        "POST /agent/:id/fork#synthetic-invalid"
+      ],
+      "handlerClassification": "repository_test_plus_static_control_review",
+      "repositoryTests": [
+        "src/agent/$route_$id_fork_POST.test.ts"
+      ],
+      "staticOnlyRationale": null
+    },
+    "responseAndError": "404 or 303 to child"
+  },
+  {
+    "key": "GET /agent/:id",
+    "source": "src/agent/$route_$id_GET.ts",
+    "loaderRule": "route",
+    "sourceSha256": "6e00fff1b5c048a16ce6a4e16c7ac7a2c6686f37c4d8763cd871da0250938b1e",
+    "dependencies": [
+      "agent.renderEventHtml",
+      "agent.renderStatusBar",
+      "db.select",
+      "session.getEvents",
+      "session.getFullMessages",
+      "session.getMaxEventIdx",
+      "session.getMessages",
+      "session?.load",
+      "ui.script"
+    ],
+    "authority": [
+      {
+        "class": "agent_or_session_mutation",
+        "reach": "direct",
+        "note": "read durable agent/session state",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "GET /agent/:id#missing",
+        "GET /agent/:id#malformed",
+        "GET /agent/:id#synthetic-invalid"
+      ],
+      "handlerClassification": "repository_test_plus_static_control_review",
+      "repositoryTests": [
+        "src/agent/$route_$id_GET.test.ts"
+      ],
+      "staticOnlyRationale": null
+    },
+    "responseAndError": "404 or rendered agent page"
+  },
+  {
+    "key": "POST /agent/:id/messages/delete",
+    "source": "src/agent/$route_$id_messages_delete_POST.ts",
+    "loaderRule": "route",
+    "sourceSha256": "30d2a17af1c690b4a92757987878f7d30ebc582e5c8d021bd25547d31d0759fc",
+    "dependencies": [
+      "session.deleteMessageAt",
+      "session.load",
+      "session.syncAgentState",
+      "session.truncateMessagesFrom"
+    ],
+    "authority": [
+      {
+        "class": "agent_or_session_mutation",
+        "reach": "direct",
+        "note": "delete/truncate durable messages",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "POST /agent/:id/messages/delete#missing",
+        "POST /agent/:id/messages/delete#malformed",
+        "POST /agent/:id/messages/delete#synthetic-invalid"
+      ],
+      "handlerClassification": "repository_test_plus_static_control_review",
+      "repositoryTests": [
+        "src/agent/$route_$id_messages_delete_POST.test.ts"
+      ],
+      "staticOnlyRationale": null
+    },
+    "responseAndError": "404/400 or 303"
+  },
+  {
+    "key": "POST /agent/:id",
+    "source": "src/agent/$route_$id_POST.ts",
+    "loaderRule": "route",
+    "sourceSha256": "6fda636293d2a2cbf0d13682f37d4991761b5b064c725ce3feccb52103e83db0",
+    "dependencies": [
+      "agent.wakeWorker",
+      "db.exec",
+      "session.appendUserMessage",
+      "session.syncAgentState",
+      "session?.load",
+      "settings?.getNumber"
+    ],
+    "authority": [
+      {
+        "class": "agent_or_session_mutation",
+        "reach": "direct",
+        "note": "append message and schedule worker",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "provider_or_model_invocation",
+        "reach": "transitive",
+        "note": "scheduled worker later invokes the configured model",
+        "executionTiming": [
+          "deferred"
+        ]
+      },
+      {
+        "class": "in_process_eval",
+        "reach": "transitive",
+        "note": "model output may request an eval marker",
+        "executionTiming": [
+          "deferred"
+        ]
+      },
+      {
+        "class": "shell",
+        "reach": "transitive",
+        "note": "model output may request a bash marker",
+        "executionTiming": [
+          "deferred"
+        ]
+      },
+      {
+        "class": "filesystem_read",
+        "reach": "transitive",
+        "note": "model output may request read/grep markers",
+        "executionTiming": [
+          "deferred"
+        ]
+      },
+      {
+        "class": "filesystem_write",
+        "reach": "transitive",
+        "note": "model output may request write/edit markers",
+        "executionTiming": [
+          "deferred"
+        ]
+      },
+      {
+        "class": "git_mutation_or_push",
+        "reach": "transitive",
+        "note": "bash/eval authority can invoke git",
+        "executionTiming": [
+          "deferred"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate",
+      "deferred"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [
+        {
+          "header": "accept",
+          "classification": "content_negotiation",
+          "evidence": ".headers?.get?.('accept'"
+        },
+        {
+          "header": "content-type",
+          "classification": "content_negotiation",
+          "evidence": ".headers?.get?.('content-type'"
+        },
+        {
+          "header": "hx-request",
+          "classification": "content_negotiation",
+          "evidence": ".headers?.get?.('hx-request'"
+        }
+      ],
+      "requestHeaderAccessCount": 3,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "POST /agent/:id#missing",
+        "POST /agent/:id#malformed",
+        "POST /agent/:id#synthetic-invalid"
+      ],
+      "handlerClassification": "repository_test_plus_static_control_review",
+      "repositoryTests": [
+        "src/agent/$route_$id_POST.test.ts"
+      ],
+      "staticOnlyRationale": null
+    },
+    "responseAndError": "404/400, 204/303, or 200 JSON; worker execution is deferred"
+  },
+  {
+    "key": "GET /agent/:id/status",
+    "source": "src/agent/$route_$id_status_GET.ts",
+    "loaderRule": "route",
+    "sourceSha256": "6cfee8f92f6a59384b41e2b5e8094ab471dda08e86b011bf783a91005505526b",
+    "dependencies": [
+      "db.select"
+    ],
+    "authority": [
+      {
+        "class": "agent_or_session_mutation",
+        "reach": "direct",
+        "note": "read durable run state",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "GET /agent/:id/status#missing",
+        "GET /agent/:id/status#malformed",
+        "GET /agent/:id/status#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "404 or 200 JSON"
+  },
+  {
+    "key": "GET /agent/:id/statusbar",
+    "source": "src/agent/$route_$id_statusbar_GET.ts",
+    "loaderRule": "route",
+    "sourceSha256": "509368ed212ba53b7cbae84cdcf958bd11164f2abec8cacb981425083162a69d",
+    "dependencies": [
+      "agent.renderStatusBar",
+      "db.select"
+    ],
+    "authority": [
+      {
+        "class": "agent_or_session_mutation",
+        "reach": "direct",
+        "note": "read durable run state",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "GET /agent/:id/statusbar#missing",
+        "GET /agent/:id/statusbar#malformed",
+        "GET /agent/:id/statusbar#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "404 or status HTML"
+  },
+  {
+    "key": "POST /agent/:id/stop",
+    "source": "src/agent/$route_$id_stop_POST.ts",
+    "loaderRule": "route",
+    "sourceSha256": "1d9ff11ddc8f426919904f493b7a432aeeb72e62751596d05e775a7c36f968d5",
+    "dependencies": [
+      "agent.stop"
+    ],
+    "authority": [
+      {
+        "class": "server_or_process_control",
+        "reach": "direct",
+        "note": "abort an in-process agent run",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "agent_or_session_mutation",
+        "reach": "direct",
+        "note": "optionally clear queued work",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "POST /agent/:id/stop#missing",
+        "POST /agent/:id/stop#malformed",
+        "POST /agent/:id/stop#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "303"
+  },
+  {
+    "key": "GET /agent/new",
+    "source": "src/agent/$route_new_GET.ts",
+    "loaderRule": "route",
+    "sourceSha256": "dbe8e5164c99b683f47db056f319b3ef5365e43b01e0e3994c4201878b784f74",
+    "dependencies": [
+      "agent.getBasePromptParts",
+      "agent.listPromptPresets",
+      "llm.listModels",
+      "settings?.modelDefault"
+    ],
+    "authority": [
+      {
+        "class": "settings_or_credentials",
+        "reach": "direct",
+        "note": "enumerate provider/model availability through llm.listModels",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx"
+        ],
+        "sessionParameter": null,
+        "sessionParameterReferences": 0,
+        "conclusion": "The handler declares no session slot that could establish caller identity."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "GET /agent/new#missing",
+        "GET /agent/new#malformed",
+        "GET /agent/new#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "rendered new-agent form"
+  },
+  {
+    "key": "POST /agent/new",
+    "source": "src/agent/$route_new_POST.ts",
+    "loaderRule": "route",
+    "sourceSha256": "2c0dfbee4c2dc1c811e14b1e2bca2a9ffd7b2cdbc0563f019b33cde808542f23",
+    "dependencies": [
+      "agent.listPromptPresets",
+      "agent.start",
+      "settings?.modelDefault"
+    ],
+    "authority": [
+      {
+        "class": "agent_or_session_mutation",
+        "reach": "direct",
+        "note": "create and persist an agent",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "POST /agent/new#missing",
+        "POST /agent/new#malformed",
+        "POST /agent/new#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "303 to created agent"
+  },
+  {
+    "key": "GET /agent/chat.js",
+    "source": "src/agent/$script_chat.js",
+    "loaderRule": "script",
+    "sourceSha256": "1015152299512edd9cd26642df885f5f6f743832522c41ca139a766e879b159c",
+    "dependencies": [],
+    "authority": [
+      {
+        "class": "filesystem_read",
+        "reach": "direct",
+        "note": "loader bundles and serves script source",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "filesystem_write",
+        "reach": "direct",
+        "note": "loader writes bundle under runtime script cache",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "server_or_process_control",
+        "reach": "direct",
+        "note": "loader invokes Bun.build in process",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [],
+        "sessionParameter": null,
+        "sessionParameterReferences": 0,
+        "conclusion": "The loader-generated script handler has no caller-session parameter."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "GET /agent/chat.js#missing",
+        "GET /agent/chat.js#malformed",
+        "GET /agent/chat.js#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "200 built asset; build/read errors propagate"
+  },
+  {
+    "key": "GET /dev/fail",
+    "source": "src/dev/$route_fail_GET.ts",
+    "loaderRule": "route",
+    "sourceSha256": "c201a7bf026c5b6494cfee3c5d76c33b74d8b22a3f5424904b78f949fe72e369",
+    "dependencies": [],
+    "authority": [],
+    "executionTiming": [],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          ""
+        ],
+        "sessionParameter": null,
+        "sessionParameterReferences": 0,
+        "conclusion": "The handler declares no session slot that could establish caller identity."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "GET /dev/fail#missing",
+        "GET /dev/fail#malformed",
+        "GET /dev/fail#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "always throws"
+  },
+  {
+    "key": "GET /events",
+    "source": "src/events/$route__GET.ts",
+    "loaderRule": "route",
+    "sourceSha256": "fd27bfb358b12af7a98cf934c53bca17ec03ca09e6d2a8202a4c4b471c3c9961",
+    "dependencies": [
+      "events.subscribe"
+    ],
+    "authority": [
+      {
+        "class": "server_or_process_control",
+        "reach": "direct",
+        "note": "register process-local subscriber and keepalive timer",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "GET /events#missing",
+        "GET /events#malformed",
+        "GET /events#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "200 event-stream until abort"
+  },
+  {
+    "key": "GET /events/client.js",
+    "source": "src/events/$route_client.js_GET.ts",
+    "loaderRule": "route",
+    "sourceSha256": "1e1f5a3fb90836cc73aa3deabd479b80cdcd11a645fbc27136e0d26b0a1676c9",
+    "dependencies": [
+      "Bun.file"
+    ],
+    "authority": [
+      {
+        "class": "filesystem_read",
+        "reach": "direct",
+        "note": "read shipped browser script",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          ""
+        ],
+        "sessionParameter": null,
+        "sessionParameterReferences": 0,
+        "conclusion": "The handler declares no session slot that could establish caller identity."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "GET /events/client.js#missing",
+        "GET /events/client.js#malformed",
+        "GET /events/client.js#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "200 JavaScript response; read errors propagate"
+  },
+  {
+    "key": "POST /files",
+    "source": "src/files/$route__POST.ts",
+    "loaderRule": "route",
+    "sourceSha256": "852ebce5d8aa3d9340e91acc2240ecb278686fe0ed309a40d9d6ddbdc4407fa6",
+    "dependencies": [
+      "files.write"
+    ],
+    "authority": [
+      {
+        "class": "filesystem_write",
+        "reach": "direct",
+        "note": "write caller-selected project-relative path",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "POST /files#missing",
+        "POST /files#malformed",
+        "POST /files#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "400 or 303; dependency errors propagate"
+  },
+  {
+    "key": "PUT /files",
+    "source": "src/files/$route__PUT.ts",
+    "loaderRule": "route",
+    "sourceSha256": "464d866173ba2d9b1467cd7734c96657e1a172866166553cc28945b6cd7da134",
+    "dependencies": [
+      "files.write"
+    ],
+    "authority": [
+      {
+        "class": "filesystem_write",
+        "reach": "direct",
+        "note": "write caller-selected project-relative path",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "PUT /files#missing",
+        "PUT /files#malformed",
+        "PUT /files#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "400 or 200 JSON; dependency errors propagate"
+  },
+  {
+    "key": "POST /files/close",
+    "source": "src/files/$route_close_POST.ts",
+    "loaderRule": "route",
+    "sourceSha256": "39164e221cde14df7cc886aed063c2ea6b3295ac428ae5d70ef7684677e40f72",
+    "dependencies": [
+      "files.close"
+    ],
+    "authority": [
+      {
+        "class": "agent_or_session_mutation",
+        "reach": "direct",
+        "note": "mutate process-local open-file state",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [
+        {
+          "header": "referer",
+          "classification": "navigation_only",
+          "evidence": ".headers.get(\"referer\""
+        }
+      ],
+      "requestHeaderAccessCount": 1,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "POST /files/close#missing",
+        "POST /files/close#malformed",
+        "POST /files/close#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "303"
+  },
+  {
+    "key": "GET /files",
+    "source": "src/files/$route_GET.ts",
+    "loaderRule": "route",
+    "sourceSha256": "91afd0652702ccab3d92afcabf5ec224e85fe385ee9fd16a0382eb409571a18b",
+    "dependencies": [
+      "files.list",
+      "files.open",
+      "files.read",
+      "files.resolveSafe",
+      "markdown.highlight",
+      "markdown.render",
+      "node:fs/promises",
+      "node:path"
+    ],
+    "authority": [
+      {
+        "class": "filesystem_read",
+        "reach": "direct",
+        "note": "resolve/list/read project files and metadata",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "GET /files#missing",
+        "GET /files#malformed",
+        "GET /files#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "404 or rendered directory/file view; dependency errors may propagate"
+  },
+  {
+    "key": "GET /files/editor.js",
+    "source": "src/files/$script_editor.js",
+    "loaderRule": "script",
+    "sourceSha256": "b1ce170662b78d4dc936b915d18601c0b00c6016d92a9dc1250539edbd592c49",
+    "dependencies": [],
+    "authority": [
+      {
+        "class": "filesystem_read",
+        "reach": "direct",
+        "note": "loader bundles and serves script source",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "filesystem_write",
+        "reach": "direct",
+        "note": "loader writes bundle under runtime script cache",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "server_or_process_control",
+        "reach": "direct",
+        "note": "loader invokes Bun.build in process",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [],
+        "sessionParameter": null,
+        "sessionParameterReferences": 0,
+        "conclusion": "The loader-generated script handler has no caller-session parameter."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "GET /files/editor.js#missing",
+        "GET /files/editor.js#malformed",
+        "GET /files/editor.js#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "200 built asset; build/read errors propagate"
+  },
+  {
+    "key": "POST /repl",
+    "source": "src/repl/$route__POST.ts",
+    "loaderRule": "route",
+    "sourceSha256": "7a36c99fef8466c6e61f6b95113702a78c90933bc3c33cb873da42650f1d1bc3",
+    "dependencies": [
+      "repl.eval"
+    ],
+    "authority": [
+      {
+        "class": "in_process_eval",
+        "reach": "direct",
+        "note": "pass caller body to repl.eval inside server process",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "shell",
+        "reach": "transitive",
+        "note": "evaluated code has process/Bun authority",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "filesystem_read",
+        "reach": "transitive",
+        "note": "evaluated code has process/Bun authority",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "filesystem_write",
+        "reach": "transitive",
+        "note": "evaluated code has process/Bun authority",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "git_mutation_or_push",
+        "reach": "transitive",
+        "note": "evaluated code can invoke git",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "settings_or_credentials",
+        "reach": "transitive",
+        "note": "evaluated code receives ctx and process globals",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "provider_or_model_invocation",
+        "reach": "transitive",
+        "note": "evaluated code receives the function registry",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "agent_or_session_mutation",
+        "reach": "transitive",
+        "note": "evaluated code receives ctx state and functions",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "server_or_process_control",
+        "reach": "transitive",
+        "note": "evaluated code runs in the server process",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "request"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "POST /repl#missing",
+        "POST /repl#malformed",
+        "POST /repl#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "200 JSON on eval success or 500 JSON including error/stack"
+  },
+  {
+    "key": "GET /settings",
+    "source": "src/settings/$route__GET.ts",
+    "loaderRule": "route",
+    "sourceSha256": "49abdb8d902e5f6c6f49c14e7bb5ed3c67f6463dd3bc85e0728ace47e8308335",
+    "dependencies": [
+      "settings.status"
+    ],
+    "authority": [
+      {
+        "class": "settings_or_credentials",
+        "reach": "direct",
+        "note": "settings.status reads env and CLI credential-file status",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [
+        {
+          "token": "authorize",
+          "rationale": "Rendered device-flow instruction for the operator; it does not inspect or establish the HTTP caller's identity."
+        }
+      ],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx"
+        ],
+        "sessionParameter": null,
+        "sessionParameterReferences": 0,
+        "conclusion": "The handler declares no session slot that could establish caller identity."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "GET /settings#missing",
+        "GET /settings#malformed",
+        "GET /settings#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "rendered settings page"
+  },
+  {
+    "key": "POST /settings/codex/login",
+    "source": "src/settings/$route_codex_login_POST.ts",
+    "loaderRule": "route",
+    "sourceSha256": "8946ca4fb3e6557f8101e0a8c43a690c13905f5e8c3dc3c9894dc389a4bbbff3",
+    "dependencies": [
+      "settings.startCodexLogin"
+    ],
+    "authority": [
+      {
+        "class": "settings_or_credentials",
+        "reach": "direct",
+        "note": "start Codex device login",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "shell",
+        "reach": "transitive",
+        "note": "startCodexLogin spawns the codex CLI",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "filesystem_write",
+        "reach": "transitive",
+        "note": "the CLI may write its auth file",
+        "executionTiming": [
+          "deferred"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate",
+      "deferred"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx"
+        ],
+        "sessionParameter": null,
+        "sessionParameterReferences": 0,
+        "conclusion": "The handler declares no session slot that could establish caller identity."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "POST /settings/codex/login#missing",
+        "POST /settings/codex/login#malformed",
+        "POST /settings/codex/login#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "303; dependency failure stored in process state"
+  },
+  {
+    "key": "POST /settings/codex/logout",
+    "source": "src/settings/$route_codex_logout_POST.ts",
+    "loaderRule": "route",
+    "sourceSha256": "1d6ef3edb02398fdd82dabe92c6de61b2dd9db0c7d65572af5421157c5238049",
+    "dependencies": [
+      "settings.logoutCodex"
+    ],
+    "authority": [
+      {
+        "class": "settings_or_credentials",
+        "reach": "direct",
+        "note": "delete Codex auth and login state",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "filesystem_write",
+        "reach": "transitive",
+        "note": "logout removes credential file",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "server_or_process_control",
+        "reach": "transitive",
+        "note": "logout may kill login child process",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx"
+        ],
+        "sessionParameter": null,
+        "sessionParameterReferences": 0,
+        "conclusion": "The handler declares no session slot that could establish caller identity."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "POST /settings/codex/logout#missing",
+        "POST /settings/codex/logout#malformed",
+        "POST /settings/codex/logout#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "303"
+  },
+  {
+    "key": "GET /settings/declared",
+    "source": "src/settings/$route_declared_GET.ts",
+    "loaderRule": "route",
+    "sourceSha256": "4ac63ae26be51dfcfda251f82e6945c6ed7b34455e5ae92fd70b99deefd925f2",
+    "dependencies": [
+      "settings.declared",
+      "settings.renderDeclaredForm"
+    ],
+    "authority": [
+      {
+        "class": "settings_or_credentials",
+        "reach": "direct",
+        "note": "read declared/default/persisted setting values",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx"
+        ],
+        "sessionParameter": null,
+        "sessionParameterReferences": 0,
+        "conclusion": "The handler declares no session slot that could establish caller identity."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "GET /settings/declared#missing",
+        "GET /settings/declared#malformed",
+        "GET /settings/declared#synthetic-invalid"
+      ],
+      "handlerClassification": "repository_test_plus_static_control_review",
+      "repositoryTests": [
+        "src/settings/$route_declared_GET.test.ts"
+      ],
+      "staticOnlyRationale": null
+    },
+    "responseAndError": "rendered settings form"
+  },
+  {
+    "key": "POST /settings/declared",
+    "source": "src/settings/$route_declared_POST.ts",
+    "loaderRule": "route",
+    "sourceSha256": "5875d65560b2a2b04615ed3eb69cb3514b2d205773f64d92b9a8d9842cab03f4",
+    "dependencies": [
+      "settings.get",
+      "settings.remove",
+      "settings.renderDeclaredForm",
+      "settings.set"
+    ],
+    "authority": [
+      {
+        "class": "settings_or_credentials",
+        "reach": "direct",
+        "note": "set/remove persisted settings, including secret-typed values",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "agent_or_session_mutation",
+        "reach": "direct",
+        "note": "mutate settings rows",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "POST /settings/declared#missing",
+        "POST /settings/declared#malformed",
+        "POST /settings/declared#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "200 settings HTML; invalid values are ignored"
+  },
+  {
+    "key": "POST /settings/env",
+    "source": "src/settings/$route_env_POST.ts",
+    "loaderRule": "route",
+    "sourceSha256": "8d8b5c16647579cb515ddc77ba39df7646fb006f152f77530ff1011e1c90cb9a",
+    "dependencies": [
+      "settings.saveEnv"
+    ],
+    "authority": [
+      {
+        "class": "settings_or_credentials",
+        "reach": "direct",
+        "note": "accept arbitrary valid env-key/value pair",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "filesystem_read",
+        "reach": "transitive",
+        "note": "saveEnv reads project .env",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "filesystem_write",
+        "reach": "transitive",
+        "note": "saveEnv rewrites project .env",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "POST /settings/env#missing",
+        "POST /settings/env#malformed",
+        "POST /settings/env#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "400 or 303; dependency errors propagate"
+  },
+  {
+    "key": "POST /settings/kimi/login",
+    "source": "src/settings/$route_kimi_login_POST.ts",
+    "loaderRule": "route",
+    "sourceSha256": "45e8377b2261699bd7e206e1d50e461f0999a8dbd23a92781c38fd9369ef0993",
+    "dependencies": [
+      "settings.startKimiLogin"
+    ],
+    "authority": [
+      {
+        "class": "settings_or_credentials",
+        "reach": "direct",
+        "note": "start Kimi OAuth device flow",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "provider_or_model_invocation",
+        "reach": "transitive",
+        "note": "dependency invokes an external OAuth provider",
+        "executionTiming": [
+          "immediate",
+          "deferred"
+        ]
+      },
+      {
+        "class": "filesystem_write",
+        "reach": "transitive",
+        "note": "successful polling writes credential file",
+        "executionTiming": [
+          "deferred"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate",
+      "deferred"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [
+        {
+          "token": "authorization",
+          "rationale": "Source comment naming the downstream OAuth device-authorization flow; it is not a caller control in this HTTP handler."
+        }
+      ],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx"
+        ],
+        "sessionParameter": null,
+        "sessionParameterReferences": 0,
+        "conclusion": "The handler declares no session slot that could establish caller identity."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "POST /settings/kimi/login#missing",
+        "POST /settings/kimi/login#malformed",
+        "POST /settings/kimi/login#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "303; dependency errors propagate"
+  },
+  {
+    "key": "POST /settings/kimi/logout",
+    "source": "src/settings/$route_kimi_logout_POST.ts",
+    "loaderRule": "route",
+    "sourceSha256": "dc1ae9acbbed4b2bf276f2347d1895632aa01c5cca27c78afea464df06127f98",
+    "dependencies": [
+      "settings.logoutKimi"
+    ],
+    "authority": [
+      {
+        "class": "settings_or_credentials",
+        "reach": "direct",
+        "note": "delete Kimi credential and login state",
+        "executionTiming": [
+          "immediate"
+        ]
+      },
+      {
+        "class": "filesystem_write",
+        "reach": "transitive",
+        "note": "logout removes credential file",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx"
+        ],
+        "sessionParameter": null,
+        "sessionParameterReferences": 0,
+        "conclusion": "The handler declares no session slot that could establish caller identity."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "POST /settings/kimi/logout#missing",
+        "POST /settings/kimi/logout#malformed",
+        "POST /settings/kimi/logout#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "303"
+  },
+  {
+    "key": "GET /ui/control.js",
+    "source": "src/ui/$route_control.js_GET.ts",
+    "loaderRule": "route",
+    "sourceSha256": "c2d14053a17e13e337a38d29a193015ed7b9ef8e99128f09c523627b82754b67",
+    "dependencies": [
+      "ui"
+    ],
+    "authority": [
+      {
+        "class": "filesystem_read",
+        "reach": "direct",
+        "note": "build/read browser-control script through ui.controlScript",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx"
+        ],
+        "sessionParameter": null,
+        "sessionParameterReferences": 0,
+        "conclusion": "The handler declares no session slot that could establish caller identity."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "GET /ui/control.js#missing",
+        "GET /ui/control.js#malformed",
+        "GET /ui/control.js#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "200 JavaScript; dependency errors propagate"
+  },
+  {
+    "key": "POST /ui/eval/result",
+    "source": "src/ui/$route_eval_result_POST.ts",
+    "loaderRule": "route",
+    "sourceSha256": "31248506b1f5d0d6ed6866f9f28f980c7ef838bc59c6e6222eff472670161b12",
+    "dependencies": [],
+    "authority": [
+      {
+        "class": "agent_or_session_mutation",
+        "reach": "direct",
+        "note": "complete an in-process pending UI eval entry",
+        "executionTiming": [
+          "immediate"
+        ]
+      }
+    ],
+    "executionTiming": [
+      "immediate"
+    ],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          "ctx",
+          "_session",
+          "req"
+        ],
+        "sessionParameter": "_session",
+        "sessionParameterReferences": 1,
+        "conclusion": "The dispatcher-supplied session slot is explicitly unused by the handler."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "POST /ui/eval/result#missing",
+        "POST /ui/eval/result#malformed",
+        "POST /ui/eval/result#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "400/404 or 200 JSON"
+  },
+  {
+    "key": "GET /ui/ping",
+    "source": "src/ui/$route_ping_GET.ts",
+    "loaderRule": "route",
+    "sourceSha256": "a2f372942b22000f0148b5aae0e9fab6ad4316d40cdf96a75e4d6124804b1492",
+    "dependencies": [],
+    "authority": [],
+    "executionTiming": [],
+    "callerControlEvidence": {
+      "sharedDispatchSources": [
+        "src/http/$start.ts",
+        "src/http/match.ts",
+        "src/http/loadRoutes.ts"
+      ],
+      "routeLocalAuthorityControlCandidates": [],
+      "reviewedNonControlTerms": [],
+      "routeLocalHeaderCandidates": [],
+      "requestHeaderAccessCount": 0,
+      "handlerSessionEvidence": {
+        "handlerParameters": [
+          ""
+        ],
+        "sessionParameter": null,
+        "sessionParameterReferences": 0,
+        "conclusion": "The handler declares no session slot that could establish caller identity."
+      },
+      "conclusion": "No caller identity/authentication/authorization control is present in the common dispatch path or this route source at the fixed source baseline."
+    },
+    "coverage": {
+      "dispatchMock": [
+        "GET /ui/ping#missing",
+        "GET /ui/ping#malformed",
+        "GET /ui/ping#synthetic-invalid"
+      ],
+      "handlerClassification": "static_only_control_review",
+      "repositoryTests": [],
+      "staticOnlyRationale": "Caller-control absence is a source-level property: the common dispatcher mock proves all three identity variants reach this entry's handler boundary, while exact-source token/header review finds no route-local caller-authority candidate. Handler side effects are not executed."
+    },
+    "responseAndError": "200 JSON"
+  }
+]

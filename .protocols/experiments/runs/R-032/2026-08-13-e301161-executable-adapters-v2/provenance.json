@@ -1,0 +1,28 @@
+{
+  "runId": "2026-08-13-e301161-executable-adapters-v2",
+  "date": "2026-08-13",
+  "executionHead": "e301161a70ca685feedfaa5bfba0d3580c73e3f7",
+  "sourceBaseline": "d119f1c10381e489d9140c43f9fe9a878bf67255",
+  "instruments": [
+    {
+      "path": ".protocols/experiments/r032-executable-adapters.ts",
+      "sha256": "3877f644ef7963b3405360a3de890d84114760caa4e489b76cfc6620f810aa55"
+    },
+    {
+      "path": ".protocols/experiments/r032-executable-adapters.test.ts",
+      "sha256": "cdf60effade79acec98028053adae70f110c6681a47d49d02a3c143d21dae172"
+    }
+  ],
+  "environmentKeys": [
+    "PATH",
+    "R032_EXEC_CONTAINED"
+  ],
+  "networkCalls": [],
+  "boundary": {
+    "realTransport": false,
+    "realSecret": false,
+    "userState": false,
+    "productionSourceChange": false,
+    "mechanismSelected": false
+  }
+}

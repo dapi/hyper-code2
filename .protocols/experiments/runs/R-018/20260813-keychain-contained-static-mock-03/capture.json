@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "runner": "r018-contained-child.ts@2",
+  "sequence": 3,
+  "phase": "synthetic-injection",
+  "providerCalls": 0,
+  "fixture": {
+    "kind": "deterministic non-secret",
+    "digest": "0dc81427dbadb3d5b85f3c37190074be415c4237231a359b5d7e428c1cfd9ca8"
+  },
+  "forms": [
+    {
+      "id": "S0",
+      "label": "raw UTF-8",
+      "digests": [
+        "0dc81427dbadb3d5b85f3c37190074be415c4237231a359b5d7e428c1cfd9ca8"
+      ]
+    },
+    {
+      "id": "S1",
+      "label": "JSON escaped",
+      "digests": [
+        "a030e93b55d11a15182f6be44e1bb283277628b64274422a00dd3f98487fb7b6"
+      ]
+    },
+    {
+      "id": "S2",
+      "label": "URL encoded",
+      "digests": [
+        "6239108d9ef71259b9ac15857dc09cf98035db7fca90c88b1e39156b87c34d1a"
+      ]
+    },
+    {
+      "id": "S3",
+      "label": "standard Base64",
+      "digests": [
+        "e657c2dbe3be034c6ef9f11a3c2d21432efb255f53595bc09df742aa0f0ad882"
+      ]
+    },
+    {
+      "id": "S4",
+      "label": "Base64url",
+      "digests": [
+        "cf2a52bb54ed6e7e5f85b5d61089905401de7f0d2df21746c8aa5a71b9a1e940"
+      ]
+    },
+    {
+      "id": "S5",
+      "label": "lowercase hexadecimal",
+      "digests": [
+        "d258b2c06a1b6aca0ae027435853c25a7846862745a327e173ef52d5d66b4fdc"
+      ]
+    },
+    {
+      "id": "S6",
+      "label": "uppercase hexadecimal",
+      "digests": [
+        "5f3f5ea25357ac0ff62a83df7943203af702fe42349d42d3dec9d7ceff3ef883"
+      ]
+    },
+    {
+      "id": "S7",
+      "label": "shell single-quote form",
+      "digests": [
+        "42b9ea69f69d0718d8e37e649281bff10e0174111d09efd1b66fa91cdf09f4f8"
+      ]
+    },
+    {
+      "id": "S8",
+      "label": "NFC-normalized text",
+      "digests": [
+        "db3148df86d84c60cbe4dad23428ea2b8b547d1b89d181df4de9920d37b7ad8e"
+      ]
+    }
+  ],
+  "cell": {
+    "id": "CELL-01",
+    "source": "declared setting env fixture",
+    "action": "eval mock result",
+    "outcome": "success",
+    "sinks": {
+      "syntheticResultMessage": [
+        {
+          "formId": "S0",
+          "valueIndex": 0,
+          "offset": 13
+        }
+      ],
+      "persistedEvent": [
+        {
+          "formId": "S0",
+          "valueIndex": 0,
+          "offset": 111
+        },
+        {
+          "formId": "S0",
+          "valueIndex": 0,
+          "offset": 213
+        },
+        {
+          "formId": "S0",
+          "valueIndex": 0,
+          "offset": 899
+        },
+        {
+          "formId": "S1",
+          "valueIndex": 0,
+          "offset": 110
+        },
+        {
+          "formId": "S1",
+          "valueIndex": 0,
+          "offset": 212
+        }
+      ],
+      "renderedEventHtml": [
+        {
+          "formId": "S0",
+          "valueIndex": 0,
+          "offset": 606
+        }
+      ],
+      "preProviderRequest": [
+        {
+          "formId": "S0",
+          "valueIndex": 0,
+          "offset": 12009
+        }
+      ]
+    },
+    "stopRule": "STOP-03"
+  },
+  "unexecutedAfterStop": [
+    "error",
+    "serialization-failure",
+    "retry-cancellation",
+    "additional-source-cells"
+  ]
+}

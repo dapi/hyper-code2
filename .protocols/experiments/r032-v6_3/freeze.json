@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "version": "R-032-V6.3-precollection",
+  "classification": "synthetic-method-carrier-only",
+  "head": "a4473e0e2bd0867e673099b24954d38b0b820089",
+  "collection": {
+    "authorized": false,
+    "requiresIndependentReview": true,
+    "runDirectory": ".protocols/experiments/runs/R-032/V6.3"
+  },
+  "matrix": {
+    "candidates": 9,
+    "casesPerCandidate": 16,
+    "totalRows": 144,
+    "sinkStages": 9
+  },
+  "environment": {
+    "runtime": "Bun 1.3.14",
+    "platform": "darwin-arm64",
+    "parentEnvPolicy": "exact-minimal",
+    "brokerEnvPolicy": "exact-minimal"
+  },
+  "operatorHomePath": "/Users/danil",
+  "gateOrder": [
+    "outer-no-spawn-head-and-hash-gate",
+    "exact-independent-review-binding-for-collection",
+    "minimal-env-parent-relaunch",
+    "parent-repeat-gate-before-temp",
+    "compile-contained-broker",
+    "runtime-matrix-and-log-capture",
+    "result-derived-validation",
+    "sanitized-carrier-build",
+    "atomic-first-write-for-reviewed-collection-only"
+  ],
+  "sourcePaths": ["src/$route_GET.ts","src/agent/$route_$id_DELETE.ts","src/agent/$route_$id_GET.ts","src/agent/$route_$id_POST.ts","src/agent/$route_$id_archive_POST.ts","src/agent/$route_$id_delete_POST.ts","src/agent/$route_$id_events.html_GET.ts","src/agent/$route_$id_events_GET.ts","src/agent/$route_$id_fork_POST.ts","src/agent/$route_$id_messages_delete_POST.ts","src/agent/$route_$id_status_GET.ts","src/agent/$route_$id_statusbar_GET.ts","src/agent/$route_$id_stop_POST.ts","src/agent/$route_new_GET.ts","src/agent/$route_new_POST.ts","src/agent/$script_chat.js","src/dev/$route_fail_GET.ts","src/events/$route__GET.ts","src/events/$route_client.js_GET.ts","src/files/$route_GET.ts","src/files/$route__POST.ts","src/files/$route__PUT.ts","src/files/$route_close_POST.ts","src/files/$script_editor.js","src/repl/$route__POST.ts","src/self/$route_GET.ts","src/settings/$route__GET.ts","src/settings/$route_codex_login_POST.ts","src/settings/$route_codex_logout_POST.ts","src/settings/$route_declared_GET.ts","src/settings/$route_declared_POST.ts","src/settings/$route_env_POST.ts","src/settings/$route_kimi_login_POST.ts","src/settings/$route_kimi_logout_POST.ts","src/ui/$route_control.js_GET.ts","src/ui/$route_eval_result_POST.ts","src/ui/$route_ping_GET.ts","src/session/$migrate_20260418000000_init.up.sql","src/session/$migrate_20260428130000_add_archived_at.up.sql","src/session/$migrate_20260428150000_add_forks.up.sql","src/settings/$migrate_20260509120000_settings.up.sql","src/session/$migrate_20270410120000_add_messages_excluded.up.sql","src/session/$migrate_20270501123000_add_kv.up.sql","src/session/$migrate_20270502000000_inline_run_state.up.sql","src/session/$migrate_20270503120000_add_messages_excluded_from_cursor.up.sql","src/session/$migrate_20270504120000_drop_tool_calls.up.sql","src/http/$start.ts","src/http/loadRoutes.ts","src/http/match.ts","src/project/classify.ts","src/agent/workerLoop.ts","src/agent/wakeWorker.ts","src/session/appendUserMessage.ts","src/session/appendMessage.ts","src/session/appendEvent.ts","src/session/appendEventWithHtml.ts","src/session/appendErrorEvent.ts","src/session/getMessages.ts","src/session/getEvents.ts","src/session/syncAgentState.ts","src/agent/renderEventHtml.ts","src/db/exec.ts","src/db/select.ts",".protocols/experiments/r018-sentinel-lib.ts"],
+  "sourceSetDigest": "975b3ceaf429c2bafcc56e4327629d47952e8116bfb068bfcb18885f9771bafd",
+  "instrumentHashes": {
+    ".protocols/experiments/r032-v6_3/collector.ts": "5818f134074b40f95b3bed27b9fe31c58b4366ab9864ef2b51820cb9afa00635",
+    ".protocols/experiments/r032-v6_3/broker-child.js": "b3a22c82bc147552c043c4ef9d3a54b09eddb43efd12d5f3fd88d2bc780e0879",
+    ".protocols/experiments/r032-v6_3/README.md": "b20cdbf830366fe0b02f7072fbe6e5b4dfea8e7a11e727d3962050a9de41d922"
+  },
+  "componentHashes": {
+    ".protocols/experiments/r032-v6_3-runtime/runtime.ts": "0cdea8f74d3743495b3b7eb1e2b4ee0a7c5ec84739029f23c2f47591c58ed6bc",
+    ".protocols/experiments/r032-v6_3-runtime/validator.ts": "eecc802846e5e11ff1f3a923ff30d55590d48a87bc094d49812a3e208c0124f3",
+    ".protocols/experiments/r032-v6_3-runtime/self-test.ts": "23e6110f501b2ea222269a39f49af58d8d18068a1aff4bd9db15d1793ef0c7e4",
+    ".protocols/experiments/r032-v6_3-runtime/README.md": "241be3414ee43565f0f5179ffdd19b2c3096e5c485daa34b51a607be71c0a57d",
+    ".protocols/experiments/r032-v6_3-sandbox/contained-child.js": "92679a85ec87a3061c48a7c3b9241ef3ccc691e2c5306d330fb52c341d4700f5",
+    ".protocols/experiments/r032-v6_3-sandbox/self-test.ts": "20227be7354b54297c7029770e139cfa650700c24601550c61db0e21c06e85b4",
+    ".protocols/experiments/r032-v6_3-sandbox/README.md": "b85e68e75e3366e07dddcb117841ce0930b5e336aeefe931eefc00dca48047da",
+    ".protocols/experiments/r032-v6_3-sandbox/profile-manifest.json": "0a14ed2edd32567a4506384c09029c1d02826bbf8d78dcb45dedbda24ca41574"
+  },
+  "compiledBrokerSha256": "1b84c2d3ccf39ffabcefc9a41b641cb1c0e3a4d4015fca4a14aeb3476adf1491",
+  "componentReviews": {
+    "runtime": "accepted-bounded-for-integration",
+    "sandbox": "accepted-bounded-for-integration",
+    "whole": "pending-independent-precollection-review"
+  },
+  "carrierArtifacts": ["results.json","controls.json","containment.json","execution.json","provenance.json","row-hashes.json","summary.json","manifest.json","SHA256SUMS"],
+  "rejectedFreezeHistory": [
+    "2fa0d1ad635ad8a3883435496aef8d0c262a3257cac7297297a152db5416b0b0",
+    "fa0c29794833c8cff0969da233b651ad495522f856c0106b4f0689ca368920c6"
+  ],
+  "limitations": [
+    "synthetic disposable SQLite only",
+    "sandbox receipts are host-Bun-Darwin observations, not general OS isolation proof",
+    "compile occurs outside sandbox after the no-spawn outer gate",
+    "restart is reconstructed SQLite-store boundary, not process restart",
+    "service outages are deterministic adapters",
+    "no provider, listener, network, production state, latency, migration, backup, GC, fault or deployment claim",
+    "collection remains unauthorized pending review of this exact freeze"
+  ]
+}

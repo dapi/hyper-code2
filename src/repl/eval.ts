@@ -10,6 +10,7 @@
 //     "last expression vs return" — only `console.log`.
 //   - If nothing was logged, the result is "(no output)".
 //   - Errors propagate as exceptions.
+// Trust contract: memory-bank/engineering/security-boundary.md
 const TS_TRANSPILER = new Bun.Transpiler({ loader: 'ts' });
 
 function formatArg(a: any): string {

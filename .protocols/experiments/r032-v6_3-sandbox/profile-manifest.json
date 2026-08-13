@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "status": "EXACT_COMPILED_PROBE_ONLY",
+  "collectionAuthorized": false,
+  "head": "18ea94437390bcf822df0165f79246fab0da436e",
+  "compileBoundary": "bun build --compile runs in a disposable parent-owned temp directory before sandbox-exec; the compiled binary is never stored in the repository",
+  "files": {
+    "contained-child.js": {
+      "sha256": "92679a85ec87a3061c48a7c3b9241ef3ccc691e2c5306d330fb52c341d4700f5"
+    },
+    "self-test.ts": {
+      "sha256": "20227be7354b54297c7029770e139cfa650700c24601550c61db0e21c06e85b4"
+    },
+    "README.md": {
+      "sha256": "b85e68e75e3366e07dddcb117841ce0930b5e336aeefe931eefc00dca48047da"
+    }
+  },
+  "buildToolSha256": "e0c90ec15d33363e6b70713d56bc3b2c7585c17f40a0fe0f8fd9305901d4e233",
+  "compiledBinarySha256": "3dcf1b98f9d80e167912563662769950cfec78804fcfa67379cb288ea51b4e7f",
+  "profileTemplateSha256": "ed82b138cb7dcfc3ed2b7ecc4ef46ea2dc00b343d9f85cc20fc239d1306fae68",
+  "environment": {
+    "bunVersion": "1.3.14",
+    "platform": "darwin",
+    "architecture": "arm64",
+    "darwinRelease": "25.5.0"
+  },
+  "runtimeReadClosure": [
+    "/",
+    "[COMPILED_BINARY]",
+    "/usr/lib/system/libsystem_sandbox.dylib",
+    "/System/Volumes/Preboot/Cryptexes/OS",
+    "/dev/null",
+    "/dev/dtracehelper",
+    "/private/var/db/timezone"
+  ],
+  "expectedReceipt": {
+    "schemaVersion": 2,
+    "containmentPassedBeforeRoot": true,
+    "probes": {
+      "connect": { "policyDenied": true, "behaviorSucceeded": false },
+      "bind": { "policyDenied": true, "behaviorSucceeded": false },
+      "outsideWrite": { "policyDenied": true, "behaviorSucceeded": false },
+      "outsideRead": { "policyDenied": true, "behaviorSucceeded": false },
+      "nonBunExec": { "policyDenied": true, "behaviorSucceeded": false },
+      "forkOrDescendant": { "policyDenied": true, "behaviorSucceeded": false },
+      "operatorHomeReadPolicy": { "policyDenied": true, "behaviorAttempted": false },
+      "keychainReadPolicy": { "policyDenied": true, "behaviorAttempted": false },
+      "securityd": { "policyDenied": true, "behaviorAttempted": false },
+      "securitydXpc": { "policyDenied": true, "behaviorAttempted": false }
+    },
+    "rootCalls": 1
+  },
+  "limitations": [
+    "Exact probe evidence for this HEAD, Bun build, Darwin release and architecture only",
+    "The parent compile step is outside sandbox-exec and is not covered by the child policy",
+    "The profile demonstrates observed denials and is not a proof of complete macOS isolation",
+    "No R-032 collection, runtime matrix, production route, candidate or provider executes"
+  ]
+}

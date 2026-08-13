@@ -1,4 +1,6 @@
 import { test, expect, describe } from "bun:test";
+import { mkdir, realpath, rm } from "node:fs/promises";
+import { resolve } from "node:path";
 import loadFns from "./loadFns";
 import roots from "./project/roots";
 import scan from "./project/scan";
@@ -10,5 +12,113 @@ describe("loadFns", () => {
         expect((ctx as any).genTypes).toBeTypeOf("function");
         expect((ctx.fns as any).db.connect).toBeTypeOf("function");
         expect((ctx.fns as any).agent.run).toBeTypeOf("function");
+        const receipt = (ctx.state as any).functionSources['db.connect'];
+        expect(receipt).toMatchObject({
+            name: 'db.connect',
+            root: 'src',
+            rel: 'db/connect.ts',
+            generation: expect.any(Number),
+            loadedHash: expect.stringMatching(/^[a-f0-9]{64}$/),
+        });
+        const identity = Symbol.for('hyper-code2.function-source.loaded-function');
+        const sourcePath = Symbol.for('hyper-code2.function-source.loaded-physical-path');
+        const expectedPath = await realpath(resolve('src/db/connect.ts'));
+        expect(receipt[identity]).toBe((ctx.fns as any).db.connect);
+        expect(receipt[sourcePath]).toBe(expectedPath);
+        expect(Object.getOwnPropertyDescriptor(receipt, identity)?.enumerable).toBe(false);
+        expect(Object.getOwnPropertyDescriptor(receipt, sourcePath)?.enumerable).toBe(false);
+        expect(JSON.stringify(receipt)).not.toContain(expectedPath);
+        expect(Object.getOwnPropertySymbols(JSON.parse(JSON.stringify(receipt)))).toEqual([]);
+    });
+
+    test("rejects a source rewrite during startup import before registry assignment", async () => {
+        const fixture = `.test-tmp/load-fns-race-${crypto.randomUUID()}`;
+        const source = resolve(fixture, "src/demo/value.ts");
+        const started = resolve(fixture, "started");
+        await mkdir(resolve(fixture, "src/demo"), { recursive: true });
+        await Bun.write(source, [
+            `await Bun.write(${JSON.stringify(started)}, "started");`,
+            `await Bun.sleep(100);`,
+            `export default async function () { return "v1"; }`,
+            "",
+        ].join("\n"));
+
+        const previous = async () => "previous";
+        const ctx = {
+            state: {},
+            routes: {},
+            fns: {
+                project: {
+                    scan: async () => [{
+                        kind: "fn",
+                        moduleDir: "demo",
+                        runtimeName: "value",
+                        root: "src",
+                        rel: "demo/value.ts",
+                        abs: source,
+                    }],
+                },
+                demo: { value: previous },
+            },
+        } as unknown as Context;
+
+        try {
+            const loading = loadFns(ctx);
+            for (let attempt = 0; attempt < 100 && !(await Bun.file(started).exists()); attempt++) {
+                await Bun.sleep(5);
+            }
+            expect(await Bun.file(started).exists()).toBe(true);
+            await Bun.write(source, `export default async function () { return "v2"; }\n`);
+
+            await expect(loading).rejects.toThrow("src/demo/value.ts: source changed while loading");
+            expect((ctx.fns as any).demo.value).toBe(previous);
+            expect((ctx.state as any).functionSources?.["demo.value"]).toBeUndefined();
+        } finally {
+            await rm(fixture, { recursive: true, force: true });
+        }
+    });
+
+    test("rejects an ABA rewrite even when the bytes hash back to the original value", async () => {
+        const fixture = `.test-tmp/load-fns-aba-${crypto.randomUUID()}`;
+        const source = resolve(fixture, "src/demo/value.ts");
+        const started = resolve(fixture, "started");
+        const originalBytes = 'export default async function () { return "a"; }\n';
+        await mkdir(resolve(fixture, "src/demo"), { recursive: true });
+        await Bun.write(source, [
+            `await Bun.write(${JSON.stringify(source)}, ${JSON.stringify(originalBytes)});`,
+            `await Bun.write(${JSON.stringify(started)}, "started");`,
+            'export default async function () { return "b"; }',
+            '',
+        ].join("\n"));
+
+        const previous = async () => "previous";
+        const ctx = {
+            state: {}, routes: {},
+            fns: {
+                project: {
+                    scan: async () => [{
+                        kind: "fn", moduleDir: "demo", runtimeName: "value",
+                        root: "src", rel: "demo/value.ts", abs: source,
+                    }],
+                },
+                demo: { value: previous },
+            },
+        } as unknown as Context;
+        const originalFile = Bun.file;
+        (Bun as any).file = (path: string | URL, ...args: any[]) => {
+            if (String(path) === source) {
+                return { arrayBuffer: async () => new TextEncoder().encode(originalBytes).buffer };
+            }
+            return (originalFile as any).call(Bun, path, ...args);
+        };
+        try {
+            await expect(loadFns(ctx)).rejects.toThrow("source changed while loading");
+            expect((ctx.fns as any).demo.value).toBe(previous);
+            expect((ctx.state as any).functionSources?.["demo.value"]).toBeUndefined();
+            expect(await Bun.file(started).exists()).toBe(true);
+        } finally {
+            (Bun as any).file = originalFile;
+            await rm(fixture, { recursive: true, force: true });
+        }
     });
 });

@@ -1,3 +1,5 @@
+// Architecture contract: memory-bank/engineering/architecture.md
+// This entrypoint realizes the documented load → migrate → rehydrate → serve → worker composition.
 export default async function () {
     const ctx = {
         env: { ...process.env },

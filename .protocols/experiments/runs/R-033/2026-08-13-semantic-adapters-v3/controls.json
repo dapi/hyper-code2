@@ -1,0 +1,548 @@
+{
+  "schemaVersion": 3,
+  "negativeControl": true,
+  "layerControls": [
+    {
+      "layer": "agent-context",
+      "form": "S0",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14"
+    },
+    {
+      "layer": "agent-context",
+      "form": "S1",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "2c6ed6a11487cc437537c6bf80d189bf8371ab64775d5acac0cf0499088088c5"
+    },
+    {
+      "layer": "agent-context",
+      "form": "S2",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "d155d063fff8294460864702a80c4887f3017caf4e61cf2faa016e7ddf98671c"
+    },
+    {
+      "layer": "agent-context",
+      "form": "S3",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "09d9c0a21354ca020d246af9d38dcbd7e06b58eb29630ed60f674655e5f0f3b1"
+    },
+    {
+      "layer": "agent-context",
+      "form": "S4",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "c30e84cbfbd8533dbd761f0ce286c623b42cba6f5e4a27b2b7b1dec1802c0b46"
+    },
+    {
+      "layer": "agent-context",
+      "form": "S5",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "ebb0b46815ff87151ac29a1609bc86f6a8228b3190078ed5772607797ff96bca"
+    },
+    {
+      "layer": "agent-context",
+      "form": "S6",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "a22d6134d4a9b4a6a0cbaffd2be3a0258e93f6823e212cf4a418a96a0fda7fd6"
+    },
+    {
+      "layer": "agent-context",
+      "form": "S7",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "26956441f40ac5781f8d7fffccd04aaab866fd78c5e32a4b692c965497f7f377"
+    },
+    {
+      "layer": "agent-context",
+      "form": "S8",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "b5bf926548ad02127d46e6a7e3b107a7b9ed6676c00b73326ac9936998b6758b"
+    },
+    {
+      "layer": "model-input",
+      "form": "S0",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14"
+    },
+    {
+      "layer": "model-input",
+      "form": "S1",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "2c6ed6a11487cc437537c6bf80d189bf8371ab64775d5acac0cf0499088088c5"
+    },
+    {
+      "layer": "model-input",
+      "form": "S2",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "d155d063fff8294460864702a80c4887f3017caf4e61cf2faa016e7ddf98671c"
+    },
+    {
+      "layer": "model-input",
+      "form": "S3",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "09d9c0a21354ca020d246af9d38dcbd7e06b58eb29630ed60f674655e5f0f3b1"
+    },
+    {
+      "layer": "model-input",
+      "form": "S4",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "c30e84cbfbd8533dbd761f0ce286c623b42cba6f5e4a27b2b7b1dec1802c0b46"
+    },
+    {
+      "layer": "model-input",
+      "form": "S5",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "ebb0b46815ff87151ac29a1609bc86f6a8228b3190078ed5772607797ff96bca"
+    },
+    {
+      "layer": "model-input",
+      "form": "S6",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "a22d6134d4a9b4a6a0cbaffd2be3a0258e93f6823e212cf4a418a96a0fda7fd6"
+    },
+    {
+      "layer": "model-input",
+      "form": "S7",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "26956441f40ac5781f8d7fffccd04aaab866fd78c5e32a4b692c965497f7f377"
+    },
+    {
+      "layer": "model-input",
+      "form": "S8",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "b5bf926548ad02127d46e6a7e3b107a7b9ed6676c00b73326ac9936998b6758b"
+    },
+    {
+      "layer": "action-result",
+      "form": "S0",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14"
+    },
+    {
+      "layer": "action-result",
+      "form": "S1",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "2c6ed6a11487cc437537c6bf80d189bf8371ab64775d5acac0cf0499088088c5"
+    },
+    {
+      "layer": "action-result",
+      "form": "S2",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "d155d063fff8294460864702a80c4887f3017caf4e61cf2faa016e7ddf98671c"
+    },
+    {
+      "layer": "action-result",
+      "form": "S3",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "09d9c0a21354ca020d246af9d38dcbd7e06b58eb29630ed60f674655e5f0f3b1"
+    },
+    {
+      "layer": "action-result",
+      "form": "S4",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "c30e84cbfbd8533dbd761f0ce286c623b42cba6f5e4a27b2b7b1dec1802c0b46"
+    },
+    {
+      "layer": "action-result",
+      "form": "S5",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "ebb0b46815ff87151ac29a1609bc86f6a8228b3190078ed5772607797ff96bca"
+    },
+    {
+      "layer": "action-result",
+      "form": "S6",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "a22d6134d4a9b4a6a0cbaffd2be3a0258e93f6823e212cf4a418a96a0fda7fd6"
+    },
+    {
+      "layer": "action-result",
+      "form": "S7",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "26956441f40ac5781f8d7fffccd04aaab866fd78c5e32a4b692c965497f7f377"
+    },
+    {
+      "layer": "action-result",
+      "form": "S8",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "b5bf926548ad02127d46e6a7e3b107a7b9ed6676c00b73326ac9936998b6758b"
+    },
+    {
+      "layer": "persistence",
+      "form": "S0",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14"
+    },
+    {
+      "layer": "persistence",
+      "form": "S1",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "2c6ed6a11487cc437537c6bf80d189bf8371ab64775d5acac0cf0499088088c5"
+    },
+    {
+      "layer": "persistence",
+      "form": "S2",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "d155d063fff8294460864702a80c4887f3017caf4e61cf2faa016e7ddf98671c"
+    },
+    {
+      "layer": "persistence",
+      "form": "S3",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "09d9c0a21354ca020d246af9d38dcbd7e06b58eb29630ed60f674655e5f0f3b1"
+    },
+    {
+      "layer": "persistence",
+      "form": "S4",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "c30e84cbfbd8533dbd761f0ce286c623b42cba6f5e4a27b2b7b1dec1802c0b46"
+    },
+    {
+      "layer": "persistence",
+      "form": "S5",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "ebb0b46815ff87151ac29a1609bc86f6a8228b3190078ed5772607797ff96bca"
+    },
+    {
+      "layer": "persistence",
+      "form": "S6",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "a22d6134d4a9b4a6a0cbaffd2be3a0258e93f6823e212cf4a418a96a0fda7fd6"
+    },
+    {
+      "layer": "persistence",
+      "form": "S7",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "26956441f40ac5781f8d7fffccd04aaab866fd78c5e32a4b692c965497f7f377"
+    },
+    {
+      "layer": "persistence",
+      "form": "S8",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "b5bf926548ad02127d46e6a7e3b107a7b9ed6676c00b73326ac9936998b6758b"
+    },
+    {
+      "layer": "render",
+      "form": "S0",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14"
+    },
+    {
+      "layer": "render",
+      "form": "S1",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "2c6ed6a11487cc437537c6bf80d189bf8371ab64775d5acac0cf0499088088c5"
+    },
+    {
+      "layer": "render",
+      "form": "S2",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "d155d063fff8294460864702a80c4887f3017caf4e61cf2faa016e7ddf98671c"
+    },
+    {
+      "layer": "render",
+      "form": "S3",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "09d9c0a21354ca020d246af9d38dcbd7e06b58eb29630ed60f674655e5f0f3b1"
+    },
+    {
+      "layer": "render",
+      "form": "S4",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "c30e84cbfbd8533dbd761f0ce286c623b42cba6f5e4a27b2b7b1dec1802c0b46"
+    },
+    {
+      "layer": "render",
+      "form": "S5",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "ebb0b46815ff87151ac29a1609bc86f6a8228b3190078ed5772607797ff96bca"
+    },
+    {
+      "layer": "render",
+      "form": "S6",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "a22d6134d4a9b4a6a0cbaffd2be3a0258e93f6823e212cf4a418a96a0fda7fd6"
+    },
+    {
+      "layer": "render",
+      "form": "S7",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "26956441f40ac5781f8d7fffccd04aaab866fd78c5e32a4b692c965497f7f377"
+    },
+    {
+      "layer": "render",
+      "form": "S8",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "b5bf926548ad02127d46e6a7e3b107a7b9ed6676c00b73326ac9936998b6758b"
+    },
+    {
+      "layer": "diagnostic",
+      "form": "S0",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14"
+    },
+    {
+      "layer": "diagnostic",
+      "form": "S1",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "2c6ed6a11487cc437537c6bf80d189bf8371ab64775d5acac0cf0499088088c5"
+    },
+    {
+      "layer": "diagnostic",
+      "form": "S2",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "d155d063fff8294460864702a80c4887f3017caf4e61cf2faa016e7ddf98671c"
+    },
+    {
+      "layer": "diagnostic",
+      "form": "S3",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "09d9c0a21354ca020d246af9d38dcbd7e06b58eb29630ed60f674655e5f0f3b1"
+    },
+    {
+      "layer": "diagnostic",
+      "form": "S4",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "c30e84cbfbd8533dbd761f0ce286c623b42cba6f5e4a27b2b7b1dec1802c0b46"
+    },
+    {
+      "layer": "diagnostic",
+      "form": "S5",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "ebb0b46815ff87151ac29a1609bc86f6a8228b3190078ed5772607797ff96bca"
+    },
+    {
+      "layer": "diagnostic",
+      "form": "S6",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "a22d6134d4a9b4a6a0cbaffd2be3a0258e93f6823e212cf4a418a96a0fda7fd6"
+    },
+    {
+      "layer": "diagnostic",
+      "form": "S7",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "26956441f40ac5781f8d7fffccd04aaab866fd78c5e32a4b692c965497f7f377"
+    },
+    {
+      "layer": "diagnostic",
+      "form": "S8",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "b5bf926548ad02127d46e6a7e3b107a7b9ed6676c00b73326ac9936998b6758b"
+    },
+    {
+      "layer": "retry-state",
+      "form": "S0",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14"
+    },
+    {
+      "layer": "retry-state",
+      "form": "S1",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "2c6ed6a11487cc437537c6bf80d189bf8371ab64775d5acac0cf0499088088c5"
+    },
+    {
+      "layer": "retry-state",
+      "form": "S2",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "d155d063fff8294460864702a80c4887f3017caf4e61cf2faa016e7ddf98671c"
+    },
+    {
+      "layer": "retry-state",
+      "form": "S3",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "09d9c0a21354ca020d246af9d38dcbd7e06b58eb29630ed60f674655e5f0f3b1"
+    },
+    {
+      "layer": "retry-state",
+      "form": "S4",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "c30e84cbfbd8533dbd761f0ce286c623b42cba6f5e4a27b2b7b1dec1802c0b46"
+    },
+    {
+      "layer": "retry-state",
+      "form": "S5",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "ebb0b46815ff87151ac29a1609bc86f6a8228b3190078ed5772607797ff96bca"
+    },
+    {
+      "layer": "retry-state",
+      "form": "S6",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "a22d6134d4a9b4a6a0cbaffd2be3a0258e93f6823e212cf4a418a96a0fda7fd6"
+    },
+    {
+      "layer": "retry-state",
+      "form": "S7",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "26956441f40ac5781f8d7fffccd04aaab866fd78c5e32a4b692c965497f7f377"
+    },
+    {
+      "layer": "retry-state",
+      "form": "S8",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "b5bf926548ad02127d46e6a7e3b107a7b9ed6676c00b73326ac9936998b6758b"
+    },
+    {
+      "layer": "restart-state",
+      "form": "S0",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14"
+    },
+    {
+      "layer": "restart-state",
+      "form": "S1",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "2c6ed6a11487cc437537c6bf80d189bf8371ab64775d5acac0cf0499088088c5"
+    },
+    {
+      "layer": "restart-state",
+      "form": "S2",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "d155d063fff8294460864702a80c4887f3017caf4e61cf2faa016e7ddf98671c"
+    },
+    {
+      "layer": "restart-state",
+      "form": "S3",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "09d9c0a21354ca020d246af9d38dcbd7e06b58eb29630ed60f674655e5f0f3b1"
+    },
+    {
+      "layer": "restart-state",
+      "form": "S4",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "c30e84cbfbd8533dbd761f0ce286c623b42cba6f5e4a27b2b7b1dec1802c0b46"
+    },
+    {
+      "layer": "restart-state",
+      "form": "S5",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "ebb0b46815ff87151ac29a1609bc86f6a8228b3190078ed5772607797ff96bca"
+    },
+    {
+      "layer": "restart-state",
+      "form": "S6",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "a22d6134d4a9b4a6a0cbaffd2be3a0258e93f6823e212cf4a418a96a0fda7fd6"
+    },
+    {
+      "layer": "restart-state",
+      "form": "S7",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "26956441f40ac5781f8d7fffccd04aaab866fd78c5e32a4b692c965497f7f377"
+    },
+    {
+      "layer": "restart-state",
+      "form": "S8",
+      "valueIndex": 0,
+      "detected": true,
+      "digest": "b5bf926548ad02127d46e6a7e3b107a7b9ed6676c00b73326ac9936998b6758b"
+    }
+  ],
+  "requestControlsFrozenOutsideRuntime": true,
+  "restartProcesses": [
+    {
+      "candidate": "CAND-02",
+      "newProcess": true,
+      "status": "pass",
+      "rawRecovered": false,
+      "revalidationRequired": true
+    },
+    {
+      "candidate": "CAND-03",
+      "newProcess": true,
+      "status": "pass",
+      "rawRecovered": false,
+      "revalidationRequired": true
+    },
+    {
+      "candidate": "CAND-04",
+      "newProcess": true,
+      "status": "fail",
+      "rawRecovered": true,
+      "revalidationRequired": false
+    },
+    {
+      "candidate": "CAND-05",
+      "newProcess": true,
+      "status": "pass",
+      "rawRecovered": false,
+      "revalidationRequired": true
+    },
+    {
+      "candidate": "CAND-01",
+      "newProcess": true,
+      "status": "pass",
+      "rawRecovered": false,
+      "revalidationRequired": true
+    }
+  ]
+}

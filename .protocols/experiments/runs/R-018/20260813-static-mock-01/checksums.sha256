@@ -1,0 +1,7 @@
+8371ca966a5589df324e1fd72d12fdd1002eedda715bafeb452ae2df31006fd3  .protocols/experiments/r018-sentinel-lib.ts
+132d6b302fba676f5ece6a3264304b16930828298cc214d9364648f7edd85f2d  .protocols/experiments/r018-sentinel.test.ts
+1da6f7611eab20a1d8f25f33c7c6eb7b9bda991e2e18377f217227101b6b3ae4  .protocols/experiments/r018-collect.ts
+19a9fd859ab4f01df6727614284c5738797c125020dbea3815abd18e908a46e6  .protocols/experiments/runs/R-018/20260813-static-mock-01/manifest.json
+dd5be181a17278c3924f81a310b645c8acfefb2a80e77d31095a861f83509f52  .protocols/experiments/runs/R-018/20260813-static-mock-01/inventory.md
+89d4542acb65b98b376434867292150ad2211eb2aa5c72017e5b17062a7a090c  .protocols/experiments/runs/R-018/20260813-static-mock-01/controls.json
+ea295a51af7130ad94ab3b5cdeea7d7caf684c0a86e948bf7d281111b1927c8a  .protocols/experiments/runs/R-018/20260813-static-mock-01/capture.json

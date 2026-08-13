@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "contractVersion": "R-031.discovery-retention.v1",
+  "cases": 36,
+  "variants": [
+    "V0",
+    "V1",
+    "V2",
+    "V3"
+  ],
+  "families": [
+    "tag-normalization",
+    "repository-evidence",
+    "saved-json-transform"
+  ],
+  "phases": [
+    "baseline",
+    "retain-control",
+    "fresh-reuse"
+  ],
+  "maxModelContinuations": 6,
+  "modelAlias": "mock:r031-live-boundary-v1",
+  "authority": [
+    "read frozen task/context and one variant projection",
+    "read and invoke admitted ordinary callables in disposable workspace",
+    "write only inside disposable workspace",
+    "exchange serialized model requests with filesystem broker"
+  ],
+  "commonContextEqualWithinEveryPhaseFamily": true,
+  "onlyAttributedContextDifference": "projection",
+  "exactlyOneProjectionAccessiblePerAgentLineage": true,
+  "operatorRepositoryReadableByAgent": false,
+  "retainAndFreshReuseShareOnlySameVariantFamilyWorkspace": true,
+  "uniqueProjectionDigests": {
+    "V0": "5d18d5eeabfdcb00ed999a78c68114f4176e9fbb091984055cafe05541d10cca",
+    "V1": "8dc8f536f1053c10bc40c92f2d2f1c9c065e928b186ed637ffdd7a94855c9c2d",
+    "V2": "102b6c7ab16f1e653568f9a6e814a7ad6cf7dfad210df0034ff66f343f484bac",
+    "V3": "143889b639c448ae48b6c4123ee5d3b6f1f65dd5857575f12c65b395e8f77f74"
+  },
+  "groupControls": [
+    {
+      "phase": "baseline",
+      "family": "tag-normalization",
+      "commonContextSha256": "b110793683e7473425969c6188fdfa1ca1679c0e024afd70890c782fd2791e8e",
+      "projectionSha256ByVariant": {
+        "V0": "5d18d5eeabfdcb00ed999a78c68114f4176e9fbb091984055cafe05541d10cca",
+        "V1": "8dc8f536f1053c10bc40c92f2d2f1c9c065e928b186ed637ffdd7a94855c9c2d",
+        "V2": "102b6c7ab16f1e653568f9a6e814a7ad6cf7dfad210df0034ff66f343f484bac",
+        "V3": "143889b639c448ae48b6c4123ee5d3b6f1f65dd5857575f12c65b395e8f77f74"
+      }
+    },
+    {
+      "phase": "baseline",
+      "family": "repository-evidence",
+      "commonContextSha256": "100b1a63780c181cfc9f712154a577d3296f1ae9f5b786e63978ea18fe87fb0e",
+      "projectionSha256ByVariant": {
+        "V0": "5d18d5eeabfdcb00ed999a78c68114f4176e9fbb091984055cafe05541d10cca",
+        "V1": "8dc8f536f1053c10bc40c92f2d2f1c9c065e928b186ed637ffdd7a94855c9c2d",
+        "V2": "102b6c7ab16f1e653568f9a6e814a7ad6cf7dfad210df0034ff66f343f484bac",
+        "V3": "143889b639c448ae48b6c4123ee5d3b6f1f65dd5857575f12c65b395e8f77f74"
+      }
+    },
+    {
+      "phase": "baseline",
+      "family": "saved-json-transform",
+      "commonContextSha256": "d84a355353c7bb1d4debb4d204618a5418e5d566dc8a5b0fb2b69bd753018c74",
+      "projectionSha256ByVariant": {
+        "V0": "5d18d5eeabfdcb00ed999a78c68114f4176e9fbb091984055cafe05541d10cca",
+        "V1": "8dc8f536f1053c10bc40c92f2d2f1c9c065e928b186ed637ffdd7a94855c9c2d",
+        "V2": "102b6c7ab16f1e653568f9a6e814a7ad6cf7dfad210df0034ff66f343f484bac",
+        "V3": "143889b639c448ae48b6c4123ee5d3b6f1f65dd5857575f12c65b395e8f77f74"
+      }
+    },
+    {
+      "phase": "retain-control",
+      "family": "tag-normalization",
+      "commonContextSha256": "2c2cb4c0de41bbb8d116b224f81bf98f1ea2435609326f20b1046b593986edb8",
+      "projectionSha256ByVariant": {
+        "V0": "5d18d5eeabfdcb00ed999a78c68114f4176e9fbb091984055cafe05541d10cca",
+        "V1": "8dc8f536f1053c10bc40c92f2d2f1c9c065e928b186ed637ffdd7a94855c9c2d",
+        "V2": "102b6c7ab16f1e653568f9a6e814a7ad6cf7dfad210df0034ff66f343f484bac",
+        "V3": "143889b639c448ae48b6c4123ee5d3b6f1f65dd5857575f12c65b395e8f77f74"
+      }
+    },
+    {
+      "phase": "retain-control",
+      "family": "repository-evidence",
+      "commonContextSha256": "bc61035e1354d466cbf103517b2666b19763228ed13358be5abb696e238919bc",
+      "projectionSha256ByVariant": {
+        "V0": "5d18d5eeabfdcb00ed999a78c68114f4176e9fbb091984055cafe05541d10cca",
+        "V1": "8dc8f536f1053c10bc40c92f2d2f1c9c065e928b186ed637ffdd7a94855c9c2d",
+        "V2": "102b6c7ab16f1e653568f9a6e814a7ad6cf7dfad210df0034ff66f343f484bac",
+        "V3": "143889b639c448ae48b6c4123ee5d3b6f1f65dd5857575f12c65b395e8f77f74"
+      }
+    },
+    {
+      "phase": "retain-control",
+      "family": "saved-json-transform",
+      "commonContextSha256": "664c7553642bf00f2773c314956e3066eb5e50a5850efa78c25fd806c4ccf972",
+      "projectionSha256ByVariant": {
+        "V0": "5d18d5eeabfdcb00ed999a78c68114f4176e9fbb091984055cafe05541d10cca",
+        "V1": "8dc8f536f1053c10bc40c92f2d2f1c9c065e928b186ed637ffdd7a94855c9c2d",
+        "V2": "102b6c7ab16f1e653568f9a6e814a7ad6cf7dfad210df0034ff66f343f484bac",
+        "V3": "143889b639c448ae48b6c4123ee5d3b6f1f65dd5857575f12c65b395e8f77f74"
+      }
+    },
+    {
+      "phase": "fresh-reuse",
+      "family": "tag-normalization",
+      "commonContextSha256": "f6488e35ab55da191651c8519db51503708e38bf6175b25c02a9998404fd1ef8",
+      "projectionSha256ByVariant": {
+        "V0": "5d18d5eeabfdcb00ed999a78c68114f4176e9fbb091984055cafe05541d10cca",
+        "V1": "8dc8f536f1053c10bc40c92f2d2f1c9c065e928b186ed637ffdd7a94855c9c2d",
+        "V2": "102b6c7ab16f1e653568f9a6e814a7ad6cf7dfad210df0034ff66f343f484bac",
+        "V3": "143889b639c448ae48b6c4123ee5d3b6f1f65dd5857575f12c65b395e8f77f74"
+      }
+    },
+    {
+      "phase": "fresh-reuse",
+      "family": "repository-evidence",
+      "commonContextSha256": "77250f23541b4d8ebbaad4048c8786421dd9ca8773c7e9e8b665ea99e276ccd8",
+      "projectionSha256ByVariant": {
+        "V0": "5d18d5eeabfdcb00ed999a78c68114f4176e9fbb091984055cafe05541d10cca",
+        "V1": "8dc8f536f1053c10bc40c92f2d2f1c9c065e928b186ed637ffdd7a94855c9c2d",
+        "V2": "102b6c7ab16f1e653568f9a6e814a7ad6cf7dfad210df0034ff66f343f484bac",
+        "V3": "143889b639c448ae48b6c4123ee5d3b6f1f65dd5857575f12c65b395e8f77f74"
+      }
+    },
+    {
+      "phase": "fresh-reuse",
+      "family": "saved-json-transform",
+      "commonContextSha256": "12d7ec88059b25effd194a89b8b2d2a6fdbb0fee02882209908a63803b6cc6b0",
+      "projectionSha256ByVariant": {
+        "V0": "5d18d5eeabfdcb00ed999a78c68114f4176e9fbb091984055cafe05541d10cca",
+        "V1": "8dc8f536f1053c10bc40c92f2d2f1c9c065e928b186ed637ffdd7a94855c9c2d",
+        "V2": "102b6c7ab16f1e653568f9a6e814a7ad6cf7dfad210df0034ff66f343f484bac",
+        "V3": "143889b639c448ae48b6c4123ee5d3b6f1f65dd5857575f12c65b395e8f77f74"
+      }
+    }
+  ],
+  "commonOrdinaryCallableSubstrateSha256": {
+    "capabilities/extractRepositoryEvidence.mjs": "78b5d603a5711b75d471565d5c1a8e16af2cbbc2f79b5205cc138322b72d859f",
+    "capabilities/inspectComposedResult.mjs": "ccafc4496e2d801815f8abed356878aa119463699a88b9d408437f49167d7e14",
+    "capabilities/normalizeTags.mjs": "cdcbdb5eb0cbc0262908df930d2aa0fb696d1c07a4ffdde23888c6e8c006b298",
+    "capabilities/transformSavedJson.mjs": "cc21aa0257a9bb61f94834e08fff33f188e50dffdada873e801f5e164104670a"
+  },
+  "freshAgentProcessPerCase": true
+}

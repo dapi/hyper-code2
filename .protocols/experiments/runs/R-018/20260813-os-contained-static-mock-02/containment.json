@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "runner": "r018-contained-child.ts@1",
+  "sequence": 1,
+  "phase": "pre-injection-containment",
+  "sandbox": {
+    "implementation": "macOS sandbox-exec deny-default profile",
+    "profileSha256": "215dc3272227f6e961688810bbde3e7089fa15bdeb6f426381fd5c81d902eba0",
+    "networkPolicy": "no network operations allowed",
+    "writePolicy": "writes allowed only below the disposable run root",
+    "homeReadPolicy": "operator home denied except the repository path required to load the test target"
+  },
+  "environment": {
+    "expectedKeys": [
+      "HOME",
+      "LANG",
+      "LC_ALL",
+      "NO_COLOR",
+      "PATH",
+      "TMPDIR"
+    ],
+    "actualKeys": [
+      "HOME",
+      "LANG",
+      "LC_ALL",
+      "NO_COLOR",
+      "PATH",
+      "TMPDIR"
+    ],
+    "exactAllowlist": true,
+    "credentialLikeKeys": [],
+    "providerAuthPresent": false,
+    "disposableHome": true,
+    "disposableTmp": true
+  },
+  "probes": {
+    "repoReadAllowed": true,
+    "operatorHomeFileReadDenied": true,
+    "outsideRootWriteDenied": true,
+    "insideRootWriteAllowed": true,
+    "networkListenDenied": true
+  },
+  "passed": true
+}

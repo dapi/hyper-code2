@@ -1,0 +1,5 @@
+# R-032 bounded adapter-decision carrier
+
+This additive carrier directly executes the decision, deferred-decision, classification and transport methods of nine disposable adapters over 19 identical representative cells each (171 total). It does not execute a common dispatcher, handler or authority-root spy chain and therefore supplies no handler/root boundary evidence. It is deliberately not the full 3,663-row matrix. It preserves denied and uncovered decision outcomes, injects a raw synthetic sentinel into every adapter decision fixture, proves the detector with a deliberately leaky positive control and a sanitized negative control, and records zero downstream sentinel detections for its generated sink projections.
+
+No listener/socket, real secret, user state or production source is used. Results remain disposable in-process adapter-decision behavior, not OS/network/identity-provider/cryptographic/process-isolation proof. Gate assessment is not-reviewed; independent review is required and R-032 remains collecting.

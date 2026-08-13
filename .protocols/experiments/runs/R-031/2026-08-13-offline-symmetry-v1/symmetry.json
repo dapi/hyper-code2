@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "contractVersion": "R-031.discovery-retention.v1",
+  "variants": [
+    {
+      "variant": "V0",
+      "projectionSha256": "03ef777b1ecdb7b2d3dadea875ae4c1eb6bba706af4689b9a2a5a6ae740e9e1a",
+      "invocationBoundary": "ordinary-direct",
+      "authority": [
+        "read frozen projections",
+        "import admitted ordinary callable",
+        "return deterministic result"
+      ],
+      "families": [
+        "tag-normalization",
+        "repository-evidence",
+        "saved-json-transform"
+      ],
+      "commonSubstrateSha256": {
+        "capabilities/normalizeTags.mjs": "cdcbdb5eb0cbc0262908df930d2aa0fb696d1c07a4ffdde23888c6e8c006b298",
+        "capabilities/extractRepositoryEvidence.mjs": "78b5d603a5711b75d471565d5c1a8e16af2cbbc2f79b5205cc138322b72d859f",
+        "capabilities/transformSavedJson.mjs": "cc21aa0257a9bb61f94834e08fff33f188e50dffdada873e801f5e164104670a",
+        "capabilities/inspectComposedResult.mjs": "ccafc4496e2d801815f8abed356878aa119463699a88b9d408437f49167d7e14"
+      }
+    },
+    {
+      "variant": "V1",
+      "projectionSha256": "1e5ae02aa4ec7bd194f8cdc5420379f92e190def544ebf59c2e716652ed2a49f",
+      "invocationBoundary": "ordinary-direct",
+      "authority": [
+        "read frozen projections",
+        "import admitted ordinary callable",
+        "return deterministic result"
+      ],
+      "families": [
+        "tag-normalization",
+        "repository-evidence",
+        "saved-json-transform"
+      ],
+      "commonSubstrateSha256": {
+        "capabilities/normalizeTags.mjs": "cdcbdb5eb0cbc0262908df930d2aa0fb696d1c07a4ffdde23888c6e8c006b298",
+        "capabilities/extractRepositoryEvidence.mjs": "78b5d603a5711b75d471565d5c1a8e16af2cbbc2f79b5205cc138322b72d859f",
+        "capabilities/transformSavedJson.mjs": "cc21aa0257a9bb61f94834e08fff33f188e50dffdada873e801f5e164104670a",
+        "capabilities/inspectComposedResult.mjs": "ccafc4496e2d801815f8abed356878aa119463699a88b9d408437f49167d7e14"
+      }
+    },
+    {
+      "variant": "V2",
+      "projectionSha256": "bac772304f03e3c6a4e80c5ad47a09a309e8fcfe7f75ba49ecdfab0759207d5d",
+      "invocationBoundary": "ordinary-direct",
+      "authority": [
+        "read frozen projections",
+        "import admitted ordinary callable",
+        "return deterministic result"
+      ],
+      "families": [
+        "tag-normalization",
+        "repository-evidence",
+        "saved-json-transform"
+      ],
+      "commonSubstrateSha256": {
+        "capabilities/normalizeTags.mjs": "cdcbdb5eb0cbc0262908df930d2aa0fb696d1c07a4ffdde23888c6e8c006b298",
+        "capabilities/extractRepositoryEvidence.mjs": "78b5d603a5711b75d471565d5c1a8e16af2cbbc2f79b5205cc138322b72d859f",
+        "capabilities/transformSavedJson.mjs": "cc21aa0257a9bb61f94834e08fff33f188e50dffdada873e801f5e164104670a",
+        "capabilities/inspectComposedResult.mjs": "ccafc4496e2d801815f8abed356878aa119463699a88b9d408437f49167d7e14"
+      }
+    },
+    {
+      "variant": "V3",
+      "projectionSha256": "04e8e45b09292e0dde396dae189c3b0e66a0cd766e61d0642a37344ed502597d",
+      "invocationBoundary": "descriptor-adapter",
+      "authority": [
+        "read frozen projections",
+        "import admitted ordinary callable",
+        "return deterministic result"
+      ],
+      "families": [
+        "tag-normalization",
+        "repository-evidence",
+        "saved-json-transform"
+      ],
+      "commonSubstrateSha256": {
+        "capabilities/normalizeTags.mjs": "cdcbdb5eb0cbc0262908df930d2aa0fb696d1c07a4ffdde23888c6e8c006b298",
+        "capabilities/extractRepositoryEvidence.mjs": "78b5d603a5711b75d471565d5c1a8e16af2cbbc2f79b5205cc138322b72d859f",
+        "capabilities/transformSavedJson.mjs": "cc21aa0257a9bb61f94834e08fff33f188e50dffdada873e801f5e164104670a",
+        "capabilities/inspectComposedResult.mjs": "ccafc4496e2d801815f8abed356878aa119463699a88b9d408437f49167d7e14"
+      }
+    }
+  ],
+  "controls": {
+    "sameFixtures": true,
+    "sameGoldenOutputs": true,
+    "sameOrdinaryCallableSubstrate": true,
+    "sameChildExecutable": true,
+    "sameEnvironmentKeys": [
+      "HOME",
+      "NO_COLOR",
+      "PATH",
+      "TMPDIR"
+    ],
+    "freshProcessPerCase": true,
+    "v3DescriptorAdapterTraces": 6,
+    "nonV3AdapterCrossings": 0,
+    "providerCalls": 0,
+    "socketsOpened": 0,
+    "realSecretsRead": false,
+    "productionSourceChanged": false,
+    "architectureOrWinnerSelected": false
+  }
+}

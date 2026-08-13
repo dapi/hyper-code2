@@ -1,0 +1,3236 @@
+{
+  "schemaVersion": 1,
+  "brokerReceipts": [
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "immediate-missing",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 899,
+      "stdoutSha256": "4fdf0d3f5474a1b51d5e6763406fa9743d3fdd12d0570cc69dc5c600c1e6b3b2",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "immediate-insufficient",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 894,
+      "stdoutSha256": "67aa293b9ce741fed35c2c9ebba2640a9fcfb212122517304aa7d49f7a4f6d31",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "immediate-sufficient",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "immediate-sufficient",
+      "phase": "use",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 998,
+      "stdoutSha256": "09b48861803132e30abe867e53dc0b4748553234b53ed61e75ae6c3632e6fa75",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 1
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "use-expired",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "use-expired",
+      "phase": "use",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 887,
+      "stdoutSha256": "df98cef92aa27da463189b5d13748b9eea4807d520481ba809555ade943c91d4",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "use-revoked",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "use-revoked",
+      "phase": "use",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 887,
+      "stdoutSha256": "ca1460170e7d427b5dbf094833a6e266a5adf4842fee2768a13233bb4e9c7335",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "use-replay",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "use-replay",
+      "phase": "use",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 886,
+      "stdoutSha256": "d1835e572fff1ea39a6443caac82e349b7adcaefd2f0fd80198680f953a5a214",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "use-reduced",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "use-reduced",
+      "phase": "use",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 890,
+      "stdoutSha256": "9385d46950ea8a2f2a6c379371dc2c2d7e3673c2e5bfd99ed07fdd2707153259",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "use-missing",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "use-missing",
+      "phase": "use",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "81fbd10c106df85c8a51a019cbbdd1ef63788d1d886ec0ac8053ae5f58ac92c3",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "mixed-principals-coalesced",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "mixed-principals-coalesced",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "failure-verifier",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "failure-verifier",
+      "phase": "use",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 998,
+      "stdoutSha256": "09b48861803132e30abe867e53dc0b4748553234b53ed61e75ae6c3632e6fa75",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 1
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "failure-broker",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 894,
+      "stdoutSha256": "97d08ab6eef42fc8c8188e9947057256b25a2df08d68a7a59d2dca78117788be",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "failure-stale",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "failure-stale",
+      "phase": "use",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 896,
+      "stdoutSha256": "f6d04e86660d04a62cd7293a80d5dfcbeef7f1399bd4e675277cdaf133840fe7",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "restart-stale",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "restart-stale",
+      "phase": "use",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 896,
+      "stdoutSha256": "f6d04e86660d04a62cd7293a80d5dfcbeef7f1399bd4e675277cdaf133840fe7",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "restart-missing",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "restart-missing",
+      "phase": "use",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "81fbd10c106df85c8a51a019cbbdd1ef63788d1d886ec0ac8053ae5f58ac92c3",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "restart-recovery",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "CAN-06",
+      "caseId": "restart-recovery",
+      "phase": "use",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 998,
+      "stdoutSha256": "09b48861803132e30abe867e53dc0b4748553234b53ed61e75ae6c3632e6fa75",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 1
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "immediate-missing",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 899,
+      "stdoutSha256": "4fdf0d3f5474a1b51d5e6763406fa9743d3fdd12d0570cc69dc5c600c1e6b3b2",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "immediate-insufficient",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 894,
+      "stdoutSha256": "67aa293b9ce741fed35c2c9ebba2640a9fcfb212122517304aa7d49f7a4f6d31",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "immediate-sufficient",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "immediate-sufficient",
+      "phase": "use",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 998,
+      "stdoutSha256": "e3e84b55144b523577a1dca808fe71f662da5f143a802c4fa5d8239e114f629a",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 1
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "use-expired",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "use-expired",
+      "phase": "use",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 887,
+      "stdoutSha256": "df98cef92aa27da463189b5d13748b9eea4807d520481ba809555ade943c91d4",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "use-revoked",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "use-revoked",
+      "phase": "use",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 887,
+      "stdoutSha256": "ca1460170e7d427b5dbf094833a6e266a5adf4842fee2768a13233bb4e9c7335",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "use-replay",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "use-replay",
+      "phase": "use",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 886,
+      "stdoutSha256": "d1835e572fff1ea39a6443caac82e349b7adcaefd2f0fd80198680f953a5a214",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "use-reduced",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "use-reduced",
+      "phase": "use",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 890,
+      "stdoutSha256": "9385d46950ea8a2f2a6c379371dc2c2d7e3673c2e5bfd99ed07fdd2707153259",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "use-missing",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "use-missing",
+      "phase": "use",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "81fbd10c106df85c8a51a019cbbdd1ef63788d1d886ec0ac8053ae5f58ac92c3",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "mixed-principals-coalesced",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "mixed-principals-coalesced",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "failure-broker",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 894,
+      "stdoutSha256": "97d08ab6eef42fc8c8188e9947057256b25a2df08d68a7a59d2dca78117788be",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "failure-stale",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "failure-stale",
+      "phase": "use",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 896,
+      "stdoutSha256": "f6d04e86660d04a62cd7293a80d5dfcbeef7f1399bd4e675277cdaf133840fe7",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "restart-stale",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "restart-stale",
+      "phase": "use",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 896,
+      "stdoutSha256": "f6d04e86660d04a62cd7293a80d5dfcbeef7f1399bd4e675277cdaf133840fe7",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "restart-missing",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "restart-missing",
+      "phase": "use",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "81fbd10c106df85c8a51a019cbbdd1ef63788d1d886ec0ac8053ae5f58ac92c3",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "restart-recovery",
+      "phase": "enqueue",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 895,
+      "stdoutSha256": "7e629fde9736bfc5fae8b43547e37e8a6d738e260b2304c85c497b06b1db8153",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 0
+    },
+    {
+      "schema": "r032-broker-containment-v1",
+      "candidate": "COM-03",
+      "caseId": "restart-recovery",
+      "phase": "use",
+      "profileSha256": "6afa8459855a039e5a3658d62e0d17916076ead325d624c1d500d1835efc16f1",
+      "stdoutBytes": 998,
+      "stdoutSha256": "e3e84b55144b523577a1dca808fe71f662da5f143a802c4fa5d8239e114f629a",
+      "stderrBytes": 0,
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passedBeforeRoot": true,
+      "childEnvKeys": [
+        "HOME",
+        "PATH",
+        "R032_V63_CHILD",
+        "TMPDIR"
+      ],
+      "childCwd": "/",
+      "probes": {
+        "networkOutbound": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "networkBind": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideWrite": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "outsideRead": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "nonBinaryExec": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "fork": {
+          "policyDenied": true,
+          "behaviorSucceeded": false
+        },
+        "operatorHomeRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "keychainRead": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securityd": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        },
+        "securitydXpc": {
+          "policyDenied": true,
+          "behaviorAttempted": false
+        }
+      },
+      "rootCalls": 1
+    }
+  ],
+  "build": {
+    "binarySha256": "1b84c2d3ccf39ffabcefc9a41b641cb1c0e3a4d4015fca4a14aeb3476adf1491",
+    "stdoutBytes": 165,
+    "stdoutSha256": "b83f62bd3d3ebb6e5ff3df995c0389818c0da45c227a7e36c232c238a52991f9",
+    "stderrBytes": 0,
+    "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

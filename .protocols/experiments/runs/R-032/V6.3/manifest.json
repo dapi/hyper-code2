@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "rows": 144,
+  "matrix": "9x16",
+  "validated": true,
+  "sanitizedSha256": "1d7cd7eab308671fa3d1b17c8ce852590280c2478037641f26a8092ebf9e6ceb",
+  "artifactList": [
+    "results.json",
+    "controls.json",
+    "containment.json",
+    "execution.json",
+    "provenance.json",
+    "row-hashes.json",
+    "summary.json",
+    "manifest.json",
+    "SHA256SUMS"
+  ],
+  "approval": {
+    "schemaVersion": 1,
+    "status": "accepted-precollection",
+    "reviewId": "r032-v6.3-independent-review-2026-08-13",
+    "reviewPathLabel": "explicit-reviewed-file",
+    "reviewFileSha256": "04c4ef42529226db6c08dbce85d7edf37648ff66e25894b27ac003ecf15b05b1",
+    "freezeSha256": "299336b032240d20458209e11e0f864a5ae869328a941fffd44ff947a40f8e28"
+  },
+  "executionDigest": "a46f1e4d86532c2b4bea938aba10978e05721fa19af5a35a9a055d5d96f4d7a5",
+  "containmentDigest": "f6bb41cd02f884d806072c1259a2c9353c0ed2e51eda16df1741ef97dd787f5a",
+  "bundleDigest": "cc2bf25f34a57a1f1eef0b426313114e6eef968b1e37a47e8dcd1d2369f3ca14"
+}

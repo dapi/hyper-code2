@@ -1,0 +1,53 @@
+{
+  "classification": "bounded-common-dispatch-chain-execution",
+  "cellsPerAdapter": 38,
+  "totalCells": 342,
+  "adapters": [
+    {
+      "id": "CAN-01",
+      "label": "loopback"
+    },
+    {
+      "id": "CAN-02",
+      "label": "unix"
+    },
+    {
+      "id": "CAN-03",
+      "label": "identity-policy"
+    },
+    {
+      "id": "CAN-04",
+      "label": "capability"
+    },
+    {
+      "id": "CAN-05",
+      "label": "route-separation"
+    },
+    {
+      "id": "CAN-06",
+      "label": "broker-message-adapter-only"
+    },
+    {
+      "id": "COM-01",
+      "label": "loopback-identity"
+    },
+    {
+      "id": "COM-02",
+      "label": "unix-capability"
+    },
+    {
+      "id": "COM-03",
+      "label": "layered"
+    }
+  ],
+  "axes": [
+    "immediate",
+    "transport",
+    "route-lifecycle",
+    "deferred",
+    "capability",
+    "failure",
+    "local-ux"
+  ],
+  "notFullMatrix": true
+}

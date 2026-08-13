@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "5.2",
+  "matrixRows": 70,
+  "cellCounts": {
+    "CC-01": 5,
+    "CC-02": 5,
+    "CC-03": 5,
+    "CC-04": 5,
+    "CC-05": 5,
+    "CC-06": 5,
+    "CC-07": 5,
+    "CC-08": 5,
+    "CC-09": 5,
+    "CC-10": 5,
+    "CC-11": 5,
+    "CC-12": 5,
+    "CC-13": 5,
+    "CC-14": 5
+  },
+  "candidateCounts": {
+    "CAND-01": 14,
+    "CAND-02": 14,
+    "CAND-03": 14,
+    "CAND-04": 14,
+    "CAND-05": 14
+  },
+  "containmentDigest": "30a2dbe55bf81d1db091d0c1825c582597b66208de9ac1d00ff8fe8eedbe49d7",
+  "executionDigest": "3e5d165a1ac856ea70308dbfecafd76d450e0445517009c3b531c329d5b63d3c",
+  "postCollectionReviewRequired": true
+}

@@ -1,0 +1,2429 @@
+[
+  {
+    "adapter": "CAN-01",
+    "axis": "immediate",
+    "case": "privileged:missing",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-01",
+    "axis": "immediate",
+    "case": "privileged:valid-insufficient",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-01",
+    "axis": "immediate",
+    "case": "privileged:valid-sufficient",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-01",
+    "axis": "immediate",
+    "case": "ordinary:missing",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:ordinary"
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-01",
+    "axis": "deferred",
+    "case": "use:valid-sufficient",
+    "decision": {
+      "allow": true,
+      "reason": "no-deferred-authority-recheck"
+    },
+    "boundAtEnqueue": null,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-01",
+    "axis": "deferred",
+    "case": "use:revoked",
+    "decision": {
+      "allow": true,
+      "reason": "no-deferred-authority-recheck"
+    },
+    "boundAtEnqueue": null,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-01",
+    "axis": "deferred",
+    "case": "use:missing",
+    "decision": {
+      "allow": true,
+      "reason": "no-deferred-authority-recheck"
+    },
+    "boundAtEnqueue": null,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-01",
+    "axis": "route-lifecycle",
+    "case": "late-unclassified",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:unclassified"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-01",
+    "axis": "route-lifecycle",
+    "case": "overlay-override",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-01",
+    "axis": "failure",
+    "case": "verifier-down",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-01",
+    "axis": "failure",
+    "case": "policy-down",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-01",
+    "axis": "failure",
+    "case": "broker-down",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-01",
+    "axis": "local-ux",
+    "case": "browser:start",
+    "transport": {
+      "allow": true,
+      "channel": "http-only-local-session",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "CAN-01",
+    "axis": "local-ux",
+    "case": "browser:expiry",
+    "transport": {
+      "allow": true,
+      "channel": "http-only-local-session",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "CAN-01",
+    "axis": "local-ux",
+    "case": "browser:recovery",
+    "transport": {
+      "allow": true,
+      "channel": "http-only-local-session",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "restart-and-revalidate"
+  },
+  {
+    "adapter": "CAN-01",
+    "axis": "local-ux",
+    "case": "cli:start",
+    "transport": {
+      "allow": true,
+      "channel": "private-cli-channel",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "CAN-01",
+    "axis": "local-ux",
+    "case": "cli:expiry",
+    "transport": {
+      "allow": true,
+      "channel": "private-cli-channel",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "CAN-01",
+    "axis": "local-ux",
+    "case": "cli:recovery",
+    "transport": {
+      "allow": true,
+      "channel": "private-cli-channel",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "restart-and-revalidate"
+  },
+  {
+    "adapter": "CAN-01",
+    "axis": "non-transit",
+    "case": "raw-sentinel-through-adapter",
+    "rawInjected": true,
+    "sinkCounts": {
+      "log": 0,
+      "render": 0,
+      "transcript": 0,
+      "result": 0,
+      "modelInput": 0,
+      "persistence": 0
+    },
+    "detected": false
+  },
+  {
+    "adapter": "CAN-02",
+    "axis": "immediate",
+    "case": "privileged:missing",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-02",
+    "axis": "immediate",
+    "case": "privileged:valid-insufficient",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-02",
+    "axis": "immediate",
+    "case": "privileged:valid-sufficient",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-02",
+    "axis": "immediate",
+    "case": "ordinary:missing",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:ordinary"
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-02",
+    "axis": "deferred",
+    "case": "use:valid-sufficient",
+    "decision": {
+      "allow": true,
+      "reason": "no-deferred-authority-recheck"
+    },
+    "boundAtEnqueue": null,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-02",
+    "axis": "deferred",
+    "case": "use:revoked",
+    "decision": {
+      "allow": true,
+      "reason": "no-deferred-authority-recheck"
+    },
+    "boundAtEnqueue": null,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-02",
+    "axis": "deferred",
+    "case": "use:missing",
+    "decision": {
+      "allow": true,
+      "reason": "no-deferred-authority-recheck"
+    },
+    "boundAtEnqueue": null,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-02",
+    "axis": "route-lifecycle",
+    "case": "late-unclassified",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:unclassified"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-02",
+    "axis": "route-lifecycle",
+    "case": "overlay-override",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-02",
+    "axis": "failure",
+    "case": "verifier-down",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-02",
+    "axis": "failure",
+    "case": "policy-down",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-02",
+    "axis": "failure",
+    "case": "broker-down",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-02",
+    "axis": "local-ux",
+    "case": "browser:start",
+    "transport": {
+      "allow": true,
+      "channel": "local-browser-bridge",
+      "recovery": "recreate-stale-endpoint-and-bridge"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "CAN-02",
+    "axis": "local-ux",
+    "case": "browser:expiry",
+    "transport": {
+      "allow": true,
+      "channel": "local-browser-bridge",
+      "recovery": "recreate-stale-endpoint-and-bridge"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "CAN-02",
+    "axis": "local-ux",
+    "case": "browser:recovery",
+    "transport": {
+      "allow": true,
+      "channel": "local-browser-bridge",
+      "recovery": "recreate-stale-endpoint-and-bridge"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "recreate-stale-endpoint-and-bridge"
+  },
+  {
+    "adapter": "CAN-02",
+    "axis": "local-ux",
+    "case": "cli:start",
+    "transport": {
+      "allow": true,
+      "channel": "private-unix-client",
+      "recovery": "recreate-stale-endpoint-and-bridge"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "CAN-02",
+    "axis": "local-ux",
+    "case": "cli:expiry",
+    "transport": {
+      "allow": true,
+      "channel": "private-unix-client",
+      "recovery": "recreate-stale-endpoint-and-bridge"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "CAN-02",
+    "axis": "local-ux",
+    "case": "cli:recovery",
+    "transport": {
+      "allow": true,
+      "channel": "private-unix-client",
+      "recovery": "recreate-stale-endpoint-and-bridge"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "recreate-stale-endpoint-and-bridge"
+  },
+  {
+    "adapter": "CAN-02",
+    "axis": "non-transit",
+    "case": "raw-sentinel-through-adapter",
+    "rawInjected": true,
+    "sinkCounts": {
+      "log": 0,
+      "render": 0,
+      "transcript": 0,
+      "result": 0,
+      "modelInput": 0,
+      "persistence": 0
+    },
+    "detected": false
+  },
+  {
+    "adapter": "CAN-03",
+    "axis": "immediate",
+    "case": "privileged:missing",
+    "decision": {
+      "allow": false,
+      "reason": "deny:missing"
+    },
+    "handlerReached": false,
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-03",
+    "axis": "immediate",
+    "case": "privileged:valid-insufficient",
+    "decision": {
+      "allow": false,
+      "reason": "deny:valid-insufficient"
+    },
+    "handlerReached": false,
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-03",
+    "axis": "immediate",
+    "case": "privileged:valid-sufficient",
+    "decision": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-03",
+    "axis": "immediate",
+    "case": "ordinary:missing",
+    "decision": {
+      "allow": true,
+      "reason": "ordinary"
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-03",
+    "axis": "deferred",
+    "case": "use:valid-sufficient",
+    "decision": {
+      "allow": true,
+      "reason": "deferred-recheck-authorized",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "boundAtEnqueue": {
+      "kind": "identity",
+      "subject": "synthetic-user",
+      "scope": "privileged",
+      "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-03",
+    "axis": "deferred",
+    "case": "use:revoked",
+    "decision": {
+      "allow": false,
+      "reason": "deferred-deny:revoked",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "boundAtEnqueue": {
+      "kind": "identity",
+      "subject": "synthetic-user",
+      "scope": "privileged",
+      "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-03",
+    "axis": "deferred",
+    "case": "use:missing",
+    "decision": {
+      "allow": false,
+      "reason": "deferred-deny:missing",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "boundAtEnqueue": {
+      "kind": "identity",
+      "subject": "synthetic-user",
+      "scope": "privileged",
+      "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-03",
+    "axis": "route-lifecycle",
+    "case": "late-unclassified",
+    "decision": {
+      "allow": false,
+      "reason": "unclassified-deny"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-03",
+    "axis": "route-lifecycle",
+    "case": "overlay-override",
+    "decision": {
+      "allow": false,
+      "reason": "deny:missing"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-03",
+    "axis": "failure",
+    "case": "verifier-down",
+    "decision": {
+      "allow": false,
+      "reason": "authority-service-fail-closed"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-03",
+    "axis": "failure",
+    "case": "policy-down",
+    "decision": {
+      "allow": false,
+      "reason": "authority-service-fail-closed"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-03",
+    "axis": "failure",
+    "case": "broker-down",
+    "decision": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-03",
+    "axis": "local-ux",
+    "case": "browser:start",
+    "transport": {
+      "allow": true,
+      "channel": "http-only-local-session",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "CAN-03",
+    "axis": "local-ux",
+    "case": "browser:expiry",
+    "transport": {
+      "allow": true,
+      "channel": "http-only-local-session",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": false,
+      "reason": "deny:revoked"
+    },
+    "userVisible": "reauthorize"
+  },
+  {
+    "adapter": "CAN-03",
+    "axis": "local-ux",
+    "case": "browser:recovery",
+    "transport": {
+      "allow": true,
+      "channel": "http-only-local-session",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "userVisible": "restart-and-revalidate"
+  },
+  {
+    "adapter": "CAN-03",
+    "axis": "local-ux",
+    "case": "cli:start",
+    "transport": {
+      "allow": true,
+      "channel": "private-cli-channel",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "CAN-03",
+    "axis": "local-ux",
+    "case": "cli:expiry",
+    "transport": {
+      "allow": true,
+      "channel": "private-cli-channel",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": false,
+      "reason": "deny:revoked"
+    },
+    "userVisible": "reauthorize"
+  },
+  {
+    "adapter": "CAN-03",
+    "axis": "local-ux",
+    "case": "cli:recovery",
+    "transport": {
+      "allow": true,
+      "channel": "private-cli-channel",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "userVisible": "restart-and-revalidate"
+  },
+  {
+    "adapter": "CAN-03",
+    "axis": "non-transit",
+    "case": "raw-sentinel-through-adapter",
+    "rawInjected": true,
+    "sinkCounts": {
+      "log": 0,
+      "render": 0,
+      "transcript": 0,
+      "result": 0,
+      "modelInput": 0,
+      "persistence": 0
+    },
+    "detected": false
+  },
+  {
+    "adapter": "CAN-04",
+    "axis": "immediate",
+    "case": "privileged:missing",
+    "decision": {
+      "allow": false,
+      "reason": "deny:missing"
+    },
+    "handlerReached": false,
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-04",
+    "axis": "immediate",
+    "case": "privileged:valid-insufficient",
+    "decision": {
+      "allow": false,
+      "reason": "deny:valid-insufficient"
+    },
+    "handlerReached": false,
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-04",
+    "axis": "immediate",
+    "case": "privileged:valid-sufficient",
+    "decision": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "capability",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-04",
+    "axis": "immediate",
+    "case": "ordinary:missing",
+    "decision": {
+      "allow": true,
+      "reason": "ordinary"
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-04",
+    "axis": "deferred",
+    "case": "use:valid-sufficient",
+    "decision": {
+      "allow": true,
+      "reason": "deferred-recheck-authorized",
+      "bound": {
+        "kind": "capability",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "boundAtEnqueue": {
+      "kind": "capability",
+      "subject": "synthetic-user",
+      "scope": "privileged",
+      "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-04",
+    "axis": "deferred",
+    "case": "use:revoked",
+    "decision": {
+      "allow": false,
+      "reason": "deferred-deny:revoked",
+      "bound": {
+        "kind": "capability",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "boundAtEnqueue": {
+      "kind": "capability",
+      "subject": "synthetic-user",
+      "scope": "privileged",
+      "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-04",
+    "axis": "deferred",
+    "case": "use:missing",
+    "decision": {
+      "allow": false,
+      "reason": "deferred-deny:missing",
+      "bound": {
+        "kind": "capability",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "boundAtEnqueue": {
+      "kind": "capability",
+      "subject": "synthetic-user",
+      "scope": "privileged",
+      "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-04",
+    "axis": "route-lifecycle",
+    "case": "late-unclassified",
+    "decision": {
+      "allow": false,
+      "reason": "unclassified-deny"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-04",
+    "axis": "route-lifecycle",
+    "case": "overlay-override",
+    "decision": {
+      "allow": false,
+      "reason": "deny:missing"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-04",
+    "axis": "failure",
+    "case": "verifier-down",
+    "decision": {
+      "allow": false,
+      "reason": "authority-service-fail-closed"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-04",
+    "axis": "failure",
+    "case": "policy-down",
+    "decision": {
+      "allow": false,
+      "reason": "authority-service-fail-closed"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-04",
+    "axis": "failure",
+    "case": "broker-down",
+    "decision": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "capability",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-04",
+    "axis": "local-ux",
+    "case": "browser:start",
+    "transport": {
+      "allow": true,
+      "channel": "http-only-local-session",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "capability",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "CAN-04",
+    "axis": "local-ux",
+    "case": "browser:expiry",
+    "transport": {
+      "allow": true,
+      "channel": "http-only-local-session",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": false,
+      "reason": "deny:revoked"
+    },
+    "userVisible": "reauthorize"
+  },
+  {
+    "adapter": "CAN-04",
+    "axis": "local-ux",
+    "case": "browser:recovery",
+    "transport": {
+      "allow": true,
+      "channel": "http-only-local-session",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "capability",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "userVisible": "restart-and-revalidate"
+  },
+  {
+    "adapter": "CAN-04",
+    "axis": "local-ux",
+    "case": "cli:start",
+    "transport": {
+      "allow": true,
+      "channel": "private-cli-channel",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "capability",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "CAN-04",
+    "axis": "local-ux",
+    "case": "cli:expiry",
+    "transport": {
+      "allow": true,
+      "channel": "private-cli-channel",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": false,
+      "reason": "deny:revoked"
+    },
+    "userVisible": "reauthorize"
+  },
+  {
+    "adapter": "CAN-04",
+    "axis": "local-ux",
+    "case": "cli:recovery",
+    "transport": {
+      "allow": true,
+      "channel": "private-cli-channel",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "capability",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "userVisible": "restart-and-revalidate"
+  },
+  {
+    "adapter": "CAN-04",
+    "axis": "non-transit",
+    "case": "raw-sentinel-through-adapter",
+    "rawInjected": true,
+    "sinkCounts": {
+      "log": 0,
+      "render": 0,
+      "transcript": 0,
+      "result": 0,
+      "modelInput": 0,
+      "persistence": 0
+    },
+    "detected": false
+  },
+  {
+    "adapter": "CAN-05",
+    "axis": "immediate",
+    "case": "privileged:missing",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-05",
+    "axis": "immediate",
+    "case": "privileged:valid-insufficient",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-05",
+    "axis": "immediate",
+    "case": "privileged:valid-sufficient",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-05",
+    "axis": "immediate",
+    "case": "ordinary:missing",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:ordinary"
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-05",
+    "axis": "deferred",
+    "case": "use:valid-sufficient",
+    "decision": {
+      "allow": true,
+      "reason": "no-deferred-authority-recheck"
+    },
+    "boundAtEnqueue": null,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-05",
+    "axis": "deferred",
+    "case": "use:revoked",
+    "decision": {
+      "allow": true,
+      "reason": "no-deferred-authority-recheck"
+    },
+    "boundAtEnqueue": null,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-05",
+    "axis": "deferred",
+    "case": "use:missing",
+    "decision": {
+      "allow": true,
+      "reason": "no-deferred-authority-recheck"
+    },
+    "boundAtEnqueue": null,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-05",
+    "axis": "route-lifecycle",
+    "case": "late-unclassified",
+    "decision": {
+      "allow": false,
+      "reason": "route-partition-default-deny"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-05",
+    "axis": "route-lifecycle",
+    "case": "overlay-override",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-05",
+    "axis": "failure",
+    "case": "verifier-down",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-05",
+    "axis": "failure",
+    "case": "policy-down",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-05",
+    "axis": "failure",
+    "case": "broker-down",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-05",
+    "axis": "local-ux",
+    "case": "browser:start",
+    "transport": {
+      "allow": true,
+      "channel": "http-only-local-session",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "CAN-05",
+    "axis": "local-ux",
+    "case": "browser:expiry",
+    "transport": {
+      "allow": true,
+      "channel": "http-only-local-session",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "CAN-05",
+    "axis": "local-ux",
+    "case": "browser:recovery",
+    "transport": {
+      "allow": true,
+      "channel": "http-only-local-session",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "restart-and-revalidate"
+  },
+  {
+    "adapter": "CAN-05",
+    "axis": "local-ux",
+    "case": "cli:start",
+    "transport": {
+      "allow": true,
+      "channel": "private-cli-channel",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "CAN-05",
+    "axis": "local-ux",
+    "case": "cli:expiry",
+    "transport": {
+      "allow": true,
+      "channel": "private-cli-channel",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "CAN-05",
+    "axis": "local-ux",
+    "case": "cli:recovery",
+    "transport": {
+      "allow": true,
+      "channel": "private-cli-channel",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "restart-and-revalidate"
+  },
+  {
+    "adapter": "CAN-05",
+    "axis": "non-transit",
+    "case": "raw-sentinel-through-adapter",
+    "rawInjected": true,
+    "sinkCounts": {
+      "log": 0,
+      "render": 0,
+      "transcript": 0,
+      "result": 0,
+      "modelInput": 0,
+      "persistence": 0
+    },
+    "detected": false
+  },
+  {
+    "adapter": "CAN-06",
+    "axis": "immediate",
+    "case": "privileged:missing",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-06",
+    "axis": "immediate",
+    "case": "privileged:valid-insufficient",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-06",
+    "axis": "immediate",
+    "case": "privileged:valid-sufficient",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-06",
+    "axis": "immediate",
+    "case": "ordinary:missing",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:ordinary"
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-06",
+    "axis": "deferred",
+    "case": "use:valid-sufficient",
+    "decision": {
+      "allow": true,
+      "reason": "no-deferred-authority-recheck"
+    },
+    "boundAtEnqueue": null,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-06",
+    "axis": "deferred",
+    "case": "use:revoked",
+    "decision": {
+      "allow": true,
+      "reason": "no-deferred-authority-recheck"
+    },
+    "boundAtEnqueue": null,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-06",
+    "axis": "deferred",
+    "case": "use:missing",
+    "decision": {
+      "allow": true,
+      "reason": "no-deferred-authority-recheck"
+    },
+    "boundAtEnqueue": null,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-06",
+    "axis": "route-lifecycle",
+    "case": "late-unclassified",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:unclassified"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-06",
+    "axis": "route-lifecycle",
+    "case": "overlay-override",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-06",
+    "axis": "failure",
+    "case": "verifier-down",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-06",
+    "axis": "failure",
+    "case": "policy-down",
+    "decision": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "CAN-06",
+    "axis": "failure",
+    "case": "broker-down",
+    "decision": {
+      "allow": false,
+      "reason": "broker-fail-closed"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "CAN-06",
+    "axis": "local-ux",
+    "case": "browser:start",
+    "transport": {
+      "allow": true,
+      "channel": "http-only-local-session",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "CAN-06",
+    "axis": "local-ux",
+    "case": "browser:expiry",
+    "transport": {
+      "allow": true,
+      "channel": "http-only-local-session",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "CAN-06",
+    "axis": "local-ux",
+    "case": "browser:recovery",
+    "transport": {
+      "allow": true,
+      "channel": "http-only-local-session",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "restart-and-revalidate"
+  },
+  {
+    "adapter": "CAN-06",
+    "axis": "local-ux",
+    "case": "cli:start",
+    "transport": {
+      "allow": true,
+      "channel": "private-cli-channel",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "CAN-06",
+    "axis": "local-ux",
+    "case": "cli:expiry",
+    "transport": {
+      "allow": true,
+      "channel": "private-cli-channel",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "CAN-06",
+    "axis": "local-ux",
+    "case": "cli:recovery",
+    "transport": {
+      "allow": true,
+      "channel": "private-cli-channel",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "no-caller-control:privileged"
+    },
+    "userVisible": "restart-and-revalidate"
+  },
+  {
+    "adapter": "CAN-06",
+    "axis": "non-transit",
+    "case": "raw-sentinel-through-adapter",
+    "rawInjected": true,
+    "sinkCounts": {
+      "log": 0,
+      "render": 0,
+      "transcript": 0,
+      "result": 0,
+      "modelInput": 0,
+      "persistence": 0
+    },
+    "detected": false
+  },
+  {
+    "adapter": "COM-01",
+    "axis": "immediate",
+    "case": "privileged:missing",
+    "decision": {
+      "allow": false,
+      "reason": "deny:missing"
+    },
+    "handlerReached": false,
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-01",
+    "axis": "immediate",
+    "case": "privileged:valid-insufficient",
+    "decision": {
+      "allow": false,
+      "reason": "deny:valid-insufficient"
+    },
+    "handlerReached": false,
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-01",
+    "axis": "immediate",
+    "case": "privileged:valid-sufficient",
+    "decision": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "COM-01",
+    "axis": "immediate",
+    "case": "ordinary:missing",
+    "decision": {
+      "allow": true,
+      "reason": "ordinary"
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-01",
+    "axis": "deferred",
+    "case": "use:valid-sufficient",
+    "decision": {
+      "allow": true,
+      "reason": "deferred-recheck-authorized",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "boundAtEnqueue": {
+      "kind": "identity",
+      "subject": "synthetic-user",
+      "scope": "privileged",
+      "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "COM-01",
+    "axis": "deferred",
+    "case": "use:revoked",
+    "decision": {
+      "allow": false,
+      "reason": "deferred-deny:revoked",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "boundAtEnqueue": {
+      "kind": "identity",
+      "subject": "synthetic-user",
+      "scope": "privileged",
+      "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-01",
+    "axis": "deferred",
+    "case": "use:missing",
+    "decision": {
+      "allow": false,
+      "reason": "deferred-deny:missing",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "boundAtEnqueue": {
+      "kind": "identity",
+      "subject": "synthetic-user",
+      "scope": "privileged",
+      "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-01",
+    "axis": "route-lifecycle",
+    "case": "late-unclassified",
+    "decision": {
+      "allow": false,
+      "reason": "unclassified-deny"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-01",
+    "axis": "route-lifecycle",
+    "case": "overlay-override",
+    "decision": {
+      "allow": false,
+      "reason": "deny:missing"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-01",
+    "axis": "failure",
+    "case": "verifier-down",
+    "decision": {
+      "allow": false,
+      "reason": "authority-service-fail-closed"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-01",
+    "axis": "failure",
+    "case": "policy-down",
+    "decision": {
+      "allow": false,
+      "reason": "authority-service-fail-closed"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-01",
+    "axis": "failure",
+    "case": "broker-down",
+    "decision": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "COM-01",
+    "axis": "local-ux",
+    "case": "browser:start",
+    "transport": {
+      "allow": true,
+      "channel": "http-only-local-session",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "COM-01",
+    "axis": "local-ux",
+    "case": "browser:expiry",
+    "transport": {
+      "allow": true,
+      "channel": "http-only-local-session",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": false,
+      "reason": "deny:revoked"
+    },
+    "userVisible": "reauthorize"
+  },
+  {
+    "adapter": "COM-01",
+    "axis": "local-ux",
+    "case": "browser:recovery",
+    "transport": {
+      "allow": true,
+      "channel": "http-only-local-session",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "userVisible": "restart-and-revalidate"
+  },
+  {
+    "adapter": "COM-01",
+    "axis": "local-ux",
+    "case": "cli:start",
+    "transport": {
+      "allow": true,
+      "channel": "private-cli-channel",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "COM-01",
+    "axis": "local-ux",
+    "case": "cli:expiry",
+    "transport": {
+      "allow": true,
+      "channel": "private-cli-channel",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": false,
+      "reason": "deny:revoked"
+    },
+    "userVisible": "reauthorize"
+  },
+  {
+    "adapter": "COM-01",
+    "axis": "local-ux",
+    "case": "cli:recovery",
+    "transport": {
+      "allow": true,
+      "channel": "private-cli-channel",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "userVisible": "restart-and-revalidate"
+  },
+  {
+    "adapter": "COM-01",
+    "axis": "non-transit",
+    "case": "raw-sentinel-through-adapter",
+    "rawInjected": true,
+    "sinkCounts": {
+      "log": 0,
+      "render": 0,
+      "transcript": 0,
+      "result": 0,
+      "modelInput": 0,
+      "persistence": 0
+    },
+    "detected": false
+  },
+  {
+    "adapter": "COM-02",
+    "axis": "immediate",
+    "case": "privileged:missing",
+    "decision": {
+      "allow": false,
+      "reason": "deny:missing"
+    },
+    "handlerReached": false,
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-02",
+    "axis": "immediate",
+    "case": "privileged:valid-insufficient",
+    "decision": {
+      "allow": false,
+      "reason": "deny:valid-insufficient"
+    },
+    "handlerReached": false,
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-02",
+    "axis": "immediate",
+    "case": "privileged:valid-sufficient",
+    "decision": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "capability",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "COM-02",
+    "axis": "immediate",
+    "case": "ordinary:missing",
+    "decision": {
+      "allow": true,
+      "reason": "ordinary"
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-02",
+    "axis": "deferred",
+    "case": "use:valid-sufficient",
+    "decision": {
+      "allow": true,
+      "reason": "deferred-recheck-authorized",
+      "bound": {
+        "kind": "capability",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "boundAtEnqueue": {
+      "kind": "capability",
+      "subject": "synthetic-user",
+      "scope": "privileged",
+      "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "COM-02",
+    "axis": "deferred",
+    "case": "use:revoked",
+    "decision": {
+      "allow": false,
+      "reason": "deferred-deny:revoked",
+      "bound": {
+        "kind": "capability",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "boundAtEnqueue": {
+      "kind": "capability",
+      "subject": "synthetic-user",
+      "scope": "privileged",
+      "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-02",
+    "axis": "deferred",
+    "case": "use:missing",
+    "decision": {
+      "allow": false,
+      "reason": "deferred-deny:missing",
+      "bound": {
+        "kind": "capability",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "boundAtEnqueue": {
+      "kind": "capability",
+      "subject": "synthetic-user",
+      "scope": "privileged",
+      "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-02",
+    "axis": "route-lifecycle",
+    "case": "late-unclassified",
+    "decision": {
+      "allow": false,
+      "reason": "unclassified-deny"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-02",
+    "axis": "route-lifecycle",
+    "case": "overlay-override",
+    "decision": {
+      "allow": false,
+      "reason": "deny:missing"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-02",
+    "axis": "failure",
+    "case": "verifier-down",
+    "decision": {
+      "allow": false,
+      "reason": "authority-service-fail-closed"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-02",
+    "axis": "failure",
+    "case": "policy-down",
+    "decision": {
+      "allow": false,
+      "reason": "authority-service-fail-closed"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-02",
+    "axis": "failure",
+    "case": "broker-down",
+    "decision": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "capability",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "COM-02",
+    "axis": "local-ux",
+    "case": "browser:start",
+    "transport": {
+      "allow": true,
+      "channel": "local-browser-bridge",
+      "recovery": "recreate-stale-endpoint-and-bridge"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "capability",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "COM-02",
+    "axis": "local-ux",
+    "case": "browser:expiry",
+    "transport": {
+      "allow": true,
+      "channel": "local-browser-bridge",
+      "recovery": "recreate-stale-endpoint-and-bridge"
+    },
+    "authority": {
+      "allow": false,
+      "reason": "deny:revoked"
+    },
+    "userVisible": "reauthorize"
+  },
+  {
+    "adapter": "COM-02",
+    "axis": "local-ux",
+    "case": "browser:recovery",
+    "transport": {
+      "allow": true,
+      "channel": "local-browser-bridge",
+      "recovery": "recreate-stale-endpoint-and-bridge"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "capability",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "userVisible": "recreate-stale-endpoint-and-bridge"
+  },
+  {
+    "adapter": "COM-02",
+    "axis": "local-ux",
+    "case": "cli:start",
+    "transport": {
+      "allow": true,
+      "channel": "private-unix-client",
+      "recovery": "recreate-stale-endpoint-and-bridge"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "capability",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "COM-02",
+    "axis": "local-ux",
+    "case": "cli:expiry",
+    "transport": {
+      "allow": true,
+      "channel": "private-unix-client",
+      "recovery": "recreate-stale-endpoint-and-bridge"
+    },
+    "authority": {
+      "allow": false,
+      "reason": "deny:revoked"
+    },
+    "userVisible": "reauthorize"
+  },
+  {
+    "adapter": "COM-02",
+    "axis": "local-ux",
+    "case": "cli:recovery",
+    "transport": {
+      "allow": true,
+      "channel": "private-unix-client",
+      "recovery": "recreate-stale-endpoint-and-bridge"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "capability",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "userVisible": "recreate-stale-endpoint-and-bridge"
+  },
+  {
+    "adapter": "COM-02",
+    "axis": "non-transit",
+    "case": "raw-sentinel-through-adapter",
+    "rawInjected": true,
+    "sinkCounts": {
+      "log": 0,
+      "render": 0,
+      "transcript": 0,
+      "result": 0,
+      "modelInput": 0,
+      "persistence": 0
+    },
+    "detected": false
+  },
+  {
+    "adapter": "COM-03",
+    "axis": "immediate",
+    "case": "privileged:missing",
+    "decision": {
+      "allow": false,
+      "reason": "deny:missing"
+    },
+    "handlerReached": false,
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-03",
+    "axis": "immediate",
+    "case": "privileged:valid-insufficient",
+    "decision": {
+      "allow": false,
+      "reason": "deny:valid-insufficient"
+    },
+    "handlerReached": false,
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-03",
+    "axis": "immediate",
+    "case": "privileged:valid-sufficient",
+    "decision": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "COM-03",
+    "axis": "immediate",
+    "case": "ordinary:missing",
+    "decision": {
+      "allow": true,
+      "reason": "ordinary"
+    },
+    "handlerReached": true,
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-03",
+    "axis": "deferred",
+    "case": "use:valid-sufficient",
+    "decision": {
+      "allow": true,
+      "reason": "deferred-recheck-authorized",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "boundAtEnqueue": {
+      "kind": "identity",
+      "subject": "synthetic-user",
+      "scope": "privileged",
+      "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+    },
+    "authorityRootCalls": 1
+  },
+  {
+    "adapter": "COM-03",
+    "axis": "deferred",
+    "case": "use:revoked",
+    "decision": {
+      "allow": false,
+      "reason": "deferred-deny:revoked",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "boundAtEnqueue": {
+      "kind": "identity",
+      "subject": "synthetic-user",
+      "scope": "privileged",
+      "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-03",
+    "axis": "deferred",
+    "case": "use:missing",
+    "decision": {
+      "allow": false,
+      "reason": "deferred-deny:missing",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "boundAtEnqueue": {
+      "kind": "identity",
+      "subject": "synthetic-user",
+      "scope": "privileged",
+      "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-03",
+    "axis": "route-lifecycle",
+    "case": "late-unclassified",
+    "decision": {
+      "allow": false,
+      "reason": "route-partition-default-deny"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-03",
+    "axis": "route-lifecycle",
+    "case": "overlay-override",
+    "decision": {
+      "allow": false,
+      "reason": "deny:missing"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-03",
+    "axis": "failure",
+    "case": "verifier-down",
+    "decision": {
+      "allow": false,
+      "reason": "authority-service-fail-closed"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-03",
+    "axis": "failure",
+    "case": "policy-down",
+    "decision": {
+      "allow": false,
+      "reason": "authority-service-fail-closed"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-03",
+    "axis": "failure",
+    "case": "broker-down",
+    "decision": {
+      "allow": false,
+      "reason": "broker-fail-closed"
+    },
+    "authorityRootCalls": 0
+  },
+  {
+    "adapter": "COM-03",
+    "axis": "local-ux",
+    "case": "browser:start",
+    "transport": {
+      "allow": true,
+      "channel": "http-only-local-session",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "COM-03",
+    "axis": "local-ux",
+    "case": "browser:expiry",
+    "transport": {
+      "allow": true,
+      "channel": "http-only-local-session",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": false,
+      "reason": "deny:revoked"
+    },
+    "userVisible": "reauthorize"
+  },
+  {
+    "adapter": "COM-03",
+    "axis": "local-ux",
+    "case": "browser:recovery",
+    "transport": {
+      "allow": true,
+      "channel": "http-only-local-session",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "userVisible": "restart-and-revalidate"
+  },
+  {
+    "adapter": "COM-03",
+    "axis": "local-ux",
+    "case": "cli:start",
+    "transport": {
+      "allow": true,
+      "channel": "private-cli-channel",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "userVisible": "ready"
+  },
+  {
+    "adapter": "COM-03",
+    "axis": "local-ux",
+    "case": "cli:expiry",
+    "transport": {
+      "allow": true,
+      "channel": "private-cli-channel",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": false,
+      "reason": "deny:revoked"
+    },
+    "userVisible": "reauthorize"
+  },
+  {
+    "adapter": "COM-03",
+    "axis": "local-ux",
+    "case": "cli:recovery",
+    "transport": {
+      "allow": true,
+      "channel": "private-cli-channel",
+      "recovery": "restart-and-revalidate"
+    },
+    "authority": {
+      "allow": true,
+      "reason": "authorized",
+      "bound": {
+        "kind": "identity",
+        "subject": "synthetic-user",
+        "scope": "privileged",
+        "credentialDigest": "5fbb241c621f3ffa7d24105ab12930f9c5bfd06ac2cea35e49c5b7faad073184"
+      }
+    },
+    "userVisible": "restart-and-revalidate"
+  },
+  {
+    "adapter": "COM-03",
+    "axis": "non-transit",
+    "case": "raw-sentinel-through-adapter",
+    "rawInjected": true,
+    "sinkCounts": {
+      "log": 0,
+      "render": 0,
+      "transcript": 0,
+      "result": 0,
+      "modelInput": 0,
+      "persistence": 0
+    },
+    "detected": false
+  }
+]

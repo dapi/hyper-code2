@@ -1,0 +1,16 @@
+Source type: Telegram comment
+Author: Николай Рыжиков (@niquola)
+Date: 2026-08-13 Asia/Almaty (Telegram message timestamp: 2026-08-12T22:12:35Z)
+Source URL: https://t.me/c/1951583351/97428
+Chat: ИИшница
+Message ID: 97428
+
+Original requirement:
+
+я бы добавил еще самоосознание более явно - те агент знает как он написан и может себя менять ;)
+
+Capture boundary:
+
+This file preserves the source wording and provenance only. Product interpretation,
+owner acceptance, scope, validation posture, and delivery planning belong to PRD-002,
+UC-008, and EP-002.

@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "evidenceClassification": "rejected-outcome-model-dry-run",
+  "candidateOutcomesAreEvidence": false,
+  "reviewFinding": "child emitted only a case plan; parent hard-coded outcome conditions; auth digest checks self-compared",
+  "contractVersion": "R-033.secret-non-transit.v1",
+  "runId": "2026-08-13-contained-symmetry-v1",
+  "matrix": {
+    "candidates": 5,
+    "cellsPerCandidate": 14,
+    "totalCells": 70,
+    "attributableCells": 70,
+    "symmetric": true,
+    "rotatingOrder": true
+  },
+  "controls": {
+    "negativeControlPassed": true,
+    "positiveControls": [
+      {
+        "id": "S0",
+        "digests": [
+          "c294132494666cd199ee9c99464ae2ee3c22e2f944238b3f4034ce12254b2e14"
+        ],
+        "detected": true
+      },
+      {
+        "id": "S1",
+        "digests": [
+          "2c6ed6a11487cc437537c6bf80d189bf8371ab64775d5acac0cf0499088088c5"
+        ],
+        "detected": true
+      },
+      {
+        "id": "S2",
+        "digests": [
+          "d155d063fff8294460864702a80c4887f3017caf4e61cf2faa016e7ddf98671c"
+        ],
+        "detected": true
+      },
+      {
+        "id": "S3",
+        "digests": [
+          "09d9c0a21354ca020d246af9d38dcbd7e06b58eb29630ed60f674655e5f0f3b1"
+        ],
+        "detected": true
+      },
+      {
+        "id": "S4",
+        "digests": [
+          "c30e84cbfbd8533dbd761f0ce286c623b42cba6f5e4a27b2b7b1dec1802c0b46"
+        ],
+        "detected": true
+      },
+      {
+        "id": "S5",
+        "digests": [
+          "ebb0b46815ff87151ac29a1609bc86f6a8228b3190078ed5772607797ff96bca"
+        ],
+        "detected": true
+      },
+      {
+        "id": "S6",
+        "digests": [
+          "a22d6134d4a9b4a6a0cbaffd2be3a0258e93f6823e212cf4a418a96a0fda7fd6"
+        ],
+        "detected": true
+      },
+      {
+        "id": "S7",
+        "digests": [
+          "26956441f40ac5781f8d7fffccd04aaab866fd78c5e32a4b692c965497f7f377"
+        ],
+        "detected": true
+      },
+      {
+        "id": "S8",
+        "digests": [
+          "b5bf926548ad02127d46e6a7e3b107a7b9ed6676c00b73326ac9936998b6758b"
+        ],
+        "detected": true
+      }
+    ],
+    "transportPositiveControl": {
+      "bearerDigestMatched": true,
+      "xApiKeyDigestMatched": true,
+      "rawHeaderRetained": false
+    }
+  },
+  "outcomes": {
+    "CAND-01": {
+      "pass": 14,
+      "fail": 0,
+      "incompatible": 0
+    },
+    "CAND-02": {
+      "pass": 14,
+      "fail": 0,
+      "incompatible": 0
+    },
+    "CAND-03": {
+      "pass": 14,
+      "fail": 0,
+      "incompatible": 0
+    },
+    "CAND-04": {
+      "pass": 4,
+      "fail": 10,
+      "incompatible": 0
+    },
+    "CAND-05": {
+      "pass": 14,
+      "fail": 0,
+      "incompatible": 0
+    }
+  },
+  "candidateFailuresPreserved": [
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-03",
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED_BEFORE_TRANSPORT"
+      ],
+      "cellSha256": "45fc377ff4788f1f8f1e687ee886860f11024e43e2cc831881dc4d02e90c09d0"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-04",
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED_BEFORE_TRANSPORT"
+      ],
+      "cellSha256": "888473d4b12b4cd409c404528b15b0e4638d4efb2e81061e3131ea8765d4341d"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-05",
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED_BEFORE_TRANSPORT"
+      ],
+      "cellSha256": "3c765f9788c2072e6e5b430c4f1c3e988648d8a7c51617a273da5cc77eaf4903"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-06",
+      "reasons": [
+        "AGENT_AUTHORITY_EXPOSED_BEFORE_TRANSPORT"
+      ],
+      "cellSha256": "285ac207ba0f514c133fa588e272dbf17cb5437d80c6f9698811e329636b11a0"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-07",
+      "reasons": [
+        "AMBIENT_FALLBACK_NOT_PREVENTED"
+      ],
+      "cellSha256": "6eac1b4b86bd31e4df46dc2b4c096218a670d3f5a4abe23f86b70797dfaeb17e"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-08",
+      "reasons": [
+        "RESOLVER_FAILURE_CANNOT_FAIL_CLOSED"
+      ],
+      "cellSha256": "77bd024ff0aa0c196fef2c57de97fa99f5796c1b9ed67ccca24e948645efd419"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-11",
+      "reasons": [
+        "RAW_VALUE_ENTERED_RETRY_STATE"
+      ],
+      "cellSha256": "ce2e1bf235be29bb9c507cd87c79f0418b8485545f1493ed66b8b298cc9a488d"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-12",
+      "reasons": [
+        "RAW_VALUE_RECOVERABLE_FROM_AGENT_STATE"
+      ],
+      "cellSha256": "17c0d28dba6488efd66b1ac3e1a57bf0c659527a60a2c53694d8843137eda265"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-13",
+      "reasons": [
+        "DISCOVERY_TOKEN_AGENT_ACCESSIBLE"
+      ],
+      "cellSha256": "0f0346b378c0379f7732a605d3aa93ffdef9ac6238f8977a6a78824de5be6e38"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-14",
+      "reasons": [
+        "DIRECT_AUTHORITY_PROBE_EXPOSED_VALUE"
+      ],
+      "cellSha256": "7e425af2ee6d5e4016ee788fc537fae8fdfda7ce84755b07f3c25ae7ff330024"
+    }
+  ],
+  "comparisonOnly": true,
+  "mechanismSelected": false,
+  "winnerSelected": false,
+  "adrCreated": false
+}

@@ -1,0 +1,2270 @@
+[
+  {
+    "caseId": "baseline-tag-normalization-V0",
+    "phase": "baseline",
+    "family": "tag-normalization",
+    "variant": "V0",
+    "processOrdinal": 1,
+    "freshProcessVerified": true,
+    "commonSha256": "b110793683e7473425969c6188fdfa1ca1679c0e024afd70890c782fd2791e8e",
+    "projectionSha256": "5d18d5eeabfdcb00ed999a78c68114f4176e9fbb091984055cafe05541d10cca",
+    "projectionFile": "projections/V0/retention-instructions.json",
+    "accessibleProjectionVariants": [
+      "V0"
+    ],
+    "workspaceStateLineage": "isolated-baseline",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "baseline-tag-normalization-V0",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "c602f6fbf2a16f392e00794b722f8b94714d5bb33dd8fa2def19e771a7584f48",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "baseline-tag-normalization-V1",
+    "phase": "baseline",
+    "family": "tag-normalization",
+    "variant": "V1",
+    "processOrdinal": 2,
+    "freshProcessVerified": true,
+    "commonSha256": "b110793683e7473425969c6188fdfa1ca1679c0e024afd70890c782fd2791e8e",
+    "projectionSha256": "8dc8f536f1053c10bc40c92f2d2f1c9c065e928b186ed637ffdd7a94855c9c2d",
+    "projectionFile": "projections/V1/capability-manifest.json",
+    "accessibleProjectionVariants": [
+      "V1"
+    ],
+    "workspaceStateLineage": "isolated-baseline",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "baseline-tag-normalization-V1",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "dc9c2a730806a3ed0399b3614cc6e97fe497036411868bd83bf18ed740c76fad",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "baseline-tag-normalization-V2",
+    "phase": "baseline",
+    "family": "tag-normalization",
+    "variant": "V2",
+    "processOrdinal": 3,
+    "freshProcessVerified": true,
+    "commonSha256": "b110793683e7473425969c6188fdfa1ca1679c0e024afd70890c782fd2791e8e",
+    "projectionSha256": "102b6c7ab16f1e653568f9a6e814a7ad6cf7dfad210df0034ff66f343f484bac",
+    "projectionFile": "projections/V2/capabilities.d.ts",
+    "accessibleProjectionVariants": [
+      "V2"
+    ],
+    "workspaceStateLineage": "isolated-baseline",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "baseline-tag-normalization-V2",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "50007f1327a5fcbcd92bbe66fd66137545d22392256101b98af6cfa903498772",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "baseline-tag-normalization-V3",
+    "phase": "baseline",
+    "family": "tag-normalization",
+    "variant": "V3",
+    "processOrdinal": 4,
+    "freshProcessVerified": true,
+    "commonSha256": "b110793683e7473425969c6188fdfa1ca1679c0e024afd70890c782fd2791e8e",
+    "projectionSha256": "143889b639c448ae48b6c4123ee5d3b6f1f65dd5857575f12c65b395e8f77f74",
+    "projectionFile": "projections/V3/descriptors.json",
+    "accessibleProjectionVariants": [
+      "V3"
+    ],
+    "workspaceStateLineage": "isolated-baseline",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "baseline-tag-normalization-V3",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "347e7f08eec96e5eba7cffb122f2742729d2ee584cf2ef6feb27287429d26c69",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "baseline-repository-evidence-V0",
+    "phase": "baseline",
+    "family": "repository-evidence",
+    "variant": "V0",
+    "processOrdinal": 5,
+    "freshProcessVerified": true,
+    "commonSha256": "100b1a63780c181cfc9f712154a577d3296f1ae9f5b786e63978ea18fe87fb0e",
+    "projectionSha256": "5d18d5eeabfdcb00ed999a78c68114f4176e9fbb091984055cafe05541d10cca",
+    "projectionFile": "projections/V0/retention-instructions.json",
+    "accessibleProjectionVariants": [
+      "V0"
+    ],
+    "workspaceStateLineage": "isolated-baseline",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "baseline-repository-evidence-V0",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "135f03db1a73b6380b5cb1584ca88c3bd2da9f3ba6f2baccbc19f3350d59d3c4",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "baseline-repository-evidence-V1",
+    "phase": "baseline",
+    "family": "repository-evidence",
+    "variant": "V1",
+    "processOrdinal": 6,
+    "freshProcessVerified": true,
+    "commonSha256": "100b1a63780c181cfc9f712154a577d3296f1ae9f5b786e63978ea18fe87fb0e",
+    "projectionSha256": "8dc8f536f1053c10bc40c92f2d2f1c9c065e928b186ed637ffdd7a94855c9c2d",
+    "projectionFile": "projections/V1/capability-manifest.json",
+    "accessibleProjectionVariants": [
+      "V1"
+    ],
+    "workspaceStateLineage": "isolated-baseline",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "baseline-repository-evidence-V1",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "3d1360a6d7905c1a36875fc36a1bf715f24b9c3ab9456b81ecf366de64b81311",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "baseline-repository-evidence-V2",
+    "phase": "baseline",
+    "family": "repository-evidence",
+    "variant": "V2",
+    "processOrdinal": 7,
+    "freshProcessVerified": true,
+    "commonSha256": "100b1a63780c181cfc9f712154a577d3296f1ae9f5b786e63978ea18fe87fb0e",
+    "projectionSha256": "102b6c7ab16f1e653568f9a6e814a7ad6cf7dfad210df0034ff66f343f484bac",
+    "projectionFile": "projections/V2/capabilities.d.ts",
+    "accessibleProjectionVariants": [
+      "V2"
+    ],
+    "workspaceStateLineage": "isolated-baseline",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "baseline-repository-evidence-V2",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "e6715acf785abf636e301aeb85f588bb9936081c126b11a19cc8c62f991d8a44",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "baseline-repository-evidence-V3",
+    "phase": "baseline",
+    "family": "repository-evidence",
+    "variant": "V3",
+    "processOrdinal": 8,
+    "freshProcessVerified": true,
+    "commonSha256": "100b1a63780c181cfc9f712154a577d3296f1ae9f5b786e63978ea18fe87fb0e",
+    "projectionSha256": "143889b639c448ae48b6c4123ee5d3b6f1f65dd5857575f12c65b395e8f77f74",
+    "projectionFile": "projections/V3/descriptors.json",
+    "accessibleProjectionVariants": [
+      "V3"
+    ],
+    "workspaceStateLineage": "isolated-baseline",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "baseline-repository-evidence-V3",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "9088d1b7ce44e0cca245ba42999703f5ff4ddc022ca1afaeeeba09b521a2d12c",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "baseline-saved-json-transform-V0",
+    "phase": "baseline",
+    "family": "saved-json-transform",
+    "variant": "V0",
+    "processOrdinal": 9,
+    "freshProcessVerified": true,
+    "commonSha256": "d84a355353c7bb1d4debb4d204618a5418e5d566dc8a5b0fb2b69bd753018c74",
+    "projectionSha256": "5d18d5eeabfdcb00ed999a78c68114f4176e9fbb091984055cafe05541d10cca",
+    "projectionFile": "projections/V0/retention-instructions.json",
+    "accessibleProjectionVariants": [
+      "V0"
+    ],
+    "workspaceStateLineage": "isolated-baseline",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "baseline-saved-json-transform-V0",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "1771fe1f0e829f5f28b97eb65cb4c882fde487864e0d9bb4a9892d9e1f4d72c2",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "baseline-saved-json-transform-V1",
+    "phase": "baseline",
+    "family": "saved-json-transform",
+    "variant": "V1",
+    "processOrdinal": 10,
+    "freshProcessVerified": true,
+    "commonSha256": "d84a355353c7bb1d4debb4d204618a5418e5d566dc8a5b0fb2b69bd753018c74",
+    "projectionSha256": "8dc8f536f1053c10bc40c92f2d2f1c9c065e928b186ed637ffdd7a94855c9c2d",
+    "projectionFile": "projections/V1/capability-manifest.json",
+    "accessibleProjectionVariants": [
+      "V1"
+    ],
+    "workspaceStateLineage": "isolated-baseline",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "baseline-saved-json-transform-V1",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "90d687cad5c9c16e7a69f97390deeac16e1d08dd759fe1413513a2924b260cca",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "baseline-saved-json-transform-V2",
+    "phase": "baseline",
+    "family": "saved-json-transform",
+    "variant": "V2",
+    "processOrdinal": 11,
+    "freshProcessVerified": true,
+    "commonSha256": "d84a355353c7bb1d4debb4d204618a5418e5d566dc8a5b0fb2b69bd753018c74",
+    "projectionSha256": "102b6c7ab16f1e653568f9a6e814a7ad6cf7dfad210df0034ff66f343f484bac",
+    "projectionFile": "projections/V2/capabilities.d.ts",
+    "accessibleProjectionVariants": [
+      "V2"
+    ],
+    "workspaceStateLineage": "isolated-baseline",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "baseline-saved-json-transform-V2",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "9950d0b57f7a77741273360eee5d58f826a4b91c5736392aa7c706630d8469dd",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "baseline-saved-json-transform-V3",
+    "phase": "baseline",
+    "family": "saved-json-transform",
+    "variant": "V3",
+    "processOrdinal": 12,
+    "freshProcessVerified": true,
+    "commonSha256": "d84a355353c7bb1d4debb4d204618a5418e5d566dc8a5b0fb2b69bd753018c74",
+    "projectionSha256": "143889b639c448ae48b6c4123ee5d3b6f1f65dd5857575f12c65b395e8f77f74",
+    "projectionFile": "projections/V3/descriptors.json",
+    "accessibleProjectionVariants": [
+      "V3"
+    ],
+    "workspaceStateLineage": "isolated-baseline",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "baseline-saved-json-transform-V3",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "77cd33c052688ce2caea757af43add3a251dca21e1a55323c17179889dbeaff5",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "retain-control-tag-normalization-V0",
+    "phase": "retain-control",
+    "family": "tag-normalization",
+    "variant": "V0",
+    "processOrdinal": 13,
+    "freshProcessVerified": true,
+    "commonSha256": "2c2cb4c0de41bbb8d116b224f81bf98f1ea2435609326f20b1046b593986edb8",
+    "projectionSha256": "5d18d5eeabfdcb00ed999a78c68114f4176e9fbb091984055cafe05541d10cca",
+    "projectionFile": "projections/V0/retention-instructions.json",
+    "accessibleProjectionVariants": [
+      "V0"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "retain-control-tag-normalization-V0",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "f7b37d8d4da8bea4b110558e8510c151dd8bd21abce509721f18111b499df2d1",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "retain-control-tag-normalization-V1",
+    "phase": "retain-control",
+    "family": "tag-normalization",
+    "variant": "V1",
+    "processOrdinal": 14,
+    "freshProcessVerified": true,
+    "commonSha256": "2c2cb4c0de41bbb8d116b224f81bf98f1ea2435609326f20b1046b593986edb8",
+    "projectionSha256": "8dc8f536f1053c10bc40c92f2d2f1c9c065e928b186ed637ffdd7a94855c9c2d",
+    "projectionFile": "projections/V1/capability-manifest.json",
+    "accessibleProjectionVariants": [
+      "V1"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "retain-control-tag-normalization-V1",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "2f0dd18564d7d7c6edc7993d55663e187c130c2fa400c9f503fe1169552895c8",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "retain-control-tag-normalization-V2",
+    "phase": "retain-control",
+    "family": "tag-normalization",
+    "variant": "V2",
+    "processOrdinal": 15,
+    "freshProcessVerified": true,
+    "commonSha256": "2c2cb4c0de41bbb8d116b224f81bf98f1ea2435609326f20b1046b593986edb8",
+    "projectionSha256": "102b6c7ab16f1e653568f9a6e814a7ad6cf7dfad210df0034ff66f343f484bac",
+    "projectionFile": "projections/V2/capabilities.d.ts",
+    "accessibleProjectionVariants": [
+      "V2"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "retain-control-tag-normalization-V2",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "b6c6e1391779a92270ce10858dacf06a17ad52f8003f12a36b15176a4ed80fc9",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "retain-control-tag-normalization-V3",
+    "phase": "retain-control",
+    "family": "tag-normalization",
+    "variant": "V3",
+    "processOrdinal": 16,
+    "freshProcessVerified": true,
+    "commonSha256": "2c2cb4c0de41bbb8d116b224f81bf98f1ea2435609326f20b1046b593986edb8",
+    "projectionSha256": "143889b639c448ae48b6c4123ee5d3b6f1f65dd5857575f12c65b395e8f77f74",
+    "projectionFile": "projections/V3/descriptors.json",
+    "accessibleProjectionVariants": [
+      "V3"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "retain-control-tag-normalization-V3",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "18d5fcf28a7f21cae105c9d4ecbcb4b380fc3480f48fbef24970b3cec92bd647",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "retain-control-repository-evidence-V0",
+    "phase": "retain-control",
+    "family": "repository-evidence",
+    "variant": "V0",
+    "processOrdinal": 17,
+    "freshProcessVerified": true,
+    "commonSha256": "bc61035e1354d466cbf103517b2666b19763228ed13358be5abb696e238919bc",
+    "projectionSha256": "5d18d5eeabfdcb00ed999a78c68114f4176e9fbb091984055cafe05541d10cca",
+    "projectionFile": "projections/V0/retention-instructions.json",
+    "accessibleProjectionVariants": [
+      "V0"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "retain-control-repository-evidence-V0",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "b2cd85bfabeea632eeb8235d6a33342fe77e3165aa2cf454b7581e445a7c8779",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "retain-control-repository-evidence-V1",
+    "phase": "retain-control",
+    "family": "repository-evidence",
+    "variant": "V1",
+    "processOrdinal": 18,
+    "freshProcessVerified": true,
+    "commonSha256": "bc61035e1354d466cbf103517b2666b19763228ed13358be5abb696e238919bc",
+    "projectionSha256": "8dc8f536f1053c10bc40c92f2d2f1c9c065e928b186ed637ffdd7a94855c9c2d",
+    "projectionFile": "projections/V1/capability-manifest.json",
+    "accessibleProjectionVariants": [
+      "V1"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "retain-control-repository-evidence-V1",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "aa9fac55edce119e3f788a50342bfcd8cbb89c0f815ca418ddee9471e97d0552",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "retain-control-repository-evidence-V2",
+    "phase": "retain-control",
+    "family": "repository-evidence",
+    "variant": "V2",
+    "processOrdinal": 19,
+    "freshProcessVerified": true,
+    "commonSha256": "bc61035e1354d466cbf103517b2666b19763228ed13358be5abb696e238919bc",
+    "projectionSha256": "102b6c7ab16f1e653568f9a6e814a7ad6cf7dfad210df0034ff66f343f484bac",
+    "projectionFile": "projections/V2/capabilities.d.ts",
+    "accessibleProjectionVariants": [
+      "V2"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "retain-control-repository-evidence-V2",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "55958ec058a4f289c424c026900f6ac276fa320f8d563ce6d69bdddaae7eae77",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "retain-control-repository-evidence-V3",
+    "phase": "retain-control",
+    "family": "repository-evidence",
+    "variant": "V3",
+    "processOrdinal": 20,
+    "freshProcessVerified": true,
+    "commonSha256": "bc61035e1354d466cbf103517b2666b19763228ed13358be5abb696e238919bc",
+    "projectionSha256": "143889b639c448ae48b6c4123ee5d3b6f1f65dd5857575f12c65b395e8f77f74",
+    "projectionFile": "projections/V3/descriptors.json",
+    "accessibleProjectionVariants": [
+      "V3"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "retain-control-repository-evidence-V3",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "2a8421d17082d6d605d7477ac9e5ba21c051a893f043fa4f3a8ed5231a9f47f1",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "retain-control-saved-json-transform-V0",
+    "phase": "retain-control",
+    "family": "saved-json-transform",
+    "variant": "V0",
+    "processOrdinal": 21,
+    "freshProcessVerified": true,
+    "commonSha256": "664c7553642bf00f2773c314956e3066eb5e50a5850efa78c25fd806c4ccf972",
+    "projectionSha256": "5d18d5eeabfdcb00ed999a78c68114f4176e9fbb091984055cafe05541d10cca",
+    "projectionFile": "projections/V0/retention-instructions.json",
+    "accessibleProjectionVariants": [
+      "V0"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "retain-control-saved-json-transform-V0",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "961b01da29632d4cb662a1ec429ae7022e28b7e74c01183186947f65eaf123c7",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "retain-control-saved-json-transform-V1",
+    "phase": "retain-control",
+    "family": "saved-json-transform",
+    "variant": "V1",
+    "processOrdinal": 22,
+    "freshProcessVerified": true,
+    "commonSha256": "664c7553642bf00f2773c314956e3066eb5e50a5850efa78c25fd806c4ccf972",
+    "projectionSha256": "8dc8f536f1053c10bc40c92f2d2f1c9c065e928b186ed637ffdd7a94855c9c2d",
+    "projectionFile": "projections/V1/capability-manifest.json",
+    "accessibleProjectionVariants": [
+      "V1"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "retain-control-saved-json-transform-V1",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "bd38413bdb723a7a6b12a2ecaa19ecd184d9bbae7ae5d6a6d0cf6c7187ac83b7",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "retain-control-saved-json-transform-V2",
+    "phase": "retain-control",
+    "family": "saved-json-transform",
+    "variant": "V2",
+    "processOrdinal": 23,
+    "freshProcessVerified": true,
+    "commonSha256": "664c7553642bf00f2773c314956e3066eb5e50a5850efa78c25fd806c4ccf972",
+    "projectionSha256": "102b6c7ab16f1e653568f9a6e814a7ad6cf7dfad210df0034ff66f343f484bac",
+    "projectionFile": "projections/V2/capabilities.d.ts",
+    "accessibleProjectionVariants": [
+      "V2"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "retain-control-saved-json-transform-V2",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "be126d72f301dfb7588138802510bcd366127b995f7adeb453bb50aa1de17937",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "retain-control-saved-json-transform-V3",
+    "phase": "retain-control",
+    "family": "saved-json-transform",
+    "variant": "V3",
+    "processOrdinal": 24,
+    "freshProcessVerified": true,
+    "commonSha256": "664c7553642bf00f2773c314956e3066eb5e50a5850efa78c25fd806c4ccf972",
+    "projectionSha256": "143889b639c448ae48b6c4123ee5d3b6f1f65dd5857575f12c65b395e8f77f74",
+    "projectionFile": "projections/V3/descriptors.json",
+    "accessibleProjectionVariants": [
+      "V3"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "retain-control-saved-json-transform-V3",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "802524b5d030cb6a8860dd490d0552e8ce620a4f1bebeed1c1c01459851ac970",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "fresh-reuse-tag-normalization-V0",
+    "phase": "fresh-reuse",
+    "family": "tag-normalization",
+    "variant": "V0",
+    "processOrdinal": 25,
+    "freshProcessVerified": true,
+    "commonSha256": "f6488e35ab55da191651c8519db51503708e38bf6175b25c02a9998404fd1ef8",
+    "projectionSha256": "5d18d5eeabfdcb00ed999a78c68114f4176e9fbb091984055cafe05541d10cca",
+    "projectionFile": "projections/V0/retention-instructions.json",
+    "accessibleProjectionVariants": [
+      "V0"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "fresh-reuse-tag-normalization-V0",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "369ac72fa0cf9930e209128b518b701f23044fd3f00bf1212ba2cecbce23a548",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "fresh-reuse-tag-normalization-V1",
+    "phase": "fresh-reuse",
+    "family": "tag-normalization",
+    "variant": "V1",
+    "processOrdinal": 26,
+    "freshProcessVerified": true,
+    "commonSha256": "f6488e35ab55da191651c8519db51503708e38bf6175b25c02a9998404fd1ef8",
+    "projectionSha256": "8dc8f536f1053c10bc40c92f2d2f1c9c065e928b186ed637ffdd7a94855c9c2d",
+    "projectionFile": "projections/V1/capability-manifest.json",
+    "accessibleProjectionVariants": [
+      "V1"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "fresh-reuse-tag-normalization-V1",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "a641628cb21edf5317444d7018465db1047849ab1c3bcf696d645dd647ee3958",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "fresh-reuse-tag-normalization-V2",
+    "phase": "fresh-reuse",
+    "family": "tag-normalization",
+    "variant": "V2",
+    "processOrdinal": 27,
+    "freshProcessVerified": true,
+    "commonSha256": "f6488e35ab55da191651c8519db51503708e38bf6175b25c02a9998404fd1ef8",
+    "projectionSha256": "102b6c7ab16f1e653568f9a6e814a7ad6cf7dfad210df0034ff66f343f484bac",
+    "projectionFile": "projections/V2/capabilities.d.ts",
+    "accessibleProjectionVariants": [
+      "V2"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "fresh-reuse-tag-normalization-V2",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "780ba494ca38e80c6cc9f9a35b72a3337d71970ba500dff5f592d2ac459d948b",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "fresh-reuse-tag-normalization-V3",
+    "phase": "fresh-reuse",
+    "family": "tag-normalization",
+    "variant": "V3",
+    "processOrdinal": 28,
+    "freshProcessVerified": true,
+    "commonSha256": "f6488e35ab55da191651c8519db51503708e38bf6175b25c02a9998404fd1ef8",
+    "projectionSha256": "143889b639c448ae48b6c4123ee5d3b6f1f65dd5857575f12c65b395e8f77f74",
+    "projectionFile": "projections/V3/descriptors.json",
+    "accessibleProjectionVariants": [
+      "V3"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "fresh-reuse-tag-normalization-V3",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "157b5e0183514c22a7d32268bbda52193cdcbca06f38e765a91e442588ed0900",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "fresh-reuse-repository-evidence-V0",
+    "phase": "fresh-reuse",
+    "family": "repository-evidence",
+    "variant": "V0",
+    "processOrdinal": 29,
+    "freshProcessVerified": true,
+    "commonSha256": "77250f23541b4d8ebbaad4048c8786421dd9ca8773c7e9e8b665ea99e276ccd8",
+    "projectionSha256": "5d18d5eeabfdcb00ed999a78c68114f4176e9fbb091984055cafe05541d10cca",
+    "projectionFile": "projections/V0/retention-instructions.json",
+    "accessibleProjectionVariants": [
+      "V0"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "fresh-reuse-repository-evidence-V0",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "22e14a3094e1e2ea5ffc8b9aea63d389a684b1aaf51bd24523aed35442b2c129",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "fresh-reuse-repository-evidence-V1",
+    "phase": "fresh-reuse",
+    "family": "repository-evidence",
+    "variant": "V1",
+    "processOrdinal": 30,
+    "freshProcessVerified": true,
+    "commonSha256": "77250f23541b4d8ebbaad4048c8786421dd9ca8773c7e9e8b665ea99e276ccd8",
+    "projectionSha256": "8dc8f536f1053c10bc40c92f2d2f1c9c065e928b186ed637ffdd7a94855c9c2d",
+    "projectionFile": "projections/V1/capability-manifest.json",
+    "accessibleProjectionVariants": [
+      "V1"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "fresh-reuse-repository-evidence-V1",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "c75449ea3241a0578d1643997d9f47daa763e092b6850cab0e3229df3ad09000",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "fresh-reuse-repository-evidence-V2",
+    "phase": "fresh-reuse",
+    "family": "repository-evidence",
+    "variant": "V2",
+    "processOrdinal": 31,
+    "freshProcessVerified": true,
+    "commonSha256": "77250f23541b4d8ebbaad4048c8786421dd9ca8773c7e9e8b665ea99e276ccd8",
+    "projectionSha256": "102b6c7ab16f1e653568f9a6e814a7ad6cf7dfad210df0034ff66f343f484bac",
+    "projectionFile": "projections/V2/capabilities.d.ts",
+    "accessibleProjectionVariants": [
+      "V2"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "fresh-reuse-repository-evidence-V2",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "a940cd0b9df4deaff5f07c6906752857597235933bd6c91c82675030e13c3a0a",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "fresh-reuse-repository-evidence-V3",
+    "phase": "fresh-reuse",
+    "family": "repository-evidence",
+    "variant": "V3",
+    "processOrdinal": 32,
+    "freshProcessVerified": true,
+    "commonSha256": "77250f23541b4d8ebbaad4048c8786421dd9ca8773c7e9e8b665ea99e276ccd8",
+    "projectionSha256": "143889b639c448ae48b6c4123ee5d3b6f1f65dd5857575f12c65b395e8f77f74",
+    "projectionFile": "projections/V3/descriptors.json",
+    "accessibleProjectionVariants": [
+      "V3"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "fresh-reuse-repository-evidence-V3",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "7f9e58813dc63c332b15d6d952dfc540f4148f3f38ab3eba6cda94f6d2cbb434",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "fresh-reuse-saved-json-transform-V0",
+    "phase": "fresh-reuse",
+    "family": "saved-json-transform",
+    "variant": "V0",
+    "processOrdinal": 33,
+    "freshProcessVerified": true,
+    "commonSha256": "12d7ec88059b25effd194a89b8b2d2a6fdbb0fee02882209908a63803b6cc6b0",
+    "projectionSha256": "5d18d5eeabfdcb00ed999a78c68114f4176e9fbb091984055cafe05541d10cca",
+    "projectionFile": "projections/V0/retention-instructions.json",
+    "accessibleProjectionVariants": [
+      "V0"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "fresh-reuse-saved-json-transform-V0",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "4ece503402e67f3e4b53dced68f6e1d4c77c31516cbe1e52dd6992a7a06d63bf",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "fresh-reuse-saved-json-transform-V1",
+    "phase": "fresh-reuse",
+    "family": "saved-json-transform",
+    "variant": "V1",
+    "processOrdinal": 34,
+    "freshProcessVerified": true,
+    "commonSha256": "12d7ec88059b25effd194a89b8b2d2a6fdbb0fee02882209908a63803b6cc6b0",
+    "projectionSha256": "8dc8f536f1053c10bc40c92f2d2f1c9c065e928b186ed637ffdd7a94855c9c2d",
+    "projectionFile": "projections/V1/capability-manifest.json",
+    "accessibleProjectionVariants": [
+      "V1"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "fresh-reuse-saved-json-transform-V1",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "c2787ee5c33e1d11d43f703f1651e80e5699b5617bdc7aed62a24f127001d270",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "fresh-reuse-saved-json-transform-V2",
+    "phase": "fresh-reuse",
+    "family": "saved-json-transform",
+    "variant": "V2",
+    "processOrdinal": 35,
+    "freshProcessVerified": true,
+    "commonSha256": "12d7ec88059b25effd194a89b8b2d2a6fdbb0fee02882209908a63803b6cc6b0",
+    "projectionSha256": "102b6c7ab16f1e653568f9a6e814a7ad6cf7dfad210df0034ff66f343f484bac",
+    "projectionFile": "projections/V2/capabilities.d.ts",
+    "accessibleProjectionVariants": [
+      "V2"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "fresh-reuse-saved-json-transform-V2",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "51a38513ea20e6f76caa921683df628687d213db9d5c5ecba2c38067b7a73fca",
+      "brokerResponseVerified": true
+    }
+  },
+  {
+    "caseId": "fresh-reuse-saved-json-transform-V3",
+    "phase": "fresh-reuse",
+    "family": "saved-json-transform",
+    "variant": "V3",
+    "processOrdinal": 36,
+    "freshProcessVerified": true,
+    "commonSha256": "12d7ec88059b25effd194a89b8b2d2a6fdbb0fee02882209908a63803b6cc6b0",
+    "projectionSha256": "143889b639c448ae48b6c4123ee5d3b6f1f65dd5857575f12c65b395e8f77f74",
+    "projectionFile": "projections/V3/descriptors.json",
+    "accessibleProjectionVariants": [
+      "V3"
+    ],
+    "workspaceStateLineage": "retain-to-fresh-reuse",
+    "commonKeys": [
+      "authority",
+      "contractVersion",
+      "family",
+      "fixture",
+      "golden",
+      "maxModelContinuations",
+      "modelAlias",
+      "modelRequestOwner",
+      "phase",
+      "schemaVersion",
+      "systemPrompt",
+      "task"
+    ],
+    "maxModelContinuations": 6,
+    "authority": [
+      "read frozen task/context and one variant projection",
+      "read and invoke admitted ordinary callables in disposable workspace",
+      "write only inside disposable workspace",
+      "exchange serialized model requests with filesystem broker"
+    ],
+    "child": {
+      "schemaVersion": 1,
+      "caseId": "fresh-reuse-saved-json-transform-V3",
+      "environmentKeys": [
+        "HOME",
+        "LANG",
+        "LC_ALL",
+        "NO_COLOR",
+        "PATH",
+        "TMPDIR"
+      ],
+      "authLikeEnvironmentKeys": [],
+      "networkListenProbeDenied": true,
+      "outboundConnectProbeDenied": true,
+      "repositoryReadProbeDenied": true,
+      "operatorHomeReadProbeDenied": true,
+      "processSpawnProbeDenied": true,
+      "deniedNetworkOperations": [
+        "bind/listen:tcp-loopback",
+        "connect:tcp-loopback-established-listener"
+      ],
+      "brokerTransport": "filesystem",
+      "brokerMode": "offline-mock",
+      "providerCalls": 0,
+      "requestSha256": "e734d40f3aeced84a4f262db7e024a8da915f20980daff81ec430d35d57969b3",
+      "brokerResponseVerified": true
+    }
+  }
+]

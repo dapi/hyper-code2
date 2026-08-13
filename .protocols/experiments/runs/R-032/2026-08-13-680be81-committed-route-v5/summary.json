@@ -1,0 +1,118 @@
+[
+  {
+    "adapter": "CAN-01",
+    "committedEntries": 36,
+    "committedRoutes": 36,
+    "overrideReplaced": true,
+    "missingBypasses": [
+      "committed",
+      "late",
+      "unclassified",
+      "override"
+    ],
+    "staleRootCalls": 1,
+    "missingRootCalls": 1,
+    "fidelity": "committed-loader-and-dispatch-plus-disposable-policy-adapter",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-02",
+    "committedEntries": 36,
+    "committedRoutes": 36,
+    "overrideReplaced": true,
+    "missingBypasses": [
+      "committed",
+      "late",
+      "unclassified",
+      "override"
+    ],
+    "staleRootCalls": 1,
+    "missingRootCalls": 1,
+    "fidelity": "committed-loader-and-dispatch-plus-disposable-policy-adapter",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-03",
+    "committedEntries": 36,
+    "committedRoutes": 36,
+    "overrideReplaced": true,
+    "missingBypasses": [],
+    "staleRootCalls": 0,
+    "missingRootCalls": 0,
+    "fidelity": "committed-loader-and-dispatch-plus-disposable-policy-adapter",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-04",
+    "committedEntries": 36,
+    "committedRoutes": 36,
+    "overrideReplaced": true,
+    "missingBypasses": [],
+    "staleRootCalls": 0,
+    "missingRootCalls": 0,
+    "fidelity": "committed-loader-and-dispatch-plus-disposable-policy-adapter",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-05",
+    "committedEntries": 36,
+    "committedRoutes": 36,
+    "overrideReplaced": true,
+    "missingBypasses": [
+      "committed"
+    ],
+    "staleRootCalls": 1,
+    "missingRootCalls": 1,
+    "fidelity": "committed-loader-and-dispatch-plus-disposable-policy-adapter",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-06",
+    "committedEntries": 36,
+    "committedRoutes": 36,
+    "overrideReplaced": true,
+    "missingBypasses": [
+      "committed",
+      "late",
+      "unclassified",
+      "override"
+    ],
+    "staleRootCalls": 0,
+    "missingRootCalls": 0,
+    "fidelity": "in-process-broker-label-only; incompatible-with-process-separation-claim",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "COM-01",
+    "committedEntries": 36,
+    "committedRoutes": 36,
+    "overrideReplaced": true,
+    "missingBypasses": [],
+    "staleRootCalls": 0,
+    "missingRootCalls": 0,
+    "fidelity": "committed-loader-and-dispatch-plus-disposable-policy-adapter",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "COM-02",
+    "committedEntries": 36,
+    "committedRoutes": 36,
+    "overrideReplaced": true,
+    "missingBypasses": [],
+    "staleRootCalls": 0,
+    "missingRootCalls": 0,
+    "fidelity": "committed-loader-and-dispatch-plus-disposable-policy-adapter",
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "COM-03",
+    "committedEntries": 36,
+    "committedRoutes": 36,
+    "overrideReplaced": true,
+    "missingBypasses": [],
+    "staleRootCalls": 0,
+    "missingRootCalls": 0,
+    "fidelity": "committed-loader-and-dispatch-plus-disposable-policy-adapter",
+    "gateAssessment": "not-reviewed"
+  }
+]

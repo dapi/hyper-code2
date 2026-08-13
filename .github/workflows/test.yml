@@ -3,7 +3,8 @@ name: test
 on:
   push:
     branches: [main]
-  pull_request:
+  pull_request: {}
+  workflow_dispatch: {}
 
 env:
   # Opt-in to Node 24 for JS actions (cache, checkout) ahead of the June 2026 default.

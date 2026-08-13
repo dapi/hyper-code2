@@ -1,0 +1,197 @@
+[
+  {
+    "adapter": "CAN-01",
+    "executedCells": 19,
+    "axes": [
+      "immediate",
+      "deferred",
+      "route-lifecycle",
+      "failure",
+      "local-ux",
+      "non-transit"
+    ],
+    "preservedFailures": [],
+    "nonTransitDetected": false,
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-02",
+    "executedCells": 19,
+    "axes": [
+      "immediate",
+      "deferred",
+      "route-lifecycle",
+      "failure",
+      "local-ux",
+      "non-transit"
+    ],
+    "preservedFailures": [],
+    "nonTransitDetected": false,
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-03",
+    "executedCells": 19,
+    "axes": [
+      "immediate",
+      "deferred",
+      "route-lifecycle",
+      "failure",
+      "local-ux",
+      "non-transit"
+    ],
+    "preservedFailures": [
+      "privileged:missing",
+      "privileged:valid-insufficient",
+      "use:revoked",
+      "use:missing",
+      "late-unclassified",
+      "overlay-override",
+      "verifier-down",
+      "policy-down",
+      "browser:expiry",
+      "cli:expiry"
+    ],
+    "nonTransitDetected": false,
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-04",
+    "executedCells": 19,
+    "axes": [
+      "immediate",
+      "deferred",
+      "route-lifecycle",
+      "failure",
+      "local-ux",
+      "non-transit"
+    ],
+    "preservedFailures": [
+      "privileged:missing",
+      "privileged:valid-insufficient",
+      "use:revoked",
+      "use:missing",
+      "late-unclassified",
+      "overlay-override",
+      "verifier-down",
+      "policy-down",
+      "browser:expiry",
+      "cli:expiry"
+    ],
+    "nonTransitDetected": false,
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-05",
+    "executedCells": 19,
+    "axes": [
+      "immediate",
+      "deferred",
+      "route-lifecycle",
+      "failure",
+      "local-ux",
+      "non-transit"
+    ],
+    "preservedFailures": [
+      "late-unclassified"
+    ],
+    "nonTransitDetected": false,
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "CAN-06",
+    "executedCells": 19,
+    "axes": [
+      "immediate",
+      "deferred",
+      "route-lifecycle",
+      "failure",
+      "local-ux",
+      "non-transit"
+    ],
+    "preservedFailures": [
+      "broker-down"
+    ],
+    "nonTransitDetected": false,
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "COM-01",
+    "executedCells": 19,
+    "axes": [
+      "immediate",
+      "deferred",
+      "route-lifecycle",
+      "failure",
+      "local-ux",
+      "non-transit"
+    ],
+    "preservedFailures": [
+      "privileged:missing",
+      "privileged:valid-insufficient",
+      "use:revoked",
+      "use:missing",
+      "late-unclassified",
+      "overlay-override",
+      "verifier-down",
+      "policy-down",
+      "browser:expiry",
+      "cli:expiry"
+    ],
+    "nonTransitDetected": false,
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "COM-02",
+    "executedCells": 19,
+    "axes": [
+      "immediate",
+      "deferred",
+      "route-lifecycle",
+      "failure",
+      "local-ux",
+      "non-transit"
+    ],
+    "preservedFailures": [
+      "privileged:missing",
+      "privileged:valid-insufficient",
+      "use:revoked",
+      "use:missing",
+      "late-unclassified",
+      "overlay-override",
+      "verifier-down",
+      "policy-down",
+      "browser:expiry",
+      "cli:expiry"
+    ],
+    "nonTransitDetected": false,
+    "gateAssessment": "not-reviewed"
+  },
+  {
+    "adapter": "COM-03",
+    "executedCells": 19,
+    "axes": [
+      "immediate",
+      "deferred",
+      "route-lifecycle",
+      "failure",
+      "local-ux",
+      "non-transit"
+    ],
+    "preservedFailures": [
+      "privileged:missing",
+      "privileged:valid-insufficient",
+      "use:revoked",
+      "use:missing",
+      "late-unclassified",
+      "overlay-override",
+      "verifier-down",
+      "policy-down",
+      "broker-down",
+      "browser:expiry",
+      "cli:expiry"
+    ],
+    "nonTransitDetected": false,
+    "gateAssessment": "not-reviewed"
+  }
+]

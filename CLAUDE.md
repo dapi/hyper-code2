@@ -1,11 +1,18 @@
 ---
-description: hyper-code2 — procedural Bun codebase with a self-extending agent at `/`.
+description: hyper-code2 — procedural Bun codebase with durable multi-agent sessions and a self-extending marker runtime.
 alwaysApply: true
 ---
 
 # hyper-code2
 
-Procedural TypeScript on Bun. Functions + data + REPL. Inspired by [proc-ts](../proc-ts). One tiny HTTP server, one agent at `/` driven by `evalCode` only, all code hot-reloadable.
+Procedural TypeScript on Bun. Functions + durable data + REPL. Inspired by
+[proc-ts](../proc-ts). One HTTP server hosts multiple persisted agents driven by
+the plain-text marker protocol; procedural functions and routes are hot-reloadable.
+
+Durable intent, terminology, invariants, use cases, and engineering/operations
+contracts live in [`memory-bank/README.md`](memory-bank/README.md). This file is
+an execution-oriented projection and operational cheat sheet. Current code owns
+exact implementation; synchronize this projection after canonical changes.
 
 ## Runtime environment
 
@@ -198,7 +205,7 @@ Both `src/` and `.hyper/` are scanned by the loader, `genTypes`, `loadRoutes`, a
 - `agent.events[]` — UI trace (user / thinking / tool_call / assistant / error), rendered by the long-poll `GET /agent/:id/events.html`. `agent.messages[]` — the LLM transcript. Both are **synchronized views of the DB**, not the store — mutate via `ctx.fns.session.append*/replace*/syncAgentState`, never `.push()` directly.
 - Agent can read/write its own source and hot-reload: `ctx.fns.files.*`, `Bun.write(".hyper/skill/x.ts", ...)`, `ctx.fns.repl.load(ctx, { name: "skill" })`, `ctx.genTypes(ctx)`.
 
-Authoritative agent behaviour lives in `src/agent/SYSTEM_PROMPT_CORE.txt` (+ `SYSTEM_PROMPT.txt` for the markers wire-format), composed by `src/agent/fullSystemPrompt.ts`. Edit those, not the POST handler.
+Shipped/default agent behaviour lives in `src/agent/SYSTEM_PROMPT_CORE.txt` (+ `SYSTEM_PROMPT.txt` for the markers wire-format), composed by `src/agent/fullSystemPrompt.ts`. A runtime `.hyper/agent/fullSystemPrompt.ts` overlay may replace that composer; inspect `self.describe` and treat unknown composer internals as unavailable. Edit the shipped files, not the POST handler.
 
 ## Adding things (cheat-sheet)
 

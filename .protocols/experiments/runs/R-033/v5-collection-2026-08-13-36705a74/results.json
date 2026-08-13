@@ -1,0 +1,2035 @@
+{
+  "schemaVersion": "5.2",
+  "results": [
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-01",
+      "status": "pass",
+      "observations": {
+        "layers": 8,
+        "detectorHits": 0
+      },
+      "checksum": "dc16221597a5845aeef18e27b04b311bc6ad2b7eed5f11b56dce39c535b8e6a7"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-01",
+      "status": "pass",
+      "observations": {
+        "layers": 8,
+        "detectorHits": 0
+      },
+      "checksum": "bb61a5b35b5d90f72bbce70b3523979d280878dc5aaa823faa7126c38a3bf5ef"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-01",
+      "status": "pass",
+      "observations": {
+        "layers": 8,
+        "detectorHits": 0
+      },
+      "checksum": "c5d7adb588e1872121c9928be352d1f684b2245d1b82a23ae11e1f8453ab1d5c"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-01",
+      "status": "pass",
+      "observations": {
+        "layers": 8,
+        "detectorHits": 0
+      },
+      "checksum": "ce08b9b86c47ff048065e41495ec157e82e40f3de8c528797f47268a78287373"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-01",
+      "status": "pass",
+      "observations": {
+        "layers": 8,
+        "detectorHits": 0
+      },
+      "checksum": "e5e7831a163d9ccc0239899999b4c9c926e749271c1fef8c6a644935ec16966b"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-02",
+      "status": "pass",
+      "observations": {
+        "controls": 144,
+        "candidatePathHits": 0,
+        "positiveMisses": 0,
+        "authScheme": "bearer",
+        "authDigest": "eeed881251f4674130ea89822a48628afb0f4dca9da55cfb339d018fa9a7b0ba",
+        "rawRetained": false
+      },
+      "checksum": "c5cbf1877a996e15c06fc5f911992a6d762aa979f216dfdede85ebbd86cbb86f"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-02",
+      "status": "pass",
+      "observations": {
+        "controls": 144,
+        "candidatePathHits": 0,
+        "positiveMisses": 0,
+        "authScheme": "bearer",
+        "authDigest": "eeed881251f4674130ea89822a48628afb0f4dca9da55cfb339d018fa9a7b0ba",
+        "rawRetained": false
+      },
+      "checksum": "03a8bc015195098725372479fc750c206f3fda6ebfaa3aaf7d1a57268d198b6e"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-02",
+      "status": "pass",
+      "observations": {
+        "controls": 144,
+        "candidatePathHits": 0,
+        "positiveMisses": 0,
+        "authScheme": "bearer",
+        "authDigest": "eeed881251f4674130ea89822a48628afb0f4dca9da55cfb339d018fa9a7b0ba",
+        "rawRetained": false
+      },
+      "checksum": "3a582559420f7d1bb5b8b95e94d10f21ba7b3085e8b0b672b8666138321a4ec3"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-02",
+      "status": "pass",
+      "observations": {
+        "controls": 144,
+        "candidatePathHits": 0,
+        "positiveMisses": 0,
+        "authScheme": "bearer",
+        "authDigest": "eeed881251f4674130ea89822a48628afb0f4dca9da55cfb339d018fa9a7b0ba",
+        "rawRetained": false
+      },
+      "checksum": "73f4b1be48411e6aee27d6df984914491937200a4d63282639dc816985e74da7"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-02",
+      "status": "pass",
+      "observations": {
+        "controls": 144,
+        "candidatePathHits": 0,
+        "positiveMisses": 0,
+        "authScheme": "bearer",
+        "authDigest": "eeed881251f4674130ea89822a48628afb0f4dca9da55cfb339d018fa9a7b0ba",
+        "rawRetained": false
+      },
+      "checksum": "96ecd76a5deb482facd9c27926daaa972c879901255d8891320bcf2869f0af12"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-03",
+      "status": "pass",
+      "observations": {
+        "requestDigest": "855c31bbe3821971c9463b2d19295f6eff849377ef88db8f72f3c3c26002c0a2",
+        "authDigest": "eeed881251f4674130ea89822a48628afb0f4dca9da55cfb339d018fa9a7b0ba",
+        "dispatchCalls": 1
+      },
+      "checksum": "9c873e00749910abccc3cf5797b68e025180175c519bd6d4773ec935f16cba24"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-03",
+      "status": "pass",
+      "observations": {
+        "requestDigest": "855c31bbe3821971c9463b2d19295f6eff849377ef88db8f72f3c3c26002c0a2",
+        "authDigest": "eeed881251f4674130ea89822a48628afb0f4dca9da55cfb339d018fa9a7b0ba",
+        "dispatchCalls": 1
+      },
+      "checksum": "7dab25b8018afa8eb6fa52eec53089cb26a2220dcbc10c7798bc8a394e660f34"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-03",
+      "status": "pass",
+      "observations": {
+        "requestDigest": "855c31bbe3821971c9463b2d19295f6eff849377ef88db8f72f3c3c26002c0a2",
+        "authDigest": "eeed881251f4674130ea89822a48628afb0f4dca9da55cfb339d018fa9a7b0ba",
+        "dispatchCalls": 1
+      },
+      "checksum": "0e8ebc7022087ce81cd265f2622e4a90133d3be694eea6db78c7ca14d6f048e3"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-03",
+      "status": "pass",
+      "observations": {
+        "requestDigest": "855c31bbe3821971c9463b2d19295f6eff849377ef88db8f72f3c3c26002c0a2",
+        "authDigest": "eeed881251f4674130ea89822a48628afb0f4dca9da55cfb339d018fa9a7b0ba",
+        "dispatchCalls": 1
+      },
+      "checksum": "f389b35ebf92a9d2300b8a2177eb0f918b97e31926b7c92e9c85364d11155a43"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-03",
+      "status": "pass",
+      "observations": {
+        "requestDigest": "855c31bbe3821971c9463b2d19295f6eff849377ef88db8f72f3c3c26002c0a2",
+        "authDigest": "eeed881251f4674130ea89822a48628afb0f4dca9da55cfb339d018fa9a7b0ba",
+        "dispatchCalls": 1
+      },
+      "checksum": "7828dff6bb9afc41fffe274df3e5c0fedf5c7eb4a526da0cff300431cc27c432"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-04",
+      "status": "pass",
+      "observations": {
+        "requestDigest": "f22e1cf37e6bd15208e873f500ccbf79baa55075074af2c743efa677a0d595eb",
+        "authDigest": "0dc81427dbadb3d5b85f3c37190074be415c4237231a359b5d7e428c1cfd9ca8",
+        "dispatchCalls": 1
+      },
+      "checksum": "9ca8b883451f7cddbcf2b85a1b52f5985b4dbbb6ef03b9f6f2fc49749c0c2943"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-04",
+      "status": "pass",
+      "observations": {
+        "requestDigest": "f22e1cf37e6bd15208e873f500ccbf79baa55075074af2c743efa677a0d595eb",
+        "authDigest": "0dc81427dbadb3d5b85f3c37190074be415c4237231a359b5d7e428c1cfd9ca8",
+        "dispatchCalls": 1
+      },
+      "checksum": "e4d0e4a4e89a635bd141e94625bd0fa88e2503f8af4095cb7451fd9100fd2e52"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-04",
+      "status": "pass",
+      "observations": {
+        "requestDigest": "f22e1cf37e6bd15208e873f500ccbf79baa55075074af2c743efa677a0d595eb",
+        "authDigest": "0dc81427dbadb3d5b85f3c37190074be415c4237231a359b5d7e428c1cfd9ca8",
+        "dispatchCalls": 1
+      },
+      "checksum": "0bb8dfbe8de23cab1dbde599c47187ec180cc0cd92f4f8d109eb3842b7231534"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-04",
+      "status": "pass",
+      "observations": {
+        "requestDigest": "f22e1cf37e6bd15208e873f500ccbf79baa55075074af2c743efa677a0d595eb",
+        "authDigest": "0dc81427dbadb3d5b85f3c37190074be415c4237231a359b5d7e428c1cfd9ca8",
+        "dispatchCalls": 1
+      },
+      "checksum": "96e0005229aaad79087397a4765b3e694f45775048a1a694fbc83504cc961725"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-04",
+      "status": "pass",
+      "observations": {
+        "requestDigest": "f22e1cf37e6bd15208e873f500ccbf79baa55075074af2c743efa677a0d595eb",
+        "authDigest": "0dc81427dbadb3d5b85f3c37190074be415c4237231a359b5d7e428c1cfd9ca8",
+        "dispatchCalls": 1
+      },
+      "checksum": "e419b69c163dbb6567f0bd8b8e7863f8a0beaddd39421c7cf682fe13161077b2"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-05",
+      "status": "pass",
+      "observations": {
+        "success": 2,
+        "failures": 8,
+        "laterStageViolations": 0,
+        "traces": [
+          {
+            "provider": "kimi",
+            "outcome": "success",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            }
+          },
+          {
+            "provider": "kimi",
+            "outcome": "read",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 0,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_READ_FAILED"
+          },
+          {
+            "provider": "kimi",
+            "outcome": "oauth-request",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_REQUEST_FAILED"
+          },
+          {
+            "provider": "kimi",
+            "outcome": "oauth-response",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_RESPONSE_FAILED"
+          },
+          {
+            "provider": "kimi",
+            "outcome": "write",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            },
+            "code": "REFRESH_WRITE_FAILED"
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "success",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            }
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "read",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 0,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_READ_FAILED"
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "oauth-request",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_REQUEST_FAILED"
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "oauth-response",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_RESPONSE_FAILED"
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "write",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            },
+            "code": "REFRESH_WRITE_FAILED"
+          }
+        ],
+        "inferenceDigest": "2af38772008b6b38cec6876606fed6905b820154e11578321f0554156bdb6b8d"
+      },
+      "checksum": "c5ceb5dedb8b39dc0aeccfa22262132f4ba92e8500198954417bef0099a2ef01"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-05",
+      "status": "pass",
+      "observations": {
+        "success": 2,
+        "failures": 8,
+        "laterStageViolations": 0,
+        "traces": [
+          {
+            "provider": "kimi",
+            "outcome": "success",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            }
+          },
+          {
+            "provider": "kimi",
+            "outcome": "read",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 0,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_READ_FAILED"
+          },
+          {
+            "provider": "kimi",
+            "outcome": "oauth-request",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_REQUEST_FAILED"
+          },
+          {
+            "provider": "kimi",
+            "outcome": "oauth-response",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_RESPONSE_FAILED"
+          },
+          {
+            "provider": "kimi",
+            "outcome": "write",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            },
+            "code": "REFRESH_WRITE_FAILED"
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "success",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            }
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "read",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 0,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_READ_FAILED"
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "oauth-request",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_REQUEST_FAILED"
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "oauth-response",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_RESPONSE_FAILED"
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "write",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            },
+            "code": "REFRESH_WRITE_FAILED"
+          }
+        ],
+        "inferenceDigest": "2af38772008b6b38cec6876606fed6905b820154e11578321f0554156bdb6b8d"
+      },
+      "checksum": "f3ac7e2ee437bca72271890d956852f5b46bb01dc85466b8e5c2e1431fe4b691"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-05",
+      "status": "pass",
+      "observations": {
+        "success": 2,
+        "failures": 8,
+        "laterStageViolations": 0,
+        "traces": [
+          {
+            "provider": "kimi",
+            "outcome": "success",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            }
+          },
+          {
+            "provider": "kimi",
+            "outcome": "read",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 0,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_READ_FAILED"
+          },
+          {
+            "provider": "kimi",
+            "outcome": "oauth-request",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_REQUEST_FAILED"
+          },
+          {
+            "provider": "kimi",
+            "outcome": "oauth-response",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_RESPONSE_FAILED"
+          },
+          {
+            "provider": "kimi",
+            "outcome": "write",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            },
+            "code": "REFRESH_WRITE_FAILED"
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "success",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            }
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "read",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 0,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_READ_FAILED"
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "oauth-request",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_REQUEST_FAILED"
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "oauth-response",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_RESPONSE_FAILED"
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "write",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            },
+            "code": "REFRESH_WRITE_FAILED"
+          }
+        ],
+        "inferenceDigest": "2af38772008b6b38cec6876606fed6905b820154e11578321f0554156bdb6b8d"
+      },
+      "checksum": "d25a871bafd40c6e22c0c4b7e4ed9060160e997bc6c06809e8be6a6f636de8d6"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-05",
+      "status": "pass",
+      "observations": {
+        "success": 2,
+        "failures": 8,
+        "laterStageViolations": 0,
+        "traces": [
+          {
+            "provider": "kimi",
+            "outcome": "success",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            }
+          },
+          {
+            "provider": "kimi",
+            "outcome": "read",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 0,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_READ_FAILED"
+          },
+          {
+            "provider": "kimi",
+            "outcome": "oauth-request",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_REQUEST_FAILED"
+          },
+          {
+            "provider": "kimi",
+            "outcome": "oauth-response",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_RESPONSE_FAILED"
+          },
+          {
+            "provider": "kimi",
+            "outcome": "write",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            },
+            "code": "REFRESH_WRITE_FAILED"
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "success",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            }
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "read",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 0,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_READ_FAILED"
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "oauth-request",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_REQUEST_FAILED"
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "oauth-response",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_RESPONSE_FAILED"
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "write",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            },
+            "code": "REFRESH_WRITE_FAILED"
+          }
+        ],
+        "inferenceDigest": "2af38772008b6b38cec6876606fed6905b820154e11578321f0554156bdb6b8d"
+      },
+      "checksum": "08d31183d6209742a8e16a510dbd027a542814bd369ddd046bb3715b786d2931"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-05",
+      "status": "pass",
+      "observations": {
+        "success": 2,
+        "failures": 8,
+        "laterStageViolations": 0,
+        "traces": [
+          {
+            "provider": "kimi",
+            "outcome": "success",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            }
+          },
+          {
+            "provider": "kimi",
+            "outcome": "read",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 0,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_READ_FAILED"
+          },
+          {
+            "provider": "kimi",
+            "outcome": "oauth-request",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_REQUEST_FAILED"
+          },
+          {
+            "provider": "kimi",
+            "outcome": "oauth-response",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_RESPONSE_FAILED"
+          },
+          {
+            "provider": "kimi",
+            "outcome": "write",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            },
+            "code": "REFRESH_WRITE_FAILED"
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "success",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            }
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "read",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 0,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_READ_FAILED"
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "oauth-request",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_REQUEST_FAILED"
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "oauth-response",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_RESPONSE_FAILED"
+          },
+          {
+            "provider": "anthropic",
+            "outcome": "write",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            },
+            "code": "REFRESH_WRITE_FAILED"
+          }
+        ],
+        "inferenceDigest": "2af38772008b6b38cec6876606fed6905b820154e11578321f0554156bdb6b8d"
+      },
+      "checksum": "f526e249007392abed1c31e95bd0f7464815f629d70294e1f5f52bfa21c8eb08"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-06",
+      "status": "pass",
+      "observations": {
+        "success": 1,
+        "failures": 4,
+        "laterStageViolations": 0,
+        "traces": [
+          {
+            "provider": "codex",
+            "outcome": "success",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            }
+          },
+          {
+            "provider": "codex",
+            "outcome": "read",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 0,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_READ_FAILED"
+          },
+          {
+            "provider": "codex",
+            "outcome": "oauth-request",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_REQUEST_FAILED"
+          },
+          {
+            "provider": "codex",
+            "outcome": "oauth-response",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_RESPONSE_FAILED"
+          },
+          {
+            "provider": "codex",
+            "outcome": "write",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            },
+            "code": "REFRESH_WRITE_FAILED"
+          }
+        ],
+        "inferenceDigest": "895b705b6d8a405f7a506f3bbf11bc640b6a0c22852fb715106cd93441cb7f49",
+        "accountIdDigest": "24b27e046e084e1b0131f0df40f75ad9bd197cde674d032703e7e096b7f1e4d6",
+        "claimParsed": true
+      },
+      "checksum": "8a4eaf452f57dace9c58e73e7648199acf6c1799ecba695bb9dd995d84eec377"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-06",
+      "status": "pass",
+      "observations": {
+        "success": 1,
+        "failures": 4,
+        "laterStageViolations": 0,
+        "traces": [
+          {
+            "provider": "codex",
+            "outcome": "success",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            }
+          },
+          {
+            "provider": "codex",
+            "outcome": "read",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 0,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_READ_FAILED"
+          },
+          {
+            "provider": "codex",
+            "outcome": "oauth-request",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_REQUEST_FAILED"
+          },
+          {
+            "provider": "codex",
+            "outcome": "oauth-response",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_RESPONSE_FAILED"
+          },
+          {
+            "provider": "codex",
+            "outcome": "write",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            },
+            "code": "REFRESH_WRITE_FAILED"
+          }
+        ],
+        "inferenceDigest": "895b705b6d8a405f7a506f3bbf11bc640b6a0c22852fb715106cd93441cb7f49",
+        "accountIdDigest": "24b27e046e084e1b0131f0df40f75ad9bd197cde674d032703e7e096b7f1e4d6",
+        "claimParsed": true
+      },
+      "checksum": "3ab45e25e2672ebc04a6dede3f5ef5f2db2bcd1368666f114cce6abf2a4c6b8a"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-06",
+      "status": "pass",
+      "observations": {
+        "success": 1,
+        "failures": 4,
+        "laterStageViolations": 0,
+        "traces": [
+          {
+            "provider": "codex",
+            "outcome": "success",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            }
+          },
+          {
+            "provider": "codex",
+            "outcome": "read",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 0,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_READ_FAILED"
+          },
+          {
+            "provider": "codex",
+            "outcome": "oauth-request",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_REQUEST_FAILED"
+          },
+          {
+            "provider": "codex",
+            "outcome": "oauth-response",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_RESPONSE_FAILED"
+          },
+          {
+            "provider": "codex",
+            "outcome": "write",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            },
+            "code": "REFRESH_WRITE_FAILED"
+          }
+        ],
+        "inferenceDigest": "895b705b6d8a405f7a506f3bbf11bc640b6a0c22852fb715106cd93441cb7f49",
+        "accountIdDigest": "24b27e046e084e1b0131f0df40f75ad9bd197cde674d032703e7e096b7f1e4d6",
+        "claimParsed": true
+      },
+      "checksum": "bcdfc2a53777b6b5dabeaaf6cd9ab37b2ab991a8e298939bf770f124d1d0a52c"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-06",
+      "status": "pass",
+      "observations": {
+        "success": 1,
+        "failures": 4,
+        "laterStageViolations": 0,
+        "traces": [
+          {
+            "provider": "codex",
+            "outcome": "success",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            }
+          },
+          {
+            "provider": "codex",
+            "outcome": "read",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 0,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_READ_FAILED"
+          },
+          {
+            "provider": "codex",
+            "outcome": "oauth-request",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_REQUEST_FAILED"
+          },
+          {
+            "provider": "codex",
+            "outcome": "oauth-response",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_RESPONSE_FAILED"
+          },
+          {
+            "provider": "codex",
+            "outcome": "write",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            },
+            "code": "REFRESH_WRITE_FAILED"
+          }
+        ],
+        "inferenceDigest": "895b705b6d8a405f7a506f3bbf11bc640b6a0c22852fb715106cd93441cb7f49",
+        "accountIdDigest": "24b27e046e084e1b0131f0df40f75ad9bd197cde674d032703e7e096b7f1e4d6",
+        "claimParsed": true
+      },
+      "checksum": "7bfb817e242782bdf6937ec3e353e813d11ac258080f629686abb55611f1ee07"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-06",
+      "status": "pass",
+      "observations": {
+        "success": 1,
+        "failures": 4,
+        "laterStageViolations": 0,
+        "traces": [
+          {
+            "provider": "codex",
+            "outcome": "success",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            }
+          },
+          {
+            "provider": "codex",
+            "outcome": "read",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 0,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_READ_FAILED"
+          },
+          {
+            "provider": "codex",
+            "outcome": "oauth-request",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 0,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_REQUEST_FAILED"
+          },
+          {
+            "provider": "codex",
+            "outcome": "oauth-response",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 0
+            },
+            "code": "REFRESH_OAUTH_RESPONSE_FAILED"
+          },
+          {
+            "provider": "codex",
+            "outcome": "write",
+            "calls": {
+              "read": 1,
+              "oauthRequest": 1,
+              "oauthResponse": 1,
+              "write": 1
+            },
+            "code": "REFRESH_WRITE_FAILED"
+          }
+        ],
+        "inferenceDigest": "895b705b6d8a405f7a506f3bbf11bc640b6a0c22852fb715106cd93441cb7f49",
+        "accountIdDigest": "24b27e046e084e1b0131f0df40f75ad9bd197cde674d032703e7e096b7f1e4d6",
+        "claimParsed": true
+      },
+      "checksum": "e3980202c9a4fd07572b9d58f07892e480ade74247e1f8981a38b74de97f3040"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-07",
+      "status": "pass",
+      "observations": {
+        "codes": [
+          "CREDENTIAL_REFERENCE_INVALID",
+          "CREDENTIAL_REVOKED",
+          "CREDENTIAL_EXPIRED"
+        ],
+        "dispatchCalls": 0,
+        "ambientFallbackCalls": 0
+      },
+      "checksum": "1c7fc84d93938c18a0ba494a033b7a4b7d51badc0a0741cf37992bb59e5c6724"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-07",
+      "status": "pass",
+      "observations": {
+        "codes": [
+          "CREDENTIAL_REFERENCE_INVALID",
+          "CREDENTIAL_REVOKED",
+          "CREDENTIAL_EXPIRED"
+        ],
+        "dispatchCalls": 0,
+        "ambientFallbackCalls": 0
+      },
+      "checksum": "ed128e636e30558e439cca466ab893610e9cfd597d28524f47b5079ab3f0f3ee"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-07",
+      "status": "pass",
+      "observations": {
+        "codes": [
+          "CREDENTIAL_REFERENCE_INVALID",
+          "CREDENTIAL_REVOKED",
+          "CREDENTIAL_EXPIRED"
+        ],
+        "dispatchCalls": 0,
+        "ambientFallbackCalls": 0
+      },
+      "checksum": "e2a9d0ceb99bea438936959df81a05d6887c73a26b0ee65ae1bd00122d40cf97"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-07",
+      "status": "pass",
+      "observations": {
+        "codes": [
+          "CREDENTIAL_REFERENCE_INVALID",
+          "CREDENTIAL_REVOKED",
+          "CREDENTIAL_EXPIRED"
+        ],
+        "dispatchCalls": 0,
+        "ambientFallbackCalls": 0
+      },
+      "checksum": "8931c7a9f03010911623a4097c7219fb025ef6fff61004cb44045d041422411c"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-07",
+      "status": "pass",
+      "observations": {
+        "codes": [
+          "CREDENTIAL_REFERENCE_INVALID",
+          "CREDENTIAL_REVOKED",
+          "CREDENTIAL_EXPIRED"
+        ],
+        "dispatchCalls": 0,
+        "ambientFallbackCalls": 0
+      },
+      "checksum": "21059ebafa2adedbd05d976f6f6c0ac69615a86df2353a7712f1b467118f252c"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-08",
+      "status": "pass",
+      "observations": {
+        "code": "CREDENTIAL_BOUNDARY_UNAVAILABLE",
+        "dispatchCalls": 0,
+        "ambientFallbackCalls": 0
+      },
+      "checksum": "05824240204ba8ec1c7ad0913e9769310948615b3b37d71286f613ede7723cc6"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-08",
+      "status": "pass",
+      "observations": {
+        "code": "CREDENTIAL_BOUNDARY_UNAVAILABLE",
+        "dispatchCalls": 0,
+        "ambientFallbackCalls": 0
+      },
+      "checksum": "da5448223c7b16a478bb3afc94340806190a45864752b256cdcf05b68247c922"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-08",
+      "status": "pass",
+      "observations": {
+        "code": "CREDENTIAL_BOUNDARY_UNAVAILABLE",
+        "dispatchCalls": 0,
+        "ambientFallbackCalls": 0
+      },
+      "checksum": "648406ce8a21798f32c895a48d3056b8bd447c2e5eb9f18257fe5900a4c1807a"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-08",
+      "status": "pass",
+      "observations": {
+        "code": "CREDENTIAL_BOUNDARY_UNAVAILABLE",
+        "dispatchCalls": 0,
+        "ambientFallbackCalls": 0
+      },
+      "checksum": "58d758ca99156e9ecea44bc89cd16b979de2d8c16812d94a247b842c278d50f1"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-08",
+      "status": "pass",
+      "observations": {
+        "code": "CREDENTIAL_BOUNDARY_UNAVAILABLE",
+        "dispatchCalls": 0,
+        "ambientFallbackCalls": 0
+      },
+      "checksum": "6babf494142f16a1c5a89dd59f536dcdc79bcde4421fa165d986468c57aea10f"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-09",
+      "status": "pass",
+      "observations": {
+        "codes": [
+          "CLASSIFICATION_REQUIRED",
+          "SCHEMA_REJECTED"
+        ],
+        "dispatchCalls": 0,
+        "durableCalls": 0
+      },
+      "checksum": "c28918b7524a0c9f765fbe22a1ce5b465d890df0d4a34d1b122f2f7f0eb46106"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-09",
+      "status": "pass",
+      "observations": {
+        "codes": [
+          "CLASSIFICATION_REQUIRED",
+          "SCHEMA_REJECTED"
+        ],
+        "dispatchCalls": 0,
+        "durableCalls": 0
+      },
+      "checksum": "b54eeb5bf4837dca1d3fb71ad349d8ba68903e8e2cf6924dde0542c210dcdbfb"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-09",
+      "status": "pass",
+      "observations": {
+        "codes": [
+          "CLASSIFICATION_REQUIRED",
+          "SCHEMA_REJECTED"
+        ],
+        "dispatchCalls": 0,
+        "durableCalls": 0
+      },
+      "checksum": "d35b85c82614a6e46a1494735ad2bfea73b3ae931650656f3c45283ea89922a4"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-09",
+      "status": "pass",
+      "observations": {
+        "codes": [
+          "CLASSIFICATION_REQUIRED",
+          "SCHEMA_REJECTED"
+        ],
+        "dispatchCalls": 0,
+        "durableCalls": 0
+      },
+      "checksum": "9f5de29bf4e88160352fc0b048f21521aa31c05d5a53dec0805905d97e491f51"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-09",
+      "status": "pass",
+      "observations": {
+        "codes": [
+          "CLASSIFICATION_REQUIRED",
+          "SCHEMA_REJECTED"
+        ],
+        "dispatchCalls": 0,
+        "durableCalls": 0
+      },
+      "checksum": "7ad2da56553bc60529aea7808e4a232e2f85caaec49b3533426980b9d1988eb6"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-10",
+      "status": "pass",
+      "observations": {
+        "paths": [
+          "success",
+          "throw",
+          "cyclic"
+        ],
+        "checks": [
+          {
+            "code": "SERIALIZATION_REJECTED",
+            "durableCalls": 0
+          },
+          {
+            "code": "SERIALIZATION_REJECTED",
+            "durableCalls": 0
+          },
+          {
+            "code": "SERIALIZATION_REJECTED",
+            "durableCalls": 0
+          }
+        ]
+      },
+      "checksum": "5493c46063d50759ede1effc00c57adaccbd9d9f1c9361c0fc29d83c00c1793e"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-10",
+      "status": "pass",
+      "observations": {
+        "paths": [
+          "success",
+          "throw",
+          "cyclic"
+        ],
+        "checks": [
+          {
+            "code": "SERIALIZATION_REJECTED",
+            "durableCalls": 0
+          },
+          {
+            "code": "SERIALIZATION_REJECTED",
+            "durableCalls": 0
+          },
+          {
+            "code": "SERIALIZATION_REJECTED",
+            "durableCalls": 0
+          }
+        ]
+      },
+      "checksum": "07a3eb39d0d35687d6837db659d8e694c24ed97c233f62ad5432c0a0d7d7652a"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-10",
+      "status": "pass",
+      "observations": {
+        "paths": [
+          "success",
+          "throw",
+          "cyclic"
+        ],
+        "checks": [
+          {
+            "code": "SERIALIZATION_REJECTED",
+            "durableCalls": 0
+          },
+          {
+            "code": "SERIALIZATION_REJECTED",
+            "durableCalls": 0
+          },
+          {
+            "code": "SERIALIZATION_REJECTED",
+            "durableCalls": 0
+          }
+        ]
+      },
+      "checksum": "a1bb25f6c4e06a19a5527398dede64a180b8a1f0a3365bd0cb7a7eef5bfd69d3"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-10",
+      "status": "pass",
+      "observations": {
+        "paths": [
+          "success",
+          "throw",
+          "cyclic"
+        ],
+        "checks": [
+          {
+            "code": "SERIALIZATION_REJECTED",
+            "durableCalls": 0
+          },
+          {
+            "code": "SERIALIZATION_REJECTED",
+            "durableCalls": 0
+          },
+          {
+            "code": "SERIALIZATION_REJECTED",
+            "durableCalls": 0
+          }
+        ]
+      },
+      "checksum": "bd2783c41da5dbdca7714ed9393e0b1cff67a4f6546515df9729675a235c9f95"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-10",
+      "status": "pass",
+      "observations": {
+        "paths": [
+          "success",
+          "throw",
+          "cyclic"
+        ],
+        "checks": [
+          {
+            "code": "SERIALIZATION_REJECTED",
+            "durableCalls": 0
+          },
+          {
+            "code": "SERIALIZATION_REJECTED",
+            "durableCalls": 0
+          },
+          {
+            "code": "SERIALIZATION_REJECTED",
+            "durableCalls": 0
+          }
+        ]
+      },
+      "checksum": "8d08dafe97c1ebc675ba84a7903ad788fda5489e6063c676e7975d0202aee0ae"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-11",
+      "status": "pass",
+      "observations": {
+        "retry": {
+          "resolutionCalls": 2,
+          "dispatchCalls": 2,
+          "rawRetryState": false
+        },
+        "cancellation": {
+          "resolutionCalls": 1,
+          "dispatchCalls": 0,
+          "rawRetryState": false,
+          "code": "OPERATION_CANCELLED"
+        }
+      },
+      "checksum": "39975b3cc4f1819a4a7cba1770c6e981d6e0a87b3443cf02bf591aa202ae0082"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-11",
+      "status": "pass",
+      "observations": {
+        "retry": {
+          "resolutionCalls": 2,
+          "dispatchCalls": 2,
+          "rawRetryState": false
+        },
+        "cancellation": {
+          "resolutionCalls": 1,
+          "dispatchCalls": 0,
+          "rawRetryState": false,
+          "code": "OPERATION_CANCELLED"
+        }
+      },
+      "checksum": "d7de358ad348db20a4f30a737ac9736ebf9d3a8dd5a6b4a07129ea3f7834175f"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-11",
+      "status": "pass",
+      "observations": {
+        "retry": {
+          "resolutionCalls": 2,
+          "dispatchCalls": 2,
+          "rawRetryState": false
+        },
+        "cancellation": {
+          "resolutionCalls": 1,
+          "dispatchCalls": 0,
+          "rawRetryState": false,
+          "code": "OPERATION_CANCELLED"
+        }
+      },
+      "checksum": "f341c3076dd883a8cbf77fc87b34e5af369cfb9530de1ae8f64dbe629f30332d"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-11",
+      "status": "pass",
+      "observations": {
+        "retry": {
+          "resolutionCalls": 2,
+          "dispatchCalls": 2,
+          "rawRetryState": false
+        },
+        "cancellation": {
+          "resolutionCalls": 1,
+          "dispatchCalls": 0,
+          "rawRetryState": false,
+          "code": "OPERATION_CANCELLED"
+        }
+      },
+      "checksum": "d1cc3505e7c85754f1606511ca627310fad872e2d9dfee861141f2c024a9e6f5"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-11",
+      "status": "pass",
+      "observations": {
+        "retry": {
+          "resolutionCalls": 2,
+          "dispatchCalls": 2,
+          "rawRetryState": false
+        },
+        "cancellation": {
+          "resolutionCalls": 1,
+          "dispatchCalls": 0,
+          "rawRetryState": false,
+          "code": "OPERATION_CANCELLED"
+        }
+      },
+      "checksum": "f8af32e3696fa6059ba1cdf8d48da84c677ff01aeff2d10c46506a007b5b9ae2"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-12",
+      "status": "pass",
+      "observations": {
+        "active": {
+          "recoveredRawCredential": false,
+          "revalidationCalls": 1
+        },
+        "revoked": {
+          "recoveredRawCredential": false,
+          "revalidationCalls": 1,
+          "code": "CREDENTIAL_REVOKED"
+        }
+      },
+      "checksum": "dea1f42fc0531a5411829f62310cb479c78f3c6da35b3bf100e178b70d2bfa73"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-12",
+      "status": "pass",
+      "observations": {
+        "active": {
+          "recoveredRawCredential": false,
+          "revalidationCalls": 1
+        },
+        "revoked": {
+          "recoveredRawCredential": false,
+          "revalidationCalls": 1,
+          "code": "CREDENTIAL_REVOKED"
+        }
+      },
+      "checksum": "cd0989338a52974c8db864d2aa08ceea9ee43a71ff03e6603a16113a1875d881"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-12",
+      "status": "pass",
+      "observations": {
+        "active": {
+          "recoveredRawCredential": false,
+          "revalidationCalls": 1
+        },
+        "revoked": {
+          "recoveredRawCredential": false,
+          "revalidationCalls": 1,
+          "code": "CREDENTIAL_REVOKED"
+        }
+      },
+      "checksum": "23c48f0613ea9028b476e40bfc13314344b5a90a3931f2185551490147d413f2"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-12",
+      "status": "pass",
+      "observations": {
+        "active": {
+          "recoveredRawCredential": false,
+          "revalidationCalls": 1
+        },
+        "revoked": {
+          "recoveredRawCredential": false,
+          "revalidationCalls": 1,
+          "code": "CREDENTIAL_REVOKED"
+        }
+      },
+      "checksum": "b9e2c32d5606d2859dc45e93faebdad42977f9e876a16c22ae0da4eda94b6058"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-12",
+      "status": "pass",
+      "observations": {
+        "active": {
+          "recoveredRawCredential": false,
+          "revalidationCalls": 1
+        },
+        "revoked": {
+          "recoveredRawCredential": false,
+          "revalidationCalls": 1,
+          "code": "CREDENTIAL_REVOKED"
+        }
+      },
+      "checksum": "b086db6b71445b58d6bcd75a9d054fc415b614857c4c427e69346d5a26d82489"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-13",
+      "status": "pass",
+      "observations": {
+        "success": {
+          "stageCalls": {
+            "transport": 1,
+            "render": 1
+          },
+          "modelIds": [
+            "fixture-model-a",
+            "fixture-model-b"
+          ],
+          "transportDigest": "e559eb8818e13ffadd0238353652d25c69615492b101185b828ddecdf24b1159"
+        },
+        "failure": {
+          "stageCalls": {
+            "transport": 1,
+            "render": 0
+          },
+          "modelIds": [],
+          "code": "DISCOVERY_UNAVAILABLE"
+        }
+      },
+      "checksum": "83451cb40469c481aa7aa57cc609e338ae10e67b457a4e77a6e2fac4f0ef77cf"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-13",
+      "status": "pass",
+      "observations": {
+        "success": {
+          "stageCalls": {
+            "transport": 1,
+            "render": 1
+          },
+          "modelIds": [
+            "fixture-model-a",
+            "fixture-model-b"
+          ],
+          "transportDigest": "e559eb8818e13ffadd0238353652d25c69615492b101185b828ddecdf24b1159"
+        },
+        "failure": {
+          "stageCalls": {
+            "transport": 1,
+            "render": 0
+          },
+          "modelIds": [],
+          "code": "DISCOVERY_UNAVAILABLE"
+        }
+      },
+      "checksum": "df9a06e4ee5c883ac0ce323ab3708504fd41251e034a1d6524533c1f1d9a5c06"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-13",
+      "status": "pass",
+      "observations": {
+        "success": {
+          "stageCalls": {
+            "transport": 1,
+            "render": 1
+          },
+          "modelIds": [
+            "fixture-model-a",
+            "fixture-model-b"
+          ],
+          "transportDigest": "e559eb8818e13ffadd0238353652d25c69615492b101185b828ddecdf24b1159"
+        },
+        "failure": {
+          "stageCalls": {
+            "transport": 1,
+            "render": 0
+          },
+          "modelIds": [],
+          "code": "DISCOVERY_UNAVAILABLE"
+        }
+      },
+      "checksum": "9289fd9cb8843b5c1ff25538c6ec758237f143f7c5c482f8c835e174430bffd3"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-13",
+      "status": "pass",
+      "observations": {
+        "success": {
+          "stageCalls": {
+            "transport": 1,
+            "render": 1
+          },
+          "modelIds": [
+            "fixture-model-a",
+            "fixture-model-b"
+          ],
+          "transportDigest": "e559eb8818e13ffadd0238353652d25c69615492b101185b828ddecdf24b1159"
+        },
+        "failure": {
+          "stageCalls": {
+            "transport": 1,
+            "render": 0
+          },
+          "modelIds": [],
+          "code": "DISCOVERY_UNAVAILABLE"
+        }
+      },
+      "checksum": "7da7b6b16fc8cf33ba33dba6537ecedd49fca15930802d6406d176c700323bba"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-13",
+      "status": "pass",
+      "observations": {
+        "success": {
+          "stageCalls": {
+            "transport": 1,
+            "render": 1
+          },
+          "modelIds": [
+            "fixture-model-a",
+            "fixture-model-b"
+          ],
+          "transportDigest": "e559eb8818e13ffadd0238353652d25c69615492b101185b828ddecdf24b1159"
+        },
+        "failure": {
+          "stageCalls": {
+            "transport": 1,
+            "render": 0
+          },
+          "modelIds": [],
+          "code": "DISCOVERY_UNAVAILABLE"
+        }
+      },
+      "checksum": "8f7af7a7f1444740a737ae633291ed74f5a8c7a8f403b90b526479829f9ffd6f"
+    },
+    {
+      "candidate": "CAND-04",
+      "cell": "CC-14",
+      "status": "fail",
+      "observations": {
+        "paths": [
+          "ctx-env",
+          "settings-get",
+          "settings-getString",
+          "settings-list",
+          "db-select",
+          "file-read",
+          "keychain-command"
+        ],
+        "pathCalls": {
+          "ctx-env": 1,
+          "settings-get": 1,
+          "settings-getString": 1,
+          "settings-list": 1,
+          "db-select": 1,
+          "file-read": 1,
+          "keychain-command": 1
+        },
+        "generatedCodeCalls": 7,
+        "detectorHitsByPath": {
+          "ctx-env": 2,
+          "settings-get": 2,
+          "settings-getString": 2,
+          "settings-list": 2,
+          "db-select": 2,
+          "file-read": 2,
+          "keychain-command": 2
+        },
+        "detectorHits": 14,
+        "deniedOrBounded": 0
+      },
+      "checksum": "b47aa1859a8ad175710d93979a72bbd216bd5db48f61be0628a097f71c3bfb7d"
+    },
+    {
+      "candidate": "CAND-05",
+      "cell": "CC-14",
+      "status": "pass",
+      "observations": {
+        "paths": [
+          "ctx-env",
+          "settings-get",
+          "settings-getString",
+          "settings-list",
+          "db-select",
+          "file-read",
+          "keychain-command"
+        ],
+        "pathCalls": {
+          "ctx-env": 1,
+          "settings-get": 1,
+          "settings-getString": 1,
+          "settings-list": 1,
+          "db-select": 1,
+          "file-read": 1,
+          "keychain-command": 1
+        },
+        "generatedCodeCalls": 7,
+        "detectorHitsByPath": {
+          "ctx-env": 0,
+          "settings-get": 0,
+          "settings-getString": 0,
+          "settings-list": 0,
+          "db-select": 0,
+          "file-read": 0,
+          "keychain-command": 0
+        },
+        "detectorHits": 0,
+        "deniedOrBounded": 7
+      },
+      "checksum": "04f8e8ceb75f2b3dbe396fd369788fe81fc770edbc0e2109fe29fd88d1958fba"
+    },
+    {
+      "candidate": "CAND-01",
+      "cell": "CC-14",
+      "status": "pass",
+      "observations": {
+        "paths": [
+          "ctx-env",
+          "settings-get",
+          "settings-getString",
+          "settings-list",
+          "db-select",
+          "file-read",
+          "keychain-command"
+        ],
+        "pathCalls": {
+          "ctx-env": 1,
+          "settings-get": 1,
+          "settings-getString": 1,
+          "settings-list": 1,
+          "db-select": 1,
+          "file-read": 1,
+          "keychain-command": 1
+        },
+        "generatedCodeCalls": 7,
+        "detectorHitsByPath": {
+          "ctx-env": 0,
+          "settings-get": 0,
+          "settings-getString": 0,
+          "settings-list": 0,
+          "db-select": 0,
+          "file-read": 0,
+          "keychain-command": 0
+        },
+        "detectorHits": 0,
+        "deniedOrBounded": 7
+      },
+      "checksum": "233e2b909618db0bb13e24bde784e7bcbfbc837c5714d34920ee8af34fb23b4c"
+    },
+    {
+      "candidate": "CAND-02",
+      "cell": "CC-14",
+      "status": "pass",
+      "observations": {
+        "paths": [
+          "ctx-env",
+          "settings-get",
+          "settings-getString",
+          "settings-list",
+          "db-select",
+          "file-read",
+          "keychain-command"
+        ],
+        "pathCalls": {
+          "ctx-env": 1,
+          "settings-get": 1,
+          "settings-getString": 1,
+          "settings-list": 1,
+          "db-select": 1,
+          "file-read": 1,
+          "keychain-command": 1
+        },
+        "generatedCodeCalls": 7,
+        "detectorHitsByPath": {
+          "ctx-env": 0,
+          "settings-get": 0,
+          "settings-getString": 0,
+          "settings-list": 0,
+          "db-select": 0,
+          "file-read": 0,
+          "keychain-command": 0
+        },
+        "detectorHits": 0,
+        "deniedOrBounded": 7
+      },
+      "checksum": "45d352b312c1b11759fdde6f7b900f9a4b51f23937962e91245743098d95671e"
+    },
+    {
+      "candidate": "CAND-03",
+      "cell": "CC-14",
+      "status": "pass",
+      "observations": {
+        "paths": [
+          "ctx-env",
+          "settings-get",
+          "settings-getString",
+          "settings-list",
+          "db-select",
+          "file-read",
+          "keychain-command"
+        ],
+        "pathCalls": {
+          "ctx-env": 1,
+          "settings-get": 1,
+          "settings-getString": 1,
+          "settings-list": 1,
+          "db-select": 1,
+          "file-read": 1,
+          "keychain-command": 1
+        },
+        "generatedCodeCalls": 7,
+        "detectorHitsByPath": {
+          "ctx-env": 0,
+          "settings-get": 0,
+          "settings-getString": 0,
+          "settings-list": 0,
+          "db-select": 0,
+          "file-read": 0,
+          "keychain-command": 0
+        },
+        "detectorHits": 0,
+        "deniedOrBounded": 7
+      },
+      "checksum": "444dd3cca110b28c5b679180659d278d30d0f8686635a0b59112fad7de311db2"
+    }
+  ]
+}

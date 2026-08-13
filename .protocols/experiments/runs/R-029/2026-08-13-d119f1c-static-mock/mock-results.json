@@ -1,0 +1,209 @@
+{
+  "cases": [
+    {
+      "name": "listener-capture",
+      "authority": [
+        "server_or_process_control"
+      ],
+      "input": "synthetic POST; no identity",
+      "reached": [
+        "Bun.serve capture",
+        "dispatcher"
+      ],
+      "status": 200,
+      "note": "No socket opened. Current options request hostname 0.0.0.0 and use PORT from ctx.env."
+    },
+    {
+      "name": "script-loader",
+      "authority": [
+        "filesystem_read",
+        "filesystem_write",
+        "server_or_process_control"
+      ],
+      "input": "synthetic GET; no identity",
+      "reached": [
+        "Bun.build stub",
+        "Bun.write stub",
+        "Bun.file stub"
+      ],
+      "status": 200,
+      "note": "Build/read/write roots were replaced; no shared runtime state was touched."
+    },
+    {
+      "name": "repl-caller-variant",
+      "authority": [
+        "in_process_eval",
+        "shell",
+        "filesystem_read",
+        "filesystem_write",
+        "git_mutation_or_push",
+        "settings_or_credentials",
+        "provider_or_model_invocation",
+        "agent_or_session_mutation",
+        "server_or_process_control"
+      ],
+      "input": "missing Authorization",
+      "reached": [
+        "eval:synthetic-code"
+      ],
+      "status": 200,
+      "note": "All identity variants reached the eval stub; no route-local caller control was observed."
+    },
+    {
+      "name": "repl-caller-variant",
+      "authority": [
+        "in_process_eval",
+        "shell",
+        "filesystem_read",
+        "filesystem_write",
+        "git_mutation_or_push",
+        "settings_or_credentials",
+        "provider_or_model_invocation",
+        "agent_or_session_mutation",
+        "server_or_process_control"
+      ],
+      "input": "Malformed value",
+      "reached": [
+        "eval:synthetic-code"
+      ],
+      "status": 200,
+      "note": "All identity variants reached the eval stub; no route-local caller control was observed."
+    },
+    {
+      "name": "repl-caller-variant",
+      "authority": [
+        "in_process_eval",
+        "shell",
+        "filesystem_read",
+        "filesystem_write",
+        "git_mutation_or_push",
+        "settings_or_credentials",
+        "provider_or_model_invocation",
+        "agent_or_session_mutation",
+        "server_or_process_control"
+      ],
+      "input": "Bearer synthetic-invalid",
+      "reached": [
+        "eval:synthetic-code"
+      ],
+      "status": 200,
+      "note": "All identity variants reached the eval stub; no route-local caller control was observed."
+    },
+    {
+      "name": "filesystem-write",
+      "authority": [
+        "filesystem_write"
+      ],
+      "input": "malformed identity + valid path; then missing path",
+      "reached": [
+        "write:synthetic.txt:synthetic"
+      ],
+      "status": "200/400",
+      "note": "Input validation blocked a missing path, not an unauthorized caller; privileged write was stubbed."
+    },
+    {
+      "name": "filesystem-read",
+      "authority": [
+        "filesystem_read"
+      ],
+      "input": "synthetic GET; no identity",
+      "reached": [
+        "Bun.file stub"
+      ],
+      "status": 200,
+      "note": "Filesystem root was stubbed."
+    },
+    {
+      "name": "agent-schedule",
+      "authority": [
+        "agent_or_session_mutation",
+        "provider_or_model_invocation",
+        "in_process_eval",
+        "shell",
+        "filesystem_read",
+        "filesystem_write",
+        "git_mutation_or_push"
+      ],
+      "input": "malformed bearer + valid agent/body",
+      "reached": [
+        "session.appendUserMessage",
+        "session.syncAgentState",
+        "db.exec",
+        "agent.wakeWorker"
+      ],
+      "status": 200,
+      "note": "Synchronous route reached durable queue stubs; provider and marker execution remain deferred and were not invoked."
+    },
+    {
+      "name": "session-mutation",
+      "authority": [
+        "agent_or_session_mutation"
+      ],
+      "input": "missing identity; existing then absent resource",
+      "reached": [
+        "session.fork"
+      ],
+      "status": "303/404",
+      "note": "Resource existence gates mutation; no caller identity gate was observed."
+    },
+    {
+      "name": "process-control",
+      "authority": [
+        "server_or_process_control",
+        "agent_or_session_mutation"
+      ],
+      "input": "malformed identity",
+      "reached": [
+        "agent.stop"
+      ],
+      "status": 303,
+      "note": "Malformed identity reached the process-control stub."
+    },
+    {
+      "name": "settings-credentials",
+      "authority": [
+        "settings_or_credentials",
+        "filesystem_read",
+        "filesystem_write"
+      ],
+      "input": "malformed bearer + synthetic values",
+      "reached": [
+        "settings.status",
+        "settings.saveEnv:SYNTHETIC_KEY"
+      ],
+      "status": 303,
+      "note": "Credential/status and env persistence roots were stubbed; no real env, home or credential store was read or written."
+    }
+  ],
+  "captured": {
+    "writes": [
+      {
+        "path": ".hyper/_runtime/port",
+        "bytes": 5
+      },
+      {
+        "path": ".hyper/_runtime/scripts/.keep",
+        "bytes": 0
+      }
+    ],
+    "builds": [
+      {
+        "entrypoints": [
+          "../../../../synthetic/source.js"
+        ],
+        "outdir": ".hyper/_runtime/scripts",
+        "target": "browser"
+      }
+    ],
+    "files": [
+      ".hyper/_runtime/http.log",
+      "/synthetic/bundle.js",
+      "src/events/client.js"
+    ],
+    "serveCalls": 1,
+    "serveOptions": {
+      "port": 43111,
+      "hostname": "0.0.0.0"
+    }
+  }
+}

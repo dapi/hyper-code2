@@ -1,0 +1,425 @@
+[
+  {
+    "authority": "in_process_eval",
+    "paths": [
+      {
+        "key": "POST /agent/:id",
+        "timing": "deferred",
+        "callGraphReach": "transitive",
+        "note": "model output may request an eval marker"
+      },
+      {
+        "key": "POST /repl",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "pass caller body to repl.eval inside server process"
+      }
+    ]
+  },
+  {
+    "authority": "shell",
+    "paths": [
+      {
+        "key": "POST /agent/:id",
+        "timing": "deferred",
+        "callGraphReach": "transitive",
+        "note": "model output may request a bash marker"
+      },
+      {
+        "key": "POST /repl",
+        "timing": "immediate",
+        "callGraphReach": "transitive",
+        "note": "evaluated code has process/Bun authority"
+      },
+      {
+        "key": "POST /settings/codex/login",
+        "timing": "immediate",
+        "callGraphReach": "transitive",
+        "note": "startCodexLogin spawns the codex CLI"
+      }
+    ]
+  },
+  {
+    "authority": "filesystem_read",
+    "paths": [
+      {
+        "key": "POST /agent/:id",
+        "timing": "deferred",
+        "callGraphReach": "transitive",
+        "note": "model output may request read/grep markers"
+      },
+      {
+        "key": "GET /agent/chat.js",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "loader bundles and serves script source"
+      },
+      {
+        "key": "GET /events/client.js",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "read shipped browser script"
+      },
+      {
+        "key": "GET /files",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "resolve/list/read project files and metadata"
+      },
+      {
+        "key": "GET /files/editor.js",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "loader bundles and serves script source"
+      },
+      {
+        "key": "POST /repl",
+        "timing": "immediate",
+        "callGraphReach": "transitive",
+        "note": "evaluated code has process/Bun authority"
+      },
+      {
+        "key": "POST /settings/env",
+        "timing": "immediate",
+        "callGraphReach": "transitive",
+        "note": "saveEnv reads project .env"
+      },
+      {
+        "key": "GET /ui/control.js",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "build/read browser-control script through ui.controlScript"
+      }
+    ]
+  },
+  {
+    "authority": "filesystem_write",
+    "paths": [
+      {
+        "key": "POST /agent/:id",
+        "timing": "deferred",
+        "callGraphReach": "transitive",
+        "note": "model output may request write/edit markers"
+      },
+      {
+        "key": "GET /agent/chat.js",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "loader writes bundle under runtime script cache"
+      },
+      {
+        "key": "POST /files",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "write caller-selected project-relative path"
+      },
+      {
+        "key": "PUT /files",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "write caller-selected project-relative path"
+      },
+      {
+        "key": "GET /files/editor.js",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "loader writes bundle under runtime script cache"
+      },
+      {
+        "key": "POST /repl",
+        "timing": "immediate",
+        "callGraphReach": "transitive",
+        "note": "evaluated code has process/Bun authority"
+      },
+      {
+        "key": "POST /settings/codex/login",
+        "timing": "deferred",
+        "callGraphReach": "transitive",
+        "note": "the CLI may write its auth file"
+      },
+      {
+        "key": "POST /settings/codex/logout",
+        "timing": "immediate",
+        "callGraphReach": "transitive",
+        "note": "logout removes credential file"
+      },
+      {
+        "key": "POST /settings/env",
+        "timing": "immediate",
+        "callGraphReach": "transitive",
+        "note": "saveEnv rewrites project .env"
+      },
+      {
+        "key": "POST /settings/kimi/login",
+        "timing": "deferred",
+        "callGraphReach": "transitive",
+        "note": "successful polling writes credential file"
+      },
+      {
+        "key": "POST /settings/kimi/logout",
+        "timing": "immediate",
+        "callGraphReach": "transitive",
+        "note": "logout removes credential file"
+      }
+    ]
+  },
+  {
+    "authority": "git_mutation_or_push",
+    "paths": [
+      {
+        "key": "POST /agent/:id",
+        "timing": "deferred",
+        "callGraphReach": "transitive",
+        "note": "bash/eval authority can invoke git"
+      },
+      {
+        "key": "POST /repl",
+        "timing": "immediate",
+        "callGraphReach": "transitive",
+        "note": "evaluated code can invoke git"
+      }
+    ]
+  },
+  {
+    "authority": "settings_or_credentials",
+    "paths": [
+      {
+        "key": "GET /agent/new",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "enumerate provider/model availability through llm.listModels"
+      },
+      {
+        "key": "POST /repl",
+        "timing": "immediate",
+        "callGraphReach": "transitive",
+        "note": "evaluated code receives ctx and process globals"
+      },
+      {
+        "key": "GET /settings",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "settings.status reads env and CLI credential-file status"
+      },
+      {
+        "key": "POST /settings/codex/login",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "start Codex device login"
+      },
+      {
+        "key": "POST /settings/codex/logout",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "delete Codex auth and login state"
+      },
+      {
+        "key": "GET /settings/declared",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "read declared/default/persisted setting values"
+      },
+      {
+        "key": "POST /settings/declared",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "set/remove persisted settings, including secret-typed values"
+      },
+      {
+        "key": "POST /settings/env",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "accept arbitrary valid env-key/value pair"
+      },
+      {
+        "key": "POST /settings/kimi/login",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "start Kimi OAuth device flow"
+      },
+      {
+        "key": "POST /settings/kimi/logout",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "delete Kimi credential and login state"
+      }
+    ]
+  },
+  {
+    "authority": "provider_or_model_invocation",
+    "paths": [
+      {
+        "key": "POST /agent/:id",
+        "timing": "deferred",
+        "callGraphReach": "transitive",
+        "note": "scheduled worker later invokes the configured model"
+      },
+      {
+        "key": "POST /repl",
+        "timing": "immediate",
+        "callGraphReach": "transitive",
+        "note": "evaluated code receives the function registry"
+      },
+      {
+        "key": "POST /settings/kimi/login",
+        "timing": "immediate",
+        "callGraphReach": "transitive",
+        "note": "dependency invokes an external OAuth provider"
+      },
+      {
+        "key": "POST /settings/kimi/login",
+        "timing": "deferred",
+        "callGraphReach": "transitive",
+        "note": "dependency invokes an external OAuth provider"
+      }
+    ]
+  },
+  {
+    "authority": "agent_or_session_mutation",
+    "paths": [
+      {
+        "key": "POST /agent/:id/archive",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "archive durable agent and remove runtime view"
+      },
+      {
+        "key": "POST /agent/:id/delete",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "delete durable agent and runtime view"
+      },
+      {
+        "key": "DELETE /agent/:id",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "clear/delete agent state"
+      },
+      {
+        "key": "GET /agent/:id/events",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "load agent and read durable events/run state"
+      },
+      {
+        "key": "GET /agent/:id/events.html",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "read durable event/run state"
+      },
+      {
+        "key": "POST /agent/:id/fork",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "create durable child agent"
+      },
+      {
+        "key": "GET /agent/:id",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "read durable agent/session state"
+      },
+      {
+        "key": "POST /agent/:id/messages/delete",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "delete/truncate durable messages"
+      },
+      {
+        "key": "POST /agent/:id",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "append message and schedule worker"
+      },
+      {
+        "key": "GET /agent/:id/status",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "read durable run state"
+      },
+      {
+        "key": "GET /agent/:id/statusbar",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "read durable run state"
+      },
+      {
+        "key": "POST /agent/:id/stop",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "optionally clear queued work"
+      },
+      {
+        "key": "POST /agent/new",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "create and persist an agent"
+      },
+      {
+        "key": "POST /files/close",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "mutate process-local open-file state"
+      },
+      {
+        "key": "POST /repl",
+        "timing": "immediate",
+        "callGraphReach": "transitive",
+        "note": "evaluated code receives ctx state and functions"
+      },
+      {
+        "key": "POST /settings/declared",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "mutate settings rows"
+      },
+      {
+        "key": "POST /ui/eval/result",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "complete an in-process pending UI eval entry"
+      }
+    ]
+  },
+  {
+    "authority": "server_or_process_control",
+    "paths": [
+      {
+        "key": "POST /agent/:id/stop",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "abort an in-process agent run"
+      },
+      {
+        "key": "GET /agent/chat.js",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "loader invokes Bun.build in process"
+      },
+      {
+        "key": "GET /events",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "register process-local subscriber and keepalive timer"
+      },
+      {
+        "key": "GET /files/editor.js",
+        "timing": "immediate",
+        "callGraphReach": "direct",
+        "note": "loader invokes Bun.build in process"
+      },
+      {
+        "key": "POST /repl",
+        "timing": "immediate",
+        "callGraphReach": "transitive",
+        "note": "evaluated code runs in the server process"
+      },
+      {
+        "key": "POST /settings/codex/logout",
+        "timing": "immediate",
+        "callGraphReach": "transitive",
+        "note": "logout may kill login child process"
+      }
+    ]
+  }
+]

@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 2,
+  "runId": "canonical-offline",
+  "createdAt": "2026-08-12T21:13:03.402Z",
+  "mode": "mock",
+  "requestedModel": "mock:uc005-v2",
+  "modelIdentifierProvenance": "Versioned local mock reply fixture in uc005-v2-broker.ts.",
+  "instrument": {
+    "bunVersion": "1.3.14",
+    "platform": "darwin-arm64",
+    "sourceSha256": {
+      "uc005-v2-runner.ts": "15f237f39f7dafcd38beccdd268b86b9dd347b359a58c3e039490c30b0049c68",
+      "uc005-v2-child.ts": "1d64d0b3dd2e672fbb2d5e1ad19680d034a474bc307ff79ea5875d13edd3c26d",
+      "uc005-v2-restart.ts": "fd5a4a554888550b9919ab36c531b460beeb495810575f17c41a85ce34fc40ee",
+      "uc005-v2-lib.ts": "bc7c545fcd1c1632601a16df5322b8b70f3775d82f68eab37b512160a4b95600",
+      "uc005-v2-broker.ts": "0e9c3441965400d4d4f7717111690581a9e939175ff0ef4feba79433d348b574"
+    }
+  },
+  "processBoundaries": {
+    "phasePids": [
+      {
+        "phase": "baseline",
+        "pid": 50386
+      },
+      {
+        "phase": "retain",
+        "pid": 50391
+      },
+      {
+        "phase": "reuse",
+        "pid": 50399
+      }
+    ],
+    "restartPid": 50400,
+    "separatelySpawnedRestartVerifier": true,
+    "restartPidDifferentAtObservation": true,
+    "brokerPid": 50385
+  },
+  "safetyClaims": {
+    "minimalChildEnvironment": true,
+    "disposableHomeAndTmp": true,
+    "osWriteSandboxEnforced": true,
+    "networkDeniedByOsSandbox": true,
+    "credentialsProvidedToAgentRuntime": false,
+    "credentialsOwnedByBroker": false,
+    "agentNetworkDeniedByOsSandbox": true,
+    "sentinelLeakDetected": false,
+    "securityValidation": "experiment process boundary established; production HG-02 not established",
+    "limitation": "Agent writes are restricted to the disposable run root, network is denied, and reads under the user's home are denied except the repository and Bun executable. This validates the instrument, not production HG-02."
+  },
+  "validations": [
+    {
+      "phase": "baseline",
+      "gold": [
+        "priority",
+        "customer-success",
+        "r-d"
+      ],
+      "toolResult": [
+        "priority",
+        "customer-success",
+        "r-d"
+      ],
+      "finalAnswer": [
+        "priority",
+        "customer-success",
+        "r-d"
+      ],
+      "toolMatchesGold": true,
+      "finalMatchesGold": true,
+      "finalMatchesTool": true,
+      "falseSuccess": false
+    },
+    {
+      "phase": "retain",
+      "gold": [
+        "a",
+        "b-b"
+      ],
+      "toolResult": [
+        "a",
+        "b-b"
+      ],
+      "finalAnswer": [
+        "a",
+        "b-b"
+      ],
+      "toolMatchesGold": true,
+      "finalMatchesGold": true,
+      "finalMatchesTool": true,
+      "falseSuccess": false
+    },
+    {
+      "phase": "reuse",
+      "gold": {
+        "tags": [
+          "enterprise",
+          "customer-success"
+        ],
+        "csv": "enterprise,customer-success",
+        "count": 2
+      },
+      "toolResult": {
+        "tags": [
+          "enterprise",
+          "customer-success"
+        ],
+        "csv": "enterprise,customer-success",
+        "count": 2
+      },
+      "finalAnswer": {
+        "tags": [
+          "enterprise",
+          "customer-success"
+        ],
+        "csv": "enterprise,customer-success",
+        "count": 2
+      },
+      "toolMatchesGold": true,
+      "finalMatchesGold": true,
+      "finalMatchesTool": true,
+      "falseSuccess": false
+    }
+  ],
+  "restart": {
+    "schemaVersion": 2,
+    "pid": 50400,
+    "callable": true,
+    "value": [
+      "restart",
+      "fresh-process"
+    ],
+    "expected": [
+      "restart",
+      "fresh-process"
+    ],
+    "matchesGold": true
+  },
+  "phaseErrors": [
+    {
+      "phase": "baseline",
+      "error": null
+    },
+    {
+      "phase": "retain",
+      "error": null
+    },
+    {
+      "phase": "reuse",
+      "error": null
+    }
+  ],
+  "artifactChecksumsBeforeManifest": {
+    "phase-baseline.stdout.log": {
+      "bytes": 10479,
+      "sha256": "92753857fee014c55c7da5012be83c44484e102f07ea56d94f24a348164582fc"
+    },
+    "phase-retain.sanitized.json": {
+      "bytes": 16521,
+      "sha256": "1561a894c6f59a9bf0ce40fea03fa826a43e6acf1843e79d193723ce8713dae0"
+    },
+    "phase-retain.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "phase-reuse.sanitized.json": {
+      "bytes": 11373,
+      "sha256": "0b1e65166fbea8772269487683afbbf822883a62bc00077676a1262a51d442f7"
+    },
+    "restart.sanitized.json": {
+      "bytes": 113,
+      "sha256": "40adf856d90944271eec06fc38c8a29c4bc6ad0e08e0ce5739cd4a03c3894540"
+    },
+    "broker.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "phase-baseline.sanitized.json": {
+      "bytes": 12274,
+      "sha256": "444fe6add789a0cb78be9d418f170cdbd9096a583f0baaaa999d6c30907da4b7"
+    },
+    "restart.stdout.log": {
+      "bytes": 10111,
+      "sha256": "0d86c9cbcf9555cf09e468fef04879592026c9201fbfaada2b40b438913e803d"
+    },
+    "phase-reuse.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "phase-baseline.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "phase-retain.stdout.log": {
+      "bytes": 10610,
+      "sha256": "afd34c938a4713181877ab19898a1f653d0f5d15527cc32f87c2a07741712dff"
+    },
+    "retained-capability.ts": {
+      "bytes": 271,
+      "sha256": "4f958819cec55d5658fd157b95e7305170c5c3cf7b2e454a1632cddd9700dd42"
+    },
+    "broker.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "restart.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "phase-reuse.stdout.log": {
+      "bytes": 10544,
+      "sha256": "3746fef3cccdbe5f017e64a04703a209fb6b66b5caa7aa92964e79265aa5e778"
+    }
+  }
+}

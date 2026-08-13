@@ -1,0 +1,31 @@
+{
+  "networkApisDenied": [
+    "Bun.serve",
+    "Bun.connect",
+    "fetch",
+    "WebSocket"
+  ],
+  "prohibitedNetworkCallsObserved": [],
+  "socketOrListenerOpened": false,
+  "realSecretRead": false,
+  "userRuntimeStateRead": false,
+  "productionSourceChangedByInstrument": false,
+  "privilegedRoots": [
+    "handler",
+    "eval",
+    "shell",
+    "filesystem",
+    "provider",
+    "settings",
+    "process-control"
+  ],
+  "privilegedRootsMode": "in-memory capture stubs only",
+  "syntheticCredentialRepresentationOutsideVerifier": {
+    "digest": "063ca72776c8af9d2e39a5dafd48064bd2f756eea71f42c1715f151b42ab3cf7",
+    "rawValueStored": false
+  },
+  "formulaGeneratedSinkCountsZero": true,
+  "sentinelInjectedIntoCandidateAdapter": false,
+  "detectorPositiveControlExecuted": false,
+  "carrierOnlyRuntimeWrites": true
+}

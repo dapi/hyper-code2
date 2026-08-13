@@ -1,0 +1,13 @@
+{
+  "status": "rejected-as-candidate-evidence",
+  "reviewedFinding": "The 3,663 rows are formula/property-model output. Candidate adapters were not executed and the zero sink counts had neither raw sentinel injection nor a positive detector control.",
+  "requiredChecks": [
+    "fixture symmetry",
+    "source provenance",
+    "hard-gate interpretation",
+    "excluded combinations",
+    "mechanism fidelity",
+    "no mechanism selection"
+  ],
+  "synthesisAuthorized": false
+}

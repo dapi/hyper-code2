@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 3,
+  "runId": "2026-08-13-semantic-adapters-v3",
+  "head": "e301161a70ca685feedfaa5bfba0d3580c73e3f7",
+  "instrumentSha256": {
+    "r033-v3-semantics.ts": "f16a4b5aeee748a27a024e7652ee30a7e4f9e39eac8d81d0ccf643ff3124f0d9",
+    "r033-v3-child.ts": "8239760109e7516278e1981a3ae6b3da344e055360ae5fdb3a00080925edd5d0",
+    "r033-v3-restart-child.ts": "86f381d018b7b25a4acad37b940e11eada5118d11126fa6f6ab6d008d7ab4f01",
+    "r033-v3-comparison.ts": "226ad36bfa2de5da83f76cbd515d88446d1548ac8d854ce3303f4d762472ab6c"
+  },
+  "child": {
+    "separateProcess": true,
+    "sandboxProfileSha256": "28c4a404b2841525c7fefbbfce3eb2b9a992eff924515f1af1ed6580dac8ea03",
+    "environmentKeys": [
+      "HOME",
+      "LANG",
+      "LC_ALL",
+      "NO_COLOR",
+      "PATH",
+      "TMPDIR"
+    ]
+  },
+  "boundaries": {
+    "syntheticOnly": true,
+    "realResources": false,
+    "networkProviderCalls": 0,
+    "listeners": 0,
+    "sharedState": false,
+    "productionSourceChanges": false
+  },
+  "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
