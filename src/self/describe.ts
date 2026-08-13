@@ -43,7 +43,7 @@ export default async function (ctx: Context) {
             );
             const currentHash = matching ? await readableHash(matching.abs) : undefined;
             effectiveSource = {
-                status: 'observed',
+                status: matching && currentHash ? 'observed' : 'unavailable',
                 provenance: 'loader.receipt',
                 freshness: currentHash
                     ? (currentHash === receipt.loadedHash ? 'fresh' : 'stale')

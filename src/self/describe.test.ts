@@ -65,6 +65,29 @@ describe('self.describe', () => {
         expect(result.state.valuesIncluded).toBe(false);
         expect(result.authority.mutationAddedByDescriptor).toBe(false);
     });
+
+    test('marks a receipt unavailable when its source is deleted', async () => {
+        const root = resolve('.test-tmp', `self-descriptor-${crypto.randomUUID()}`);
+        fixtures.push(root);
+        const src = resolve(root, 'src');
+        const overlay = resolve(root, '.hyper');
+        await mkdir(resolve(overlay, 'demo'), { recursive: true });
+        const source = resolve(overlay, 'demo/value.ts');
+        await Bun.write(source, 'export default () => "overlay";\n');
+
+        const ctx = makeCtx(src, overlay, {
+            'demo.value': {
+                name: 'demo.value', root: '.hyper', rel: 'demo/value.ts',
+                loadedHash: await hash(source), loadedAt: '2026-08-13T00:00:00.000Z', generation: 2,
+            },
+        });
+        await Bun.file(source).delete();
+
+        const result = await describeSelf(ctx);
+        expect(result.capabilities.find((item) => item.name === 'demo.value')?.effectiveSource).toMatchObject({
+            status: 'unavailable', provenance: 'loader.receipt', freshness: 'unavailable',
+        });
+    });
 });
 
 function makeCtx(src: string, overlay: string, receipts: Record<string, any>) {
