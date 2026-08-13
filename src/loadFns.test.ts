@@ -72,4 +72,48 @@ describe("loadFns", () => {
             await rm(fixture, { recursive: true, force: true });
         }
     });
+
+    test("rejects an ABA rewrite even when the bytes hash back to the original value", async () => {
+        const fixture = `.test-tmp/load-fns-aba-${crypto.randomUUID()}`;
+        const source = resolve(fixture, "src/demo/value.ts");
+        const started = resolve(fixture, "started");
+        const originalBytes = 'export default async function () { return "a"; }\n';
+        await mkdir(resolve(fixture, "src/demo"), { recursive: true });
+        await Bun.write(source, [
+            `await Bun.write(${JSON.stringify(source)}, ${JSON.stringify(originalBytes)});`,
+            `await Bun.write(${JSON.stringify(started)}, "started");`,
+            'export default async function () { return "b"; }',
+            '',
+        ].join("\n"));
+
+        const previous = async () => "previous";
+        const ctx = {
+            state: {}, routes: {},
+            fns: {
+                project: {
+                    scan: async () => [{
+                        kind: "fn", moduleDir: "demo", runtimeName: "value",
+                        root: "src", rel: "demo/value.ts", abs: source,
+                    }],
+                },
+                demo: { value: previous },
+            },
+        } as unknown as Context;
+        const originalFile = Bun.file;
+        (Bun as any).file = (path: string | URL, ...args: any[]) => {
+            if (String(path) === source) {
+                return { arrayBuffer: async () => new TextEncoder().encode(originalBytes).buffer };
+            }
+            return (originalFile as any).call(Bun, path, ...args);
+        };
+        try {
+            await expect(loadFns(ctx)).rejects.toThrow("source changed while loading");
+            expect((ctx.fns as any).demo.value).toBe(previous);
+            expect((ctx.state as any).functionSources?.["demo.value"]).toBeUndefined();
+            expect(await Bun.file(started).exists()).toBe(true);
+        } finally {
+            (Bun as any).file = originalFile;
+            await rm(fixture, { recursive: true, force: true });
+        }
+    });
 });

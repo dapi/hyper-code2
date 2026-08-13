@@ -96,6 +96,51 @@ describe("repl.load", () => {
         }
     });
 
+    test("evaluates the winning overlay only once during namespace reload", async () => {
+        const fixture = `.test-tmp/repl-load-overlay-once-${crypto.randomUUID()}`;
+        const srcDir = resolve(fixture, "src");
+        const overlayDir = resolve(fixture, ".hyper");
+        const counterKey = `__replLoadOverlayOnce_${crypto.randomUUID().replaceAll("-", "")}`;
+        await mkdir(resolve(srcDir, "demo"), { recursive: true });
+        await mkdir(resolve(overlayDir, "demo"), { recursive: true });
+        await Bun.write(resolve(srcDir, "demo/value.ts"), 'export default async () => "src";\n');
+        await Bun.write(resolve(overlayDir, "demo/value.ts"), [
+            `globalThis[${JSON.stringify(counterKey)}] = (globalThis[${JSON.stringify(counterKey)}] ?? 0) + 1;`,
+            `export default async () => globalThis[${JSON.stringify(counterKey)}];`,
+            "",
+        ].join("\n"));
+        const entries = [
+            { kind: "fn", moduleDir: "demo", runtimeName: "value" },
+            { kind: "fn", moduleDir: "demo", runtimeName: "value" },
+        ];
+        const ctx = {
+            state: {},
+            fns: {
+                project: {
+                    roots: async () => [
+                        { name: "src", dir: srcDir },
+                        { name: ".hyper", dir: overlayDir },
+                    ],
+                    scan: async () => entries,
+                },
+            },
+        } as unknown as Context;
+
+        try {
+            const result = await load(ctx, { name: "demo" });
+            expect(result).toEqual({ reloaded: "demo", count: 1, fns: ["value"] });
+            expect(await (ctx.fns as any).demo.value()).toBe(1);
+            expect((globalThis as any)[counterKey]).toBe(1);
+            expect((ctx.state as any).functionSourceGeneration).toBe(1);
+            expect((ctx.state as any).functionSources["demo.value"]).toMatchObject({
+                root: ".hyper", generation: 1,
+            });
+        } finally {
+            delete (globalThis as any)[counterKey];
+            await rm(fixture, { recursive: true, force: true });
+        }
+    });
+
     test("reloads changed bytes even when Date.now does not advance", async () => {
         const fixture = `.test-tmp/repl-load-nonce-${crypto.randomUUID()}`;
         const srcDir = resolve(fixture, "src");
@@ -172,6 +217,49 @@ describe("repl.load", () => {
             expect((ctx.fns as any).demo.value).toBe(previous);
             expect((ctx.state as any).functionSources?.["demo.value"]).toBeUndefined();
         } finally {
+            await rm(fixture, { recursive: true, force: true });
+        }
+    });
+
+    test("rejects an ABA rewrite even when the bytes hash back to the original value", async () => {
+        const fixture = `.test-tmp/repl-load-aba-${crypto.randomUUID()}`;
+        const srcDir = resolve(fixture, "src");
+        const source = resolve(srcDir, "demo/value.ts");
+        const originalBytes = 'export default async function () { return "a"; }\n';
+        await mkdir(resolve(srcDir, "demo"), { recursive: true });
+        await Bun.write(source, [
+            `await Bun.write(${JSON.stringify(source)}, ${JSON.stringify(originalBytes)});`,
+            'export default async function () { return "b"; }',
+            '',
+        ].join("\n"));
+
+        const previous = async () => "previous";
+        const ctx = {
+            state: {},
+            fns: {
+                project: {
+                    roots: async () => [{ name: "src", dir: srcDir }],
+                    scan: async () => [],
+                },
+                demo: { value: previous },
+            },
+        } as unknown as Context;
+        const originalFile = Bun.file;
+        (Bun as any).file = (path: string | URL, ...args: any[]) => {
+            if (String(path) === source) {
+                return {
+                    exists: async () => true,
+                    arrayBuffer: async () => new TextEncoder().encode(originalBytes).buffer,
+                };
+            }
+            return (originalFile as any).call(Bun, path, ...args);
+        };
+        try {
+            await expect(load(ctx, { name: "demo.value" })).rejects.toThrow("source changed while loading");
+            expect((ctx.fns as any).demo.value).toBe(previous);
+            expect((ctx.state as any).functionSources?.["demo.value"]).toBeUndefined();
+        } finally {
+            (Bun as any).file = originalFile;
             await rm(fixture, { recursive: true, force: true });
         }
     });

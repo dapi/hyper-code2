@@ -66,7 +66,9 @@ mechanisms.
   historical migration; no storage design or runtime fix is included here.
 - EP-002 is in Execution after FT-036 delivered a source-grounded SelfDescriptor,
   identity-checked effective-origin loader receipts, fail-closed active-composer
-  prompt provenance and a complete IPv4/IPv6 loopback-only `GET /self` JSON route.
+  prompt provenance and an IPv4 `127.0.0.0/8` loopback-only `GET /self` JSON
+  route on the unchanged `0.0.0.0` listener. IPv4-mapped and `::1` values are
+  defensive classifier support, not added IPv6 reachability.
   The mutation ledger, activation/rollback and reflection slices remain
   separately gated; R-032 remains the owner of network-to-process authority.
 
@@ -86,7 +88,7 @@ mechanisms.
 ## Validation
 
 - `bunx tsc --noEmit`
-- `bun test --timeout 5000` — 422 passed, 3 skipped, 0 failed
+- `bun test --timeout 5000` — 439 passed, 3 skipped, 0 failed
 - `bun test ./.protocols/experiments/r018-sentinel.test.ts` — 11 passed
 - `bun test ./.protocols/experiments/r031-offline-comparison.test.ts` — 2 passed,
   37 assertions

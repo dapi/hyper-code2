@@ -1,3 +1,5 @@
+import { stat } from 'node:fs/promises';
+
 const FUNCTION_SOURCE_IDENTITY = Symbol.for('hyper-code2.function-source.loaded-function');
 
 async function roots(ctx: Context) {
@@ -16,6 +18,7 @@ export default async function (ctx: Context, opts: { name: string }) {
 
     const entries = await ctx.fns.project.scan(ctx);
     const loaded: string[] = [];
+    const loadedFunctions = new Set<string>();
     for (const entry of entries) {
         if (entry.kind === 'setting' && entry.settingModule === target) {
             const m = await import((entry as any).abs + `?reload=${crypto.randomUUID()}`);
@@ -29,8 +32,10 @@ export default async function (ctx: Context, opts: { name: string }) {
         }
         if (entry.kind !== 'fn') continue;
         if (entry.moduleDir !== target) continue;
+        if (loadedFunctions.has(entry.runtimeName)) continue;
+        loadedFunctions.add(entry.runtimeName);
         await loadFile(ctx, target, entry.runtimeName);
-        if (!loaded.includes(entry.runtimeName)) loaded.push(entry.runtimeName);
+        loaded.push(entry.runtimeName);
     }
     return { reloaded: target, count: loaded.length, fns: loaded };
 }
@@ -44,12 +49,14 @@ async function loadFile(ctx: Context, modPath: string, fnName: string) {
         for (const rel of candidates) {
             const abs = root.dir + '/' + rel;
             if (!(await Bun.file(abs).exists())) continue;
+            const sourceBefore = await sourceVersion(abs);
             const loadedHash = await sha256(abs);
             const m = await import(abs + `?reload=${crypto.randomUUID()}`);
             const fn = m.default;
             if (typeof fn !== 'function') throw new Error(`${rel}: no default function export`);
             const currentHash = await sha256(abs);
-            if (currentHash !== loadedHash) {
+            const sourceAfter = await sourceVersion(abs);
+            if (currentHash !== loadedHash || sourceAfter !== sourceBefore) {
                 throw new Error(`${labelPath(root.name, rel)}: source changed while loading`);
             }
             const segs = modPath.split('/');
@@ -97,4 +104,9 @@ function recordSource(ctx: Context, name: string, root: string, rel: string, loa
 async function sha256(path: string) {
     const digest = await crypto.subtle.digest('SHA-256', await Bun.file(path).arrayBuffer());
     return [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, '0')).join('');
+}
+
+async function sourceVersion(path: string) {
+    const info = await stat(path, { bigint: true });
+    return [info.dev, info.ino, info.size, info.mtimeNs, info.ctimeNs].join(':');
 }

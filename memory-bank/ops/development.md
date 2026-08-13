@@ -27,7 +27,7 @@ or credential stores into the repository.
 ## Daily Runtime Commands
 
 ```bash
-bun src/$main.ts
+bun 'src/$main.ts'
 bun script/repl.ts '1 + 1'
 bunx tsc --noEmit
 bun test --timeout 5000

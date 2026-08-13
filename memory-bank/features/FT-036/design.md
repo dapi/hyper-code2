@@ -74,7 +74,7 @@ flowchart LR
 
 - `SOL-01` Startup and hot reload write a receipt per loaded registered function: logical name, root, relative path, SHA-256, timestamp, monotonic generation and a transient non-serializable reference to the exact loaded function. Later roots overwrite earlier receipts, matching overlay-wins registry semantics.
 - `SOL-02` `self.describe` scans source candidates and live registry names, joins them with validated receipts, compares the receipt's function identity to the live registry and compares current and loaded hashes. Known prompt layers are projected only for the exact reviewed hash of the fresh shipped composer; an edited same-path composer, overlay, direct replacement or composer without validated provenance keeps its internal composition unavailable.
-- `SOL-03` `GET /self` returns the `self.describe` value through the existing route/JSON response path only when the server-observed peer address is IPv6 `::1`, a valid native IPv4 address in `127.0.0.0/8`, or its valid IPv4-mapped IPv6 form; other callers receive 403 before descriptor evaluation.
+- `SOL-03` `GET /self` returns the `self.describe` value through the existing route/JSON response path only when the server-observed peer address is a valid native IPv4 address in `127.0.0.0/8`, IPv6 `::1`, or a valid IPv4-mapped loopback form; other callers receive 403 before descriptor evaluation. The listener remains bound to `0.0.0.0`, so this feature adds no IPv6 reachability; the extra peer forms are defensive classifier support only.
 
 ## Alternatives Considered
 

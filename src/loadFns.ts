@@ -2,6 +2,8 @@
 // Bootstrap: ctx.fns is empty when this runs, so we import project/scan
 // directly to do the first sweep. After that all other code (genTypes,
 // repl.load, etc.) can use ctx.fns.project.scan normally.
+import { stat } from 'node:fs/promises';
+
 const FUNCTION_SOURCE_IDENTITY = Symbol.for('hyper-code2.function-source.loaded-function');
 
 export default async function (ctx: Context): Promise<void> {
@@ -28,12 +30,14 @@ export default async function (ctx: Context): Promise<void> {
         }
 
         if (entry.kind !== 'fn') continue;
+        const sourceBefore = await sourceVersion(entry.abs);
         const loadedHash = await sha256(entry.abs);
         const mod = await import(entry.abs + `?load=${crypto.randomUUID()}`);
         const fn = mod.default;
         if (typeof fn !== 'function') continue;
         const currentHash = await sha256(entry.abs);
-        if (currentHash !== loadedHash) {
+        const sourceAfter = await sourceVersion(entry.abs);
+        if (currentHash !== loadedHash || sourceAfter !== sourceBefore) {
             throw new Error(`${entry.root}/${entry.rel}: source changed while loading`);
         }
         const fnName = entry.runtimeName;
@@ -83,4 +87,9 @@ function recordSource(ctx: Context, name: string, entry: any, loadedHash: string
 async function sha256(path: string) {
     const digest = await crypto.subtle.digest('SHA-256', await Bun.file(path).arrayBuffer());
     return [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, '0')).join('');
+}
+
+async function sourceVersion(path: string) {
+    const info = await stat(path, { bigint: true });
+    return [info.dev, info.ino, info.size, info.mtimeNs, info.ctimeNs].join(':');
 }

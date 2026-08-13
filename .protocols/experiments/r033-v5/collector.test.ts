@@ -3,7 +3,26 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { CANDIDATE_IDS, CELLS } from "./contracts";
 import { fixturePlanDigest, sha256 } from "./fixtures";
-import { assertFrozenInputs, assertPrecollectionGate, currentInstrumentHashes, executeRotatingMatrix, sanitizedResult } from "./instrument";
+import { assertFrozenInputs, assertPrecollectionGate, currentInstrumentHashes, executeRotatingMatrix, instrumentFiles, sanitizedResult } from "./instrument";
+
+const repo = resolve(import.meta.dir, "../../..");
+const carrierRoot = resolve(import.meta.dir, "../runs/R-033/v5-collection-2026-08-13-36705a74");
+// The freeze records the source HEAD; the frozen instrument and accepted carrier first entered git in this child commit.
+const frozenArtifactRevision = "70c46596b081cb61d16d544999f6140089b984ef";
+
+function hasRevision(revision: string): boolean {
+  return Bun.spawnSync(["git", "cat-file", "-e", `${revision}^{commit}`], { cwd: repo, stdout: "ignore", stderr: "ignore" }).exitCode === 0;
+}
+
+function readCommitted(revision: string, path: string): Uint8Array {
+  const result = Bun.spawnSync(["git", "show", `${revision}:${path}`], { cwd: repo });
+  if (result.exitCode !== 0) throw new Error(`R033_V5_COMMITTED_BLOB_UNAVAILABLE_${path}`);
+  return result.stdout;
+}
+
+function committedHashes(revision: string, paths: readonly string[]) {
+  return Object.fromEntries(paths.map(path => [path, sha256(readCommitted(revision, path))]));
+}
 
 describe("R-033 V5 staged collector", () => {
   test("executes a rotating CC-01..14 x CAND-01..05 matrix without persisting a carrier", () => {
@@ -24,13 +43,34 @@ describe("R-033 V5 staged collector", () => {
     for (const item of results.map(sanitizedResult)) { const { checksum, ...payload } = item; expect(checksum).toBe(sha256(JSON.stringify(payload))); }
   });
 
-  test("freeze pins every collector file and fixture plan", async () => {
-    const freeze = JSON.parse(await readFile(resolve(import.meta.dir, "precollection-freeze.json"), "utf8"));
+  test("freeze pins the historical collector and rejects collection from a later HEAD", async () => {
+    const freezeBytes = await readFile(resolve(import.meta.dir, "precollection-freeze.json"));
+    const freeze = JSON.parse(freezeBytes.toString());
+    const results = JSON.parse(await readFile(resolve(carrierRoot, "results.json"), "utf8"));
+    const containment = JSON.parse(await readFile(resolve(carrierRoot, "containment.json"), "utf8"));
+    const provenance = JSON.parse(await readFile(resolve(carrierRoot, "provenance.json"), "utf8"));
+    const controls = JSON.parse(await readFile(resolve(carrierRoot, "cross-candidate-controls.json"), "utf8"));
     expect(freeze.collectionAuthorized).toBeFalse();
     expect(freeze.candidateResultsCollected).toBeFalse();
     expect(freeze.fixturePlanSha256).toBe(fixturePlanDigest());
-    expect(freeze.instrumentSha256).toEqual(await currentInstrumentHashes());
-    await expect(assertFrozenInputs()).resolves.toMatchObject({ schemaVersion: "5.2", collectionAuthorized: false });
+    // Full checkouts verify the frozen blobs directly; shallow CI clones retain the carrier checks below.
+    if (hasRevision(frozenArtifactRevision)) expect(committedHashes(frozenArtifactRevision, instrumentFiles.map(file => `.protocols/experiments/r033-v5/${file}`))).toEqual(Object.fromEntries(Object.entries(freeze.instrumentSha256).map(([file, digest]) => [`.protocols/experiments/r033-v5/${file}`, digest])));
+    if (hasRevision(freeze.head)) {
+      expect(committedHashes(freeze.head, Object.keys(freeze.sourceSha256))).toEqual(freeze.sourceSha256);
+      expect(committedHashes(freeze.head, Object.keys(freeze.dependencySha256))).toEqual(freeze.dependencySha256);
+    }
+    const currentInstrument = await currentInstrumentHashes();
+    for (const file of instrumentFiles.filter(file => file !== "collector.test.ts")) expect(currentInstrument[file]).toBe(freeze.instrumentSha256[file]);
+    expect(results.results).toEqual(executeRotatingMatrix().map(sanitizedResult));
+    const containmentDigest = sha256(JSON.stringify(containment));
+    const executionDigest = sha256(JSON.stringify(results.results));
+    expect(provenance).toMatchObject({ revision: freeze.head, freezeManifestSha256: sha256(freezeBytes), sourceSha256: freeze.sourceSha256, dependencySha256: freeze.dependencySha256, instrumentSha256: freeze.instrumentSha256, containmentDigest, executionDigest });
+    expect(controls).toMatchObject({ matrixRows: 70, containmentDigest, executionDigest, postCollectionReviewRequired: true });
+    for (const line of (await readFile(resolve(carrierRoot, "SHA256SUMS"), "utf8")).trim().split("\n")) {
+      const [digest, file] = line.split("  ");
+      expect(sha256(await readFile(resolve(carrierRoot, file)))).toBe(digest);
+    }
+    await expect(assertFrozenInputs()).rejects.toThrow("R033_V5_HEAD_DRIFT");
   });
 
   test("STOP gate rejects collection without an exact independent approval", async () => {
