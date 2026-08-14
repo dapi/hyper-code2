@@ -25,21 +25,7 @@ export default async function (ctx: Context, _session: any, req: any) {
     const debounceMs = explicitSeconds != null
         ? Math.max(0, Number(explicitSeconds) * 1000)
         : (perAgent ?? declared ?? 5000);
-    const sendAt = Date.now() + debounceMs;
-
-    const userAppend = await ctx.fns.session.appendUserMessage(ctx, { id: agent.id, text });
-    ctx.fns.session.syncAgentState(ctx, { agent });
-
-    // Schedule (or push back) the next run on the agent row itself.
-    // MAX(...) keeps the latest message bumping the debounce window forward.
-    ctx.fns.db.exec(ctx, {
-        sql: `UPDATE agents
-            SET next_run_at = MAX(COALESCE(next_run_at, 0), ?),
-                updated_at  = ?
-          WHERE id = ?`,
-        params: [sendAt, Date.now(), agent.id],
-    });
-    ctx.fns.agent.wakeWorker(ctx);
+    const submitted = await ctx.fns.agent.submit(ctx, { agent, text, delayMs: debounceMs });
 
     if ((req.headers?.get?.('hx-request') ?? '') === 'true') {
         return new Response(null, { status: 204 });
@@ -55,8 +41,8 @@ export default async function (ctx: Context, _session: any, req: any) {
     }
     return Response.json({
         ok: true,
-        sendAt,
-        messageIdx: userAppend.idx,
+        sendAt: submitted.sendAt,
+        messageIdx: submitted.messageIdx,
     });
 }
 

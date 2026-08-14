@@ -6,7 +6,8 @@
 //   1. SYSTEM_PROMPT_CORE.txt — invariants + map of ctx.fns + doc pointers
 //   2. SYSTEM_PROMPT.txt      — markers wire-format
 //   3. agent.systemPrompt     — per-agent additive override (if any)
-//   4. runtime context block  — cwd, agent id, db path
+//   4. CLI runtime-path block — workspace/runtime boundary (when configured)
+//   5. runtime context block  — cwd, agent id, db path
 // Files are .txt (not .md) on purpose — most frontier models follow plain
 // telegraphic text better than nested markdown headers + fences when the
 // content is itself describing markup that they're meant to emit.
@@ -22,6 +23,8 @@ export default async function (ctx: Context, opts: { agent: types.agent.Agent })
 
     const perAgent = (agent.systemPrompt ?? "").trim();
     const perAgentBlock = perAgent ? `\n\n## Per-agent instructions\n\n${perAgent}` : "";
+    const runtimePathInstructions = String((ctx.state as any).runtimePathInstructions ?? "").trim();
+    const runtimePathBlock = runtimePathInstructions ? `\n\n${runtimePathInstructions}` : "";
 
     const runtime = [
         "",
@@ -32,5 +35,5 @@ export default async function (ctx: Context, opts: { agent: types.agent.Agent })
         "",
     ].join("\n");
 
-    return core + "\n\n" + wire + perAgentBlock + runtime;
+    return core + "\n\n" + wire + perAgentBlock + runtimePathBlock + runtime;
 }

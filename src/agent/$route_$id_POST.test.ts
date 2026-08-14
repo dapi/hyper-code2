@@ -1,5 +1,6 @@
 import { describe, test, expect } from 'bun:test';
 import route from './$route_$id_POST';
+import submit from './submit';
 
 function mkReq(id: string, body: string, query = ''): any {
   const req = new Request('http://x/agent/' + id + query, { method: 'POST', body });
@@ -28,6 +29,7 @@ function mkCtx(calls: any[]) {
         load: () => null,
       },
       agent: {
+        submit,
         wakeWorker: () => { calls.push(['wakeWorker']); },
       },
     },

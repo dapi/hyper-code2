@@ -27,6 +27,7 @@ audience: humans_and_agents
 
 ## Active Packages
 
+- [`FT-008`](FT-008/README.md) — first workspace-scoped, line-oriented `hcode` terminal client with optional browser mode.
 - [`FT-036`](FT-036/README.md) — read-only truthful SelfDescriptor and JSON surface.
 
 ## Naming

@@ -1,36 +1,51 @@
 // Architecture contract: memory-bank/engineering/architecture.md
 // This entrypoint realizes the documented load → migrate → rehydrate → serve → worker composition.
+async function startLegacyRuntime() {
+    const { default: startRuntime } = await import('./runtime/start.entry');
+    const runtime = await startRuntime({ workspace: process.cwd(), http: true });
+    (runtime.ctx.state as any).shutdown = runtime.shutdown;
+    return runtime.ctx;
+}
+
 export default async function () {
-    const ctx = {
-        env: { ...process.env },
-        state: {},
-        fns: {} as FnsRegistry,
-        routes: {},
-    } as Context;
-
-    const { default: loadFns } = await import("./loadFns");
-    await loadFns(ctx);
-    await ctx.genTypes(ctx);
-    ctx.fns.db.connect(ctx, { path: ctx.env.DB_PATH ?? ".hyper/_runtime/sessions" });
-    await ctx.fns.db.migrate(ctx);
-    const rehydrated = ctx.fns.session.loadAll(ctx);
-    console.log(`[session] rehydrated ${rehydrated.loaded} agent(s)`);
-    await ctx.fns.http.loadRoutes(ctx);
-    await ctx.fns.http.start(ctx);
-
-    // Single process-wide worker drains agent_jobs for all agents.
-    queueMicrotask(() => {
-        ctx.fns.agent.workerLoop(ctx).catch((e: any) => console.error('[workerLoop] crashed:', e?.message ?? e));
-    });
-    console.log('[worker] started');
-
-    return ctx;
+    return startLegacyRuntime();
 }
 
 if (import.meta.main) {
-    const main = (await import("./$main.ts")).default;
-    const ctx = await main();
+    const forcedShutdownExitCode = 125;
+    let ctx: Awaited<ReturnType<typeof startLegacyRuntime>> | undefined;
+    let shuttingDown = false;
+    let shutdownRequested = false;
+    const shutdown = () => {
+        if (shuttingDown) return;
+        shuttingDown = true;
+        const runtimeShutdown = (ctx?.state as any)?.shutdown;
+        if (typeof runtimeShutdown !== 'function') {
+            process.exitCode = 1;
+            return;
+        }
+        void runtimeShutdown()
+            .then((result: { forced?: boolean }) => {
+                if (result?.forced) process.exit(forcedShutdownExitCode);
+                process.exitCode = 0;
+            })
+            .catch((error: any) => {
+                console.error('[shutdown] failed:', error?.message ?? error);
+                process.exitCode = 1;
+            });
+    };
+    // Install the handlers before runtime boot. A supervisor can signal the
+    // process as soon as the listener opens, before startLegacyRuntime
+    // resolves; handling that signal later must still quiesce the runtime.
+    const requestShutdown = () => {
+        shutdownRequested = true;
+        if (ctx) shutdown();
+    };
+    process.once('SIGINT', requestShutdown);
+    process.once('SIGTERM', requestShutdown);
+    ctx = await startLegacyRuntime();
     (globalThis as any).ctx = ctx;
+    if (shutdownRequested) shutdown();
     console.log("\nctx keys:", Object.keys(ctx));
     console.log("ctx.fns:", JSON.stringify(mapShape(ctx.fns), null, 2));
 }

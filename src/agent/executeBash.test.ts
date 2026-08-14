@@ -2,7 +2,7 @@ import { describe, test, expect } from 'bun:test';
 import executeBashFn from './executeBash';
 
 const ctx: any = {};
-const executeBash = (c: any, code: string) => executeBashFn(c, { code });
+const executeBash = (c: any, code: string, signal?: AbortSignal) => executeBashFn(c, { code, signal });
 
 describe('agent.executeBash', () => {
     test('successful exit returns stdout', async () => {
@@ -40,4 +40,30 @@ describe('agent.executeBash', () => {
         const r = await executeBash(ctx, 'printf "x\\n\\n"');
         expect(r.output).toBe('x');
     });
+
+    test('aborts the entire shell process group when its turn is stopped', async () => {
+        const controller = new AbortController();
+        const startedAt = Date.now();
+        // The background sleep inherits bash's stdout/stderr pipes. Killing
+        // only bash would leave Promise.all waiting for it to exit.
+        const running = executeBash(ctx, 'sleep 2 & wait', controller.signal);
+        setTimeout(() => controller.abort('stopped_by_user'), 20);
+
+        const result = await running;
+        expect(Date.now() - startedAt).toBeLessThan(1_000);
+        expect(result.isError).toBe(true);
+    }, 2_000);
+
+    test('escalates to SIGKILL when the shell process group ignores SIGTERM', async () => {
+        const controller = new AbortController();
+        const startedAt = Date.now();
+        const running = executeBash(ctx, `trap '' TERM; sleep 5 & wait`, controller.signal);
+        // Give bash time to install the trap so this exercises escalation
+        // instead of winning the startup race with the initial SIGTERM.
+        setTimeout(() => controller.abort('stopped_by_user'), 50);
+
+        const result = await running;
+        expect(Date.now() - startedAt).toBeLessThan(1_000);
+        expect(result.isError).toBe(true);
+    }, 2_000);
 });

@@ -63,6 +63,76 @@ describe('agent.run', () => {
         expect(msgs[3].content).toBe('computed: 4');
     });
 
+    test('stopping during a marker action ends the run as aborted', async () => {
+        const ctx = await setup();
+        ctx.fns.llm.stream = async () => ({ text: '§eval\nawait blocked;', toolCalls: [], thinking: '', usage: {} });
+        let release!: () => void;
+        const blocked = new Promise<void>((resolve) => { release = resolve; });
+        let markerStarted!: () => void;
+        const started = new Promise<void>((resolve) => { markerStarted = resolve; });
+        ctx.fns.repl.eval = async () => { markerStarted(); await blocked; return ''; };
+
+        const a = ctx.fns.agent.start(ctx, { model: 'mock:test' });
+        ctx.fns.session.save(ctx, { agent: a });
+        const running = run(ctx, a, 'wait');
+        await started;
+        a.abortController!.abort('stopped_by_user');
+        release();
+
+        await expect(running).rejects.toThrow('AbortError: stopped_by_user');
+    });
+
+    test('does not execute a marker when cancellation arrives while rendering preceding prose', async () => {
+        const ctx = await setup();
+        ctx.fns.llm.stream = async () => ({
+            text: 'working\n§write:after-stop.ts\nexport const stopped = true;',
+            toolCalls: [], thinking: '', usage: {},
+        });
+        let writes = 0;
+        ctx.fns.files.write = async () => { writes++; return { ok: true }; };
+
+        const a = ctx.fns.agent.start(ctx, { model: 'mock:test' });
+        ctx.fns.session.save(ctx, { agent: a });
+        ctx.fns.markdown.render = async () => {
+            a.abortController!.abort('stopped_by_user');
+            return '<p>working</p>';
+        };
+
+        await expect(run(ctx, a, 'stop during render')).rejects.toThrow('AbortError: stopped_by_user');
+        expect(writes).toBe(0);
+        expect(ctx.fns.session.getMessages(ctx, { id: a.id }).map((message: any) => message.role)).toEqual(['user']);
+        expect(ctx.fns.session.getEvents(ctx, { id: a.id }).map((event: any) => event.type)).toEqual(['user']);
+    });
+
+    test('does not persist an assistant message without its event when cancellation arrives during final rendering', async () => {
+        const ctx = await setup();
+        ctx.fns.llm.stream = async () => ({ text: 'final answer', toolCalls: [], thinking: '', usage: {} });
+
+        const a = ctx.fns.agent.start(ctx, { model: 'mock:test' });
+        ctx.fns.session.save(ctx, { agent: a });
+        ctx.fns.markdown.render = async () => {
+            a.abortController!.abort('stopped_by_user');
+            return '<p>final answer</p>';
+        };
+
+        await expect(run(ctx, a, 'stop during final render')).rejects.toThrow('AbortError: stopped_by_user');
+        expect(ctx.fns.session.getMessages(ctx, { id: a.id }).map((message: any) => message.role)).toEqual(['user']);
+        expect(ctx.fns.session.getEvents(ctx, { id: a.id }).map((event: any) => event.type)).toEqual(['user']);
+    });
+
+    test('persists completed provider thinking before the assistant response', async () => {
+        const ctx = await setup();
+        ctx.fns.llm.stream = async () => ({ text: 'answer', toolCalls: [], thinking: 'considering', usage: {} });
+        const a = ctx.fns.agent.start(ctx, { model: 'mock:test' });
+        ctx.fns.session.save(ctx, { agent: a });
+
+        await run(ctx, a, 'think');
+
+        const events = ctx.fns.session.getEvents(ctx, { id: a.id });
+        expect(events.map((event: any) => [event.type, event.text]))
+            .toEqual([['user', 'think'], ['thinking', 'considering'], ['assistant', 'answer']]);
+    });
+
     test('§write marker invokes files.write with raw content', async () => {
         const ctx = await setup();
         let turn = 0;

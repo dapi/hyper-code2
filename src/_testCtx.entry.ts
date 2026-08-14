@@ -40,6 +40,8 @@ import deleteMessageAt from './session/deleteMessageAt';
 import updateScratchpad from './session/updateScratchpad';
 
 import start from './agent/start';
+import submit from './agent/submit';
+import run from './agent/run';
 import nextId from './agent/nextId';
 import workerLoop from './agent/workerLoop';
 import wakeWorker from './agent/wakeWorker';
@@ -118,7 +120,7 @@ export async function mkTestCtx(opts: { db?: string | false; quiet?: boolean } =
                 syncAgentState, replaceMessages, truncateMessagesFrom, deleteMessageAt, updateScratchpad,
             },
             agent: {
-                start, nextId,
+                start, submit, run, nextId,
                 workerLoop, wakeWorker, wakeWaiters, waitForEvent,
                 renderEventHtml, renderStatusBar,
                 compact, stop, clear,

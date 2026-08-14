@@ -22,7 +22,10 @@ describe('agent.stop', () => {
     expect(res.ok).toBe(true);
     expect(calls[0]).toEqual(['abort', 'stopped_by_user']);
     expect(calls[1][0]).toBe('db.exec');
-    expect(calls[1][1]).toMatch(/UPDATE agents .*run_state = 'idle'.*next_run_at = NULL/);
+    expect(calls[1][1]).toMatch(/UPDATE agents .*run_state = CASE WHEN run_state = 'running' AND \? THEN 'running' ELSE 'idle' END.*next_run_at = NULL/);
+    expect(calls[1][2].slice(0, 2)).toEqual([1, 1]);
+    expect(agent.abortController).not.toBeNull();
+    expect(agent.isStreaming).toBe(true);
     expect(calls[2]).toEqual(['appendErrorEvent', 'a1', 'stopped by user; queue cleared']);
   });
 
@@ -41,5 +44,30 @@ describe('agent.stop', () => {
     };
     stop(ctx, { agent, clearQueue: false });
     expect(calls[0]).toMatch(/next_run_at = next_run_at/);
+  });
+
+  test('returns a rehydrated stale running row to idle', async () => {
+    const { mkTestCtx } = await import('../_testCtx.entry');
+    const ctx = await mkTestCtx();
+    const agent = ctx.fns.agent.start(ctx, { model: 'mock:test' });
+    const now = Date.now();
+    ctx.fns.db.exec(ctx, {
+      sql: `UPDATE agents
+              SET run_state = 'running', run_started_at = ?, next_run_at = ?
+            WHERE id = ?`,
+      params: [now - 1_000, now - 500, agent.id],
+    });
+
+    // session.load() recreates runtime-only fields, including a null controller.
+    const rehydrated = ctx.fns.session.load(ctx, { id: agent.id });
+    expect(rehydrated.abortController).toBeNull();
+
+    stop(ctx, { agent: rehydrated, clearQueue: true });
+
+    const row = ctx.fns.db.select(ctx, {
+      sql: 'SELECT run_state, run_started_at, next_run_at FROM agents WHERE id = ?',
+      params: [agent.id],
+    })[0];
+    expect(row).toEqual({ run_state: 'idle', run_started_at: null, next_run_at: null });
   });
 });
