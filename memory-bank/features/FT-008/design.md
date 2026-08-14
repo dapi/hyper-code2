@@ -38,7 +38,7 @@ must_not_define: [ft_008_scope, ft_008_acceptance_criteria, implementation_seque
 2. Change cwd once, load installation-root functions, connect/migrate/rehydrate.
 3. Load routes only for serve mode; start the worker in both modes.
 4. Terminal submission appends the user event/message, updates `next_run_at`, then calls `wakeWorker`; rendering never acknowledges completion before both `run_state=idle` and `next_run_at IS NULL`.
-5. Shutdown rejects new terminal input, awaits optional HTTP graceful stop so in-flight handlers unwind while logs and SQLite remain open, then sets `workerLoopRunning=false`, aborts active agents (including shell commands), wakes the worker, waits for the owned worker promise within a bounded grace period, and closes logs/database handles.
+5. Shutdown rejects new terminal input and first sets `workerLoopRunning=false` to stop durable claims before optional HTTP graceful stop; it then awaits that stop while logs and SQLite remain open, aborts active agents (including shell commands), wakes the worker, waits for the owned worker promise within a bounded grace period, and closes logs/database handles.
 6. A shutdown call racing another shutdown shares one stored promise; no resource is closed twice.
 
 ## C4 Applicability
@@ -78,7 +78,7 @@ flowchart LR
 ## Contracts And Invariants
 
 - `CTR-01` Parsing yields terminal/serve mode, canonical workspace, optional model/prompt; failures have no durable/network effects.
-- `CTR-02` Bootstrap returns `{ ctx, shutdown }`; shutdown first awaits optional HTTP graceful stop, then stops claims, aborts active agents, wakes/awaits the worker within a bounded grace period, and closes logs/database without deleting state.
+- `CTR-02` Bootstrap returns `{ ctx, shutdown }`; shutdown first stops durable claims, then awaits optional HTTP graceful stop, aborts active agents, wakes/awaits the worker within a bounded grace period, and closes logs/database without deleting state.
 - `CTR-03` Submission appends one operator message, schedules the existing worker immediately, and the terminal reads ordered durable events until idle.
 - `CTR-04` Instruction discovery returns ordered paths and composed text; read failure is explicit before agent creation.
 - `INV-01` Default terminal startup never calls `Bun.serve` or writes the port file.

@@ -57,7 +57,14 @@ export default async function main(argv: string[]): Promise<number> {
         }
 
         const terminalExit = new AbortController();
+        // Install both process-level handlers before bootstrap. The worker is
+        // started inside startRuntime(), so a Ctrl+C in any later bootstrap
+        // step must still reach runtime.shutdown() rather than taking Bun's
+        // default immediate-exit path. runTerminal replaces SIGINT with its
+        // stop-then-exit lifecycle once the line adapter is active.
+        const onBootstrapSigint = () => terminalExit.abort('SIGINT');
         const onSigterm = () => terminalExit.abort('SIGTERM');
+        process.once('SIGINT', onBootstrapSigint);
         process.once('SIGTERM', onSigterm);
         let runtime: Awaited<ReturnType<typeof startRuntime>> | undefined;
         let forcedShutdown = false;
@@ -80,12 +87,18 @@ export default async function main(argv: string[]): Promise<number> {
                             agent,
                             workspace,
                             initialPrompt: command.prompt,
+                            registerInterrupt: (handler) => {
+                                process.off('SIGINT', onBootstrapSigint);
+                                process.on('SIGINT', handler);
+                                return () => process.off('SIGINT', handler);
+                            },
                             exitSignal: terminalExit.signal,
                         });
                     }
                 }
             }
         } finally {
+            process.off('SIGINT', onBootstrapSigint);
             process.off('SIGTERM', onSigterm);
             const result = await runtime?.shutdown();
             forcedShutdown = result?.forced ?? false;

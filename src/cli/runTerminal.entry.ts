@@ -63,6 +63,12 @@ export default async function runTerminal(opts: TerminalOptions): Promise<void> 
         exitController.abort();
         readline?.close();
     };
+    // readline emits close for Ctrl+D/EOF even if the prompt loop is waiting
+    // on an active turn rather than requesting its next line. Route it through
+    // the shared exit controller so that turn does not keep terminal shutdown
+    // blocked.
+    const onReadlineClose = () => onExitSignal();
+    readline?.on('close', onReadlineClose);
     opts.exitSignal?.addEventListener('abort', onExitSignal, { once: true });
     if (opts.exitSignal?.aborted) onExitSignal();
     if (!opts.input && !opts.initialPrompt) write('> ');
@@ -97,6 +103,7 @@ export default async function runTerminal(opts: TerminalOptions): Promise<void> 
         }
     } finally {
         opts.exitSignal?.removeEventListener('abort', onExitSignal);
+        readline?.off('close', onReadlineClose);
         unregisterInterrupt();
         readline?.close();
     }

@@ -139,7 +139,7 @@ exec '${process.execPath}' "$@"
         expect(stderr).toContain('hcode: ENOTDIR');
     });
 
-    test('routes terminal SIGTERM through runtime shutdown', async () => {
+    test('routes terminal SIGINT through runtime shutdown', async () => {
         const workspace = join(fixtureRoot, 'workspace');
         await mkdir(workspace, { recursive: true });
         const proc = Bun.spawn({
@@ -155,7 +155,7 @@ exec '${process.execPath}' "$@"
 
         try {
             await waitForPath(join(workspace, '.hyper', '_runtime', 'sessions'), 4_000);
-            process.kill(proc.pid, 'SIGTERM');
+            process.kill(proc.pid, 'SIGINT');
 
             expect(await proc.exited).toBe(0);
             await stdout;
