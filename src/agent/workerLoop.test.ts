@@ -287,4 +287,53 @@ describe('agent.workerLoop', () => {
         expect(row.next_run_at).toBeNull();
         expect(row.last_processed_msg_idx).toBe(-1);
     }, 5_000);
+
+    test('clearQueue prevents a late message from being rescheduled after successful completion', async () => {
+        const ctx: any = await mkTestCtx();
+        ctx.fns.agent.workerLoop = workerLoop;
+        ctx.fns.agent.wakeWorker = wakeWorker;
+
+        seedReadyAgent(ctx, 'cleared-successfully', Date.now() - 100);
+        ctx.fns.session.appendMessage(ctx, { id: 'cleared-successfully', message: { role: 'user', content: 'first' } });
+
+        let started = false;
+        let finish!: () => void;
+        const finished = new Promise<void>((resolve) => { finish = resolve; });
+        ctx.fns.agent.run = async (_ctx: any, opts: any) => {
+            started = true;
+            // Make stop() treat this as an active run without aborting its
+            // normal completion path.
+            opts.agent.abortController = { abort() {} };
+            await finished;
+        };
+
+        const loopPromise = workerLoop(ctx);
+        const deadline = Date.now() + 2_000;
+        while (!started && Date.now() < deadline) await Bun.sleep(10);
+        expect(started).toBe(true);
+
+        const agent = ctx.state.agent['cleared-successfully'];
+        await submit(ctx, { agent, text: 'do not run' });
+        stop(ctx, { agent, clearQueue: true });
+        finish();
+
+        let row: any;
+        const quiescedBy = Date.now() + 2_000;
+        do {
+            row = ctx.fns.db.select(ctx, {
+                sql: 'SELECT run_state, next_run_at, last_processed_msg_idx FROM agents WHERE id = ?',
+                params: ['cleared-successfully'],
+            })[0];
+            if (row.run_state === 'idle') break;
+            await Bun.sleep(10);
+        } while (Date.now() < quiescedBy);
+
+        (ctx.state as any).workerLoopRunning = false;
+        wakeWorker(ctx);
+        await loopPromise;
+
+        expect(row.run_state).toBe('idle');
+        expect(row.next_run_at).toBeNull();
+        expect(row.last_processed_msg_idx).toBe(0);
+    }, 5_000);
 });

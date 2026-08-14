@@ -6,7 +6,7 @@ set -eu
 bun_bin="${BUN_BIN:-bun}"
 required_bun_version='1.3.13'
 
-if ! bun_version="$($bun_bin --version 2>/dev/null)"; then
+if ! bun_version="$("$bun_bin" --version 2>/dev/null)"; then
     printf '%s\n' "hcode: unable to run Bun via $bun_bin." >&2
     exit 1
 fi

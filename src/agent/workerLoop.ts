@@ -137,7 +137,7 @@ async function runOne(ctx: Context, agentId: string): Promise<void> {
         // so restore it once the claim has quiesced rather than stranding it.
         // An explicit clearQueue removes that signal, and must win over the
         // message-frontier comparison.
-        const stillPending = (advanceCursor && afterIdx > cursorIdx)
+        const stillPending = (advanceCursor && afterIdx > cursorIdx && current?.next_run_at != null)
             || (aborted && afterIdx > frontierIdx && current?.next_run_at != null);
 
         ctx.fns.db.exec(ctx, {

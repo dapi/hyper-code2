@@ -10,10 +10,10 @@ afterEach(async () => {
     await rm(fixtureRoot, { recursive: true, force: true });
 });
 
-async function writeFakeBun(source: string) {
+async function writeFakeBun(source: string, name = 'bun') {
     const binDir = join(fixtureRoot, 'bin');
     await mkdir(binDir, { recursive: true });
-    const fakeBun = join(binDir, 'bun');
+    const fakeBun = join(binDir, name);
     await writeFile(fakeBun, source, { mode: 0o755 });
     await chmod(fakeBun, 0o755);
     return fakeBun;
@@ -73,6 +73,21 @@ exit 99
 if [ "$1" = "--version" ]; then printf '1.3.14\\n'; exit 0; fi
 exec '${process.execPath}' "$@"
 `);
+
+        const result = await runLauncher(fakeBun, workspace);
+
+        expect(result.exitCode).toBe(0);
+        expect(result.stdout).toContain('Usage:');
+        expect(result.stderr).toBe('');
+    });
+
+    test('supports a configured Bun executable path containing spaces', async () => {
+        const workspace = join(fixtureRoot, 'workspace');
+        await mkdir(workspace, { recursive: true });
+        const fakeBun = await writeFakeBun(`#!/bin/sh
+if [ "$1" = "--version" ]; then printf '1.3.14\\n'; exit 0; fi
+exec '${process.execPath}' "$@"
+`, 'bun with spaces');
 
         const result = await runLauncher(fakeBun, workspace);
 
