@@ -37,7 +37,7 @@ describe('startRuntime', () => {
         expect(events).toEqual(['db-close']);
         expect(process.cwd()).toBe(originalCwd);
         releaseWorker();
-        await shutdown;
+        expect((await shutdown).forced).toBe(true);
         expect(events).toEqual(['db-close']);
         expect(process.cwd()).toBe(originalCwd);
     });

@@ -1,8 +1,14 @@
 import parseArgs, { CliUsageError } from '../src/cli/parseArgs.entry';
 import runTerminal from '../src/cli/runTerminal.entry';
+import runtimePathInstructions from '../src/cli/runtimePathInstructions.entry';
 import { workspaceSessionDbPath } from '../src/cli/workspaceDbPath.entry';
 import resolveWorkspace from '../src/runtime/resolveWorkspace.entry';
 import startRuntime from '../src/runtime/start.entry';
+
+// This exit code is consumed by hcode.entry.ts. It is intentionally distinct
+// from ordinary CLI errors so only a shutdown that left uncooperative work
+// alive invokes process.exit().
+export const FORCED_SHUTDOWN_EXIT_CODE = 125;
 
 export default async function main(argv: string[]): Promise<number> {
     try {
@@ -34,7 +40,8 @@ export default async function main(argv: string[]): Promise<number> {
             try {
                 await waitForExitSignal();
             } finally {
-                await runtime.shutdown();
+                const result = await runtime.shutdown();
+                if (result.forced) return FORCED_SHUTDOWN_EXIT_CODE;
             }
             return 0;
         }
@@ -43,6 +50,7 @@ export default async function main(argv: string[]): Promise<number> {
         const onSigterm = () => terminalExit.abort('SIGTERM');
         process.once('SIGTERM', onSigterm);
         let runtime: Awaited<ReturnType<typeof startRuntime>> | undefined;
+        let forcedShutdown = false;
         try {
             runtime = await startRuntime({ workspace, dbPath, http: false, quiet: true });
             if (terminalExit.signal.aborted) return 0;
@@ -51,7 +59,10 @@ export default async function main(argv: string[]): Promise<number> {
             const model = command.model ?? runtime.ctx.fns.settings.modelDefault(runtime.ctx);
             const prompt = [
                 'You are running in TRUSTED MODE with unrestricted local agent execution.',
-                `Selected workspace: ${workspace}`,
+                runtimePathInstructions({
+                    workspace,
+                    roots: await runtime.ctx.fns.project.roots(runtime.ctx),
+                }),
                 loaded.text,
             ].filter(Boolean).join('\n\n');
             const agent = runtime.ctx.fns.agent.start(runtime.ctx, { model, systemPrompt: prompt });
@@ -64,9 +75,10 @@ export default async function main(argv: string[]): Promise<number> {
             });
         } finally {
             process.off('SIGTERM', onSigterm);
-            await runtime?.shutdown();
+            const result = await runtime?.shutdown();
+            forcedShutdown = result?.forced ?? false;
         }
-        return 0;
+        return forcedShutdown ? FORCED_SHUTDOWN_EXIT_CODE : 0;
     } catch (error: any) {
         console.error(`hcode: ${error?.message ?? error}`);
         if (error instanceof CliUsageError) console.error('Run `hcode --help` for usage.');

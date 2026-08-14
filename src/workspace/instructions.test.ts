@@ -31,6 +31,26 @@ describe('workspace.instructions', () => {
         expect(result.paths).toEqual([join(await realpath(plain), 'AGENTS.md')]);
     });
 
+    test('forces Git diagnostics to the C locale before matching non-repository output', async () => {
+        const plain = `${base}-plain`;
+        const originalSpawnSync = Bun.spawnSync;
+        let options: any;
+        (Bun as any).spawnSync = (_cmd: string[], received: any) => {
+            options = received;
+            return {
+                exitCode: 128,
+                stdout: Buffer.from(''),
+                stderr: Buffer.from('fatal: not a git repository (or any of the parent directories): .git'),
+            };
+        };
+        try {
+            await expect(instructions({} as any, { workspace: plain })).resolves.toBeDefined();
+            expect(options.env.LC_ALL).toBe('C');
+        } finally {
+            (Bun as any).spawnSync = originalSpawnSync;
+        }
+    });
+
     test('fails rather than dropping instruction discovery when Git cannot run', async () => {
         const plain = `${base}-plain`;
         await mkdir(plain, { recursive: true });

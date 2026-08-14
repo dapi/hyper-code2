@@ -51,6 +51,9 @@ async function gitRoot(workspace: string): Promise<string | null> {
         result = Bun.spawnSync(['git', '-C', workspace, 'rev-parse', '--show-toplevel'], {
             stdout: 'pipe',
             stderr: 'pipe',
+            // The non-repository fallback is selected from Git's diagnostic;
+            // force the diagnostic language so this remains deterministic.
+            env: { ...process.env, LC_ALL: 'C' },
         });
     } catch (error: any) {
         throw new Error(`cannot discover Git root for ${workspace}: ${error?.message ?? error}`);

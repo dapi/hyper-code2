@@ -14,7 +14,14 @@ export type RuntimeOptions = {
 
 export type RuntimeHandle = {
     ctx: Context;
-    shutdown: () => Promise<void>;
+    shutdown: () => Promise<ShutdownResult>;
+};
+
+export type ShutdownResult = {
+    // The worker ignored cancellation beyond the bounded shutdown grace. Its
+    // event-loop handles remain live, so the executable must terminate after
+    // resource cleanup rather than returning to Bun's event loop.
+    forced: boolean;
 };
 
 export default async function startRuntime(opts: RuntimeOptions): Promise<RuntimeHandle> {
@@ -27,11 +34,12 @@ export default async function startRuntime(opts: RuntimeOptions): Promise<Runtim
         fns: {} as FnsRegistry,
         routes: {},
     } as Context;
-    let shutdownPromise: Promise<void> | null = null;
+    let shutdownPromise: Promise<ShutdownResult> | null = null;
 
     const shutdown = () => {
         if (shutdownPromise) return shutdownPromise;
         shutdownPromise = (async () => {
+            let forced = false;
             // Quiesce the external adapter first so no new work can arrive while
             // the worker drains/aborts and the database is still open.
             const server = (ctx.state as any).server?.server;
@@ -57,10 +65,12 @@ export default async function startRuntime(opts: RuntimeOptions): Promise<Runtim
                 // uncooperative work after its grace period has elapsed.
                 console.warn('[workerLoop] shutdown grace period elapsed; forcing runtime shutdown');
                 void workerPromise?.catch(() => {});
+                forced = true;
             }
             try { await (ctx.state as any).http?.logFile?.end?.(); } catch {}
             try { (ctx.state as any).db?.close?.(); } catch {}
             process.chdir(previousCwd);
+            return { forced };
         })();
         return shutdownPromise;
     };
