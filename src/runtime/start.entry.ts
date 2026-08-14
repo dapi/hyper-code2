@@ -1,6 +1,8 @@
 import { mkdir } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 
+const FUNCTION_SOURCE_WRAPPED_IDENTITY = Symbol.for('hyper-code2.function-source.wrapped-function');
+
 export type RuntimeOptions = {
     workspace: string;
     dbPath?: string;
@@ -179,6 +181,7 @@ function trackAgentRuns(ctx: Context): void {
         );
         return promise;
     }) as typeof implementation;
+    preserveProcedureDiscovery(trackedRun, () => implementation);
 
     // repl.load assigns the freshly imported procedure directly into
     // ctx.fns.agent. Keep the public callable stable and replace only the
@@ -216,6 +219,7 @@ function trackAgentSubmissions(ctx: Context): void {
         );
         return promise;
     }) as typeof implementation;
+    preserveProcedureDiscovery(trackedSubmit, () => implementation);
 
     // Keep submit's shutdown accounting intact across repl reloads, just as
     // agent.run's wrapper does above.
@@ -224,6 +228,24 @@ function trackAgentSubmissions(ctx: Context): void {
         enumerable: true,
         get: () => trackedSubmit,
         set: (next: typeof implementation) => { implementation = next; },
+    });
+}
+
+// Runtime bookkeeping must remain invisible to agents discovering procedural
+// APIs. The getter follows hot reloads, so the stable wrapper always exposes
+// both the current source signature and its loader-recorded implementation.
+function preserveProcedureDiscovery(wrapper: Function, implementation: () => Function): void {
+    Object.defineProperties(wrapper, {
+        toString: {
+            value: () => implementation().toString(),
+            enumerable: false,
+            configurable: true,
+        },
+        [FUNCTION_SOURCE_WRAPPED_IDENTITY]: {
+            get: implementation,
+            enumerable: false,
+            configurable: false,
+        },
     });
 }
 

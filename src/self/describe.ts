@@ -4,6 +4,7 @@ import { realpathSync, statSync } from 'node:fs';
 
 const FUNCTION_SOURCE_IDENTITY = Symbol.for('hyper-code2.function-source.loaded-function');
 const FUNCTION_SOURCE_PATH = Symbol.for('hyper-code2.function-source.loaded-physical-path');
+const FUNCTION_SOURCE_WRAPPED_IDENTITY = Symbol.for('hyper-code2.function-source.wrapped-function');
 const BASE_COMPOSER = { root: 'src', rel: 'agent/fullSystemPrompt.ts' } as const;
 // Prompt-layer composition is known only for these reviewed shipped bytes.
 // A composer edit deliberately fails closed until this attestation is reviewed.
@@ -208,7 +209,9 @@ function validateReceipt(name: string, entries: any[], receipt: any, liveFunctio
     if (typeof receipt.loadedHash !== 'string' || !/^[a-f0-9]{64}$/.test(receipt.loadedHash)) return undefined;
     if (!isCanonicalIsoDate(receipt.loadedAt)) return undefined;
     if (!Number.isSafeInteger(receipt.generation) || receipt.generation < 1) return undefined;
-    if (receipt[FUNCTION_SOURCE_IDENTITY] !== liveFunction) return undefined;
+    const receiptIdentity = receipt[FUNCTION_SOURCE_IDENTITY];
+    if (receiptIdentity !== liveFunction
+        && (liveFunction as any)[FUNCTION_SOURCE_WRAPPED_IDENTITY] !== receiptIdentity) return undefined;
     const sourcePath = receipt[FUNCTION_SOURCE_PATH];
     if (typeof sourcePath !== 'string' || physicalPath(sourcePath) !== sourcePath) return undefined;
     return entries.find((entry) => entry.root === receipt.root

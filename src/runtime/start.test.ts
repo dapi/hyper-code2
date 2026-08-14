@@ -24,6 +24,29 @@ describe('startRuntime', () => {
         expect(process.cwd()).toBe(originalCwd);
     });
 
+    test('preserves agent procedure discovery through shutdown tracking wrappers', async () => {
+        await mkdir(workspace, { recursive: true });
+        const runtime = await startRuntime({ workspace, dbPath: ':memory:', http: false });
+        try {
+            const sourceIdentity = Symbol.for('hyper-code2.function-source.loaded-function');
+            expect(runtime.ctx.fns.agent.run.toString()).toBe(
+                (runtime.ctx.state as any).functionSources['agent.run'][sourceIdentity].toString(),
+            );
+            expect(runtime.ctx.fns.agent.submit.toString()).toBe(
+                (runtime.ctx.state as any).functionSources['agent.submit'][sourceIdentity].toString(),
+            );
+
+            const description = await runtime.ctx.fns.self.describe(runtime.ctx);
+            for (const name of ['agent.run', 'agent.submit']) {
+                expect(description.capabilities.find((capability) => capability.name === name)?.effectiveSource).toMatchObject({
+                    status: 'observed', provenance: 'loader.receipt', freshness: 'fresh',
+                });
+            }
+        } finally {
+            await runtime.shutdown();
+        }
+    });
+
     test('closes shared resources after the shutdown grace period when a worker is uncooperative', async () => {
         await mkdir(workspace, { recursive: true });
         const runtime = await startRuntime({ workspace, dbPath: ':memory:', http: false, shutdownTimeoutMs: 10 });
