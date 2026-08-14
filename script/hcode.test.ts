@@ -2,6 +2,7 @@ import { afterEach, describe, expect, test } from 'bun:test';
 import { chmod, mkdir, rm, symlink, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
+import main, { FORCED_SHUTDOWN_EXIT_CODE } from './hcode';
 
 const repoRoot = resolve(import.meta.dir, '..');
 const fixtureRoot = join(repoRoot, '.test-tmp', 'hcode-launcher');
@@ -164,4 +165,51 @@ exec '${process.execPath}' "$@"
             try { proc.kill('SIGKILL'); } catch {}
         }
     }, 8_000);
+
+    test('drains prompts buffered before redirected stdin reaches EOF', async () => {
+        const workspace = join(fixtureRoot, 'workspace');
+        await mkdir(workspace, { recursive: true });
+        const proc = Bun.spawn({
+            cmd: [join(repoRoot, 'hcode'), '-C', workspace, '-m', 'mock:test'],
+            cwd: workspace,
+            env: { ...process.env, BUN_BIN: process.execPath },
+            stdin: 'pipe',
+            stdout: 'pipe',
+            stderr: 'pipe',
+        });
+        proc.stdin.write('one\ntwo\n');
+        proc.stdin.end();
+        const [stdout, stderr, exitCode] = await Promise.all([
+            new Response(proc.stdout).text(),
+            new Response(proc.stderr).text(),
+            proc.exited,
+        ]);
+
+        expect(exitCode).toBe(0);
+        expect(stderr).toBe('');
+        expect(stdout.match(/ok\n/g)).toHaveLength(2);
+    });
+
+    test('returns the forced-shutdown code when terminal execution fails', async () => {
+        const workspace = join(fixtureRoot, 'workspace');
+        await mkdir(workspace, { recursive: true });
+        const agent = { model: 'mock:test' };
+        const runtime = {
+            ctx: {
+                fns: {
+                    workspace: { instructions: async () => ({ text: '' }) },
+                    project: { roots: async () => [] },
+                    agent: { start: () => agent },
+                },
+            },
+            shutdown: async () => ({ forced: true }),
+        };
+
+        const exitCode = await main(['-C', workspace, '-m', 'mock:test'], {
+            startRuntime: async () => runtime as any,
+            runTerminal: async () => { throw new Error('terminal polling exploded'); },
+        });
+
+        expect(exitCode).toBe(FORCED_SHUTDOWN_EXIT_CODE);
+    });
 });

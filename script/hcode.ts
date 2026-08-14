@@ -10,7 +10,15 @@ import startRuntime from '../src/runtime/start.entry';
 // alive invokes process.exit().
 export const FORCED_SHUTDOWN_EXIT_CODE = 125;
 
-export default async function main(argv: string[]): Promise<number> {
+export type MainDependencies = {
+    startRuntime?: typeof startRuntime;
+    runTerminal?: typeof runTerminal;
+};
+
+export default async function main(argv: string[], deps: MainDependencies = {}): Promise<number> {
+    const start = deps.startRuntime ?? startRuntime;
+    const terminal = deps.runTerminal ?? runTerminal;
+    let forcedShutdown = false;
     try {
         const command = parseArgs(argv);
         if (command.kind === 'help') {
@@ -38,9 +46,8 @@ export default async function main(argv: string[]): Promise<number> {
             process.once('SIGINT', onSignal);
             process.once('SIGTERM', onSignal);
             let runtime: Awaited<ReturnType<typeof startRuntime>> | undefined;
-            let forcedShutdown = false;
             try {
-                runtime = await startRuntime({
+                runtime = await start({
                     workspace,
                     dbPath,
                     http: true,
@@ -67,9 +74,8 @@ export default async function main(argv: string[]): Promise<number> {
         process.once('SIGINT', onBootstrapSigint);
         process.once('SIGTERM', onSigterm);
         let runtime: Awaited<ReturnType<typeof startRuntime>> | undefined;
-        let forcedShutdown = false;
         try {
-            runtime = await startRuntime({ workspace, dbPath, http: false, quiet: true });
+            runtime = await start({ workspace, dbPath, http: false, quiet: true });
             if (!terminalExit.signal.aborted) {
                 const loaded = await runtime.ctx.fns.workspace.instructions(runtime.ctx, { workspace });
                 if (!terminalExit.signal.aborted) {
@@ -82,7 +88,7 @@ export default async function main(argv: string[]): Promise<number> {
                             loaded.text,
                         ].filter(Boolean).join('\n\n');
                         const agent = runtime.ctx.fns.agent.start(runtime.ctx, { model, systemPrompt: prompt });
-                        await runTerminal({
+                        await terminal({
                             ctx: runtime.ctx,
                             agent,
                             workspace,
@@ -107,6 +113,10 @@ export default async function main(argv: string[]): Promise<number> {
     } catch (error: any) {
         console.error(`hcode: ${error?.message ?? error}`);
         if (error instanceof CliUsageError) console.error('Run `hcode --help` for usage.');
+        // A forced shutdown leaves uncooperative adapter work alive. The
+        // entrypoint must call process.exit() in that case even when the
+        // terminal also reported an error.
+        if (forcedShutdown) return FORCED_SHUTDOWN_EXIT_CODE;
         return error?.exitCode ?? 1;
     }
 }

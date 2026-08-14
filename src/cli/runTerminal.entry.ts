@@ -63,11 +63,13 @@ export default async function runTerminal(opts: TerminalOptions): Promise<void> 
         exitController.abort();
         readline?.close();
     };
-    // readline emits close for Ctrl+D/EOF even if the prompt loop is waiting
-    // on an active turn rather than requesting its next line. Route it through
-    // the shared exit controller so that turn does not keep terminal shutdown
-    // blocked.
-    const onReadlineClose = () => onExitSignal();
+    // In an interactive terminal, `close` represents Ctrl+D and must end an
+    // active turn promptly. For redirected stdin it is ordinary EOF: readline
+    // may already have buffered further prompt lines, so cancelling here would
+    // silently drop them before the async iterator can drain them.
+    const onReadlineClose = () => {
+        if (process.stdin.isTTY) onExitSignal();
+    };
     readline?.on('close', onReadlineClose);
     opts.exitSignal?.addEventListener('abort', onExitSignal, { once: true });
     if (opts.exitSignal?.aborted) onExitSignal();
