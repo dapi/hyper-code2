@@ -23,6 +23,7 @@ export default async function runTerminal(opts: TerminalOptions): Promise<void> 
     let busy = false;
     let stopRequested = false;
     let exitRequested = false;
+    let activeSubmissionController: AbortController | null = null;
     const exitController = new AbortController();
 
     write(`workspace: ${opts.workspace}\nmodel: ${opts.agent.model}\n`);
@@ -33,6 +34,10 @@ export default async function runTerminal(opts: TerminalOptions): Promise<void> 
         if (busy) {
             if (!stopRequested) {
                 stopRequested = true;
+                // submit() persists the user message before awaiting event
+                // rendering. Tell it not to schedule if it resumes after this
+                // clearQueue stop.
+                activeSubmissionController?.abort('stopped_by_user');
                 opts.ctx.fns.agent.stop(opts.ctx, { agent: opts.agent, clearQueue: true });
                 write('\n[stopped; press Ctrl+C again to exit]\n');
             } else {
@@ -84,8 +89,9 @@ export default async function runTerminal(opts: TerminalOptions): Promise<void> 
             if (text === '/exit') break;
             busy = true;
             stopRequested = false;
+            activeSubmissionController = new AbortController();
             try {
-                const activeTurn = submitAndRender(opts.ctx, opts.agent, text, write);
+                const activeTurn = submitAndRender(opts.ctx, opts.agent, text, write, activeSubmissionController.signal);
                 const exitWait = waitForAbort(exitController.signal);
                 const outcome = await Promise.race([
                     activeTurn.then(() => 'turn' as const),
@@ -93,13 +99,16 @@ export default async function runTerminal(opts: TerminalOptions): Promise<void> 
                 ]);
                 exitWait.cancel();
                 if (outcome === 'exit') {
-                    // Observe any later failure from an adapter that ignored
-                    // cancellation, without keeping terminal shutdown blocked.
+                    // Runtime shutdown tracks submit() separately, so it keeps
+                    // SQLite open until a pending durable submission settles.
+                    // Observe later rendering failures without keeping this
+                    // terminal adapter blocked.
                     void activeTurn.catch(() => {});
                     break;
                 }
             } finally {
                 busy = false;
+                activeSubmissionController = null;
             }
             if (readline) write('\n> ');
         }
@@ -116,9 +125,10 @@ async function submitAndRender(
     agent: types.agent.Agent,
     text: string,
     write: (text: string) => void,
+    submissionSignal: AbortSignal,
 ) {
     let offset = ctx.fns.session.getMaxEventIdx(ctx, { id: agent.id }) + 1;
-    await ctx.fns.agent.submit(ctx, { agent, text, delayMs: 0 });
+    await ctx.fns.agent.submit(ctx, { agent, text, delayMs: 0, signal: submissionSignal });
 
     while (true) {
         throwIfWorkerCrashed(ctx);

@@ -65,10 +65,16 @@ export default async function startRuntime(opts: RuntimeOptions): Promise<Runtim
             try { ctx.fns.agent?.wakeWorker?.(ctx); } catch {}
             const workerPromise = (ctx.state as any).workerLoopPromise as Promise<unknown> | undefined;
             const activeRuns = (ctx.state as any).activeAgentRunPromises as Set<Promise<unknown>> | undefined;
+            const activeSubmissions = (ctx.state as any).activeAgentSubmissionPromises as Set<Promise<unknown>> | undefined;
             // agent.run is also used by delegation and the UI outside the
-            // worker. Await its snapshot together with the worker so SQLite
-            // remains available until every already-started run has settled.
-            const running = [workerPromise, ...(activeRuns ? [...activeRuns] : [])]
+            // worker. submit() can be awaiting user-event rendering before it
+            // schedules a durable run. Await both snapshots with the worker so
+            // SQLite remains available until all already-started work settles.
+            const running = [
+                workerPromise,
+                ...(activeRuns ? [...activeRuns] : []),
+                ...(activeSubmissions ? [...activeSubmissions] : []),
+            ]
                 .filter((promise): promise is Promise<unknown> => !!promise);
             const runsSettled = await settleWithin(Promise.allSettled(running), opts.shutdownTimeoutMs ?? 2_000);
             if (!runsSettled) {
@@ -108,6 +114,7 @@ export default async function startRuntime(opts: RuntimeOptions): Promise<Runtim
             await loadFns(ctx);
             await ctx.genTypes(ctx);
             trackAgentRuns(ctx);
+            trackAgentSubmissions(ctx);
 
             const dbPath = opts.dbPath ?? ctx.env.DB_PATH ?? '.hyper/_runtime/sessions';
             ctx.env.DB_PATH = dbPath;
@@ -173,6 +180,41 @@ function trackAgentRuns(ctx: Context): void {
         configurable: true,
         enumerable: true,
         get: () => trackedRun,
+        set: (next: typeof implementation) => { implementation = next; },
+    });
+}
+
+function trackAgentSubmissions(ctx: Context): void {
+    const activeSubmissions = new Set<Promise<unknown>>();
+    (ctx.state as any).activeAgentSubmissionPromises = activeSubmissions;
+    let implementation = ctx.fns.agent.submit;
+
+    const trackedSubmit = ((...args: Parameters<typeof implementation>) => {
+        // Shutdown deliberately preserves submissions that began before its
+        // snapshot, but rejects new callers once adapter ingress is closed.
+        if ((ctx.state as any).runtimeShuttingDown) {
+            return Promise.reject(new Error('agent submit aborted: runtime is shutting down'));
+        }
+        let promise: Promise<unknown>;
+        try {
+            promise = Promise.resolve(implementation(...args));
+        } catch (error) {
+            promise = Promise.reject(error);
+        }
+        activeSubmissions.add(promise);
+        void promise.then(
+            () => activeSubmissions.delete(promise),
+            () => activeSubmissions.delete(promise),
+        );
+        return promise;
+    }) as typeof implementation;
+
+    // Keep submit's shutdown accounting intact across repl reloads, just as
+    // agent.run's wrapper does above.
+    Object.defineProperty(ctx.fns.agent, 'submit', {
+        configurable: true,
+        enumerable: true,
+        get: () => trackedSubmit,
         set: (next: typeof implementation) => { implementation = next; },
     });
 }

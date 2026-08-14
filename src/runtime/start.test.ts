@@ -102,6 +102,49 @@ describe('startRuntime', () => {
         expect(events).toEqual(['db-close']);
     });
 
+    test('keeps an in-flight submission alive until its durable event and schedule are written', async () => {
+        await mkdir(workspace, { recursive: true });
+        const dbPath = join(workspace, `.submission-shutdown-${crypto.randomUUID()}.sqlite`);
+        const runtime = await startRuntime({ workspace, dbPath, http: false });
+        const ctx = runtime.ctx;
+        const agent = ctx.fns.agent.start(ctx, { model: 'mock:test', systemPrompt: '' });
+        let releaseRender!: () => void;
+        const rendering = new Promise<void>((resolve) => { releaseRender = resolve; });
+        let renderStarted!: () => void;
+        const started = new Promise<void>((resolve) => { renderStarted = resolve; });
+        ctx.fns.agent.renderEventHtml = async () => {
+            renderStarted();
+            await rendering;
+            return '<p>user</p>';
+        };
+
+        const submitted = ctx.fns.agent.submit(ctx, { agent, text: 'persist me', delayMs: 60_000 });
+        await started;
+        expect((ctx.state as any).activeAgentSubmissionPromises.size).toBe(1);
+        let shutdownFinished = false;
+        const shutdown = runtime.shutdown().then(() => { shutdownFinished = true; });
+        await Bun.sleep(20);
+        expect(shutdownFinished).toBe(false);
+
+        releaseRender();
+        await submitted;
+        await shutdown;
+
+        const restarted = await startRuntime({ workspace, dbPath, http: false });
+        try {
+            const row = restarted.ctx.fns.db.select(restarted.ctx, {
+                sql: 'SELECT run_state, next_run_at FROM agents WHERE id = ?', params: [agent.id],
+            })[0];
+            expect(row).toEqual({ run_state: 'idle', next_run_at: expect.any(Number) });
+            expect(restarted.ctx.fns.session.getMessages(restarted.ctx, { id: agent.id })
+                .map((message: any) => message.content)).toEqual(['persist me']);
+            expect(restarted.ctx.fns.session.getEvents(restarted.ctx, { id: agent.id })
+                .map((event: any) => event.type)).toEqual(['user']);
+        } finally {
+            await restarted.shutdown();
+        }
+    });
+
     test('keeps shutdown run tracking after agent.run is hot-reloaded', async () => {
         await mkdir(workspace, { recursive: true });
         const runtime = await startRuntime({ workspace, dbPath: ':memory:', http: false, shutdownTimeoutMs: 10 });

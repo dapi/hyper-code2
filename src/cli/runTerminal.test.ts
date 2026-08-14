@@ -121,6 +121,39 @@ describe('runTerminal', () => {
         expect(row.next_run_at).toBeNull();
     });
 
+    test('first interrupt prevents an event-rendering submission from scheduling', async () => {
+        const ctx = await mkTestCtx();
+        cleanups.push(() => ctx.state.db.close());
+        const agent = ctx.fns.agent.start(ctx, { model: 'mock:test' });
+        let releaseRender!: () => void;
+        const rendering = new Promise<void>((resolve) => { releaseRender = resolve; });
+        let renderStarted!: () => void;
+        const started = new Promise<void>((resolve) => { renderStarted = resolve; });
+        ctx.fns.agent.renderEventHtml = async () => {
+            renderStarted();
+            await rendering;
+            return '<p>user</p>';
+        };
+        let interrupt!: () => void;
+        const running = runTerminal({
+            ctx,
+            agent,
+            workspace: '/work',
+            input: lines(['wait']),
+            write: () => {},
+            registerInterrupt: (handler) => { interrupt = handler; return () => {}; },
+        });
+        await started;
+        interrupt();
+        releaseRender();
+        await running;
+
+        const row = ctx.fns.db.select(ctx, {
+            sql: 'SELECT run_state, next_run_at FROM agents WHERE id = ?', params: [agent.id],
+        })[0];
+        expect(row).toEqual({ run_state: 'idle', next_run_at: null });
+    });
+
     test('one-shot non-TTY run handles process SIGINT through the stop lifecycle', async () => {
         const ctx = await mkTestCtx();
         const agent = ctx.fns.agent.start(ctx, { model: 'mock:test' });

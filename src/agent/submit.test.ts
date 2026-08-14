@@ -31,4 +31,33 @@ describe('agent.submit', () => {
         const agent = ctx.fns.agent.start(ctx, { model: 'mock:echo' });
         await expect(ctx.fns.agent.submit(ctx, { agent, text: '  ' })).rejects.toThrow('empty input');
     });
+
+    test('does not schedule when cancelled while user-event rendering is pending', async () => {
+        const ctx = await mkTestCtx();
+        databases.push(ctx.state.db);
+        const agent = ctx.fns.agent.start(ctx, { model: 'mock:echo' });
+        let releaseRender!: () => void;
+        const rendering = new Promise<void>((resolve) => { releaseRender = resolve; });
+        let renderStarted!: () => void;
+        const started = new Promise<void>((resolve) => { renderStarted = resolve; });
+        ctx.fns.agent.renderEventHtml = async () => {
+            renderStarted();
+            await rendering;
+            return '<p>user</p>';
+        };
+        const controller = new AbortController();
+
+        const submitted = ctx.fns.agent.submit(ctx, { agent, text: 'stop me', signal: controller.signal });
+        await started;
+        controller.abort('stopped_by_user');
+        releaseRender();
+        await submitted;
+
+        const row = ctx.fns.db.select(ctx, {
+            sql: 'SELECT next_run_at, run_state FROM agents WHERE id = ?', params: [agent.id],
+        })[0];
+        expect(row).toEqual({ next_run_at: null, run_state: 'idle' });
+        expect(ctx.fns.session.getMessages(ctx, { id: agent.id }).map((message: any) => message.content)).toEqual(['stop me']);
+        expect(ctx.fns.session.getEvents(ctx, { id: agent.id }).map((event: any) => event.type)).toEqual(['user']);
+    });
 });
