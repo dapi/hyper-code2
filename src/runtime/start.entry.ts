@@ -40,6 +40,11 @@ export default async function startRuntime(opts: RuntimeOptions): Promise<Runtim
         if (shutdownPromise) return shutdownPromise;
         shutdownPromise = (async () => {
             let forced = false;
+            // Stop claiming durable work before enabling the run gate. Otherwise
+            // a worker can claim a due row during HTTP shutdown, observe the
+            // gate, and mistake a no-op for a completed agent turn.
+            (ctx.state as any).workerLoopRunning = false;
+            try { ctx.fns.agent?.wakeWorker?.(ctx); } catch {}
             // Queued UI launches run in a later microtask. Mark shutdown before
             // the first await so they cannot begin after the active-run snapshot.
             (ctx.state as any).runtimeShuttingDown = true;
@@ -54,7 +59,6 @@ export default async function startRuntime(opts: RuntimeOptions): Promise<Runtim
                     if (!graceful) await server.stop(true);
                 } catch {}
             }
-            (ctx.state as any).workerLoopRunning = false;
             for (const agent of Object.values((ctx.state as any).agent ?? {}) as any[]) {
                 try { agent.abortController?.abort('runtime_shutdown'); } catch {}
             }
@@ -126,7 +130,11 @@ function trackAgentRuns(ctx: Context): void {
     const trackedRun = ((...args: Parameters<typeof implementation>) => {
         // A UI launch may already be queued when shutdown begins. It must not
         // create an AbortController or touch SQLite after the shutdown snapshot.
-        if ((ctx.state as any).runtimeShuttingDown) return Promise.resolve(undefined);
+        if ((ctx.state as any).runtimeShuttingDown) {
+            // Callers such as workerLoop must distinguish this from a completed
+            // run so they retain the durable cursor and schedule for restart.
+            return Promise.reject(new Error('agent run aborted: runtime is shutting down'));
+        }
         let promise: Promise<unknown>;
         try {
             // Invoke immediately: agent.run installs its AbortController before

@@ -132,6 +132,45 @@ describe('startRuntime', () => {
         expect(agent.isStreaming).toBe(false);
     });
 
+    test('keeps a due durable prompt scheduled while HTTP shutdown is in progress', async () => {
+        await mkdir(workspace, { recursive: true });
+        const runtime = await startRuntime({ workspace, dbPath: ':memory:', http: false });
+        const ctx = runtime.ctx;
+        const agent = ctx.fns.agent.start(ctx, { model: 'mock:test', systemPrompt: '' });
+        ctx.fns.session.appendMessage(ctx, { id: agent.id, message: { role: 'user', content: 'durable prompt' } });
+
+        let releaseServerStop!: () => void;
+        ctx.state.server = {
+            server: {
+                stop: () => new Promise<void>((resolve) => { releaseServerStop = resolve; }),
+            },
+        };
+
+        const shutdown = runtime.shutdown();
+        await Promise.resolve();
+        // This simulates a due row racing with a graceful HTTP stop. The worker
+        // must not acknowledge it merely because runtime shutdown began.
+        ctx.fns.db.exec(ctx, {
+            sql: 'UPDATE agents SET next_run_at = ? WHERE id = ?',
+            params: [Date.now(), agent.id],
+        });
+        ctx.fns.agent.wakeWorker(ctx);
+        await Bun.sleep(25);
+
+        const duringShutdown = ctx.fns.db.select(ctx, {
+            sql: 'SELECT run_state, next_run_at, last_processed_msg_idx FROM agents WHERE id = ?',
+            params: [agent.id],
+        })[0];
+        expect(duringShutdown).toEqual({
+            run_state: 'idle',
+            next_run_at: expect.any(Number),
+            last_processed_msg_idx: -1,
+        });
+
+        releaseServerStop();
+        await shutdown;
+    });
+
     test('awaits HTTP shutdown before closing shared resources', async () => {
         await mkdir(workspace, { recursive: true });
         const runtime = await startRuntime({ workspace, dbPath: ':memory:', http: false });

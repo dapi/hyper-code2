@@ -102,7 +102,10 @@ async function runOne(ctx: Context, agentId: string): Promise<void> {
     try {
         await ctx.fns.agent.run(ctx, { agent, userText: '', userMessageAlreadyAppended: true });
     } catch (e: any) {
-        if (isAbortError(e)) {
+        // Shutdown can reject a run before it reaches the model. Treat any
+        // concurrent shutdown failure as an abort so a durable prompt is
+        // retried after restart instead of being acknowledged as an error.
+        if (isAbortError(e) || (ctx.state as any).runtimeShuttingDown) {
             aborted = true;
         } else {
             errorText = e?.message ?? String(e);
@@ -137,7 +140,11 @@ async function runOne(ctx: Context, agentId: string): Promise<void> {
         // so restore it once the claim has quiesced rather than stranding it.
         // An explicit clearQueue removes that signal, and must win over the
         // message-frontier comparison.
-        const stillPending = (advanceCursor && afterIdx > cursorIdx && current?.next_run_at != null)
+        const preservePendingForShutdown = aborted
+            && (ctx.state as any).runtimeShuttingDown
+            && current?.next_run_at != null;
+        const stillPending = preservePendingForShutdown
+            || (advanceCursor && afterIdx > cursorIdx && current?.next_run_at != null)
             || (aborted && afterIdx > frontierIdx && current?.next_run_at != null);
 
         ctx.fns.db.exec(ctx, {
@@ -149,7 +156,13 @@ async function runOne(ctx: Context, agentId: string): Promise<void> {
                     last_error = ?,
                     updated_at = ?
               WHERE id = ?`,
-            params: [cursorIdx, stillPending ? ts + 5_000 : null, errorText, ts, agentId],
+            params: [
+                cursorIdx,
+                preservePendingForShutdown ? current.next_run_at : stillPending ? ts + 5_000 : null,
+                errorText,
+                ts,
+                agentId,
+            ],
         });
 
         agent.abortController = null;

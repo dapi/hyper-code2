@@ -197,6 +197,32 @@ describe('agent.workerLoop', () => {
         expect(row.last_processed_msg_idx).toBe(beforeCursor);    // cursor preserved
     }, 5_000);
 
+    test('runtime shutdown preserves the claimed prompt for the next process', async () => {
+        const ctx: any = await mkTestCtx();
+        ctx.fns.agent.workerLoop = workerLoop;
+        ctx.fns.agent.wakeWorker = wakeWorker;
+
+        seedReadyAgent(ctx, 'shutdown-aborter', Date.now() - 100);
+        ctx.fns.session.appendMessage(ctx, { id: 'shutdown-aborter', message: { role: 'user', content: 'retry me' } });
+        ctx.fns.agent.run = async () => {
+            ctx.state.runtimeShuttingDown = true;
+            // Mirror runtime shutdown: prevent the worker from claiming the
+            // preserved schedule again in this process.
+            ctx.state.workerLoopRunning = false;
+            throw new Error('agent run aborted: runtime is shutting down');
+        };
+
+        await workerLoop(ctx);
+
+        const row = ctx.fns.db.select(ctx, {
+            sql: 'SELECT run_state, next_run_at, last_processed_msg_idx FROM agents WHERE id = ?',
+            params: ['shutdown-aborter'],
+        })[0];
+        expect(row.run_state).toBe('idle');
+        expect(row.next_run_at).not.toBeNull();
+        expect(row.last_processed_msg_idx).toBe(-1);
+    }, 5_000);
+
     test('default stop reschedules a message submitted during the aborted run', async () => {
         const ctx: any = await mkTestCtx();
         ctx.fns.agent.workerLoop = workerLoop;
