@@ -13,15 +13,13 @@ export default async function () {
 
 if (import.meta.main) {
     const forcedShutdownExitCode = 125;
-    const ctx = await startLegacyRuntime();
-    (globalThis as any).ctx = ctx;
+    let ctx: Awaited<ReturnType<typeof startLegacyRuntime>> | undefined;
     let shuttingDown = false;
+    let shutdownRequested = false;
     const shutdown = () => {
         if (shuttingDown) return;
         shuttingDown = true;
-        // Keep the compatibility entrypoint safe now that §bash starts a
-        // detached process group: shutdown aborts it before Bun can exit.
-        const runtimeShutdown = (ctx.state as any).shutdown;
+        const runtimeShutdown = (ctx?.state as any)?.shutdown;
         if (typeof runtimeShutdown !== 'function') {
             process.exitCode = 1;
             return;
@@ -36,8 +34,18 @@ if (import.meta.main) {
                 process.exitCode = 1;
             });
     };
-    process.once('SIGINT', shutdown);
-    process.once('SIGTERM', shutdown);
+    // Install the handlers before runtime boot. A supervisor can signal the
+    // process as soon as the listener opens, before startLegacyRuntime
+    // resolves; handling that signal later must still quiesce the runtime.
+    const requestShutdown = () => {
+        shutdownRequested = true;
+        if (ctx) shutdown();
+    };
+    process.once('SIGINT', requestShutdown);
+    process.once('SIGTERM', requestShutdown);
+    ctx = await startLegacyRuntime();
+    (globalThis as any).ctx = ctx;
+    if (shutdownRequested) shutdown();
     console.log("\nctx keys:", Object.keys(ctx));
     console.log("ctx.fns:", JSON.stringify(mapShape(ctx.fns), null, 2));
 }

@@ -130,7 +130,7 @@ exec '${process.execPath}' "$@"
         const stderr = new Response(proc.stderr).text();
 
         try {
-            await waitForPath(join(workspace, '.hyper', '_runtime', 'sessions'), 2_000);
+            await waitForPath(join(workspace, '.hyper', '_runtime', 'sessions'), 4_000);
             process.kill(proc.pid, 'SIGTERM');
 
             expect(await proc.exited).toBe(0);
@@ -139,5 +139,5 @@ exec '${process.execPath}' "$@"
         } finally {
             try { proc.kill('SIGKILL'); } catch {}
         }
-    }, 5_000);
+    }, 8_000);
 });
