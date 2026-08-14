@@ -53,4 +53,17 @@ describe('agent.executeBash', () => {
         expect(Date.now() - startedAt).toBeLessThan(1_000);
         expect(result.isError).toBe(true);
     }, 2_000);
+
+    test('escalates to SIGKILL when the shell process group ignores SIGTERM', async () => {
+        const controller = new AbortController();
+        const startedAt = Date.now();
+        const running = executeBash(ctx, `trap '' TERM; sleep 5 & wait`, controller.signal);
+        // Give bash time to install the trap so this exercises escalation
+        // instead of winning the startup race with the initial SIGTERM.
+        setTimeout(() => controller.abort('stopped_by_user'), 50);
+
+        const result = await running;
+        expect(Date.now() - startedAt).toBeLessThan(1_000);
+        expect(result.isError).toBe(true);
+    }, 2_000);
 });

@@ -8,6 +8,7 @@ export type TerminalOptions = {
     input?: AsyncIterable<string>;
     write?: (text: string) => void;
     registerInterrupt?: (handler: () => void) => () => void;
+    exitSignal?: AbortSignal;
 };
 
 export default async function runTerminal(opts: TerminalOptions): Promise<void> {
@@ -49,16 +50,22 @@ export default async function runTerminal(opts: TerminalOptions): Promise<void> 
     const unregisterInterrupt = opts.registerInterrupt
         ? opts.registerInterrupt(onSigint)
         : (() => {
-            if (readline) {
+            if (readline?.terminal) {
                 readline.on('SIGINT', onSigint);
                 return () => readline.off('SIGINT', onSigint);
             }
-            // Positional one-shot runs intentionally have no readline
-            // interface. They still need to drain an active turn through the
-            // normal stop lifecycle instead of letting SIGINT kill the process.
+            // Redirected stdin/stdout readline sessions receive SIGINT on the
+            // process, just like positional one-shot runs with no interface.
             process.on('SIGINT', onSigint);
             return () => process.off('SIGINT', onSigint);
         })();
+    const onExitSignal = () => {
+        exitRequested = true;
+        exitController.abort();
+        readline?.close();
+    };
+    opts.exitSignal?.addEventListener('abort', onExitSignal, { once: true });
+    if (opts.exitSignal?.aborted) onExitSignal();
     if (!opts.input && !opts.initialPrompt) write('> ');
 
     try {
@@ -90,6 +97,7 @@ export default async function runTerminal(opts: TerminalOptions): Promise<void> 
             if (readline) write('\n> ');
         }
     } finally {
+        opts.exitSignal?.removeEventListener('abort', onExitSignal);
         unregisterInterrupt();
         readline?.close();
     }

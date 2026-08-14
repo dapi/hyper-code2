@@ -21,8 +21,16 @@ export default async function (
     }
 
     while (true) {
-        const { text, usage } = await ctx.fns.llm.stream(ctx, { agent, signal: ac.signal });
+        const { text, thinking, usage } = await ctx.fns.llm.stream(ctx, { agent, signal: ac.signal });
         throwIfAborted(ac.signal);
+
+        // Provider reasoning is a durable operator-visible activity event.
+        // Persist it before rendering any response or executing markers.
+        if (thinking?.trim()) {
+            await ctx.fns.session.appendThinkingEvent(ctx, { id: agent.id, text: thinking });
+            ctx.fns.session.syncAgentState(ctx, { agent });
+            throwIfAborted(ac.signal);
+        }
 
         const { prose, calls, errors } = ctx.fns.agent.parseMarkers(ctx, { text: String(text ?? '') });
 
@@ -33,9 +41,11 @@ export default async function (
             if (!text || !String(text).trim()) {
                 return { text: text ?? '', usage };
             }
+            throwIfAborted(ac.signal);
             const append = ctx.fns.session.appendAssistantMessage(ctx, { id: agent.id, msg: { content: text } });
             ctx.fns.session.syncAgentState(ctx, { agent });
             const html = await ctx.fns.markdown.render(ctx, { source: prose || text || '' });
+            throwIfAborted(ac.signal);
             await ctx.fns.session.appendAssistantEvent(ctx, { id: agent.id, payload: {
                 text: prose || text || '', html, usage, messageIdx: append.idx,
             } });
@@ -47,9 +57,11 @@ export default async function (
         // Splitting prose from markers gives the model clean per-call pairing
         // on later turns: [assistant: prose?] → (assistant<marker> → user<result>)+.
         if (prose.trim()) {
+            throwIfAborted(ac.signal);
             const proseAppend = ctx.fns.session.appendAssistantMessage(ctx, { id: agent.id, msg: { content: prose } });
             ctx.fns.session.syncAgentState(ctx, { agent });
             const proseHtml = await ctx.fns.markdown.render(ctx, { source: prose });
+            throwIfAborted(ac.signal);
             await ctx.fns.session.appendAssistantEvent(ctx, { id: agent.id, payload: {
                 text: prose, html: proseHtml, usage, messageIdx: proseAppend.idx,
             } });
@@ -57,6 +69,7 @@ export default async function (
         }
 
         for (const call of calls) {
+            throwIfAborted(ac.signal);
             await ctx.fns.agent.executeMarker(ctx, { agent, call, usage });
             throwIfAborted(ac.signal);
         }
@@ -64,6 +77,7 @@ export default async function (
         // Parser errors (misplaced markers etc) tail the chain as a single
         // user message so the model can self-correct on the next turn.
         if (errors.length > 0) {
+            throwIfAborted(ac.signal);
             for (const e of errors) {
                 await ctx.fns.session.appendErrorEvent(ctx, { id: agent.id, error: e.hint });
             }

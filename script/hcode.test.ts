@@ -40,6 +40,14 @@ async function runLauncher(
     return { stdout, stderr, exitCode };
 }
 
+async function waitForPath(path: string, timeoutMs: number) {
+    const deadline = Date.now() + timeoutMs;
+    while (!existsSync(path)) {
+        if (Date.now() >= deadline) throw new Error(`timed out waiting for ${path}`);
+        await Bun.sleep(10);
+    }
+}
+
 describe('hcode launcher', () => {
     test('rejects an unsupported Bun before entering the CLI or creating workspace state', async () => {
         const workspace = join(fixtureRoot, 'workspace');
@@ -91,4 +99,30 @@ exec '${process.execPath}' "$@"
         expect(result.stdout).toContain('Usage:');
         expect(result.stderr).toBe('');
     });
+
+    test('routes terminal SIGTERM through runtime shutdown', async () => {
+        const workspace = join(fixtureRoot, 'workspace');
+        await mkdir(workspace, { recursive: true });
+        const proc = Bun.spawn({
+            cmd: [join(repoRoot, 'hcode'), '-C', workspace, '-m', 'mock:test'],
+            cwd: workspace,
+            env: { ...process.env, BUN_BIN: process.execPath },
+            stdin: 'pipe',
+            stdout: 'pipe',
+            stderr: 'pipe',
+        });
+        const stdout = new Response(proc.stdout).text();
+        const stderr = new Response(proc.stderr).text();
+
+        try {
+            await waitForPath(join(workspace, '.hyper', '_runtime', 'sessions'), 2_000);
+            process.kill(proc.pid, 'SIGTERM');
+
+            expect(await proc.exited).toBe(0);
+            await stdout;
+            expect(await stderr).toBe('');
+        } finally {
+            try { proc.kill('SIGKILL'); } catch {}
+        }
+    }, 5_000);
 });

@@ -34,7 +34,15 @@ export default async function startRuntime(opts: RuntimeOptions): Promise<Runtim
         shutdownPromise = (async () => {
             // Quiesce the external adapter first so no new work can arrive while
             // the worker drains/aborts and the database is still open.
-            try { await (ctx.state as any).server?.server?.stop?.(); } catch {}
+            const server = (ctx.state as any).server?.server;
+            if (server?.stop) {
+                try {
+                    const graceful = await settleWithin(server.stop(), opts.shutdownTimeoutMs ?? 2_000);
+                    // /events is deliberately long-lived SSE. A browser tab must
+                    // not keep the worker or SQLite alive past the shutdown grace.
+                    if (!graceful) await server.stop(true);
+                } catch {}
+            }
             (ctx.state as any).workerLoopRunning = false;
             for (const agent of Object.values((ctx.state as any).agent ?? {}) as any[]) {
                 try { agent.abortController?.abort('runtime_shutdown'); } catch {}

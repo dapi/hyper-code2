@@ -39,9 +39,15 @@ export default async function main(argv: string[]): Promise<number> {
             return 0;
         }
 
-        const runtime = await startRuntime({ workspace, dbPath, http: false, quiet: true });
+        const terminalExit = new AbortController();
+        const onSigterm = () => terminalExit.abort('SIGTERM');
+        process.once('SIGTERM', onSigterm);
+        let runtime: Awaited<ReturnType<typeof startRuntime>> | undefined;
         try {
+            runtime = await startRuntime({ workspace, dbPath, http: false, quiet: true });
+            if (terminalExit.signal.aborted) return 0;
             const loaded = await runtime.ctx.fns.workspace.instructions(runtime.ctx, { workspace });
+            if (terminalExit.signal.aborted) return 0;
             const model = command.model ?? runtime.ctx.fns.settings.modelDefault(runtime.ctx);
             const prompt = [
                 'You are running in TRUSTED MODE with unrestricted local agent execution.',
@@ -49,9 +55,16 @@ export default async function main(argv: string[]): Promise<number> {
                 loaded.text,
             ].filter(Boolean).join('\n\n');
             const agent = runtime.ctx.fns.agent.start(runtime.ctx, { model, systemPrompt: prompt });
-            await runTerminal({ ctx: runtime.ctx, agent, workspace, initialPrompt: command.prompt });
+            await runTerminal({
+                ctx: runtime.ctx,
+                agent,
+                workspace,
+                initialPrompt: command.prompt,
+                exitSignal: terminalExit.signal,
+            });
         } finally {
-            await runtime.shutdown();
+            process.off('SIGTERM', onSigterm);
+            await runtime?.shutdown();
         }
         return 0;
     } catch (error: any) {

@@ -72,6 +72,26 @@ describe('startRuntime', () => {
         expect(events).toEqual(['server-stop', 'log-end', 'db-close']);
     });
 
+    test('forces HTTP connections closed when graceful shutdown exceeds its grace period', async () => {
+        await mkdir(workspace, { recursive: true });
+        const runtime = await startRuntime({ workspace, dbPath: ':memory:', http: false, shutdownTimeoutMs: 10 });
+        const events: string[] = [];
+        runtime.ctx.state.server = {
+            server: {
+                stop: (force?: boolean) => {
+                    events.push(force ? 'server-force-stop' : 'server-stop');
+                    return force ? Promise.resolve() : new Promise<void>(() => {});
+                },
+            },
+        };
+        runtime.ctx.state.workerLoopPromise = Promise.resolve();
+        runtime.ctx.state.http = { logFile: { end: async () => { events.push('log-end'); } } };
+        runtime.ctx.state.db = { close: () => { events.push('db-close'); } };
+
+        await runtime.shutdown();
+        expect(events).toEqual(['server-stop', 'server-force-stop', 'log-end', 'db-close']);
+    });
+
     test('exposes the explicit database path to agent runtime context', async () => {
         await mkdir(workspace, { recursive: true });
         const dbPath = join(workspace, '.hyper', '_runtime', 'explicit-sessions');

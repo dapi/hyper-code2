@@ -19,7 +19,9 @@ version_is_supported() {
     minor=${rest%%.*}
     rest=${rest#*.}
     [ "$rest" != "$minor" ] || return 1
-    patch=${rest%%[^0-9]*}
+    # POSIX bracket negation is `!`; `^` is not portable to dash (Ubuntu's
+    # /bin/sh) and caused supported Bun versions to be rejected in CI.
+    patch=${rest%%[!0-9]*}
     [ -n "$patch" ] || return 1
     case "$major.$minor.$patch" in
         *[!0-9.]* | '') return 1 ;;

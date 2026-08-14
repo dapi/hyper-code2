@@ -147,6 +147,32 @@ describe('runTerminal', () => {
         expect(row).toEqual({ run_state: 'idle', next_run_at: null });
     });
 
+    test('exits an active terminal when the shared shutdown signal arrives', async () => {
+        const ctx = await mkTestCtx();
+        cleanups.push(() => ctx.state.db.close());
+        const agent = ctx.fns.agent.start(ctx, { model: 'mock:test' });
+        let submitted!: () => void;
+        const started = new Promise<void>((resolve) => { submitted = resolve; });
+        ctx.fns.agent.submit = async () => {
+            submitted();
+            await new Promise<void>(() => {});
+            return { sendAt: Date.now(), messageIdx: 0 };
+        };
+        const exitController = new AbortController();
+        const running = runTerminal({
+            ctx,
+            agent,
+            workspace: '/work',
+            input: lines(['wait']),
+            write: () => {},
+            exitSignal: exitController.signal,
+        });
+        await started;
+
+        exitController.abort('SIGTERM');
+        await running;
+    });
+
     test('does not submit the next prompt until a stopped run has quiesced', async () => {
         const ctx = await mkTestCtx();
         const agent = ctx.fns.agent.start(ctx, { model: 'mock:test' });
