@@ -14,7 +14,7 @@ It requires Bun >= 1.3.13; the verified preview runtime is Bun 1.3.14:
 mise exec bun@1.3.14 -- ./hcode -C /path/to/project
 
 # optional model override and first prompt
-mise exec bun@1.3.14 -- ./hcode -C /path/to/project -m claude-code:claude-sonnet-4-5 "inspect this project"
+mise exec bun@1.3.14 -- ./hcode -C /path/to/project -m claude-code:claude-haiku-4-5-20251001 "inspect this project"
 ```
 
 `hcode` canonicalizes the selected directory, stores preview session state in

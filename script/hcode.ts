@@ -31,19 +31,27 @@ export default async function main(argv: string[]): Promise<number> {
         if (command.kind === 'serve') {
             console.log('TRUSTED MODE — unrestricted agent execution');
             console.log('Concurrent hcode processes for the same workspace are unsupported in this preview.');
-            const runtime = await startRuntime({
-                workspace,
-                dbPath,
-                http: true,
-                env: command.port ? { PORT: String(command.port) } : {},
-            });
+            const serveExit = new AbortController();
+            const onSignal = () => serveExit.abort();
+            process.once('SIGINT', onSignal);
+            process.once('SIGTERM', onSignal);
+            let runtime: Awaited<ReturnType<typeof startRuntime>> | undefined;
+            let forcedShutdown = false;
             try {
-                await waitForExitSignal();
+                runtime = await startRuntime({
+                    workspace,
+                    dbPath,
+                    http: true,
+                    env: command.port ? { PORT: String(command.port) } : {},
+                });
+                await waitForExitSignal(serveExit.signal);
             } finally {
-                const result = await runtime.shutdown();
-                if (result.forced) return FORCED_SHUTDOWN_EXIT_CODE;
+                process.off('SIGINT', onSignal);
+                process.off('SIGTERM', onSignal);
+                const result = await runtime?.shutdown();
+                forcedShutdown = result?.forced ?? false;
             }
-            return 0;
+            return forcedShutdown ? FORCED_SHUTDOWN_EXIT_CODE : 0;
         }
 
         const terminalExit = new AbortController();
@@ -53,26 +61,28 @@ export default async function main(argv: string[]): Promise<number> {
         let forcedShutdown = false;
         try {
             runtime = await startRuntime({ workspace, dbPath, http: false, quiet: true });
-            if (terminalExit.signal.aborted) return 0;
-            const loaded = await runtime.ctx.fns.workspace.instructions(runtime.ctx, { workspace });
-            if (terminalExit.signal.aborted) return 0;
-            const model = command.model ?? runtime.ctx.fns.settings.modelDefault(runtime.ctx);
-            const prompt = [
-                'You are running in TRUSTED MODE with unrestricted local agent execution.',
-                runtimePathInstructions({
-                    workspace,
-                    roots: await runtime.ctx.fns.project.roots(runtime.ctx),
-                }),
-                loaded.text,
-            ].filter(Boolean).join('\n\n');
-            const agent = runtime.ctx.fns.agent.start(runtime.ctx, { model, systemPrompt: prompt });
-            await runTerminal({
-                ctx: runtime.ctx,
-                agent,
-                workspace,
-                initialPrompt: command.prompt,
-                exitSignal: terminalExit.signal,
-            });
+            if (!terminalExit.signal.aborted) {
+                const loaded = await runtime.ctx.fns.workspace.instructions(runtime.ctx, { workspace });
+                if (!terminalExit.signal.aborted) {
+                    const model = command.model ?? runtime.ctx.fns.settings.modelDefault(runtime.ctx);
+                    const roots = await runtime.ctx.fns.project.roots(runtime.ctx);
+                    if (!terminalExit.signal.aborted) {
+                        const prompt = [
+                            'You are running in TRUSTED MODE with unrestricted local agent execution.',
+                            runtimePathInstructions({ workspace, roots }),
+                            loaded.text,
+                        ].filter(Boolean).join('\n\n');
+                        const agent = runtime.ctx.fns.agent.start(runtime.ctx, { model, systemPrompt: prompt });
+                        await runTerminal({
+                            ctx: runtime.ctx,
+                            agent,
+                            workspace,
+                            initialPrompt: command.prompt,
+                            exitSignal: terminalExit.signal,
+                        });
+                    }
+                }
+            }
         } finally {
             process.off('SIGTERM', onSigterm);
             const result = await runtime?.shutdown();
@@ -86,11 +96,9 @@ export default async function main(argv: string[]): Promise<number> {
     }
 }
 
-function waitForExitSignal(): Promise<void> {
-    return new Promise((resolve) => {
-        process.once('SIGINT', resolve);
-        process.once('SIGTERM', resolve);
-    });
+function waitForExitSignal(signal: AbortSignal): Promise<void> {
+    if (signal.aborted) return Promise.resolve();
+    return new Promise((resolve) => signal.addEventListener('abort', () => resolve(), { once: true }));
 }
 
 function helpText() {

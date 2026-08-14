@@ -12,6 +12,7 @@ export default async function () {
 }
 
 if (import.meta.main) {
+    const forcedShutdownExitCode = 125;
     const ctx = await startLegacyRuntime();
     (globalThis as any).ctx = ctx;
     let shuttingDown = false;
@@ -26,7 +27,10 @@ if (import.meta.main) {
             return;
         }
         void runtimeShutdown()
-            .then(() => { process.exitCode = 0; })
+            .then((result: { forced?: boolean }) => {
+                if (result?.forced) process.exit(forcedShutdownExitCode);
+                process.exitCode = 0;
+            })
             .catch((error: any) => {
                 console.error('[shutdown] failed:', error?.message ?? error);
                 process.exitCode = 1;
