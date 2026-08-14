@@ -51,18 +51,23 @@ export default async function runTerminal(opts: TerminalOptions): Promise<void> 
             readline?.close();
         }
     };
+    // Terminal readline consumes Ctrl+C and emits SIGINT on its interface, so
+    // this listener is required even when hcode has also installed its
+    // process-level lifecycle handler through registerInterrupt().
+    const unregisterReadlineInterrupt = readline?.terminal
+        ? (() => {
+            readline.on('SIGINT', onSigint);
+            return () => readline.off('SIGINT', onSigint);
+        })()
+        : () => {};
     const unregisterInterrupt = opts.registerInterrupt
         ? opts.registerInterrupt(onSigint)
-        : (() => {
-            if (readline?.terminal) {
-                readline.on('SIGINT', onSigint);
-                return () => readline.off('SIGINT', onSigint);
-            }
+        : !readline?.terminal ? (() => {
             // Redirected stdin/stdout readline sessions receive SIGINT on the
             // process, just like positional one-shot runs with no interface.
             process.on('SIGINT', onSigint);
             return () => process.off('SIGINT', onSigint);
-        })();
+        })() : () => {};
     const onExitSignal = () => {
         exitRequested = true;
         exitController.abort();
@@ -115,6 +120,7 @@ export default async function runTerminal(opts: TerminalOptions): Promise<void> 
     } finally {
         opts.exitSignal?.removeEventListener('abort', onExitSignal);
         readline?.off('close', onReadlineClose);
+        unregisterReadlineInterrupt();
         unregisterInterrupt();
         readline?.close();
     }
