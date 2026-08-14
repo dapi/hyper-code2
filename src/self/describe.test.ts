@@ -1043,7 +1043,7 @@ function layerMap(result: Awaited<ReturnType<typeof describeSelf>>) {
 }
 
 function expectUnknownComposition(layers: Record<string, any>) {
-    for (const name of ['core', 'wire-format', 'per-agent-additive', 'runtime-context']) {
+    for (const name of ['core', 'wire-format', 'per-agent-additive', 'cli-runtime-paths', 'runtime-context']) {
         expect(layers[name]).toEqual({
             name,
             status: 'unavailable',

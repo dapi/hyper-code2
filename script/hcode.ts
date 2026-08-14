@@ -15,6 +15,15 @@ export type MainDependencies = {
     runTerminal?: typeof runTerminal;
 };
 
+// Keep the CLI's workspace/runtime boundary in the shared prompt composer so
+// it applies to terminal agents, browser-created agents, and rehydrated agents
+// alike. The value is intentionally runtime-only rather than persisted in each
+// agent's custom instructions: it reflects the current installation roots.
+export async function configureRuntimePathInstructions(ctx: Context, workspace: string): Promise<void> {
+    const roots = await ctx.fns.project.roots(ctx);
+    (ctx.state as any).runtimePathInstructions = runtimePathInstructions({ workspace, roots });
+}
+
 export default async function main(argv: string[], deps: MainDependencies = {}): Promise<number> {
     const start = deps.startRuntime ?? startRuntime;
     const terminal = deps.runTerminal ?? runTerminal;
@@ -52,6 +61,7 @@ export default async function main(argv: string[], deps: MainDependencies = {}):
                     dbPath,
                     http: true,
                     env: command.port ? { PORT: String(command.port) } : {},
+                    configurePromptContext: (ctx) => configureRuntimePathInstructions(ctx, workspace),
                 });
                 await waitForExitSignal(serveExit.signal);
             } finally {
@@ -75,16 +85,20 @@ export default async function main(argv: string[], deps: MainDependencies = {}):
         process.once('SIGTERM', onSigterm);
         let runtime: Awaited<ReturnType<typeof startRuntime>> | undefined;
         try {
-            runtime = await start({ workspace, dbPath, http: false, quiet: true });
+            runtime = await start({
+                workspace,
+                dbPath,
+                http: false,
+                quiet: true,
+                configurePromptContext: (ctx) => configureRuntimePathInstructions(ctx, workspace),
+            });
             if (!terminalExit.signal.aborted) {
                 const loaded = await runtime.ctx.fns.workspace.instructions(runtime.ctx, { workspace });
                 if (!terminalExit.signal.aborted) {
                     const model = command.model ?? runtime.ctx.fns.settings.modelDefault(runtime.ctx);
-                    const roots = await runtime.ctx.fns.project.roots(runtime.ctx);
                     if (!terminalExit.signal.aborted) {
                         const prompt = [
                             'You are running in TRUSTED MODE with unrestricted local agent execution.',
-                            runtimePathInstructions({ workspace, roots }),
                             loaded.text,
                         ].filter(Boolean).join('\n\n');
                         const agent = runtime.ctx.fns.agent.start(runtime.ctx, { model, systemPrompt: prompt });

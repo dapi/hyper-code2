@@ -7,7 +7,7 @@ const FUNCTION_SOURCE_PATH = Symbol.for('hyper-code2.function-source.loaded-phys
 const BASE_COMPOSER = { root: 'src', rel: 'agent/fullSystemPrompt.ts' } as const;
 // Prompt-layer composition is known only for these reviewed shipped bytes.
 // A composer edit deliberately fails closed until this attestation is reviewed.
-const BASE_COMPOSER_HASH = '377c99e4ce5f8c2935dc0297688c71edcc00244e7f8a45546882084f0a2fdca6';
+const BASE_COMPOSER_HASH = 'f874eec8fb90fdc5c7bd13123bc2b5b0e5a033d9e59380471e7fa6607df83086';
 const BASE_PROMPT_SOURCES = [
     ['core', resolve(import.meta.dir, '../agent/SYSTEM_PROMPT_CORE.txt'), 'src/agent/SYSTEM_PROMPT_CORE.txt'],
     ['wire-format', resolve(import.meta.dir, '../agent/SYSTEM_PROMPT.txt'), 'src/agent/SYSTEM_PROMPT.txt'],
@@ -291,6 +291,15 @@ async function promptLayers(ctx: Context, composer?: ResolvedEffectiveSource) {
         sourceHashes: hashes.sort(),
         contentIncluded: false,
     });
+    const runtimePathInstructions = (ctx.state as any).runtimePathInstructions;
+    layers.push({
+        name: 'cli-runtime-paths',
+        status: typeof runtimePathInstructions === 'string' && runtimePathInstructions.trim()
+            ? 'observed'
+            : 'unavailable',
+        provenance: 'runtime.cli.runtimePathInstructions',
+        contentIncluded: false,
+    });
     layers.push({
         name: 'runtime-context',
         status: 'inferred',
@@ -328,7 +337,7 @@ function unavailablePromptLayers(composerDescriptor: Record<string, unknown>) {
         name: 'effective-composer',
         ...composerDescriptor,
         contentIncluded: false,
-    }, ...['core', 'wire-format', 'per-agent-additive', 'runtime-context'].map((name) => ({
+    }, ...['core', 'wire-format', 'per-agent-additive', 'cli-runtime-paths', 'runtime-context'].map((name) => ({
         name,
         status: 'unavailable',
         provenance: 'active-composer.structure',

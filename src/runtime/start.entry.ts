@@ -7,6 +7,10 @@ export type RuntimeOptions = {
     http?: boolean;
     quiet?: boolean;
     env?: Record<string, string | undefined>;
+    // Lets an entrypoint install ephemeral prompt context after procedures are
+    // loaded but before HTTP can accept work. It is intentionally not durable
+    // agent state because it describes the current runtime installation.
+    configurePromptContext?: (ctx: Context) => void | Promise<void>;
     // Test seam and forced-shutdown safety valve for adapters that do not
     // cooperate with AbortSignal. Normal callers use the conservative default.
     shutdownTimeoutMs?: number;
@@ -102,7 +106,10 @@ export default async function startRuntime(opts: RuntimeOptions): Promise<Runtim
             }
             try { await (ctx.state as any).http?.logFile?.end?.(); } catch {}
             try { (ctx.state as any).db?.close?.(); } catch {}
-            process.chdir(previousCwd);
+            // Workspace code can rename or remove the caller's original cwd.
+            // Cleanup is complete at this point, so restoration must not turn a
+            // forced shutdown into an ordinary failure (or prevent its exit).
+            try { process.chdir(previousCwd); } catch {}
             return { forced };
         })();
         return shutdownPromise;
@@ -112,6 +119,7 @@ export default async function startRuntime(opts: RuntimeOptions): Promise<Runtim
         await withMutedLogs(opts.quiet === true, async () => {
             const { default: loadFns } = await import('../loadFns');
             await loadFns(ctx);
+            await opts.configurePromptContext?.(ctx);
             await ctx.genTypes(ctx);
             trackAgentRuns(ctx);
             trackAgentSubmissions(ctx);

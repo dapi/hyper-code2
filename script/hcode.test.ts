@@ -196,6 +196,7 @@ exec '${process.execPath}' "$@"
         const agent = { model: 'mock:test' };
         const runtime = {
             ctx: {
+                state: {},
                 fns: {
                     workspace: { instructions: async () => ({ text: '' }) },
                     project: { roots: async () => [] },
@@ -211,5 +212,42 @@ exec '${process.execPath}' "$@"
         });
 
         expect(exitCode).toBe(FORCED_SHUTDOWN_EXIT_CODE);
+    });
+
+    test('configures the shared runtime-path prompt block for serve-mode agents', async () => {
+        const workspace = join(fixtureRoot, 'workspace');
+        await mkdir(workspace, { recursive: true });
+        let runtimeStarted!: () => void;
+        const started = new Promise<void>((resolve) => { runtimeStarted = resolve; });
+        const runtime = {
+            ctx: {
+                state: {},
+                fns: {
+                    project: {
+                        roots: async () => [
+                            { name: 'src', dir: '/opt/hcode/src' },
+                            { name: '.hyper', dir: '/opt/hcode/.hyper' },
+                        ],
+                    },
+                },
+            },
+            shutdown: async () => ({ forced: false }),
+        };
+
+        const running = main(['serve', '-C', workspace], {
+            startRuntime: async (opts) => {
+                await opts.configurePromptContext?.(runtime.ctx as any);
+                runtimeStarted();
+                return runtime as any;
+            },
+        });
+        await started;
+        process.emit('SIGTERM');
+
+        expect(await running).toBe(0);
+        expect((runtime.ctx.state as any).runtimePathInstructions).toContain(
+            'Selected workspace and process cwd: ' + workspace,
+        );
+        expect((runtime.ctx.state as any).runtimePathInstructions).toContain('src: /opt/hcode/src');
     });
 });

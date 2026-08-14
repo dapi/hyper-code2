@@ -1,5 +1,5 @@
 import { afterAll, describe, expect, test } from 'bun:test';
-import { mkdir, rm } from 'node:fs/promises';
+import { mkdir, rename, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import startRuntime from './start.entry';
 
@@ -40,6 +40,32 @@ describe('startRuntime', () => {
         expect((await shutdown).forced).toBe(true);
         expect(events).toEqual(['db-close']);
         expect(process.cwd()).toBe(originalCwd);
+    });
+
+    test('preserves a forced shutdown result when the original cwd is renamed', async () => {
+        const previousCwd = join(workspace, `previous-cwd-${crypto.randomUUID()}`);
+        const movedPreviousCwd = `${previousCwd}-moved`;
+        const runtimeWorkspace = join(workspace, `workspace-${crypto.randomUUID()}`);
+        await mkdir(previousCwd, { recursive: true });
+        await mkdir(runtimeWorkspace, { recursive: true });
+        process.chdir(previousCwd);
+        try {
+            const runtime = await startRuntime({
+                workspace: runtimeWorkspace,
+                dbPath: ':memory:',
+                http: false,
+                shutdownTimeoutMs: 10,
+            });
+            runtime.ctx.state.workerLoopPromise = new Promise<void>(() => {});
+            await rename(previousCwd, movedPreviousCwd);
+
+            expect(await runtime.shutdown()).toEqual({ forced: true });
+            expect(process.cwd()).toBe(runtimeWorkspace);
+        } finally {
+            process.chdir(originalCwd);
+            await rm(movedPreviousCwd, { recursive: true, force: true });
+            await rm(runtimeWorkspace, { recursive: true, force: true });
+        }
     });
 
     test('returns claimed durable work to idle before forced shutdown closes SQLite', async () => {
@@ -314,6 +340,31 @@ describe('startRuntime', () => {
             agent: { id: 'test-agent', systemPrompt: '' } as any,
         });
         expect(prompt).toContain(`- db path: ${dbPath}`);
+        await runtime.shutdown();
+    });
+
+    test('adds configured CLI runtime paths to every generated agent prompt', async () => {
+        await mkdir(workspace, { recursive: true });
+        const runtime = await startRuntime({
+            workspace,
+            dbPath: ':memory:',
+            http: false,
+            configurePromptContext: (ctx) => {
+                ctx.state.runtimePathInstructions = [
+                    '## CLI workspace and runtime paths (auto-injected)',
+                    '- Selected workspace and process cwd: /work/project',
+                    '- Installed HyperCode runtime roots (these are distinct from the workspace):',
+                    '  - src: /opt/hcode/src',
+                ].join('\n');
+            },
+        });
+
+        const prompt = await runtime.ctx.fns.agent.fullSystemPrompt(runtime.ctx, {
+            agent: { id: 'test-agent', systemPrompt: '' } as any,
+        });
+        expect(prompt).toContain('## CLI workspace and runtime paths (auto-injected)');
+        expect(prompt).toContain('Selected workspace and process cwd: /work/project');
+        expect(prompt).toContain('src: /opt/hcode/src');
         await runtime.shutdown();
     });
 });
