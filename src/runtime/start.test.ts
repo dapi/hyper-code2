@@ -67,6 +67,49 @@ describe('startRuntime', () => {
         expect(events).toEqual(['db-close']);
     });
 
+    test('keeps shutdown run tracking after agent.run is hot-reloaded', async () => {
+        await mkdir(workspace, { recursive: true });
+        const runtime = await startRuntime({ workspace, dbPath: ':memory:', http: false, shutdownTimeoutMs: 10 });
+        const ctx = runtime.ctx;
+        const reloadRoot = join(workspace, '.test-tmp', `reloaded-agent-${crypto.randomUUID()}`);
+        const startedKey = `__reloadedAgentRunStarted_${crypto.randomUUID().replaceAll('-', '')}`;
+        let started!: () => void;
+        const startedPromise = new Promise<void>((resolve) => { started = resolve; });
+        (globalThis as any)[startedKey] = started;
+        await mkdir(join(reloadRoot, 'agent'), { recursive: true });
+        await Bun.write(join(reloadRoot, 'agent', 'run.ts'), [
+            'export default async function (_ctx: any, opts: any) {',
+            '    opts.agent.abortController = new AbortController();',
+            `    globalThis[${JSON.stringify(startedKey)}]();`,
+            '    await new Promise<void>(() => {});',
+            '}',
+            '',
+        ].join('\n'));
+        ctx.fns.project.roots = async () => [{ name: 'src', dir: reloadRoot }];
+
+        try {
+            const wrapper = ctx.fns.agent.run;
+            await ctx.fns.repl.load(ctx, { name: 'agent.run' });
+            expect(ctx.fns.agent.run).toBe(wrapper);
+            await ctx.fns.repl.load(ctx, { name: 'agent' });
+            expect(ctx.fns.agent.run).toBe(wrapper);
+
+            const agent = ctx.fns.agent.start(ctx, { model: 'mock:test', systemPrompt: '' });
+            void ctx.fns.agent.run(ctx, { agent, userText: 'wait forever' });
+            await startedPromise;
+            ctx.state.workerLoopPromise = Promise.resolve();
+            const events: string[] = [];
+            ctx.state.db = { close: () => { events.push('db-close'); } } as any;
+
+            expect((ctx.state as any).activeAgentRunPromises.size).toBe(1);
+            expect((await runtime.shutdown()).forced).toBe(true);
+            expect(events).toEqual(['db-close']);
+        } finally {
+            delete (globalThis as any)[startedKey];
+            await rm(reloadRoot, { recursive: true, force: true });
+        }
+    });
+
     test('does not start queued UI runs after shutdown begins', async () => {
         await mkdir(workspace, { recursive: true });
         const runtime = await startRuntime({ workspace, dbPath: ':memory:', http: false });

@@ -121,9 +121,9 @@ export default async function startRuntime(opts: RuntimeOptions): Promise<Runtim
 function trackAgentRuns(ctx: Context): void {
     const activeRuns = new Set<Promise<unknown>>();
     (ctx.state as any).activeAgentRunPromises = activeRuns;
-    const run = ctx.fns.agent.run;
+    let implementation = ctx.fns.agent.run;
 
-    ctx.fns.agent.run = ((...args: Parameters<typeof run>) => {
+    const trackedRun = ((...args: Parameters<typeof implementation>) => {
         // A UI launch may already be queued when shutdown begins. It must not
         // create an AbortController or touch SQLite after the shutdown snapshot.
         if ((ctx.state as any).runtimeShuttingDown) return Promise.resolve(undefined);
@@ -131,7 +131,7 @@ function trackAgentRuns(ctx: Context): void {
         try {
             // Invoke immediately: agent.run installs its AbortController before
             // its first await, and stop/shutdown rely on that synchronous setup.
-            promise = Promise.resolve(run(...args));
+            promise = Promise.resolve(implementation(...args));
         } catch (error) {
             promise = Promise.reject(error);
         }
@@ -141,7 +141,18 @@ function trackAgentRuns(ctx: Context): void {
             () => activeRuns.delete(promise),
         );
         return promise;
-    }) as typeof run;
+    }) as typeof implementation;
+
+    // repl.load assigns the freshly imported procedure directly into
+    // ctx.fns.agent. Keep the public callable stable and replace only the
+    // implementation, so both single-function and namespace reloads retain
+    // the shutdown gate and active-run accounting.
+    Object.defineProperty(ctx.fns.agent, 'run', {
+        configurable: true,
+        enumerable: true,
+        get: () => trackedRun,
+        set: (next: typeof implementation) => { implementation = next; },
+    });
 }
 
 async function settleWithin(promise: Promise<unknown> | undefined, timeoutMs: number): Promise<boolean> {
