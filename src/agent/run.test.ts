@@ -63,6 +63,25 @@ describe('agent.run', () => {
         expect(msgs[3].content).toBe('computed: 4');
     });
 
+    test('stopping during a marker action ends the run as aborted', async () => {
+        const ctx = await setup();
+        ctx.fns.llm.stream = async () => ({ text: '§eval\nawait blocked;', toolCalls: [], thinking: '', usage: {} });
+        let release!: () => void;
+        const blocked = new Promise<void>((resolve) => { release = resolve; });
+        let markerStarted!: () => void;
+        const started = new Promise<void>((resolve) => { markerStarted = resolve; });
+        ctx.fns.repl.eval = async () => { markerStarted(); await blocked; return ''; };
+
+        const a = ctx.fns.agent.start(ctx, { model: 'mock:test' });
+        ctx.fns.session.save(ctx, { agent: a });
+        const running = run(ctx, a, 'wait');
+        await started;
+        a.abortController!.abort('stopped_by_user');
+        release();
+
+        await expect(running).rejects.toThrow('AbortError: stopped_by_user');
+    });
+
     test('§write marker invokes files.write with raw content', async () => {
         const ctx = await setup();
         let turn = 0;

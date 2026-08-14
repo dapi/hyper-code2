@@ -121,13 +121,24 @@ async function runOne(ctx: Context, agentId: string): Promise<void> {
         // On abort/error keep the cursor untouched so the same messages get
         // retried on the next user-triggered pass — but don't auto-retry,
         // otherwise a permanently-broken LLM call burns the worker in a loop.
+        // stop({ clearQueue: true }) clears next_run_at while this run still
+        // owns the row. Read that durable scheduling signal before deciding
+        // whether a late message needs restoring after an abort.
+        const current = ctx.fns.db.select<any>(ctx, {
+            sql: 'SELECT last_processed_msg_idx, next_run_at FROM agents WHERE id = ?',
+            params: [agentId],
+        })[0];
         const cursorIdx = advanceCursor
             ? frontierIdx
-            : Number(ctx.fns.db.select<any>(ctx, {
-                sql: 'SELECT last_processed_msg_idx FROM agents WHERE id = ?',
-                params: [agentId],
-            })[0]?.last_processed_msg_idx ?? -1);
-        const stillPending = advanceCursor && afterIdx > cursorIdx;
+            : Number(current?.last_processed_msg_idx ?? -1);
+        // An ordinary abort must not retry the run that the operator stopped.
+        // A user message appended after this run's frontier is different: its
+        // scheduling signal was preserved while this row remained `running`,
+        // so restore it once the claim has quiesced rather than stranding it.
+        // An explicit clearQueue removes that signal, and must win over the
+        // message-frontier comparison.
+        const stillPending = (advanceCursor && afterIdx > cursorIdx)
+            || (aborted && afterIdx > frontierIdx && current?.next_run_at != null);
 
         ctx.fns.db.exec(ctx, {
             sql: `UPDATE agents
@@ -189,4 +200,6 @@ export default async function (ctx: Context): Promise<void> {
         }
         // else: drained > 0 — loop back immediately to look for more.
     }
+
+    await Promise.allSettled(inflight);
 }

@@ -2,7 +2,36 @@
 
 [![test](https://github.com/niquola/hyper-code2/actions/workflows/test.yml/badge.svg)](https://github.com/niquola/hyper-code2/actions/workflows/test.yml)
 
-A self-extending AI agent server on Bun. Procedural TypeScript, ~1000 LOC, **markers protocol** instead of native tool-calls.
+A self-extending AI agent runtime on Bun with browser and terminal clients. Procedural TypeScript, **markers protocol** instead of native tool-calls.
+
+## Terminal preview
+
+Run the repository-local line client from the workspace the agent should own.
+It requires Bun >= 1.3.13; the verified preview runtime is Bun 1.3.14:
+
+```bash
+# from this repository after bun install
+mise exec bun@1.3.14 -- ./hcode -C /path/to/project
+
+# optional model override and first prompt
+mise exec bun@1.3.14 -- ./hcode -C /path/to/project -m claude-code:claude-sonnet-4-5 "inspect this project"
+```
+
+`hcode` canonicalizes the selected directory, stores preview session state in
+`<workspace>/.hyper/_runtime/sessions`, and loads every `AGENTS.md` from the Git
+root down to that directory. It runs without an HTTP listener. Use `/exit` or
+Ctrl+D to leave; Ctrl+C stops the active turn (or exits while idle).
+
+This is a trusted local preview: the agent has unrestricted process, filesystem,
+and network authority. It is not a sandbox and does not yet provide the full
+Codex/Claude Code TUI experience (full-screen UI, token-delta streaming, PTY,
+diff review, and approvals remain follow-up work).
+
+The browser client is still available explicitly:
+
+```bash
+mise exec bun@1.3.14 -- ./hcode serve -C /path/to/project --port 3000
+```
 
 The agent acts by emitting `§eval` / `§write:<path>` / `§bash` / `§html` markers in plain content. The runtime parses each marker, executes its body (JS/TS for eval, file write for write, `bash -c` for bash, TSX render for html), and feeds the result back as a synthetic user message on the next turn. No JSON tool schemas, no escape-in-escape, one wire format.
 
@@ -138,7 +167,7 @@ src/
     listModels.ts                 curated + live discovery for the new-agent form
     $setting_*.ts                 per-provider apiKey / baseUrl declarations
 
-  files/                          ctx.fns.files.* — sandboxed under cwd, UI reflects changes
+  files/                          ctx.fns.files.* — cwd-oriented helpers in trusted mode; UI reflects changes
   events/                         ctx.fns.events.* — server-side event bus
   ui/                             ctx.fns.ui.* — drives the browser (eval, action, notify, openAgent, openFile)
   markdown/                       ctx.fns.markdown.* — Bun.markdown.html + shiki

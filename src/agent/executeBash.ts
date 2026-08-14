@@ -7,19 +7,45 @@
 // - exit !=0:  return "[exit N]\n<stderr>\nstdout:\n<stdout>", isError=true
 export default async function (
     _ctx: Context,
-    opts: { code: string },
+    opts: { code: string; signal?: AbortSignal },
 ): Promise<{ output: string; isError: boolean }> {
     const { code } = opts;
     const proc = Bun.spawn({
         cmd: ['bash', '-c', code],
         stdout: 'pipe',
         stderr: 'pipe',
+        // A non-interactive shell and its background children otherwise share
+        // our process group. Make the shell a group leader so one abort can
+        // terminate the whole command tree and close inherited output pipes.
+        detached: true,
     });
-    const [stdoutText, stderrText, exitCode] = await Promise.all([
-        new Response(proc.stdout).text(),
-        new Response(proc.stderr).text(),
-        proc.exited,
-    ]);
+    const terminateProcessGroup = () => {
+        try {
+            // POSIX signals a process group when the pid is negative. Bun's
+            // detached spawn uses setsid(), making the shell its leader.
+            process.kill(-proc.pid, 'SIGTERM');
+        } catch {
+            // The shell can exit between observing abort and delivering the
+            // signal. Keep best-effort direct termination for that race.
+            try { proc.kill('SIGTERM'); } catch {}
+        }
+    };
+    const onAbort = () => terminateProcessGroup();
+    opts.signal?.addEventListener('abort', onAbort, { once: true });
+    if (opts.signal?.aborted) onAbort();
+
+    let stdoutText: string;
+    let stderrText: string;
+    let exitCode: number;
+    try {
+        [stdoutText, stderrText, exitCode] = await Promise.all([
+            new Response(proc.stdout).text(),
+            new Response(proc.stderr).text(),
+            proc.exited,
+        ]);
+    } finally {
+        opts.signal?.removeEventListener('abort', onAbort);
+    }
     const stdout = stdoutText.trimEnd();
     const stderr = stderrText.trimEnd();
     if (exitCode !== 0) {

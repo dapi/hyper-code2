@@ -22,6 +22,7 @@ export default async function (
 
     while (true) {
         const { text, usage } = await ctx.fns.llm.stream(ctx, { agent, signal: ac.signal });
+        throwIfAborted(ac.signal);
 
         const { prose, calls, errors } = ctx.fns.agent.parseMarkers(ctx, { text: String(text ?? '') });
 
@@ -57,6 +58,7 @@ export default async function (
 
         for (const call of calls) {
             await ctx.fns.agent.executeMarker(ctx, { agent, call, usage });
+            throwIfAborted(ac.signal);
         }
 
         // Parser errors (misplaced markers etc) tail the chain as a single
@@ -72,4 +74,11 @@ export default async function (
             ctx.fns.session.syncAgentState(ctx, { agent });
         }
     }
+}
+
+function throwIfAborted(signal: AbortSignal): void {
+    if (!signal.aborted) return;
+    const error = new Error(`AbortError: ${String(signal.reason ?? 'aborted')}`);
+    error.name = 'AbortError';
+    throw error;
 }

@@ -1,5 +1,7 @@
 import { describe, test, expect } from 'bun:test';
 import { mkTestCtx } from '../_testCtx.entry';
+import stop from './stop';
+import submit from './submit';
 import workerLoop from './workerLoop';
 import wakeWorker from './wakeWorker';
 
@@ -193,5 +195,96 @@ describe('agent.workerLoop', () => {
         expect(row.run_state).toBe('idle');
         expect(row.next_run_at).toBeNull();                       // not rescheduled
         expect(row.last_processed_msg_idx).toBe(beforeCursor);    // cursor preserved
+    }, 5_000);
+
+    test('default stop reschedules a message submitted during the aborted run', async () => {
+        const ctx: any = await mkTestCtx();
+        ctx.fns.agent.workerLoop = workerLoop;
+        ctx.fns.agent.wakeWorker = wakeWorker;
+
+        const past = Date.now() - 100;
+        seedReadyAgent(ctx, 'continued', past);
+        ctx.fns.session.appendMessage(ctx, { id: 'continued', message: { role: 'user', content: 'first' } });
+
+        let started = false;
+        ctx.fns.agent.run = async (_ctx: any, opts: any) => {
+            started = true;
+            await new Promise<void>((_resolve, reject) => {
+                opts.agent.abortController = { abort: () => reject(new Error('aborted by user')) };
+            });
+        };
+
+        const loopPromise = workerLoop(ctx);
+        const deadline = Date.now() + 2_000;
+        while (!started && Date.now() < deadline) await Bun.sleep(10);
+        expect(started).toBe(true);
+
+        const agent = ctx.state.agent.continued;
+        await submit(ctx, { agent, text: 'continue after stop' });
+        stop(ctx, { agent });
+
+        let row: any;
+        const quiescedBy = Date.now() + 2_000;
+        do {
+            row = ctx.fns.db.select(ctx, {
+                sql: 'SELECT run_state, next_run_at, last_processed_msg_idx FROM agents WHERE id = ?',
+                params: ['continued'],
+            })[0];
+            if (row.run_state === 'idle' && row.next_run_at !== null) break;
+            await Bun.sleep(10);
+        } while (Date.now() < quiescedBy);
+
+        (ctx.state as any).workerLoopRunning = false;
+        wakeWorker(ctx);
+        await loopPromise;
+
+        expect(row.run_state).toBe('idle');
+        expect(row.next_run_at).not.toBeNull();
+        expect(row.last_processed_msg_idx).toBe(-1);
+    }, 5_000);
+
+    test('clearQueue prevents a late message from being rescheduled after an abort', async () => {
+        const ctx: any = await mkTestCtx();
+        ctx.fns.agent.workerLoop = workerLoop;
+        ctx.fns.agent.wakeWorker = wakeWorker;
+
+        seedReadyAgent(ctx, 'cleared', Date.now() - 100);
+        ctx.fns.session.appendMessage(ctx, { id: 'cleared', message: { role: 'user', content: 'first' } });
+
+        let started = false;
+        ctx.fns.agent.run = async (_ctx: any, opts: any) => {
+            started = true;
+            await new Promise<void>((_resolve, reject) => {
+                opts.agent.abortController = { abort: () => reject(new Error('aborted by user')) };
+            });
+        };
+
+        const loopPromise = workerLoop(ctx);
+        const deadline = Date.now() + 2_000;
+        while (!started && Date.now() < deadline) await Bun.sleep(10);
+        expect(started).toBe(true);
+
+        const agent = ctx.state.agent.cleared;
+        await submit(ctx, { agent, text: 'do not run' });
+        stop(ctx, { agent, clearQueue: true });
+
+        let row: any;
+        const quiescedBy = Date.now() + 2_000;
+        do {
+            row = ctx.fns.db.select(ctx, {
+                sql: 'SELECT run_state, next_run_at, last_processed_msg_idx FROM agents WHERE id = ?',
+                params: ['cleared'],
+            })[0];
+            if (row.run_state === 'idle') break;
+            await Bun.sleep(10);
+        } while (Date.now() < quiescedBy);
+
+        (ctx.state as any).workerLoopRunning = false;
+        wakeWorker(ctx);
+        await loopPromise;
+
+        expect(row.run_state).toBe('idle');
+        expect(row.next_run_at).toBeNull();
+        expect(row.last_processed_msg_idx).toBe(-1);
     }, 5_000);
 });

@@ -31,7 +31,10 @@ export default async function (
             const lines = call.content.split('\n').length;
             output = `wrote ${call.path} (${call.content.length} bytes, ${lines} lines)`;
         } else if (call.kind === 'bash') {
-            const r = await ctx.fns.agent.executeBash(ctx, { code: call.content });
+            const r = await ctx.fns.agent.executeBash(ctx, {
+                code: call.content,
+                signal: agent.abortController?.signal,
+            });
             output = r.output;
             isError = r.isError;
         } else if (call.kind === 'read') {

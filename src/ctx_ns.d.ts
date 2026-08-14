@@ -31,6 +31,7 @@ declare global {
         serializeMarkerCall: typeof import("./agent/serializeMarkerCall").default;
         start: typeof import("./agent/start").default;
         stop: typeof import("./agent/stop").default;
+        submit: typeof import("./agent/submit").default;
         waitForEvent: typeof import("./agent/waitForEvent").default;
         wakeWaiters: typeof import("./agent/wakeWaiters").default;
         wakeWorker: typeof import("./agent/wakeWorker").default;
@@ -189,6 +190,9 @@ declare global {
         pending: typeof import("./ui/pending").default;
         script: typeof import("./ui/script").default;
         sendToAgent: typeof import("./ui/sendToAgent").default;
+        };
+        workspace: {
+        instructions: typeof import("./workspace/instructions").default;
         };
     }
 

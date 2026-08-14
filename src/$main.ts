@@ -1,30 +1,10 @@
 // Architecture contract: memory-bank/engineering/architecture.md
 // This entrypoint realizes the documented load → migrate → rehydrate → serve → worker composition.
 export default async function () {
-    const ctx = {
-        env: { ...process.env },
-        state: {},
-        fns: {} as FnsRegistry,
-        routes: {},
-    } as Context;
-
-    const { default: loadFns } = await import("./loadFns");
-    await loadFns(ctx);
-    await ctx.genTypes(ctx);
-    ctx.fns.db.connect(ctx, { path: ctx.env.DB_PATH ?? ".hyper/_runtime/sessions" });
-    await ctx.fns.db.migrate(ctx);
-    const rehydrated = ctx.fns.session.loadAll(ctx);
-    console.log(`[session] rehydrated ${rehydrated.loaded} agent(s)`);
-    await ctx.fns.http.loadRoutes(ctx);
-    await ctx.fns.http.start(ctx);
-
-    // Single process-wide worker drains agent_jobs for all agents.
-    queueMicrotask(() => {
-        ctx.fns.agent.workerLoop(ctx).catch((e: any) => console.error('[workerLoop] crashed:', e?.message ?? e));
-    });
-    console.log('[worker] started');
-
-    return ctx;
+    const { default: startRuntime } = await import('./runtime/start.entry');
+    const runtime = await startRuntime({ workspace: process.cwd(), http: true });
+    (runtime.ctx.state as any).shutdown = runtime.shutdown;
+    return runtime.ctx;
 }
 
 if (import.meta.main) {
