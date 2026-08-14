@@ -40,6 +40,9 @@ export default async function startRuntime(opts: RuntimeOptions): Promise<Runtim
         if (shutdownPromise) return shutdownPromise;
         shutdownPromise = (async () => {
             let forced = false;
+            // Queued UI launches run in a later microtask. Mark shutdown before
+            // the first await so they cannot begin after the active-run snapshot.
+            (ctx.state as any).runtimeShuttingDown = true;
             // Quiesce the external adapter first so no new work can arrive while
             // the worker drains/aborts and the database is still open.
             const server = (ctx.state as any).server?.server;
@@ -57,14 +60,20 @@ export default async function startRuntime(opts: RuntimeOptions): Promise<Runtim
             }
             try { ctx.fns.agent?.wakeWorker?.(ctx); } catch {}
             const workerPromise = (ctx.state as any).workerLoopPromise as Promise<unknown> | undefined;
-            const workerSettled = await settleWithin(workerPromise, opts.shutdownTimeoutMs ?? 2_000);
-            if (!workerSettled) {
+            const activeRuns = (ctx.state as any).activeAgentRunPromises as Set<Promise<unknown>> | undefined;
+            // agent.run is also used by delegation and the UI outside the
+            // worker. Await its snapshot together with the worker so SQLite
+            // remains available until every already-started run has settled.
+            const running = [workerPromise, ...(activeRuns ? [...activeRuns] : [])]
+                .filter((promise): promise is Promise<unknown> => !!promise);
+            const runsSettled = await settleWithin(Promise.allSettled(running), opts.shutdownTimeoutMs ?? 2_000);
+            if (!runsSettled) {
                 // An adapter can ignore AbortSignal (for example an eval
                 // awaiting forever). Shutdown must still be terminal: retain
-                // an observer for a later rejection, but never await the same
+                // observers for later rejections, but never await the same
                 // uncooperative work after its grace period has elapsed.
-                console.warn('[workerLoop] shutdown grace period elapsed; forcing runtime shutdown');
-                void workerPromise?.catch(() => {});
+                console.warn('[runtime] agent runs did not settle within shutdown grace period; forcing runtime shutdown');
+                for (const promise of running) void promise.catch(() => {});
                 forced = true;
             }
             try { await (ctx.state as any).http?.logFile?.end?.(); } catch {}
@@ -80,6 +89,7 @@ export default async function startRuntime(opts: RuntimeOptions): Promise<Runtim
             const { default: loadFns } = await import('../loadFns');
             await loadFns(ctx);
             await ctx.genTypes(ctx);
+            trackAgentRuns(ctx);
 
             const dbPath = opts.dbPath ?? ctx.env.DB_PATH ?? '.hyper/_runtime/sessions';
             ctx.env.DB_PATH = dbPath;
@@ -106,6 +116,32 @@ export default async function startRuntime(opts: RuntimeOptions): Promise<Runtim
         await shutdown();
         throw error;
     }
+}
+
+function trackAgentRuns(ctx: Context): void {
+    const activeRuns = new Set<Promise<unknown>>();
+    (ctx.state as any).activeAgentRunPromises = activeRuns;
+    const run = ctx.fns.agent.run;
+
+    ctx.fns.agent.run = ((...args: Parameters<typeof run>) => {
+        // A UI launch may already be queued when shutdown begins. It must not
+        // create an AbortController or touch SQLite after the shutdown snapshot.
+        if ((ctx.state as any).runtimeShuttingDown) return Promise.resolve(undefined);
+        let promise: Promise<unknown>;
+        try {
+            // Invoke immediately: agent.run installs its AbortController before
+            // its first await, and stop/shutdown rely on that synchronous setup.
+            promise = Promise.resolve(run(...args));
+        } catch (error) {
+            promise = Promise.reject(error);
+        }
+        activeRuns.add(promise);
+        void promise.then(
+            () => activeRuns.delete(promise),
+            () => activeRuns.delete(promise),
+        );
+        return promise;
+    }) as typeof run;
 }
 
 async function settleWithin(promise: Promise<unknown> | undefined, timeoutMs: number): Promise<boolean> {

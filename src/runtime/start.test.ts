@@ -42,6 +42,53 @@ describe('startRuntime', () => {
         expect(process.cwd()).toBe(originalCwd);
     });
 
+    test('includes async delegated runs in the bounded shutdown decision', async () => {
+        await mkdir(workspace, { recursive: true });
+        const runtime = await startRuntime({ workspace, dbPath: ':memory:', http: false, shutdownTimeoutMs: 10 });
+        const ctx = runtime.ctx;
+        const parent = ctx.fns.agent.start(ctx, { model: 'mock:test', systemPrompt: '' });
+        let streamStarted!: () => void;
+        const started = new Promise<void>((resolve) => { streamStarted = resolve; });
+        ctx.fns.llm.stream = async () => {
+            streamStarted();
+            return new Promise<any>(() => {});
+        };
+
+        await ctx.fns.agent.delegateTask(ctx, { parent, task: 'wait forever', mode: 'async' });
+        await started;
+        ctx.state.workerLoopPromise = Promise.resolve();
+        const events: string[] = [];
+        ctx.state.db = { close: () => { events.push('db-close'); } } as any;
+
+        expect((ctx.state as any).activeAgentRunPromises.size).toBe(1);
+
+        const result = await runtime.shutdown();
+        expect(result.forced).toBe(true);
+        expect(events).toEqual(['db-close']);
+    });
+
+    test('does not start queued UI runs after shutdown begins', async () => {
+        await mkdir(workspace, { recursive: true });
+        const runtime = await startRuntime({ workspace, dbPath: ':memory:', http: false });
+        const ctx = runtime.ctx;
+        const agent = ctx.fns.agent.start(ctx, { model: 'mock:test', systemPrompt: '' });
+        let streamCalled = false;
+        ctx.fns.llm.stream = async () => {
+            streamCalled = true;
+            return { text: 'unexpected' } as any;
+        };
+        ctx.state.workerLoopPromise = Promise.resolve();
+
+        const send = ctx.fns.ui.sendToAgent(ctx, { agentId: agent.id, text: 'queued' });
+        const shutdown = runtime.shutdown();
+        await send;
+        await shutdown;
+        await Bun.sleep(0);
+
+        expect(streamCalled).toBe(false);
+        expect(agent.isStreaming).toBe(false);
+    });
+
     test('awaits HTTP shutdown before closing shared resources', async () => {
         await mkdir(workspace, { recursive: true });
         const runtime = await startRuntime({ workspace, dbPath: ':memory:', http: false });
