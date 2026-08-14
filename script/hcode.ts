@@ -24,12 +24,14 @@ export default async function main(argv: string[]): Promise<number> {
         }
 
         const workspace = await resolveWorkspace(command.workspace);
+        // The runtime loads workspace overlays and creates durable state, so
+        // make its unrestricted authority explicit before either can happen.
+        console.log('TRUSTED MODE — unrestricted agent execution');
         // The CLI's durable state is always scoped to the selected workspace.
         // `src/$main.ts` intentionally remains the only entrypoint that can
         // inherit DB_PATH for compatibility with the existing browser server.
         const dbPath = workspaceSessionDbPath(workspace);
         if (command.kind === 'serve') {
-            console.log('TRUSTED MODE — unrestricted agent execution');
             console.log('Concurrent hcode processes for the same workspace are unsupported in this preview.');
             const serveExit = new AbortController();
             const onSignal = () => serveExit.abort();

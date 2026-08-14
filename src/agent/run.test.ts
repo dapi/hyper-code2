@@ -100,6 +100,24 @@ describe('agent.run', () => {
 
         await expect(run(ctx, a, 'stop during render')).rejects.toThrow('AbortError: stopped_by_user');
         expect(writes).toBe(0);
+        expect(ctx.fns.session.getMessages(ctx, { id: a.id }).map((message: any) => message.role)).toEqual(['user']);
+        expect(ctx.fns.session.getEvents(ctx, { id: a.id }).map((event: any) => event.type)).toEqual(['user']);
+    });
+
+    test('does not persist an assistant message without its event when cancellation arrives during final rendering', async () => {
+        const ctx = await setup();
+        ctx.fns.llm.stream = async () => ({ text: 'final answer', toolCalls: [], thinking: '', usage: {} });
+
+        const a = ctx.fns.agent.start(ctx, { model: 'mock:test' });
+        ctx.fns.session.save(ctx, { agent: a });
+        ctx.fns.markdown.render = async () => {
+            a.abortController!.abort('stopped_by_user');
+            return '<p>final answer</p>';
+        };
+
+        await expect(run(ctx, a, 'stop during final render')).rejects.toThrow('AbortError: stopped_by_user');
+        expect(ctx.fns.session.getMessages(ctx, { id: a.id }).map((message: any) => message.role)).toEqual(['user']);
+        expect(ctx.fns.session.getEvents(ctx, { id: a.id }).map((event: any) => event.type)).toEqual(['user']);
     });
 
     test('persists completed provider thinking before the assistant response', async () => {

@@ -25,7 +25,6 @@ export default async function runTerminal(opts: TerminalOptions): Promise<void> 
     let exitRequested = false;
     const exitController = new AbortController();
 
-    write('TRUSTED MODE — unrestricted agent execution\n');
     write(`workspace: ${opts.workspace}\nmodel: ${opts.agent.model}\n`);
     write('Ctrl+C stops a running turn; Ctrl+D or /exit exits.\n\n');
     write('Concurrent hcode processes for the same workspace are unsupported in this preview.\n\n');

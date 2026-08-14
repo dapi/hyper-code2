@@ -115,6 +115,30 @@ exec '${process.execPath}' "$@"
         expect(result.stderr).toBe('');
     });
 
+    test('prints the terminal trust warning before runtime bootstrap fails', async () => {
+        const workspace = join(fixtureRoot, 'workspace');
+        await mkdir(workspace, { recursive: true });
+        // A file at this path makes runtime state initialization fail after
+        // workspace resolution, without allowing the runtime to start.
+        await writeFile(join(workspace, '.hyper'), 'not a directory');
+        const proc = Bun.spawn({
+            cmd: [join(repoRoot, 'hcode'), '-C', workspace, '-m', 'mock:test'],
+            cwd: workspace,
+            env: { ...process.env, BUN_BIN: process.execPath },
+            stdout: 'pipe',
+            stderr: 'pipe',
+        });
+        const [stdout, stderr, exitCode] = await Promise.all([
+            new Response(proc.stdout).text(),
+            new Response(proc.stderr).text(),
+            proc.exited,
+        ]);
+
+        expect(exitCode).toBe(1);
+        expect(stdout).toBe('TRUSTED MODE — unrestricted agent execution\n');
+        expect(stderr).toContain('hcode: ENOTDIR');
+    });
+
     test('routes terminal SIGTERM through runtime shutdown', async () => {
         const workspace = join(fixtureRoot, 'workspace');
         await mkdir(workspace, { recursive: true });

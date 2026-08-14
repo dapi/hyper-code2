@@ -42,10 +42,10 @@ export default async function (
                 return { text: text ?? '', usage };
             }
             throwIfAborted(ac.signal);
-            const append = ctx.fns.session.appendAssistantMessage(ctx, { id: agent.id, msg: { content: text } });
-            ctx.fns.session.syncAgentState(ctx, { agent });
             const html = await ctx.fns.markdown.render(ctx, { source: prose || text || '' });
             throwIfAborted(ac.signal);
+            const append = ctx.fns.session.appendAssistantMessage(ctx, { id: agent.id, msg: { content: text } });
+            ctx.fns.session.syncAgentState(ctx, { agent });
             await ctx.fns.session.appendAssistantEvent(ctx, { id: agent.id, payload: {
                 text: prose || text || '', html, usage, messageIdx: append.idx,
             } });
@@ -58,10 +58,10 @@ export default async function (
         // on later turns: [assistant: prose?] → (assistant<marker> → user<result>)+.
         if (prose.trim()) {
             throwIfAborted(ac.signal);
-            const proseAppend = ctx.fns.session.appendAssistantMessage(ctx, { id: agent.id, msg: { content: prose } });
-            ctx.fns.session.syncAgentState(ctx, { agent });
             const proseHtml = await ctx.fns.markdown.render(ctx, { source: prose });
             throwIfAborted(ac.signal);
+            const proseAppend = ctx.fns.session.appendAssistantMessage(ctx, { id: agent.id, msg: { content: prose } });
+            ctx.fns.session.syncAgentState(ctx, { agent });
             await ctx.fns.session.appendAssistantEvent(ctx, { id: agent.id, payload: {
                 text: prose, html: proseHtml, usage, messageIdx: proseAppend.idx,
             } });
