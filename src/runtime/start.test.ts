@@ -42,6 +42,41 @@ describe('startRuntime', () => {
         expect(process.cwd()).toBe(originalCwd);
     });
 
+    test('returns claimed durable work to idle before forced shutdown closes SQLite', async () => {
+        await mkdir(workspace, { recursive: true });
+        const dbPath = join(workspace, `.forced-shutdown-${crypto.randomUUID()}.sqlite`);
+        const runtime = await startRuntime({ workspace, dbPath, http: false, shutdownTimeoutMs: 10 });
+        const ctx = runtime.ctx;
+
+        // Keep the normal worker from claiming while this test prepares the
+        // durable row, then model the claim whose adapter never settles.
+        ctx.state.workerLoopRunning = false;
+        ctx.fns.agent.wakeWorker(ctx);
+        await ctx.state.workerLoopPromise;
+
+        const agent = ctx.fns.agent.start(ctx, { model: 'mock:test', systemPrompt: '' });
+        const nextRunAt = Date.now() + 60_000;
+        ctx.fns.session.appendMessage(ctx, { id: agent.id, message: { role: 'user', content: 'retry me' } });
+        ctx.fns.db.exec(ctx, {
+            sql: "UPDATE agents SET run_state = 'running', run_started_at = ?, next_run_at = ? WHERE id = ?",
+            params: [Date.now(), nextRunAt, agent.id],
+        });
+        ctx.state.workerLoopPromise = new Promise<void>(() => {});
+
+        expect((await runtime.shutdown()).forced).toBe(true);
+
+        const restarted = await startRuntime({ workspace, dbPath, http: false });
+        try {
+            const row = restarted.ctx.fns.db.select(restarted.ctx, {
+                sql: 'SELECT run_state, run_started_at, next_run_at FROM agents WHERE id = ?',
+                params: [agent.id],
+            })[0];
+            expect(row).toEqual({ run_state: 'idle', run_started_at: null, next_run_at: nextRunAt });
+        } finally {
+            await restarted.shutdown();
+        }
+    });
+
     test('includes async delegated runs in the bounded shutdown decision', async () => {
         await mkdir(workspace, { recursive: true });
         const runtime = await startRuntime({ workspace, dbPath: ':memory:', http: false, shutdownTimeoutMs: 10 });

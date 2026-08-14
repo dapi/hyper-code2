@@ -79,6 +79,20 @@ export default async function startRuntime(opts: RuntimeOptions): Promise<Runtim
                 console.warn('[runtime] agent runs did not settle within shutdown grace period; forcing runtime shutdown');
                 for (const promise of running) void promise.catch(() => {});
                 forced = true;
+                // This process is about to exit, so no claimed row can still
+                // have a live owner. Return every claim to idle before closing
+                // SQLite; next_run_at is deliberately left intact so pending
+                // operator input can be reclaimed after restart.
+                try {
+                    ctx.fns.db.exec(ctx, {
+                        sql: `UPDATE agents
+                            SET run_state = 'idle',
+                                run_started_at = NULL,
+                                updated_at = ?
+                          WHERE run_state = 'running'`,
+                        params: [Date.now()],
+                    });
+                } catch {}
             }
             try { await (ctx.state as any).http?.logFile?.end?.(); } catch {}
             try { (ctx.state as any).db?.close?.(); } catch {}
