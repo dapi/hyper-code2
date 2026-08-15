@@ -263,6 +263,16 @@ function clearSubmittedComposer(
     submittedComposerText: string,
 ): void {
     const currentText = view.composer.plainText;
+
+    // Most submissions do not receive edits while agent.submit() is waiting
+    // for durable acceptance. Avoid reconciling an unchanged buffer: the old
+    // LCS implementation allocated a quadratic matrix for this common case.
+    if (currentText === submittedComposerText) {
+        view.composer.editBuffer.setText('');
+        view.composer.cursorOffset = 0;
+        return;
+    }
+
     const draft = postSubmitEditText(submittedComposerText, currentText);
     view.composer.editBuffer.setText(draft);
     view.composer.cursorOffset = draft.length;
@@ -270,41 +280,29 @@ function clearSubmittedComposer(
 
 /**
  * Remove the text that was present when submission started, retaining text
- * introduced while submit() was waiting for durable acceptance. The LCS
- * alignment treats unchanged characters as belonging to the submitted turn;
- * characters only present in the post-submit buffer are the pending draft.
+ * introduced while submit() was waiting for durable acceptance. The common
+ * prefix and suffix are the submitted text's stable regions; the middle of
+ * the post-submit buffer is the pending draft. This keeps reconciliation
+ * linear in the buffer size and uses constant extra space.
  */
 function postSubmitEditText(before: string, after: string): string {
-    const rows = before.length + 1;
-    const cols = after.length + 1;
-    const lcs = Array.from({ length: rows }, () =>
-        Array<number>(cols).fill(0),
-    );
+    let prefix = 0;
+    const sharedLength = Math.min(before.length, after.length);
+    while (prefix < sharedLength && before[prefix] === after[prefix])
+        prefix++;
 
-    for (let i = before.length - 1; i >= 0; i--) {
-        for (let j = after.length - 1; j >= 0; j--) {
-            lcs[i]![j] =
-                before[i] === after[j]
-                    ? lcs[i + 1]![j + 1]! + 1
-                    : Math.max(lcs[i + 1]![j]!, lcs[i]![j + 1]!);
-        }
+    let beforeEnd = before.length - 1;
+    let afterEnd = after.length - 1;
+    while (
+        beforeEnd >= prefix &&
+        afterEnd >= prefix &&
+        before[beforeEnd] === after[afterEnd]
+    ) {
+        beforeEnd--;
+        afterEnd--;
     }
 
-    let i = 0;
-    let j = 0;
-    let draft = '';
-    while (i < before.length && j < after.length) {
-        if (before[i] === after[j]) {
-            i++;
-            j++;
-        } else if (lcs[i + 1]![j]! >= lcs[i]![j + 1]!) {
-            i++;
-        } else {
-            draft += after[j++];
-        }
-    }
-    while (j < after.length) draft += after[j++];
-    return draft;
+    return after.slice(prefix, afterEnd + 1);
 }
 
 function formatEvent(event: any): string {
