@@ -24,6 +24,10 @@ export default async function (ctx: Context, _session: any, req: any) {
     }))).join('\n');
     const eventsHtml = await renderEvents(conversationEvents);
     const activityHtml = await renderEvents(activityEvents);
+    const activityCount = Number(ctx.fns.db.select<any>(ctx, {
+        sql: "SELECT COUNT(*) AS n FROM events WHERE agent_id = ? AND type NOT IN ('user', 'assistant', 'job')",
+        params: [id],
+    })[0]?.n ?? 0);
 
     const lastAssistant = [...events].reverse().find((ev: any) => ev?.type === 'assistant');
     const usageOob = lastAssistant?.usage
@@ -40,7 +44,8 @@ export default async function (ctx: Context, _session: any, req: any) {
     const activityOob = activityHtml
         ? `<div id="activity-list" hx-swap-oob="beforeend">${activityHtml}</div>`
         : '';
-    return new Response(eventsHtml + '\n' + activityOob + tail + usageOob, {
+    const activityCountOob = `<span id="activity-count" hx-swap-oob="outerHTML" class="font-normal text-gray-400">(${activityCount})</span>`;
+    return new Response(eventsHtml + '\n' + activityOob + activityCountOob + tail + usageOob, {
         headers: { 'content-type': 'text/html; charset=utf-8' },
     });
 }

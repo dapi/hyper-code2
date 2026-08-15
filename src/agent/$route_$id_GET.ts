@@ -66,7 +66,7 @@ export default async function (ctx: Context, _session: any, req: any) {
 <div id="msg-tail" hx-get="/agent/${encodeURIComponent(id)}/events.html?offset=${maxIdx + 1}" hx-trigger="load" hx-swap="outerHTML"></div>
 </div>
 <details id="activity" class="mx-6 mb-4 border border-gray-200 rounded-xl bg-white shadow-sm">
-  <summary class="cursor-pointer select-none px-4 py-2 text-xs font-semibold text-gray-600">Activity / tool trace <span class="font-normal text-gray-400">(${activityEvents.length})</span></summary>
+  <summary class="cursor-pointer select-none px-4 py-2 text-xs font-semibold text-gray-600">Activity / tool trace <span id="activity-count" class="font-normal text-gray-400">(${activityEvents.length})</span></summary>
   <div id="activity-list" class="px-4 pb-3 space-y-2">${activityHtml}</div>
 </details>
 <form id="form"

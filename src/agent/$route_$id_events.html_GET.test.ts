@@ -90,6 +90,7 @@ describe('GET /agent/:id/events.html', () => {
     expect(conversation).not.toContain('§eval');
     expect(html).toContain('hx-swap-oob="beforeend"');
     expect(html).toContain('§eval');
+    expect(html).toContain('<span id="activity-count" hx-swap-oob="outerHTML" class="font-normal text-gray-400">(1)</span>');
     });
 
     test('returns only delta when offset is in the middle', async () => {
