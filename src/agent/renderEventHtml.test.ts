@@ -6,7 +6,7 @@ const renderEventHtml = (c: any, event: any, opts: { agentId?: string } = {}) =>
     renderEventHtmlFn(c, { event, agentId: opts.agentId });
 
 describe("agent.renderEventHtml", () => {
-  test("renders tool_call as details (inline, no overlay)", async () => {
+  test("renders tool_call as inspectable details for the activity surface", async () => {
     // Markers protocol — the event name is the marker kind, label rendered as ///<kind>.
     const evalHtml = await renderEventHtml(ctx, { type: "tool_call", name: "eval", argsHtml: "<pre>a</pre>", resultHtml: "<pre>b</pre>", result: "b", args: { code: "a" }, isError: false });
     expect(evalHtml).toContain("<details");

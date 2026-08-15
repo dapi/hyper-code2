@@ -73,6 +73,25 @@ describe('GET /agent/:id/events.html', () => {
         expect(body).toContain(`offset=2`);
     });
 
+    test('keeps tool activity out of the primary conversation fragment', async () => {
+    const ctx = mkCtx();
+    ctx.fns.db.connect(ctx, { path: ':memory:' });
+    await ctx.fns.db.migrate(ctx);
+    const a = start(ctx, { model: 'm', systemPrompt: '' });
+    save(ctx, { agent: a });
+    appendEvent(ctx, { id: a.id, event: { type: 'user', text: 'hi' } });
+    appendEvent(ctx, { id: a.id, event: { type: 'tool_call', name: 'eval', args: { code: '1 + 1' }, argsHtml: '<pre>1 + 1</pre>', resultHtml: '<pre>2</pre>', result: '2' } });
+    appendEvent(ctx, { id: a.id, event: { type: 'assistant', html: '<p>done</p>' } });
+
+    const r = await route(ctx, null, reqFor(a.id, 0));
+    const html = await r.text();
+    const conversation = html.split('<div id="activity-list"')[0];
+    expect(conversation).toContain('done');
+    expect(conversation).not.toContain('§eval');
+    expect(html).toContain('hx-swap-oob="beforeend"');
+    expect(html).toContain('§eval');
+    });
+
     test('returns only delta when offset is in the middle', async () => {
         const ctx = mkCtx();
         ctx.fns.db.connect(ctx, { path: ':memory:' });
