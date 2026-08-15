@@ -46,6 +46,7 @@ export default async function runTui(opts: TuiOptions): Promise<void> {
     };
     let durableEvents: any[] = [];
     let durableOffset = 0;
+    let modelAdvice = '';
     const drainDurable = () => {
         if (closed || !view) return;
         const maxIdx = opts.ctx.fns.session.getMaxEventIdx(opts.ctx, {
@@ -63,7 +64,9 @@ export default async function runTui(opts: TuiOptions): Promise<void> {
         durableEvents.push(...events);
         durableOffset = maxIdx + 1;
         view.setTranscript(
-            durableEvents.map(formatEvent).filter(Boolean).join('\n\n'),
+            [durableEvents.map(formatEvent).filter(Boolean).join('\n\n'), modelAdvice]
+                .filter(Boolean)
+                .join('\n\n'),
         );
     };
     let live = {
@@ -80,6 +83,9 @@ export default async function runTui(opts: TuiOptions): Promise<void> {
         // Keep the exact pre-submit buffer so a slow durable submission cannot
         // erase a draft typed while it is awaiting acceptance.
         const submittedComposerText = view.composer.plainText;
+        const turnStartOffset = opts.ctx.fns.session.getMaxEventIdx(opts.ctx, {
+            id: opts.agent.id,
+        }) + 1;
         active = true;
         stopping = false;
         live = { thinking: '', assistant: '', outcome: undefined };
@@ -114,6 +120,22 @@ export default async function runTui(opts: TuiOptions): Promise<void> {
                 });
             }
             throwIfWorkerCrashed(opts.ctx);
+            const turnEvents = opts.ctx.fns.session.getEvents(opts.ctx, {
+                id: opts.agent.id,
+                fromIdx: turnStartOffset,
+            });
+            const failed = turnEvents.some((event: any) => event.type === 'error');
+            if (failed && (opts.agent as any).__hcodeDetectedDefaultModel === opts.agent.model) {
+                const alternatives = (opts.agent as any).__hcodeModelAlternatives as string[] | undefined;
+                opts.ctx.fns.settings.remove(opts.ctx, {
+                    module: 'llm', scopeType: 'global', key: 'defaultModel',
+                });
+                if (alternatives?.length)
+                    modelAdvice = `[model unavailable; try: hcode -m ${alternatives[0]}]`;
+                delete (opts.agent as any).__hcodeDetectedDefaultModel;
+                delete (opts.agent as any).__hcodeModelAlternatives;
+                drainDurable();
+            }
         } finally {
             active = false;
             stopping = false;

@@ -134,12 +134,14 @@ async function submitAndRender(
     submissionSignal: AbortSignal,
 ) {
     let offset = ctx.fns.session.getMaxEventIdx(ctx, { id: agent.id }) + 1;
+    let failed = false;
     await ctx.fns.agent.submit(ctx, { agent, text, delayMs: 0, signal: submissionSignal });
 
     while (true) {
         throwIfWorkerCrashed(ctx);
         const events = ctx.fns.session.getEvents(ctx, { id: agent.id, fromIdx: offset });
         for (const event of events) {
+            failed ||= event.type === 'error';
             renderEvent(event, write);
             offset++;
         }
@@ -150,8 +152,19 @@ async function submitAndRender(
         if (!row || (row.run_state === 'idle' && row.next_run_at == null)) {
             const tail = ctx.fns.session.getEvents(ctx, { id: agent.id, fromIdx: offset });
             for (const event of tail) {
+                failed ||= event.type === 'error';
                 renderEvent(event, write);
                 offset++;
+            }
+            if (failed && (agent as any).__hcodeDetectedDefaultModel === agent.model) {
+                const alternatives = (agent as any).__hcodeModelAlternatives as string[] | undefined;
+                ctx.fns.settings.remove(ctx, {
+                    module: 'llm', scopeType: 'global', key: 'defaultModel',
+                });
+                if (alternatives?.length)
+                    write(`[model unavailable; try: hcode -m ${alternatives[0]}]\n`);
+                delete (agent as any).__hcodeDetectedDefaultModel;
+                delete (agent as any).__hcodeModelAlternatives;
             }
             return;
         }

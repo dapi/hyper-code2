@@ -99,6 +99,7 @@ declare global {
         refreshCodex: typeof import("./llm/refreshCodex").default;
         refreshKimiCode: typeof import("./llm/refreshKimiCode").default;
         resolveEndpoint: typeof import("./llm/resolveEndpoint").default;
+        selectDefaultModel: typeof import("./llm/selectDefaultModel").default;
         stream: typeof import("./llm/stream").default;
         streamAnthropic: typeof import("./llm/streamAnthropic").default;
         streamCodex: typeof import("./llm/streamCodex").default;

@@ -26,6 +26,9 @@ export default async function (ctx: Context): Promise<Record<string, string[]>> 
         "openai:gpt-5.1-mini",
         "openai:gpt-4o-mini",
     ];
+    out.anthropic = [
+        "anthropic:claude-haiku-4-5-20251001",
+    ];
     out.groq = [
         "groq:llama-3.3-70b-versatile",
         "groq:moonshotai/kimi-k2-instruct",
@@ -34,6 +37,11 @@ export default async function (ctx: Context): Promise<Record<string, string[]>> 
         "openrouter:anthropic/claude-sonnet-4.6",
         "openrouter:google/gemini-2.5-pro",
     ];
+
+    try {
+        if (await ctx.fns.llm.refreshKimiCode?.(ctx))
+            out['kimi-coding'] = ['kimi-coding:kimi-k2-turbo-preview'];
+    } catch { /* unavailable — omit */ }
 
     // Codex (ChatGPT subscription) — only if user has a valid JWT.
     // Models pulled live from /codex/models (subscription-gated whitelist).
