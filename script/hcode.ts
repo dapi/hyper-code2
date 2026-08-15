@@ -145,9 +145,12 @@ export default async function main(
                     { workspace },
                 );
                 if (!terminalExit.signal.aborted) {
-                    const model =
-                        command.model ??
-                        runtime.ctx.fns.settings.modelDefault(runtime.ctx);
+                    // Keep an explicit CLI model completely independent of
+                    // discovery so it remains a one-shot override.
+                    const selected = command.model
+                        ? { model: command.model, detected: false, alternatives: [] as string[] }
+                        : await runtime.ctx.fns.llm.selectDefaultModel(runtime.ctx);
+                    const model = selected.model;
                     if (!terminalExit.signal.aborted) {
                         const prompt = [
                             'You are running in TRUSTED MODE with unrestricted local agent execution.',
@@ -159,6 +162,18 @@ export default async function main(
                             model,
                             systemPrompt: prompt,
                         });
+                        if (selected.detected) {
+                            // Cache discovery immediately, so later launches
+                            // do not repeat subscription and local probes.
+                            // The terminal adapters remove it if this first
+                            // request proves the candidate unusable.
+                            runtime.ctx.fns.settings.set(runtime.ctx, {
+                                module: 'llm', scopeType: 'global', key: 'defaultModel', value: selected.model,
+                            });
+                            // This is deliberately not scratchpad state.
+                            (agent as any).__hcodeDetectedDefaultModel = selected.model;
+                            (agent as any).__hcodeModelAlternatives = selected.alternatives;
+                        }
                         const interactiveTty =
                             deps.isInteractiveTty?.() ??
                             Boolean(

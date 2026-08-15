@@ -51,6 +51,11 @@ describe('runTerminal', () => {
         const ctx = await mkTestCtx();
         cleanups.push(() => ctx.state.db.close());
         const agent = ctx.fns.agent.start(ctx, { model: 'mock:test' });
+        (agent as any).__hcodeDetectedDefaultModel = agent.model;
+        (agent as any).__hcodeModelAlternatives = ['openai:gpt-5-codex'];
+        ctx.fns.settings.set(ctx, {
+            module: 'llm', scopeType: 'global', key: 'defaultModel', value: agent.model,
+        });
         ctx.fns.agent.submit = async (c: any) => {
             await c.fns.session.appendThinkingEvent(c, { id: agent.id, text: 'considering' });
             await c.fns.session.appendToolCallEvent(c, {
@@ -68,6 +73,10 @@ describe('runTerminal', () => {
         expect(text).toContain('[tool files.read: done]');
         expect(text).toContain('[HTML response available in browser mode only]');
         expect(text).toContain('[error] boom');
+        expect(text).toContain('[model unavailable; try: hcode -m openai:gpt-5-codex]');
+        expect(ctx.fns.settings.get(ctx, {
+            module: 'llm', scopeType: 'global', key: 'defaultModel',
+        })).not.toBe(agent.model);
     });
 
     test('fails explicitly instead of polling forever after the worker crashes', async () => {
