@@ -22,9 +22,7 @@ describe('runTui host PTY', () => {
         ];
         const innerCommand = [
             'before=$(stty -g)',
-            `(sleep 10; printf '\\003' > /dev/tty) & writer=$!`,
             `${command.map(shellQuote).join(' ')}; code=$?`,
-            'wait "$writer" 2>/dev/null || true',
             'after=$(stty -g)',
             `printf '\\n__STTY_BEFORE__%s\\n__STTY_AFTER__%s\\n' "$before" "$after"`,
             'exit "$code"',
@@ -34,7 +32,7 @@ describe('runTui host PTY', () => {
                 ? `script -q /dev/null sh -c ${shellQuote(innerCommand)}`
                 : `script -qec ${shellQuote(innerCommand)} /dev/null`;
         const proc = Bun.spawn({
-            cmd: ['sh', '-c', scriptCommand],
+            cmd: ['sh', '-c', `(sleep 15; printf '\\003') | ${scriptCommand}`],
             cwd: workspace,
             env: {
                 ...process.env,
@@ -51,7 +49,7 @@ describe('runTui host PTY', () => {
         try {
             const exitCode = await Promise.race([
                 proc.exited,
-                Bun.sleep(20_000).then(() => {
+                Bun.sleep(30_000).then(() => {
                     throw new Error('PTY child did not exit');
                 }),
             ]);
@@ -79,7 +77,7 @@ describe('runTui host PTY', () => {
                 proc.kill('SIGKILL');
             } catch {}
         }
-    }, 30_000);
+    }, 40_000);
 });
 
 function shellQuote(value: string): string {
