@@ -208,6 +208,6 @@ renderer must initialize in Bun's main test process.
 ## Готово для приемки
 
 All workstreams/checkpoints are complete. The locked install, type-check, full
-suite, diff check, PTY smoke, exact-candidate independent review, and Ubuntu CI
-passed. The brief is `done`, this plan is `archived`, and ready-for-review PR
+suite, diff check, PTY smoke, and Ubuntu CI passed. The brief is `done`, this
+plan is `archived`, and ready-for-review PR
 [#41](https://github.com/dapi/hyper-code2/pull/41) contains the delivered slice.
