@@ -77,6 +77,12 @@ describe('GET /agent/:id/events.html', () => {
     const ctx = mkCtx();
     ctx.fns.db.connect(ctx, { path: ':memory:' });
     await ctx.fns.db.migrate(ctx);
+    const select = ctx.fns.db.select;
+    let queriedFullActivityCount = false;
+    ctx.fns.db.select = (innerCtx: Context, opts: { sql: string; params?: any }) => {
+        queriedFullActivityCount ||= opts.sql.includes("type NOT IN ('user', 'assistant', 'job')");
+        return select(innerCtx, opts);
+    };
     const a = start(ctx, { model: 'm', systemPrompt: '' });
     save(ctx, { agent: a });
     appendEvent(ctx, { id: a.id, event: { type: 'user', text: 'hi' } });
@@ -90,7 +96,8 @@ describe('GET /agent/:id/events.html', () => {
     expect(conversation).not.toContain('§eval');
     expect(html).toContain('hx-swap-oob="beforeend"');
     expect(html).toContain('§eval');
-    expect(html).toContain('<span id="activity-count" hx-swap-oob="outerHTML" class="font-normal text-gray-400">(1)</span>');
+    expect(html).not.toContain('activity-count');
+    expect(queriedFullActivityCount).toBe(false);
     });
 
     test('returns only delta when offset is in the middle', async () => {
