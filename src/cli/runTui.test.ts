@@ -5,6 +5,7 @@ import { mkTestCtx } from '../_testCtx.entry';
 import createTuiView, { type TuiView } from './createTuiView.entry';
 import runTui from './runTui.entry';
 
+const TEST_VERSION = '0.0.0-test';
 const cleanups: Array<() => Promise<void> | void> = [];
 afterEach(async () => {
     for (const cleanup of cleanups.splice(0).reverse()) await cleanup();
@@ -65,6 +66,7 @@ describe('runTui', () => {
             ctx,
             agent,
             workspace: '/work',
+            version: TEST_VERSION,
             initialPrompt: 'question',
             createRenderer: async () => setup.renderer,
             waitForFirstFrame: async () => {
@@ -121,6 +123,7 @@ describe('runTui', () => {
             ctx,
             agent,
             workspace: '/work',
+            version: TEST_VERSION,
             exitSignal: exitController.signal,
             createRenderer: async () => setup.renderer,
             createView: (renderer, options) => {
@@ -195,6 +198,7 @@ describe('runTui', () => {
             ctx,
             agent,
             workspace: '/work',
+            version: TEST_VERSION,
             exitSignal: exitController.signal,
             createRenderer: async () => setup.renderer,
             createView: (renderer, options) => {
@@ -253,6 +257,7 @@ describe('runTui', () => {
             ctx,
             agent,
             workspace: '/work',
+            version: TEST_VERSION,
             initialPrompt: 'wait',
             createRenderer: async () => setup.renderer,
             waitForFirstFrame: async () => {
@@ -296,6 +301,7 @@ describe('runTui', () => {
             ctx,
             agent,
             workspace: '/work',
+            version: TEST_VERSION,
             exitSignal: exit.signal,
             createRenderer: async () => setup.renderer,
             waitForFirstFrame: async () => {
@@ -319,6 +325,7 @@ describe('runTui', () => {
                 ctx,
                 agent,
                 workspace: '/work',
+                version: TEST_VERSION,
                 createRenderer: async () => {
                     throw new Error('terminal setup failed');
                 },
@@ -342,6 +349,7 @@ describe('runTui', () => {
             ctx,
             agent,
             workspace: '/work',
+            version: TEST_VERSION,
             createRenderer: async () => setup.renderer,
             waitForFirstFrame: async () => {
                 await setup.renderOnce();
@@ -398,6 +406,7 @@ describe('runTui', () => {
             ctx,
             agent,
             workspace: '/work',
+            version: TEST_VERSION,
             initialPrompt: 'inspect this',
             createRenderer: async () => setup.renderer,
             waitForFirstFrame: async () => {

@@ -48,6 +48,7 @@ describe('createTuiView', () => {
         const view = createTuiView(setup.renderer, {
             workspace: '/work',
             model: 'mock:test',
+            version: '0.0.0-test',
             onSubmit: (text) => submissions.push(text),
             onInterrupt: () => {},
             onExit: () => {},
@@ -69,6 +70,7 @@ describe('createTuiView', () => {
         const view = createTuiView(setup.renderer, {
             workspace: '/work',
             model: 'mock:test',
+            version: '0.0.0-test',
             onSubmit: () => {},
             onInterrupt: () => {},
             onExit: () => {},
@@ -100,6 +102,7 @@ describe('createTuiView', () => {
         const view = createTuiView(setup.renderer, {
             workspace: '/work',
             model: 'mock:test',
+            version: '0.0.0-test',
             onSubmit: () => {},
             onInterrupt: () => {},
             onExit: () => {},

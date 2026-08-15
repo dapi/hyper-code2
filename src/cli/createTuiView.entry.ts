@@ -11,7 +11,7 @@ import { productLabel } from './productInfo.entry';
 export type TuiViewOptions = {
     workspace: string;
     model: string;
-    version?: string;
+    version: string;
     onSubmit: (text: string) => void;
     onInterrupt: () => void;
     onExit: () => void;
@@ -44,7 +44,7 @@ export default function createTuiView(
     const brand = new TextRenderable(renderer, {
         id: 'brand',
         height: 1,
-        content: ` ${productLabel(opts.version ?? '0.0.0-dev')}`,
+        content: ` ${productLabel(opts.version)}`,
         fg: '#7dcfff',
         bg: '#101b26',
     });

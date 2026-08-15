@@ -9,7 +9,7 @@ export type TuiOptions = {
     ctx: Context;
     agent: types.agent.Agent;
     workspace: string;
-    version?: string;
+    version: string;
     initialPrompt?: string;
     exitSignal?: AbortSignal;
     createRenderer?: () => Promise<CliRenderer>;

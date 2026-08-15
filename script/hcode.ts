@@ -21,7 +21,7 @@ export type MainDependencies = {
         ctx: Context;
         agent: types.agent.Agent;
         workspace: string;
-        version?: string;
+        version: string;
         initialPrompt?: string;
         exitSignal?: AbortSignal;
     }) => Promise<void>;
