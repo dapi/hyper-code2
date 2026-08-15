@@ -166,7 +166,7 @@ describe('runTui', () => {
         await running;
     });
 
-    test('preserves a draft typed while submission is awaiting acceptance', async () => {
+    test('preserves edits made while submission is awaiting acceptance', async () => {
         const ctx = await mkTestCtx();
         const agent = ctx.fns.agent.start(ctx, { model: 'mock:test' });
         agent.scratchpad.mockLLM = { userText: 'done' };
@@ -209,9 +209,13 @@ describe('runTui', () => {
         await setup.mockInput.typeText('submitted');
         setup.mockInput.pressEnter({ ctrl: true });
         await setup.flush();
-        await setup.mockInput.typeText('next draft');
+        // Replace a character in the submitted buffer while submit() is
+        // pending. The replacement is the draft; the accepted text is not.
+        for (let i = 0; i < 4; i++) setup.mockInput.pressArrow('left');
+        setup.mockInput.pressBackspace();
+        await setup.mockInput.typeText('X');
         release();
-        await eventually(() => view.composer.plainText === 'next draft');
+        await eventually(() => view.composer.plainText === 'X');
 
         exitController.abort();
         await running;

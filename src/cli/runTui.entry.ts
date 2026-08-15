@@ -263,14 +263,48 @@ function clearSubmittedComposer(
     submittedComposerText: string,
 ): void {
     const currentText = view.composer.plainText;
-    if (currentText === submittedComposerText) {
-        view.composer.editBuffer.setText('');
-        view.composer.cursorOffset = 0;
-    } else if (currentText.startsWith(submittedComposerText)) {
-        const draft = currentText.slice(submittedComposerText.length);
-        view.composer.editBuffer.setText(draft);
-        view.composer.cursorOffset = draft.length;
+    const draft = postSubmitEditText(submittedComposerText, currentText);
+    view.composer.editBuffer.setText(draft);
+    view.composer.cursorOffset = draft.length;
+}
+
+/**
+ * Remove the text that was present when submission started, retaining text
+ * introduced while submit() was waiting for durable acceptance. The LCS
+ * alignment treats unchanged characters as belonging to the submitted turn;
+ * characters only present in the post-submit buffer are the pending draft.
+ */
+function postSubmitEditText(before: string, after: string): string {
+    const rows = before.length + 1;
+    const cols = after.length + 1;
+    const lcs = Array.from({ length: rows }, () =>
+        Array<number>(cols).fill(0),
+    );
+
+    for (let i = before.length - 1; i >= 0; i--) {
+        for (let j = after.length - 1; j >= 0; j--) {
+            lcs[i]![j] =
+                before[i] === after[j]
+                    ? lcs[i + 1]![j + 1]! + 1
+                    : Math.max(lcs[i + 1]![j]!, lcs[i]![j + 1]!);
+        }
     }
+
+    let i = 0;
+    let j = 0;
+    let draft = '';
+    while (i < before.length && j < after.length) {
+        if (before[i] === after[j]) {
+            i++;
+            j++;
+        } else if (lcs[i + 1]![j]! >= lcs[i]![j + 1]!) {
+            i++;
+        } else {
+            draft += after[j++];
+        }
+    }
+    while (j < after.length) draft += after[j++];
+    return draft;
 }
 
 function formatEvent(event: any): string {
