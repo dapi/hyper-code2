@@ -16,10 +16,14 @@ export default async function (ctx: Context, _session: any, req: any) {
 
     const maxIdx = ctx.fns.session.getMaxEventIdx(ctx, { id });
     const events = ctx.fns.session.getEvents(ctx, { id, fromIdx: offset });
-    const eventsHtml = (await Promise.all(events.map(async (ev: any) => {
+    const conversationEvents = events.filter((ev: any) => ev.type === 'user' || ev.type === 'assistant');
+    const activityEvents = events.filter((ev: any) => ev.type !== 'user' && ev.type !== 'assistant' && ev.type !== 'job');
+    const renderEvents = async (items: any[]) => (await Promise.all(items.map(async (ev: any) => {
         const cached = ev.eventHtml ?? (ev.type !== 'assistant' ? ev.html : undefined);
         return cached ?? await ctx.fns.agent.renderEventHtml(ctx, { event: ev, agentId: id });
     }))).join('\n');
+    const eventsHtml = await renderEvents(conversationEvents);
+    const activityHtml = await renderEvents(activityEvents);
 
     const lastAssistant = [...events].reverse().find((ev: any) => ev?.type === 'assistant');
     const usageOob = lastAssistant?.usage
@@ -33,7 +37,10 @@ export default async function (ctx: Context, _session: any, req: any) {
     // every 10s:  belt-and-braces poll in case SSE is disconnected.
     const tail = `<div id="msg-tail" hx-get="${tailUrl}" hx-trigger="hyper-tick from:body, every 10s" hx-swap="outerHTML"></div>`;
 
-    return new Response(eventsHtml + '\n' + tail + usageOob, {
+    const activityOob = activityHtml
+        ? `<div id="activity-list" hx-swap-oob="beforeend">${activityHtml}</div>`
+        : '';
+    return new Response(eventsHtml + '\n' + activityOob + tail + usageOob, {
         headers: { 'content-type': 'text/html; charset=utf-8' },
     });
 }

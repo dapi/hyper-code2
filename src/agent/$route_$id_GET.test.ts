@@ -58,4 +58,14 @@ describe('GET /agent/:id', () => {
         expect(html).toContain('db');
         expect(html).toContain('db-model');
     });
+
+    test('keeps a long activity trace in a bounded scrollable panel', async () => {
+        const agent = { id: 'a1', model: 'm', messages: [], events: [], isStreaming: false };
+        const ctx = mkCtx({ a1: agent });
+        (ctx.fns as any).session.getEvents = () => Array.from({ length: 80 }, () => ({ type: 'tool_call', name: 'eval', args: {}, result: '' }));
+
+        const html = await render(ctx, 'a1');
+        expect(html).toContain('id="activity-list" class="max-h-[40vh] overflow-y-auto overscroll-contain');
+        expect(html).not.toContain('activity-count');
+    });
 });

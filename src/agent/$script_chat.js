@@ -1,5 +1,5 @@
 // Minimal chat client. Everything else is htmx:
-//   - new events arrive via #msg-tail long-poll on /agent/:id/events.html
+//   - new events arrive via #msg-tail short fetches on /agent/:id/events.html
 //   - form submit posts via hx-post; ack is 204
 //   - delete buttons are htmx-confirmed posts (see renderEventHtml.deleteControls)
 //   - status bar polls /agent/:id/statusbar
