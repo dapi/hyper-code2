@@ -64,6 +64,8 @@ import formatMarkerResult from './agent/formatMarkerResult';
 import formatMarkerError from './agent/formatMarkerError';
 import parseMarkers from './agent/parseMarkers';
 import markerKind from './agent/markerKind';
+import publishLive from './agent/publishLive';
+import subscribeLive from './agent/subscribeLive';
 
 import streamMock from './llm/streamMock';
 import resolveEndpoint from './llm/resolveEndpoint';
@@ -127,6 +129,7 @@ export async function mkTestCtx(opts: { db?: string | false; quiet?: boolean } =
                 llmCall: streamLLM,
                 // Marker turn-loop helpers.
                 parseMarkers, markerKind,
+                publishLive, subscribeLive,
                 executeMarker, executeBash,
                 sanitizeHtmlBody,
                 highlightResult, serializeMarkerCall,

@@ -44,4 +44,6 @@ jobs:
         run: bunx tsc --noEmit
 
       - name: Run tests
-        run: bun test --timeout 5000
+        # Tests share cwd/fixture state, and OpenTUI's FFI test renderer must
+        # initialize in Bun's main test process rather than an isolated worker.
+        run: bun test --timeout 30000 --no-parallel

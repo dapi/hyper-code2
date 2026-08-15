@@ -5,7 +5,7 @@ export type Agent = {
     messages: any[];                        // synchronized runtime view of DB-backed transcript
     events: any[];                          // synchronized runtime view of DB-backed event trace
     cursors: Record<string, number>;
-    subscribers: Set<(ev: any, signal?: AbortSignal) => void>;
+    subscribers: Set<types.agent.LiveSubscriber>;
     waiters: Array<() => void>;
     isStreaming: boolean;
     abortController: AbortController | null;

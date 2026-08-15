@@ -13,18 +13,35 @@ export const FORCED_SHUTDOWN_EXIT_CODE = 125;
 export type MainDependencies = {
     startRuntime?: typeof startRuntime;
     runTerminal?: typeof runTerminal;
+    runTui?: (opts: {
+        ctx: Context;
+        agent: types.agent.Agent;
+        workspace: string;
+        initialPrompt?: string;
+        exitSignal?: AbortSignal;
+    }) => Promise<void>;
+    isInteractiveTty?: () => boolean;
 };
 
 // Keep the CLI's workspace/runtime boundary in the shared prompt composer so
 // it applies to terminal agents, browser-created agents, and rehydrated agents
 // alike. The value is intentionally runtime-only rather than persisted in each
 // agent's custom instructions: it reflects the current installation roots.
-export async function configureRuntimePathInstructions(ctx: Context, workspace: string): Promise<void> {
+export async function configureRuntimePathInstructions(
+    ctx: Context,
+    workspace: string,
+): Promise<void> {
     const roots = await ctx.fns.project.roots(ctx);
-    (ctx.state as any).runtimePathInstructions = runtimePathInstructions({ workspace, roots });
+    (ctx.state as any).runtimePathInstructions = runtimePathInstructions({
+        workspace,
+        roots,
+    });
 }
 
-export default async function main(argv: string[], deps: MainDependencies = {}): Promise<number> {
+export default async function main(
+    argv: string[],
+    deps: MainDependencies = {},
+): Promise<number> {
     const start = deps.startRuntime ?? startRuntime;
     const terminal = deps.runTerminal ?? runTerminal;
     let forcedShutdown = false;
@@ -35,7 +52,9 @@ export default async function main(argv: string[], deps: MainDependencies = {}):
             return 0;
         }
         if (command.kind === 'version') {
-            const pkg = await Bun.file(new URL('../package.json', import.meta.url)).json();
+            const pkg = await Bun.file(
+                new URL('../package.json', import.meta.url),
+            ).json();
             console.log(pkg.version ?? '0.0.0-dev');
             return 0;
         }
@@ -49,7 +68,9 @@ export default async function main(argv: string[], deps: MainDependencies = {}):
         // inherit DB_PATH for compatibility with the existing browser server.
         const dbPath = workspaceSessionDbPath(workspace);
         if (command.kind === 'serve') {
-            console.log('Concurrent hcode processes for the same workspace are unsupported in this preview.');
+            console.log(
+                'Concurrent hcode processes for the same workspace are unsupported in this preview.',
+            );
             const serveExit = new AbortController();
             const onSignal = () => serveExit.abort();
             process.once('SIGINT', onSignal);
@@ -61,7 +82,8 @@ export default async function main(argv: string[], deps: MainDependencies = {}):
                     dbPath,
                     http: true,
                     env: command.port ? { PORT: String(command.port) } : {},
-                    configurePromptContext: (ctx) => configureRuntimePathInstructions(ctx, workspace),
+                    configurePromptContext: (ctx) =>
+                        configureRuntimePathInstructions(ctx, workspace),
                 });
                 await waitForExitSignal(serveExit.signal);
             } finally {
@@ -90,30 +112,60 @@ export default async function main(argv: string[], deps: MainDependencies = {}):
                 dbPath,
                 http: false,
                 quiet: true,
-                configurePromptContext: (ctx) => configureRuntimePathInstructions(ctx, workspace),
+                configurePromptContext: (ctx) =>
+                    configureRuntimePathInstructions(ctx, workspace),
             });
             if (!terminalExit.signal.aborted) {
-                const loaded = await runtime.ctx.fns.workspace.instructions(runtime.ctx, { workspace });
+                const loaded = await runtime.ctx.fns.workspace.instructions(
+                    runtime.ctx,
+                    { workspace },
+                );
                 if (!terminalExit.signal.aborted) {
-                    const model = command.model ?? runtime.ctx.fns.settings.modelDefault(runtime.ctx);
+                    const model =
+                        command.model ??
+                        runtime.ctx.fns.settings.modelDefault(runtime.ctx);
                     if (!terminalExit.signal.aborted) {
                         const prompt = [
                             'You are running in TRUSTED MODE with unrestricted local agent execution.',
                             loaded.text,
-                        ].filter(Boolean).join('\n\n');
-                        const agent = runtime.ctx.fns.agent.start(runtime.ctx, { model, systemPrompt: prompt });
-                        await terminal({
-                            ctx: runtime.ctx,
-                            agent,
-                            workspace,
-                            initialPrompt: command.prompt,
-                            registerInterrupt: (handler) => {
-                                process.off('SIGINT', onBootstrapSigint);
-                                process.on('SIGINT', handler);
-                                return () => process.off('SIGINT', handler);
-                            },
-                            exitSignal: terminalExit.signal,
+                        ]
+                            .filter(Boolean)
+                            .join('\n\n');
+                        const agent = runtime.ctx.fns.agent.start(runtime.ctx, {
+                            model,
+                            systemPrompt: prompt,
                         });
+                        const interactive =
+                            deps.isInteractiveTty?.() ??
+                            Boolean(
+                                process.stdin.isTTY && process.stdout.isTTY,
+                            );
+                        if (interactive) {
+                            const tui =
+                                deps.runTui ??
+                                (await import('../src/cli/runTui.entry'))
+                                    .default;
+                            await tui({
+                                ctx: runtime.ctx,
+                                agent,
+                                workspace,
+                                initialPrompt: command.prompt,
+                                exitSignal: terminalExit.signal,
+                            });
+                        } else {
+                            await terminal({
+                                ctx: runtime.ctx,
+                                agent,
+                                workspace,
+                                initialPrompt: command.prompt,
+                                registerInterrupt: (handler) => {
+                                    process.off('SIGINT', onBootstrapSigint);
+                                    process.on('SIGINT', handler);
+                                    return () => process.off('SIGINT', handler);
+                                },
+                                exitSignal: terminalExit.signal,
+                            });
+                        }
                     }
                 }
             }
@@ -126,7 +178,8 @@ export default async function main(argv: string[], deps: MainDependencies = {}):
         return forcedShutdown ? FORCED_SHUTDOWN_EXIT_CODE : 0;
     } catch (error: any) {
         console.error(`hcode: ${error?.message ?? error}`);
-        if (error instanceof CliUsageError) console.error('Run `hcode --help` for usage.');
+        if (error instanceof CliUsageError)
+            console.error('Run `hcode --help` for usage.');
         // A forced shutdown leaves uncooperative adapter work alive. The
         // entrypoint must call process.exit() in that case even when the
         // terminal also reported an error.
@@ -137,7 +190,9 @@ export default async function main(argv: string[], deps: MainDependencies = {}):
 
 function waitForExitSignal(signal: AbortSignal): Promise<void> {
     if (signal.aborted) return Promise.resolve();
-    return new Promise((resolve) => signal.addEventListener('abort', () => resolve(), { once: true }));
+    return new Promise((resolve) =>
+        signal.addEventListener('abort', () => resolve(), { once: true }),
+    );
 }
 
 function helpText() {
@@ -146,7 +201,7 @@ function helpText() {
   hcode serve [-C <directory>] [--port <port>]
 
 Commands:
-  (default)  Start the line-oriented terminal client without HTTP
+  (default)  Start the full-screen TUI in a terminal; line mode when redirected
   serve      Start the existing browser server explicitly
 
 Options:

@@ -23,6 +23,7 @@ declare global {
         nextId: typeof import("./agent/nextId").default;
         parseMarkers: typeof import("./agent/parseMarkers").default;
         parseReadMarker: typeof import("./agent/parseReadMarker").default;
+        publishLive: typeof import("./agent/publishLive").default;
         readAndSummarize: typeof import("./agent/readAndSummarize").default;
         renderEventHtml: typeof import("./agent/renderEventHtml").default;
         renderStatusBar: typeof import("./agent/renderStatusBar").default;
@@ -32,6 +33,7 @@ declare global {
         start: typeof import("./agent/start").default;
         stop: typeof import("./agent/stop").default;
         submit: typeof import("./agent/submit").default;
+        subscribeLive: typeof import("./agent/subscribeLive").default;
         waitForEvent: typeof import("./agent/waitForEvent").default;
         wakeWaiters: typeof import("./agent/wakeWaiters").default;
         wakeWorker: typeof import("./agent/wakeWorker").default;
@@ -205,6 +207,8 @@ declare global {
     namespace types {
         namespace agent {
             type Agent = import("./agent/$type_Agent").Agent;
+            type LiveEvent = import("./agent/$type_LiveEvent").LiveEvent;
+            type LiveSubscriber = import("./agent/$type_LiveSubscriber").LiveSubscriber;
             type MarkerCall = import("./agent/$type_MarkerCall").MarkerCall;
             type MarkerParseError = import("./agent/$type_MarkerParseError").MarkerParseError;
         }

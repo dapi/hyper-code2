@@ -44,7 +44,8 @@ async function runLauncher(
 async function waitForPath(path: string, timeoutMs: number) {
     const deadline = Date.now() + timeoutMs;
     while (!existsSync(path)) {
-        if (Date.now() >= deadline) throw new Error(`timed out waiting for ${path}`);
+        if (Date.now() >= deadline)
+            throw new Error(`timed out waiting for ${path}`);
         await Bun.sleep(10);
     }
 }
@@ -85,10 +86,13 @@ exec '${process.execPath}' "$@"
     test('supports a configured Bun executable path containing spaces', async () => {
         const workspace = join(fixtureRoot, 'workspace');
         await mkdir(workspace, { recursive: true });
-        const fakeBun = await writeFakeBun(`#!/bin/sh
+        const fakeBun = await writeFakeBun(
+            `#!/bin/sh
 if [ "$1" = "--version" ]; then printf '1.3.14\\n'; exit 0; fi
 exec '${process.execPath}' "$@"
-`, 'bun with spaces');
+`,
+            'bun with spaces',
+        );
 
         const result = await runLauncher(fakeBun, workspace);
 
@@ -109,7 +113,12 @@ if [ "$1" = "--version" ]; then printf '1.3.14\\n'; exit 0; fi
 exec '${process.execPath}' "$@"
 `);
 
-        const result = await runLauncher(fakeBun, workspace, 'hcode', `${binDir}:${process.env.PATH}`);
+        const result = await runLauncher(
+            fakeBun,
+            workspace,
+            'hcode',
+            `${binDir}:${process.env.PATH}`,
+        );
 
         expect(result.exitCode).toBe(0);
         expect(result.stdout).toContain('Usage:');
@@ -155,14 +164,19 @@ exec '${process.execPath}' "$@"
         const stderr = new Response(proc.stderr).text();
 
         try {
-            await waitForPath(join(workspace, '.hyper', '_runtime', 'sessions'), 4_000);
+            await waitForPath(
+                join(workspace, '.hyper', '_runtime', 'sessions'),
+                4_000,
+            );
             process.kill(proc.pid, 'SIGINT');
 
             expect(await proc.exited).toBe(0);
             await stdout;
             expect(await stderr).toBe('');
         } finally {
-            try { proc.kill('SIGKILL'); } catch {}
+            try {
+                proc.kill('SIGKILL');
+            } catch {}
         }
     }, 8_000);
 
@@ -208,17 +222,135 @@ exec '${process.execPath}' "$@"
 
         const exitCode = await main(['-C', workspace, '-m', 'mock:test'], {
             startRuntime: async () => runtime as any,
-            runTerminal: async () => { throw new Error('terminal polling exploded'); },
+            runTerminal: async () => {
+                throw new Error('terminal polling exploded');
+            },
         });
 
         expect(exitCode).toBe(FORCED_SHUTDOWN_EXIT_CODE);
+    });
+
+    test('selects TUI only for an interactive stdin/stdout pair', async () => {
+        const workspace = join(fixtureRoot, 'workspace');
+        await mkdir(workspace, { recursive: true });
+        const agent = { model: 'mock:test' };
+        const runtime = {
+            ctx: {
+                state: {},
+                fns: {
+                    workspace: { instructions: async () => ({ text: '' }) },
+                    project: { roots: async () => [] },
+                    settings: { modelDefault: () => 'mock:test' },
+                    agent: { start: () => agent },
+                },
+            },
+            shutdown: async () => ({ forced: false }),
+        };
+        let tuiCalls = 0;
+        let lineCalls = 0;
+
+        const exitCode = await main(['-C', workspace, '-m', 'mock:test'], {
+            startRuntime: async () => runtime as any,
+            isInteractiveTty: () => true,
+            runTui: async (opts) => {
+                tuiCalls++;
+                expect(opts.workspace).toBe(workspace);
+            },
+            runTerminal: async () => {
+                lineCalls++;
+            },
+        });
+
+        expect(exitCode).toBe(0);
+        expect(tuiCalls).toBe(1);
+        expect(lineCalls).toBe(0);
+    });
+
+    test('keeps redirected execution on line mode without loading TUI', async () => {
+        const workspace = join(fixtureRoot, 'workspace');
+        await mkdir(workspace, { recursive: true });
+        const agent = { model: 'mock:test' };
+        const runtime = {
+            ctx: {
+                state: {},
+                fns: {
+                    workspace: { instructions: async () => ({ text: '' }) },
+                    project: { roots: async () => [] },
+                    settings: { modelDefault: () => 'mock:test' },
+                    agent: { start: () => agent },
+                },
+            },
+            shutdown: async () => ({ forced: false }),
+        };
+        let tuiCalls = 0;
+        let lineCalls = 0;
+
+        const exitCode = await main(['-C', workspace, '-m', 'mock:test'], {
+            startRuntime: async () => runtime as any,
+            isInteractiveTty: () => false,
+            runTui: async () => {
+                tuiCalls++;
+            },
+            runTerminal: async () => {
+                lineCalls++;
+            },
+        });
+
+        expect(exitCode).toBe(0);
+        expect(tuiCalls).toBe(0);
+        expect(lineCalls).toBe(1);
+    });
+
+    test('routes process SIGINT through TUI cleanup and runtime shutdown', async () => {
+        const workspace = join(fixtureRoot, 'workspace');
+        await mkdir(workspace, { recursive: true });
+        const agent = { model: 'mock:test' };
+        let shutdowns = 0;
+        const runtime = {
+            ctx: {
+                state: {},
+                fns: {
+                    workspace: { instructions: async () => ({ text: '' }) },
+                    project: { roots: async () => [] },
+                    agent: { start: () => agent },
+                },
+            },
+            shutdown: async () => {
+                shutdowns++;
+                return { forced: false };
+            },
+        };
+        let tuiStarted!: () => void;
+        const started = new Promise<void>((resolve) => {
+            tuiStarted = resolve;
+        });
+        const running = main(['-C', workspace, '-m', 'mock:test'], {
+            startRuntime: async () => runtime as any,
+            isInteractiveTty: () => true,
+            runTui: async ({ exitSignal }) => {
+                tuiStarted();
+                if (exitSignal?.aborted) return;
+                await new Promise<void>((resolve) =>
+                    exitSignal?.addEventListener('abort', () => resolve(), {
+                        once: true,
+                    }),
+                );
+            },
+        });
+        await started;
+        process.emit('SIGINT');
+
+        expect(await running).toBe(0);
+        expect(shutdowns).toBe(1);
     });
 
     test('configures the shared runtime-path prompt block for serve-mode agents', async () => {
         const workspace = join(fixtureRoot, 'workspace');
         await mkdir(workspace, { recursive: true });
         let runtimeStarted!: () => void;
-        const started = new Promise<void>((resolve) => { runtimeStarted = resolve; });
+        const started = new Promise<void>((resolve) => {
+            runtimeStarted = resolve;
+        });
         const runtime = {
             ctx: {
                 state: {},
@@ -248,6 +380,8 @@ exec '${process.execPath}' "$@"
         expect((runtime.ctx.state as any).runtimePathInstructions).toContain(
             'Selected workspace and process cwd: ' + workspace,
         );
-        expect((runtime.ctx.state as any).runtimePathInstructions).toContain('src: /opt/hcode/src');
+        expect((runtime.ctx.state as any).runtimePathInstructions).toContain(
+            'src: /opt/hcode/src',
+        );
     });
 });

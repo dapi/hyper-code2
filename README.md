@@ -4,9 +4,9 @@
 
 A self-extending AI agent runtime on Bun with browser and terminal clients. Procedural TypeScript, **markers protocol** instead of native tool-calls.
 
-## Terminal preview
+## Terminal TUI
 
-Run the repository-local line client from the workspace the agent should own.
+Run the repository-local full-screen client from the workspace the agent should own.
 It requires Bun >= 1.3.13; the verified preview runtime is Bun 1.3.14:
 
 ```bash
@@ -19,13 +19,16 @@ mise exec bun@1.3.14 -- ./hcode -C /path/to/project -m claude-code:claude-haiku-
 
 `hcode` canonicalizes the selected directory, stores preview session state in
 `<workspace>/.hyper/_runtime/sessions`, and loads every `AGENTS.md` from the Git
-root down to that directory. It runs without an HTTP listener. Use `/exit` or
-Ctrl+D to leave; Ctrl+C stops the active turn (or exits while idle).
+root down to that directory. It runs without an HTTP listener. Enter inserts a
+newline, Ctrl+Enter submits, Ctrl+C stops the active turn (or exits while idle),
+and Ctrl+D exits with an empty composer. Redirected stdin/stdout automatically
+uses the existing line client, where `/exit` is also available.
 
 This is a trusted local preview: the agent has unrestricted process, filesystem,
-and network authority. It is not a sandbox and does not yet provide the full
-Codex/Claude Code TUI experience (full-screen UI, token-delta streaming, PTY,
-diff review, and approvals remain follow-up work).
+and network authority. It is not a sandbox. The MVP provides a stable
+conversation viewport, multiline composer, scrollback, status, and live
+assistant/thinking deltas; session management, child-process PTY handoff, diff
+review, and approvals remain follow-up work.
 
 The browser client is still available explicitly:
 
@@ -92,7 +95,7 @@ flowchart LR
     POST   -- "wakeWorker" --> WORKER
     WORKER -- "atomic claim<br/>UPDATE … RETURNING id" --> AGENTS
     WORKER --> RUN
-    RUN    -- "appendEvent<br/>(per token-batch)" --> EVENTS
+    RUN    -- "append durable final/activity events" --> EVENTS
     RUN    --> MSGS
     EVENTS -- "wakeWaiters" --> EH
     M      -- "/events.html?offset=N" --> EH
@@ -136,6 +139,7 @@ src/
     formatMarkerResult.ts         renders §result:eval / §result:write:<path> / §result:bash blocks
     formatMarkerError.ts          renders §error:marker-misplaced warning blocks
     run.ts                        turn loop — stream → parse → execute markers → feed results
+    publishLive / subscribeLive   agent-scoped, non-durable TUI delta seam
     workerLoop.ts / wakeWorker    single in-process drainer
     waitForEvent / wakeWaiters    per-agent long-poll wake mechanism
     compact.ts                    shrink the last result OR drop a tail with a synthetic note
@@ -166,6 +170,11 @@ src/
     resolveEndpoint.ts            "<provider>:<modelId>" → {url, apiKey, api}
     listModels.ts                 curated + live discovery for the new-agent form
     $setting_*.ts                 per-provider apiKey / baseUrl declarations
+
+  cli/
+    runTui.entry.ts               OpenTUI lifecycle, durable reconciliation, submit/stop/exit
+    createTuiView.entry.ts        full-screen layout, multiline input, scrollback, status
+    runTerminal.entry.ts          redirected/non-TTY line fallback
 
   files/                          ctx.fns.files.* — cwd-oriented helpers in trusted mode; UI reflects changes
   events/                         ctx.fns.events.* — server-side event bus
@@ -314,7 +323,10 @@ Optimised for an LLM-agent-driven codebase where the agent reads, writes, and ho
 - **No framework** (no Express, no Next.js, no Vite). `Bun.serve`, `Bun.file`, `Bun.markdown`, `bun:sqlite`, `bun:test`, `Bun.Transpiler` cover everything.
 - **No npm equivalents** where a Bun built-in exists.
 - **No native function-calling protocol.** Markers are the only wire format. Removed in favour of one escape level + uniform behaviour across providers.
-- **No streaming tokens to the UI yet** — events appear once the LLM finishes. `/agent/:id/statusbar` polls every 1s so the user sees `running · 12.3s`.
+- **Browser output remains durable-event driven.** The terminal TUI additionally
+  consumes process-local assistant/thinking deltas, then replaces them with the
+  exact SQLite-backed final events; the live seam is not persisted or exposed
+  over browser/SSE APIs.
 
 ## License
 

@@ -75,3 +75,9 @@ ADR после acceptance по мере выполнения downstream work.
   фиксации; сами implementation/compliance evidence могут появиться после acceptance;
 - определены условия пересмотра;
 - Follow-up называет downstream canonical owners, которым принадлежат living facts и operational rules.
+
+## Project ADRs
+
+- [`ADR-001-select-opentui-core.md`](ADR-001-select-opentui-core.md) — use the
+  imperative OpenTUI core as the terminal rendering/input substrate for the
+  `hcode` full-screen interface.

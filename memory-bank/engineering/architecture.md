@@ -39,6 +39,8 @@ rehydrates sessions, loads routes, starts HTTP, and launches the worker.
 - `src/session/` owns durable agents, messages, events, forks, and scratchpads.
 - `src/db/` owns shared SQLite access and migration execution.
 - `src/llm/` owns provider resolution and streaming protocols.
+- `src/cli/` owns terminal adapters: interactive TTYs use the imperative OpenTUI
+  full-screen adapter; redirected streams retain the line adapter.
 - `src/settings/` owns declared and persisted configuration.
 - `src/files/`, `src/repl/`, and `src/project/` expose project inspection and extension.
 - `src/ui/`, `src/http/`, and root routes own browser delivery.
@@ -49,6 +51,9 @@ rehydrates sessions, loads routes, starts HTTP, and launches the worker.
 - One worker drains all eligible agents and runs different agents concurrently.
 - Per-agent claim serialization uses an atomic SQLite update; wakeups carry no data.
 - Browser chat updates use htmx long-polling and re-read durable events after wakeup.
+- The TUI may observe ordered, agent-scoped, process-local model-call deltas for
+  responsiveness. Those callbacks are non-durable and non-HTTP; SQLite events
+  replace the live projection and remain the final display/model authority.
 - Schema changes are timestamped paired SQL migrations under the owning module.
 
 ## Extension Boundary
@@ -76,4 +81,6 @@ No production deployment or public-network security architecture is documented.
 - [Worker loop](../../src/agent/workerLoop.ts) — atomic claim and concurrent drain.
 - [Full inherited transcript](../../src/session/getFullMessages.ts) — lazy fork assembly.
 - [Agent protocol](agent-protocol.md) — marker loop and transcript/event contract.
+- [TUI adapter](../../src/cli/runTui.entry.ts) — live/durable reconciliation,
+  cancellation, signal handling, and renderer cleanup.
 - [Trust boundary](security-boundary.md) — effective filesystem, shell, eval, network, and credential authority.

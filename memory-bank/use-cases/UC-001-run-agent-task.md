@@ -41,7 +41,8 @@ The operator submits real user input to an active agent.
 
 1. The operator opens or creates an agent in the browser or terminal client and submits a task.
 2. The task becomes a durable conversation turn and the agent becomes scheduled/running.
-3. The operator observes answer and action activity as it is persisted.
+3. The operator observes answer and action activity; an interactive terminal may
+   show non-durable live deltas before the same turn is finalized durably.
 4. The agent produces a terminal answer.
 5. The answer and conversation remain available after refresh or ordinary restart.
 
@@ -68,4 +69,4 @@ The operator submits real user input to an active agent.
 | PRD | [PRD-002](../prd/PRD-002-self-extending-agent-harness.md) |
 | Domain | [Rules](../domain/rules.md), [states](../domain/states.md) |
 | Engineering | [Architecture](../engineering/architecture.md), [agent protocol](../engineering/agent-protocol.md) |
-| Implementation | [Agent route](../../src/agent/$route_$id_POST.ts), [terminal](../../src/cli/runTerminal.entry.ts), [shared submit](../../src/agent/submit.ts), [worker](../../src/agent/workerLoop.ts) |
+| Implementation | [Agent route](../../src/agent/$route_$id_POST.ts), [TUI](../../src/cli/runTui.entry.ts), [line fallback](../../src/cli/runTerminal.entry.ts), [shared submit](../../src/agent/submit.ts), [worker](../../src/agent/workerLoop.ts) |
