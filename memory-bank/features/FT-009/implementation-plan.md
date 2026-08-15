@@ -7,7 +7,7 @@ derived_from:
   - brief.md
   - design.md
   - ../../adr/ADR-001-select-opentui-core.md
-status: active
+status: archived
 audience: humans_and_agents
 must_not_define:
   - ft_009_scope
@@ -207,8 +207,7 @@ renderer must initialize in Bun's main test process.
 
 ## Готово для приемки
 
-All workstreams/checkpoints are complete; brief evidence has concrete logs; the
-locked install, type-check, full suite, diff check, and PTY smoke pass; the exact
-implementation candidate has clean independent review; Ubuntu CI is green; docs
-describe shipped behavior. Then brief may become `done`, this plan `archived`,
-and the branch may be published as a ready-for-review PR.
+All workstreams/checkpoints are complete. The locked install, type-check, full
+suite, diff check, PTY smoke, exact-candidate independent review, and Ubuntu CI
+passed. The brief is `done`, this plan is `archived`, and ready-for-review PR
+[#41](https://github.com/dapi/hyper-code2/pull/41) contains the delivered slice.

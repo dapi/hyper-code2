@@ -11,7 +11,7 @@ derived_from:
   - ../../domain/rules.md
   - ../../use-cases/UC-001-run-agent-task.md
 status: active
-delivery_status: in_progress
+delivery_status: done
 audience: humans_and_agents
 must_not_define:
   - implementation_sequence
@@ -278,6 +278,10 @@ agent TUI.
 - `EVID-02` Passing delayed-stream test proving pre-completion output and exact final reconciliation.
 - `EVID-03` Passing terminal cleanup/cancellation tests plus a local PTY smoke transcript.
 - `EVID-04` Passing `bunx tsc --noEmit`, full `bun test --timeout 30000 --no-parallel`, `git diff --check`, and required GitHub CI.
+
+Delivery evidence: 523 local tests passed with 3 provider-dependent skips and
+0 failures; the Ubuntu `bun test + tsc` check passed in
+[GitHub Actions run 31875297406](https://github.com/dapi/hyper-code2/actions/runs/31875297406).
 
 ### Evidence Contract
 

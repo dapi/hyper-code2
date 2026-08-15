@@ -106,7 +106,9 @@ compatibility suite.
 - Owner: FT-009 implementation and reviewers.
 - Evidence: frozen `bun install`, OpenTUI test-renderer frames/input/resize tests,
   host PTY cleanup smoke, full Bun suite, and GitHub Actions on Ubuntu.
-- Evidence location: FT-009 PR verification summary and CI checks.
+- Evidence location: FT-009 PR
+  [#41](https://github.com/dapi/hyper-code2/pull/41) verification summary and
+  [Ubuntu CI run 31875297406](https://github.com/dapi/hyper-code2/actions/runs/31875297406).
 
 ## Reconsideration Conditions
 
