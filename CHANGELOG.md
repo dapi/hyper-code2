@@ -2,6 +2,19 @@
 
 ## Unreleased
 
+## 0.2.1 — 2026-08-15
+
+### Added
+
+- Added automatic discovery and persistence of an available default model for
+  the terminal clients, with fallback suggestions when the discovered model is
+  unavailable.
+- Added the product name and version to the CLI startup output and TUI header.
+
+### Fixed
+
+- Require and consistently pass the product version through the TUI runtime.
+
 ## 0.2.0-preview.0 — 2026-08-15
 
 ### Added
