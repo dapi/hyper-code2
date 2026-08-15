@@ -9,6 +9,7 @@ export type TuiOptions = {
     ctx: Context;
     agent: types.agent.Agent;
     workspace: string;
+    version?: string;
     initialPrompt?: string;
     exitSignal?: AbortSignal;
     createRenderer?: () => Promise<CliRenderer>;
@@ -167,6 +168,7 @@ export default async function runTui(opts: TuiOptions): Promise<void> {
         view = makeView(renderer, {
             workspace: opts.workspace,
             model: opts.agent.model,
+            version: opts.version,
             onSubmit,
             onInterrupt,
             onExit: requestExit,

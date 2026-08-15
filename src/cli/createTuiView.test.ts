@@ -14,6 +14,7 @@ describe('createTuiView', () => {
         const view = createTuiView(setup.renderer, {
             workspace: '/work/project',
             model: 'mock:test',
+            version: '9.8.7-preview.1',
             onSubmit: () => {},
             onInterrupt: () => {},
             onExit: () => {},
@@ -26,6 +27,7 @@ describe('createTuiView', () => {
         await setup.renderOnce();
 
         const frame = setup.captureCharFrame();
+        expect(frame).toContain('hyper-code2 v9.8.7-preview.1');
         expect(frame).toContain('TRUSTED MODE — unrestricted agent execution');
         expect(frame).toContain('workspace /work/project');
         expect(frame).toContain('model mock:test');
@@ -113,8 +115,8 @@ describe('createTuiView', () => {
         const scrolledFrame = setup.captureCharFrame();
 
         expect(scrolledFrame).not.toBe(bottomFrame);
-        expect(scrolledFrame).toContain('line 21');
-        expect(bottomFrame).not.toContain('line 21');
+        expect(scrolledFrame).toContain('line 22');
+        expect(bottomFrame).not.toContain('line 22');
 
         setup.resize(72, 18);
         await setup.renderOnce();

@@ -6,10 +6,12 @@ import {
     type CliRenderer,
     type KeyEvent,
 } from '@opentui/core';
+import { productLabel } from './productInfo.entry';
 
 export type TuiViewOptions = {
     workspace: string;
     model: string;
+    version?: string;
     onSubmit: (text: string) => void;
     onInterrupt: () => void;
     onExit: () => void;
@@ -38,6 +40,13 @@ export default function createTuiView(
         height: '100%',
         flexDirection: 'column',
         backgroundColor: '#0b0f14',
+    });
+    const brand = new TextRenderable(renderer, {
+        id: 'brand',
+        height: 1,
+        content: ` ${productLabel(opts.version ?? '0.0.0-dev')}`,
+        fg: '#7dcfff',
+        bg: '#101b26',
     });
     const trusted = new TextRenderable(renderer, {
         id: 'trusted-mode',
@@ -108,6 +117,7 @@ export default function createTuiView(
         bg: '#111820',
     });
 
+    root.add(brand);
     root.add(trusted);
     root.add(status);
     root.add(conversationScroll);

@@ -1,4 +1,8 @@
 import parseArgs, { CliUsageError } from '../src/cli/parseArgs.entry';
+import {
+    packageVersion,
+    productLabel,
+} from '../src/cli/productInfo.entry';
 import runTerminal from '../src/cli/runTerminal.entry';
 import runtimePathInstructions from '../src/cli/runtimePathInstructions.entry';
 import { workspaceSessionDbPath } from '../src/cli/workspaceDbPath.entry';
@@ -17,6 +21,7 @@ export type MainDependencies = {
         ctx: Context;
         agent: types.agent.Agent;
         workspace: string;
+        version?: string;
         initialPrompt?: string;
         exitSignal?: AbortSignal;
     }) => Promise<void>;
@@ -76,16 +81,15 @@ export default async function main(
             return 0;
         }
         if (command.kind === 'version') {
-            const pkg = await Bun.file(
-                new URL('../package.json', import.meta.url),
-            ).json();
-            console.log(pkg.version ?? '0.0.0-dev');
+            console.log(await packageVersion());
             return 0;
         }
 
+        const version = await packageVersion();
         const workspace = await resolveWorkspace(command.workspace);
         // The runtime loads workspace overlays and creates durable state, so
         // make its unrestricted authority explicit before either can happen.
+        console.log(productLabel(version));
         console.log('TRUSTED MODE — unrestricted agent execution');
         // The CLI's durable state is always scoped to the selected workspace.
         // `src/$main.ts` intentionally remains the only entrypoint that can
@@ -177,6 +181,7 @@ export default async function main(
                                 ctx: runtime.ctx,
                                 agent,
                                 workspace,
+                                version,
                                 initialPrompt: command.prompt,
                                 exitSignal: terminalExit.signal,
                             });

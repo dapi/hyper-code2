@@ -2,6 +2,7 @@ import { afterEach, describe, expect, test } from 'bun:test';
 import { chmod, mkdir, rm, symlink, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
+import { packageVersion, productLabel } from '../src/cli/productInfo.entry';
 import main, { FORCED_SHUTDOWN_EXIT_CODE, supportsKittyKeyboard } from './hcode';
 
 const repoRoot = resolve(import.meta.dir, '..');
@@ -163,7 +164,10 @@ exec '${process.execPath}' "$@"
         ]);
 
         expect(exitCode).toBe(1);
-        expect(stdout).toBe('TRUSTED MODE — unrestricted agent execution\n');
+        expect(stdout).toBe(
+            `${productLabel(await packageVersion())}\n` +
+                'TRUSTED MODE — unrestricted agent execution\n',
+        );
         expect(stderr).toContain('hcode: ENOTDIR');
     });
 
@@ -274,6 +278,7 @@ exec '${process.execPath}' "$@"
             runTui: async (opts) => {
                 tuiCalls++;
                 expect(opts.workspace).toBe(workspace);
+                expect(opts.version).toBe(await packageVersion());
             },
             runTerminal: async () => {
                 lineCalls++;
