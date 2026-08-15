@@ -99,7 +99,7 @@ describe('runTui', () => {
         expect(finalFrame).not.toContain('[assistant · live] partial');
         expect(finalFrame.match(/final answer/g)).toHaveLength(1);
         expect(durableOffsets.some((offset) => offset > 0)).toBe(true);
-        setup.mockInput.pressCtrlC();
+        setup.mockInput.pressEscape();
         await running;
     });
 
@@ -265,7 +265,7 @@ describe('runTui', () => {
             },
         });
         await streamStarted;
-        setup.mockInput.pressCtrlC();
+        setup.mockInput.pressEscape();
         await eventually(
             () =>
                 ctx.fns.db.select(ctx, {

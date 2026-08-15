@@ -31,7 +31,7 @@ describe('createTuiView', () => {
         expect(frame).toContain('TRUSTED MODE — unrestricted agent execution');
         expect(frame).toContain('workspace /work/project');
         expect(frame).toContain('model mock:test');
-        expect(frame).toContain('running');
+        expect(frame).toContain('◦ Working (0s • esc to interrupt)');
         expect(frame).toContain(
             '[HTML response available in browser mode only]',
         );
@@ -62,6 +62,33 @@ describe('createTuiView', () => {
 
         expect(submissions).toEqual(['first\nsecond']);
         expect(view.composer.plainText).toBe('first\nsecond');
+    });
+
+    test('advances working seconds and routes Escape to interrupt', async () => {
+        const setup = await createTestRenderer({ width: 120, height: 20, kittyKeyboard: true });
+        cleanups.push(() => setup.renderer.destroy());
+        let interrupts = 0;
+        const view = createTuiView(setup.renderer, {
+            workspace: '/work',
+            model: 'mock:test',
+            version: '0.0.0-test',
+            onSubmit: () => {},
+            onInterrupt: () => interrupts++,
+            onExit: () => {},
+        });
+        cleanups.push(view.dispose);
+        view.setRunState('running');
+        await setup.renderOnce();
+        expect(setup.captureCharFrame()).toContain('Working (0s • esc to interrupt)');
+        await Bun.sleep(1050);
+        await setup.renderOnce();
+        expect(setup.captureCharFrame()).toContain('Working (1s • esc to interrupt)');
+        setup.mockInput.pressEscape();
+        await setup.flush();
+        expect(interrupts).toBe(1);
+        view.setRunState('idle');
+        await setup.renderOnce();
+        expect(setup.captureCharFrame()).not.toContain('Working');
     });
 
     test('labels every residual partial projection with its failed outcome', async () => {

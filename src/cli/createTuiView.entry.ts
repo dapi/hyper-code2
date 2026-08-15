@@ -133,6 +133,39 @@ export default function createTuiView(
         outcome?: 'stopped' | 'failed';
     } = {};
     let disposed = false;
+    let workingSince: number | undefined;
+    let workingTimer: ReturnType<typeof setInterval> | undefined;
+    const clearWorkingTimer = () => {
+        if (workingTimer !== undefined) {
+            clearInterval(workingTimer);
+            workingTimer = undefined;
+        }
+        workingSince = undefined;
+    };
+    const renderStatus = (state: 'idle' | 'running' | 'stopping' | 'failed') => {
+        if (state === 'running') {
+            if (workingSince === undefined) workingSince = Date.now();
+            status.content = workingStatusText(
+                opts.workspace,
+                opts.model,
+                Math.floor((Date.now() - workingSince) / 1000),
+            );
+            if (workingTimer === undefined) {
+                workingTimer = setInterval(() => {
+                    if (disposed || workingSince === undefined) return;
+                    status.content = workingStatusText(
+                        opts.workspace,
+                        opts.model,
+                        Math.floor((Date.now() - workingSince) / 1000),
+                    );
+                    renderer.requestRender();
+                }, 1000);
+            }
+        } else {
+            clearWorkingTimer();
+            status.content = statusText(opts.workspace, opts.model, state);
+        }
+    };
     const renderConversation = () => {
         const blocks = [transcript.trimEnd()];
         const liveSuffix = live.outcome ? ` · ${live.outcome}` : ' · live';
@@ -154,6 +187,10 @@ export default function createTuiView(
             key.stopPropagation();
             composer.submit();
         } else if (key.ctrl && key.name === 'c') {
+            key.preventDefault();
+            key.stopPropagation();
+            opts.onInterrupt();
+        } else if (key.name === 'escape') {
             key.preventDefault();
             key.stopPropagation();
             opts.onInterrupt();
@@ -190,13 +227,14 @@ export default function createTuiView(
             renderConversation();
         },
         setRunState: (state) => {
-            status.content = statusText(opts.workspace, opts.model, state);
+            renderStatus(state);
             renderer.requestRender();
         },
         scrollBy: (rows) => conversationScroll.scrollBy(rows),
         dispose: () => {
             if (disposed) return;
             disposed = true;
+            clearWorkingTimer();
             renderer.keyInput.off('keypress', onKeypress);
         },
     };
@@ -204,4 +242,12 @@ export default function createTuiView(
 
 function statusText(workspace: string, model: string, state: string): string {
     return ` workspace ${workspace}  •  model ${model}  •  ${state}`;
+}
+
+function workingStatusText(
+    workspace: string,
+    model: string,
+    elapsedSeconds: number,
+): string {
+    return ` workspace ${workspace}  •  model ${model}  •  ◦ Working (${elapsedSeconds}s • esc to interrupt)`;
 }
