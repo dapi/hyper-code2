@@ -38,6 +38,10 @@ describe('runTui host PTY', () => {
                 ...process.env,
                 BUN_BIN: process.execPath,
                 TERM: 'xterm-256color',
+                // The host PTY does not provide terminal-specific capability
+                // metadata, so emulate a supported terminal for hcode's TUI
+                // gate instead of accidentally exercising line mode.
+                TERM_PROGRAM: 'WezTerm',
             },
             stdin: 'ignore',
             stdout: 'pipe',
