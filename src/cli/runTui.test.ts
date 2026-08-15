@@ -166,6 +166,57 @@ describe('runTui', () => {
         await running;
     });
 
+    test('preserves a draft typed while submission is awaiting acceptance', async () => {
+        const ctx = await mkTestCtx();
+        const agent = ctx.fns.agent.start(ctx, { model: 'mock:test' });
+        agent.scratchpad.mockLLM = { userText: 'done' };
+        await startWorker(ctx);
+        const setup = await createTestRenderer({
+            width: 80,
+            height: 22,
+            kittyKeyboard: true,
+            exitOnCtrlC: false,
+        });
+        let release!: () => void;
+        const accepted = new Promise<void>((resolve) => {
+            release = resolve;
+        });
+        const originalSubmit = ctx.fns.agent.submit;
+        ctx.fns.agent.submit = async (innerCtx: Context, submitOpts: any) => {
+            await accepted;
+            return originalSubmit(innerCtx, submitOpts);
+        };
+        let resolveView!: (view: TuiView) => void;
+        const viewReady = new Promise<TuiView>((resolve) => {
+            resolveView = resolve;
+        });
+        const exitController = new AbortController();
+        const running = runTui({
+            ctx,
+            agent,
+            workspace: '/work',
+            exitSignal: exitController.signal,
+            createRenderer: async () => setup.renderer,
+            createView: (renderer, options) => {
+                const view = createTuiView(renderer, options);
+                resolveView(view);
+                return view;
+            },
+            waitForFirstFrame: async () => setup.renderOnce(),
+        });
+        const view = await viewReady;
+
+        await setup.mockInput.typeText('submitted');
+        setup.mockInput.pressEnter({ ctrl: true });
+        await setup.flush();
+        await setup.mockInput.typeText('next draft');
+        release();
+        await eventually(() => view.composer.plainText === 'next draft');
+
+        exitController.abort();
+        await running;
+    });
+
     test('stops an active turn, remains usable, then exits idle', async () => {
         const ctx = await mkTestCtx();
         const agent = ctx.fns.agent.start(ctx, { model: 'mock:test' });

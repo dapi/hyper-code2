@@ -2,7 +2,7 @@ import { afterEach, describe, expect, test } from 'bun:test';
 import { chmod, mkdir, rm, symlink, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
-import main, { FORCED_SHUTDOWN_EXIT_CODE } from './hcode';
+import main, { FORCED_SHUTDOWN_EXIT_CODE, supportsKittyKeyboard } from './hcode';
 
 const repoRoot = resolve(import.meta.dir, '..');
 const fixtureRoot = join(repoRoot, '.test-tmp', 'hcode-launcher');
@@ -51,6 +51,24 @@ async function waitForPath(path: string, timeoutMs: number) {
 }
 
 describe('hcode launcher', () => {
+    test('detects only terminals known to report modified Enter', () => {
+        expect(supportsKittyKeyboard({ TERM: 'dumb' })).toBe(false);
+        expect(
+            supportsKittyKeyboard({
+                TERM: 'tmux-256color',
+                KITTY_WINDOW_ID: '1',
+            }),
+        ).toBe(false);
+        expect(supportsKittyKeyboard({ TERM: 'xterm-256color' })).toBe(false);
+        expect(supportsKittyKeyboard({ TERM: 'xterm-kitty' })).toBe(true);
+        expect(
+            supportsKittyKeyboard({
+                TERM: 'xterm-256color',
+                TERM_PROGRAM: 'WezTerm',
+            }),
+        ).toBe(true);
+    });
+
     test('rejects an unsupported Bun before entering the CLI or creating workspace state', async () => {
         const workspace = join(fixtureRoot, 'workspace');
         await mkdir(workspace, { recursive: true });
@@ -252,6 +270,7 @@ exec '${process.execPath}' "$@"
         const exitCode = await main(['-C', workspace, '-m', 'mock:test'], {
             startRuntime: async () => runtime as any,
             isInteractiveTty: () => true,
+            supportsKittyKeyboard: () => true,
             runTui: async (opts) => {
                 tuiCalls++;
                 expect(opts.workspace).toBe(workspace);
@@ -264,6 +283,42 @@ exec '${process.execPath}' "$@"
         expect(exitCode).toBe(0);
         expect(tuiCalls).toBe(1);
         expect(lineCalls).toBe(0);
+    });
+
+    test('falls back to line mode when an interactive terminal lacks modified Enter', async () => {
+        const workspace = join(fixtureRoot, 'workspace');
+        await mkdir(workspace, { recursive: true });
+        const agent = { model: 'mock:test' };
+        const runtime = {
+            ctx: {
+                state: {},
+                fns: {
+                    workspace: { instructions: async () => ({ text: '' }) },
+                    project: { roots: async () => [] },
+                    settings: { modelDefault: () => 'mock:test' },
+                    agent: { start: () => agent },
+                },
+            },
+            shutdown: async () => ({ forced: false }),
+        };
+        let tuiCalls = 0;
+        let lineCalls = 0;
+
+        const exitCode = await main(['-C', workspace, '-m', 'mock:test'], {
+            startRuntime: async () => runtime as any,
+            isInteractiveTty: () => true,
+            supportsKittyKeyboard: () => false,
+            runTui: async () => {
+                tuiCalls++;
+            },
+            runTerminal: async () => {
+                lineCalls++;
+            },
+        });
+
+        expect(exitCode).toBe(0);
+        expect(tuiCalls).toBe(0);
+        expect(lineCalls).toBe(1);
     });
 
     test('keeps redirected execution on line mode without loading TUI', async () => {
@@ -327,6 +382,7 @@ exec '${process.execPath}' "$@"
         const running = main(['-C', workspace, '-m', 'mock:test'], {
             startRuntime: async () => runtime as any,
             isInteractiveTty: () => true,
+            supportsKittyKeyboard: () => true,
             runTui: async ({ exitSignal }) => {
                 tuiStarted();
                 if (exitSignal?.aborted) return;

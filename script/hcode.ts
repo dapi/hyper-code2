@@ -21,7 +21,31 @@ export type MainDependencies = {
         exitSignal?: AbortSignal;
     }) => Promise<void>;
     isInteractiveTty?: () => boolean;
+    supportsKittyKeyboard?: () => boolean;
 };
+
+// Ctrl+Enter is the TUI's only submit binding, so a TTY alone is not enough:
+// terminals that cannot report modified Enter would leave the operator with no
+// way to submit. Keep this conservative; a false negative retains the fully
+// functional line adapter, while a false positive makes the TUI unusable.
+export function supportsKittyKeyboard(
+    env: Record<string, string | undefined> = process.env,
+): boolean {
+    const term = env.TERM?.toLowerCase();
+    // Multiplexers do not reliably forward the protocol to their outer
+    // terminal, including when KITTY_WINDOW_ID remains inherited from it.
+    if (
+        !term ||
+        term === 'dumb' ||
+        term.includes('screen') ||
+        term.includes('tmux')
+    )
+        return false;
+    if (env.KITTY_WINDOW_ID || term.includes('kitty')) return true;
+    return ['wezterm', 'ghostty'].includes(
+        env.TERM_PROGRAM?.toLowerCase() ?? '',
+    );
+}
 
 // Keep the CLI's workspace/runtime boundary in the shared prompt composer so
 // it applies to terminal agents, browser-created agents, and rehydrated agents
@@ -135,11 +159,15 @@ export default async function main(
                             model,
                             systemPrompt: prompt,
                         });
-                        const interactive =
+                        const interactiveTty =
                             deps.isInteractiveTty?.() ??
                             Boolean(
                                 process.stdin.isTTY && process.stdout.isTTY,
                             );
+                        const interactive =
+                            interactiveTty &&
+                            (deps.supportsKittyKeyboard?.() ??
+                                supportsKittyKeyboard());
                         if (interactive) {
                             const tui =
                                 deps.runTui ??

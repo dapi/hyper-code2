@@ -76,6 +76,9 @@ export default async function runTui(opts: TuiOptions): Promise<void> {
 
     const startTurn = async (text: string) => {
         if (closed || active || !view) return;
+        // Keep the exact pre-submit buffer so a slow durable submission cannot
+        // erase a draft typed while it is awaiting acceptance.
+        const submittedComposerText = view.composer.plainText;
         active = true;
         stopping = false;
         live = { thinking: '', assistant: '', outcome: undefined };
@@ -89,8 +92,7 @@ export default async function runTui(opts: TuiOptions): Promise<void> {
                 signal: submissionController.signal,
             });
             if (!closed) {
-                view.composer.editBuffer.setText('');
-                view.composer.cursorOffset = 0;
+                clearSubmittedComposer(view, submittedComposerText);
                 drainDurable();
             }
             while (!closed) {
@@ -253,6 +255,21 @@ export default async function runTui(opts: TuiOptions): Promise<void> {
         view?.dispose();
         renderer?.destroy();
         void activeTurn?.catch(() => {});
+    }
+}
+
+function clearSubmittedComposer(
+    view: TuiView,
+    submittedComposerText: string,
+): void {
+    const currentText = view.composer.plainText;
+    if (currentText === submittedComposerText) {
+        view.composer.editBuffer.setText('');
+        view.composer.cursorOffset = 0;
+    } else if (currentText.startsWith(submittedComposerText)) {
+        const draft = currentText.slice(submittedComposerText.length);
+        view.composer.editBuffer.setText(draft);
+        view.composer.cursorOffset = draft.length;
     }
 }
 
