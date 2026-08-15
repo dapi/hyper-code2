@@ -27,6 +27,11 @@ The owner-approved roadmap for inspectable self-model and bounded self-change is
 owned by [`EP-002`](../epics/EP-002/roadmap.md). It is a separate initiative:
 EP-001 evidence and security handoffs remain with their existing owners.
 
+The owner-approved roadmap for updating the `hcode` installation from verified
+GitHub Releases is owned by [`EP-003`](../epics/EP-003/roadmap.md). It is a
+separate engineering initiative with its own release-integrity and rollback
+gates; it does not change the product scope of EP-001 or EP-002.
+
 - `TODO.md` is an engineering-risk list, not a committed product roadmap.
 - `docs/reflection.md` is explicitly a design that is not implemented.
 - Git branches and commit messages are historical delivery evidence, not roadmap authority.

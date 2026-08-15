@@ -44,4 +44,8 @@ audience: humans_and_agents
 
 ## Instantiated Epics
 
-В шаблонном репозитории этот каталог может быть пустым. Это нормально.
+В текущем репозитории instantiated epics:
+
+- [`EP-001`](EP-001/README.md) — reusable self-extension validation.
+- [`EP-002`](EP-002/README.md) — inspectable and bounded self-evolution.
+- [`EP-003`](EP-003/README.md) — self-update from GitHub Releases.
