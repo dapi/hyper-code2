@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.2.0-preview.0 — 2026-08-15
+
 ### Added
 
 - Added a full-screen, streaming `hcode` TUI with a multiline composer,
