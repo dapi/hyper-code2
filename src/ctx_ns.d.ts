@@ -119,6 +119,7 @@ declare global {
         };
         repl: {
         eval: typeof import("./repl/eval").default;
+        invoke: typeof import("./repl/invoke").default;
         load: typeof import("./repl/load").default;
         start: typeof import("./repl/$start").default;
         };

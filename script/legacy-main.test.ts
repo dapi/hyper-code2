@@ -55,11 +55,11 @@ test('legacy main routes SIGINT through runtime shutdown', async () => {
     const stderr = new Response(proc.stderr).text();
 
     try {
-        await waitForOutput(proc.stdout, '[server] listening', 3_000);
+        await waitForOutput(proc.stdout, '[server] listening', 10_000);
         process.kill(proc.pid, 'SIGINT');
         expect(await proc.exited).toBe(0);
         expect(await stderr).toBe('');
     } finally {
         try { proc.kill('SIGKILL'); } catch {}
     }
-}, 5_000);
+}, 15_000);

@@ -40,7 +40,7 @@ Use case нужен для сценария, который живет на ур
 сделай title относительной ссылкой на `UC-*` и кратко опиши наблюдаемый результат
 сценария, а не только повтори название.
 
-Active `PRD-002` является product upstream для `UC-001…008`. `UC-001…004`
+Active `PRD-002` является product upstream для `UC-001…009`. `UC-001…004`
 владеют active supporting scenarios. Новые initiative-specific `UC-005…007`
 остаются draft до прохождения собственного Activation Gate; active PRD не
 означает, что эти сценарии уже приняты или реализованы.
@@ -59,6 +59,7 @@ inspectable and bounded self-evolution. Его active status не являетс
 | [`UC-006`](UC-006-reflect-on-agent-work.md) | Reflect on agent work | Bounded reflection produces an inspectable, reviewable result without hidden self-modification | `draft` | Operator or harness builder | [`PRD-002`](../prd/PRD-002-self-extending-agent-harness.md) | design direction only | 2026-08-13 |
 | [`UC-007`](UC-007-consolidate-context.md) | Consolidate a long-running context | Operator may explicitly continue from a provenance-linked successor while source history remains intact | `draft` | Agent operator | [`PRD-002`](../prd/PRD-002-self-extending-agent-harness.md) | no verified scenario | 2026-08-13 |
 | [`UC-008`](UC-008-inspect-and-evolve-agent.md) | Inspect and evolve the agent | Agent grounds a current self-description and performs only authorized, verified, observable, reversible self-change | `active` | Trusted coding agent with operator/developer | [`PRD-002`](../prd/PRD-002-self-extending-agent-harness.md) | partial: [FT-036](../features/FT-036/README.md) delivers read-only inspection; mutation ledger, activation and rollback remain unimplemented | 2026-08-13 |
+| [`UC-009`](UC-009-inspect-harness-bound-model-request.md) | Inspect a harness-bound model request | Trusted operator receives a provenance-linked provider-bound payload or a truthful unavailable/withheld result | `active` | Trusted agent operator or project developer | [`PRD-002`](../prd/PRD-002-self-extending-agent-harness.md) | planned: candidate [#48](https://github.com/dapi/hyper-code2/issues/48); no `FT-*` package | 2026-08-15 |
 
 ## Naming
 

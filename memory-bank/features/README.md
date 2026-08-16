@@ -30,6 +30,7 @@ audience: humans_and_agents
 - [`FT-008`](FT-008/README.md) — first workspace-scoped, line-oriented `hcode` terminal client with optional browser mode.
 - [`FT-009`](FT-009/README.md) — single-agent full-screen TUI with incremental output and safe terminal lifecycle.
 - [`FT-036`](FT-036/README.md) — read-only truthful SelfDescriptor and JSON surface.
+- [`FT-046`](FT-046/README.md) — generation-owned `ctx.fns` lifecycle with staged reload, managed leases, and quiescent disposal.
 
 ## Naming
 

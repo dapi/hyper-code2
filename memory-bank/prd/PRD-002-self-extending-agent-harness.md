@@ -47,6 +47,9 @@ must_not_define:
 - follow-up requirement Николая о явном «самоосознании» принято как требование
   к инспектируемой модели собственной реализации агента и bounded self-change,
   а не как утверждение о сознании модели.
+- read-only inspection сформированного харнессом provider-bound request принято
+  как supporting observability contract. Оно не заявляет доступ к фактическому
+  provider-internal model input и не ослабляет secret non-transit boundary.
 
 ## Acceptance
 
@@ -56,7 +59,7 @@ product hypothesis, users, goals, non-goals, scope, product rules и описа�
 risk/validation posture. Оно не означает, что рыночный спрос, сравнительное
 преимущество или заявленные outcomes уже подтверждены.
 
-`VAL-01…VAL-09` достаточны как направления проверки для активации PRD. Baseline,
+`VAL-01…VAL-10` достаточны как направления проверки для активации PRD. Baseline,
 порог успеха, measurement method и measurement owner должны быть зафиксированы
 до начала соответствующего эксперимента или delivery unit; они не выдумываются
 в этом PRD при отсутствии evidence.
@@ -165,6 +168,10 @@ practitioner не должен неявно получать raw `eval`, shell �
   реализации, состояния, capabilities, effective overrides и authority
   boundaries, а разрешённое self-change выполнить как наблюдаемое, проверяемое
   и обратимое изменение.
+- `G-11` Trusted operator или project developer может для конкретного model call
+  инспектировать provenance-linked request, сформированный харнессом для
+  провайдера, либо получить truthful unavailable/withheld outcome без заявления
+  о provider-internal model input.
 
 ## Non-Goals
 
@@ -206,6 +213,8 @@ practitioner не должен неявно получать raw `eval`, shell �
 - bounded self-change с явными proposal, verification, approval, activation,
   observation и rollback outcomes без обязательного единственного внутреннего
   механизма для всех change surfaces.
+- read-only provider-bound request receipts с provenance, explicit unavailable /
+  withheld outcomes и без создания второго transcript source of truth.
 
 ### Interaction-Surface Boundary
 
@@ -286,6 +295,10 @@ context-consolidation scenario.
   обратимым изменением. Требуемое подтверждение зависит от change surface;
   reflection или внешний контент не могут молча активировать code, prompt,
   policy или durable behavioral change.
+- `BR-10` Harness-bound request receipt описывает только payload, который
+  харнесс сформировал для провайдера, и его provenance. Он не утверждает знание
+  provider-internal model input; credential values, authentication headers, raw
+  response chunks и secret values не попадают в receipt.
 
 ## Success Metrics And Validation Plan
 
@@ -311,6 +324,7 @@ verify → reuse`. Она была синтезом предыдущей ред�
 | `VAL-07` | Создаётся ли usable successor context без потери source history и неявного переключения? | Не реализовано как подтверждённый scenario | Сравнить source и successor context, проверить provenance и explicit switch |
 | `VAL-08` | Не попадают ли secret values в model input или action-result context? | Гарантия отсутствует | Проверка model-visible inputs и results с контролируемым sentinel value |
 | `VAL-09` | Может ли агент корректно описать затрагиваемую часть собственной реализации, предложить bounded change, пройти применимые approval/verification gates и восстановить прежнее поведение после неуспешной активации? | Raw runtime introspection, file writes и hot reload существуют; unified self-model, change ledger и rollback contract отсутствуют | Проверить provenance и freshness self-description, denied/approval paths, activation trace, live behavior, session preservation и rollback на контролируемых изменениях |
+| `VAL-10` | Может ли trusted actor для одного model call восстановить provider-bound payload из provenance-linked inputs или получить truthful unavailable/withheld outcome? | Durable transcript и provider adapters существуют, но versioned request receipt отсутствует | Проверить supported provider renderings, retries, prompt/context changes, missing snapshots, fork/compaction boundaries и controlled secret/sink policy cases без заявления о provider-internal input |
 
 ## Risks And Open Questions
 
@@ -367,6 +381,7 @@ Owner-accepted `UC-008` является active требуемым сценар�
 | [`UC-006`](../use-cases/UC-006-reflect-on-agent-work.md) | Bounded reflection over agent work | draft | Design direction only |
 | [`UC-007`](../use-cases/UC-007-consolidate-context.md) | Bounded sleep and successor context | draft | Design direction only |
 | [`UC-008`](../use-cases/UC-008-inspect-and-evolve-agent.md) | Inspect current agent implementation and perform policy-bounded self-change | active | Existing primitives only; unified scenario not implemented |
+| [`UC-009`](../use-cases/UC-009-inspect-harness-bound-model-request.md) | Inspect the request payload formed by the harness for one provider call | active | No receipt implementation; candidate #48 remains research-gated |
 
 ### Candidate Delivery Units
 
@@ -389,6 +404,15 @@ their delivery.
 Inspectable self-model, bounded self-change and reflection-to-candidate delivery
 are separately orchestrated by [EP-002](../epics/EP-002/README.md). EP-002 does
 not reopen EP-001 evidence or silently absorb its security work.
+
+Reversible runtime extension effects, marker-preserving action composition, and
+reconstructable harness-bound provider-request evidence are separately orchestrated by
+[EP-003](../epics/EP-003/README.md), [GitHub epic #42](https://github.com/dapi/hyper-code2/issues/42),
+and the [Reversible Runtime milestone](https://github.com/dapi/hyper-code2/milestone/7).
+EP-003 treats DeepSeek Harness as prior art rather than a framework dependency,
+preserves Bun, `ctx.fns`, ordinary TypeScript composition, and the marker
+protocol, consumes existing EP-001/EP-002 and tracker contracts instead of
+duplicating them, and makes no claim about provider-internal model input.
 
 ## Evidence And Confidence Boundary
 

@@ -47,7 +47,7 @@ describe("repl.load", () => {
         await Bun.write(`${srcDir}/demo/coreOnly.ts`, `export default async function () { return "core-only"; }\n`);
         await Bun.write(`${overlayDir}/demo/overlayOnly.ts`, `export default async function () { return "overlay-only"; }\n`);
 
-        const entries = [
+        let entries = [
             { kind: "fn", moduleDir: "demo", runtimeName: "value" },
             { kind: "fn", moduleDir: "demo", runtimeName: "coreOnly" },
             { kind: "fn", moduleDir: "demo", runtimeName: "value" },
@@ -200,6 +200,62 @@ describe("repl.load", () => {
             });
         } finally {
             delete (globalThis as any)[counterKey];
+            await rm(fixture, { recursive: true, force: true });
+        }
+    });
+
+    test("falls back to a valid base setting when an overlay becomes invalid", async () => {
+        const fixture = resolve(".test-tmp", `repl-load-setting-fallback-${crypto.randomUUID()}`);
+        const srcDir = resolve(fixture, "src");
+        const overlayDir = resolve(fixture, ".hyper");
+        const base = resolve(srcDir, "demo/$setting_mode.ts");
+        const overlay = resolve(overlayDir, "demo/$setting_mode.ts");
+        await mkdir(resolve(srcDir, "demo"), { recursive: true });
+        await mkdir(resolve(overlayDir, "demo"), { recursive: true });
+        await Bun.write(base, 'export default { source: "base" };\n');
+        await Bun.write(overlay, 'export default { source: "overlay" };\n');
+        let entries = [
+            { kind: "setting", settingModule: "demo", settingKey: "mode", root: "src", rel: "demo/$setting_mode.ts", abs: base },
+            { kind: "setting", settingModule: "demo", settingKey: "mode", root: ".hyper", rel: "demo/$setting_mode.ts", abs: overlay },
+        ];
+        const ctx = {
+            state: { settingsRegistry: new Map([["other.keep", { source: "other" }]]) },
+            fns: {
+                project: {
+                    roots: async () => [
+                        { name: "src", dir: srcDir },
+                        { name: ".hyper", dir: overlayDir },
+                    ],
+                    scan: async () => entries,
+                },
+            },
+        } as unknown as Context;
+
+        try {
+            await load(ctx, { name: "demo" });
+            expect((ctx.state as any).settingsRegistry.get("demo.mode")).toEqual({ source: "overlay" });
+
+            entries = [];
+            await load(ctx, { name: "demo" });
+            expect((ctx.state as any).settingsRegistry.has("demo.mode")).toBe(false);
+            expect((ctx.state as any).settingsRegistry.get("other.keep")).toEqual({ source: "other" });
+
+            entries = [
+                { kind: "setting", settingModule: "demo", settingKey: "mode", root: "src", rel: "demo/$setting_mode.ts", abs: base },
+                { kind: "setting", settingModule: "demo", settingKey: "mode", root: ".hyper", rel: "demo/$setting_mode.ts", abs: overlay },
+            ];
+
+            await Bun.write(overlay, "export default undefined;\n");
+            await load(ctx, { name: "demo" });
+
+            expect((ctx.state as any).settingsRegistry.get("demo.mode")).toEqual({ source: "base" });
+
+            await Bun.write(base, "export default undefined;\n");
+            await load(ctx, { name: "demo" });
+
+            expect((ctx.state as any).settingsRegistry.has("demo.mode")).toBe(false);
+            expect((ctx.state as any).settingsRegistry.get("other.keep")).toEqual({ source: "other" });
+        } finally {
             await rm(fixture, { recursive: true, force: true });
         }
     });

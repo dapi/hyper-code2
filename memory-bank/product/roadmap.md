@@ -27,6 +27,14 @@ The owner-approved roadmap for inspectable self-model and bounded self-change is
 owned by [`EP-002`](../epics/EP-002/roadmap.md). It is a separate initiative:
 EP-001 evidence and security handoffs remain with their existing owners.
 
+The owner-approved roadmap for reversible runtime extensions, marker-preserving
+action composition, and reconstructable harness-bound provider requests is owned by
+[`EP-003`](../epics/EP-003/roadmap.md) and coordinated through the
+[Reversible Runtime milestone](https://github.com/dapi/hyper-code2/milestone/7).
+EP-003 consumes the existing startup, execution-identity, capability-discovery,
+transcript/fork, security, and self-change contracts; it does not replace their
+owners or imply that its gated delivery candidates are approved for execution.
+
 - `TODO.md` is an engineering-risk list, not a committed product roadmap.
 - `docs/reflection.md` is explicitly a design that is not implemented.
 - Git branches and commit messages are historical delivery evidence, not roadmap authority.

@@ -212,16 +212,28 @@ describe('startRuntime', () => {
             '}',
             '',
         ].join('\n'));
+        const startAgent = ctx.fns.agent.start;
         ctx.fns.project.roots = async () => [{ name: 'src', dir: reloadRoot }];
 
         try {
             const wrapper = ctx.fns.agent.run;
             await ctx.fns.repl.load(ctx, { name: 'agent.run' });
             expect(ctx.fns.agent.run).toBe(wrapper);
-            await ctx.fns.repl.load(ctx, { name: 'agent' });
+            await rm(join(reloadRoot, 'agent', 'run.ts'));
+            await expect(ctx.fns.repl.load(ctx, { name: 'agent.run' })).rejects.toThrow('no file for agent/run');
+            expect(ctx.fns.agent.run).toBeUndefined();
+            await Bun.write(join(reloadRoot, 'agent', 'run.ts'), [
+                'export default async function (_ctx: any, opts: any) {',
+                '    opts.agent.abortController = new AbortController();',
+                `    globalThis[${JSON.stringify(startedKey)}]();`,
+                '    await new Promise<void>(() => {});',
+                '}',
+                '',
+            ].join('\n'));
+            await ctx.fns.repl.load(ctx, { name: 'agent.run' });
             expect(ctx.fns.agent.run).toBe(wrapper);
 
-            const agent = ctx.fns.agent.start(ctx, { model: 'mock:test', systemPrompt: '' });
+            const agent = startAgent(ctx, { model: 'mock:test', systemPrompt: '' });
             void ctx.fns.agent.run(ctx, { agent, userText: 'wait forever' });
             await startedPromise;
             ctx.state.workerLoopPromise = Promise.resolve();

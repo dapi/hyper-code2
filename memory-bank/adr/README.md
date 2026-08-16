@@ -81,3 +81,4 @@ ADR после acceptance по мере выполнения downstream work.
 - [`ADR-001-select-opentui-core.md`](ADR-001-select-opentui-core.md) — use the
   imperative OpenTUI core as the terminal rendering/input substrate for the
   `hcode` full-screen interface.
+- [`ADR-002-generation-owned-runtime-lifecycle.md`](ADR-002-generation-owned-runtime-lifecycle.md) — bound reversible `ctx.fns` lifecycle behavior to managed generations, quiescence and explicit disposal without claiming to revoke captured references.

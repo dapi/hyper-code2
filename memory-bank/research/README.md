@@ -30,4 +30,7 @@ audience: humans_and_agents
 
 ## Instantiated Research
 
-В шаблонном репозитории этот каталог может быть пустым. Это нормально.
+В текущем репозитории:
+
+- [R-043](R-043/README.md) — W1A technical discovery об ownership, fallback,
+  quiescence и teardown для reversible `ctx.fns` effects.

@@ -62,7 +62,9 @@ PRD нужен, когда задача живет на уровне проду�
   is split between [`EP-001`](../epics/EP-001/README.md) for reusable
   self-extension evidence/security successors and
   [`EP-002`](../epics/EP-002/README.md) for inspectable and bounded
-  self-evolution.
+  self-evolution, plus [`EP-003`](../epics/EP-003/README.md) for reversible
+  runtime extensions, marker-preserving action composition, and reconstructable
+  harness-bound provider requests.
 
 ## Template
 
